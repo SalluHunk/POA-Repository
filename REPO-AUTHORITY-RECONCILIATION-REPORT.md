@@ -222,3 +222,13 @@ Two of four citations now resolve to real documents (though Draft, not certified
 Rationale: the factual errors from `POA-REPO-001` are corrected, all genuinely approved/existing foundational artifacts have been materialized without incident, and the three-way reconciliation is complete. One structural conflict (PRS-001 vs. artifact-identifier convention) remains explicitly open and is fully evidenced in a dedicated dossier rather than silently resolved — this is a **declared gap**, not a blocking, repository-compromising conflict: it does not corrupt existing content, does not require a rollback, and does not prevent continued governed work using the repository's current, internally-consistent (if not PRS-001-compliant) identifier convention. The directory-structure dimension of the original concern is fully resolved as non-conflicting.
 
 This verdict applies specifically to the Category A materializations described in §14, which are the only changes committed as a result of this mission. The identifier-scheme question remains open and tracked in `PRS-001-CONFLICT-DOSSIER.md` until the Commander decides.
+
+---
+
+# 16. Addendum — Commander Disposition (2026-08-08)
+
+`POA-REPO-002` accepted. Category A closed. Category B (`GAP-001` / `POA-PRS-001`) remains formally HELD — no rename, restructure, or identifier change performed.
+
+All declared gaps (§14 UNRESOLVED/NOT IN SCOPE) are now tracked in a structured, living record: `20-Shared/GOV/GAP-REGISTER-001.md`.
+
+The Commander has authorized Sprint Alpha (`POA-VIS-001`) materialization to proceed despite these gaps, recorded in `20-Shared/DECISIONS/ADR-002-Sprint-Alpha-Gap-Waiver.md`. That authorization is scoped strictly to `POA-VIS-001` and does not resolve, certify, or promote anything in the gap register. `ROADMAP.md` and `CLAUDE.md` have been updated accordingly.
