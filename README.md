@@ -6,7 +6,7 @@
 
 # Status
 
-Bootstrap Complete (BOOT-001)
+Bootstrap Complete (BOOT-001). Repository Governance & Operating Foundation Materialized (POA-REPO-001) — see `REPO-INTEGRITY-REPORT.md` for readiness verdict.
 
 ---
 
@@ -23,24 +23,33 @@ The repository materializes only steward-approved, constitutionally governed art
 ```text
 POA-Repository/
     00-Bootstrap/      Bootstrap manifests, validation, and completion records
-    10-Constitution/    Constitutional and governance artifacts
-    20-Shared/          Shared organizational capabilities (Execution System, Reporting, Bundling)
+    10-Constitution/    Constitutional and governance artifacts (interim baseline)
+    20-Shared/          Shared organizational capabilities (Execution System, Reporting, Bundling, Standards, Decisions)
         KER/            Execution System Architecture artifacts
         RSR/            Repository State Report artifacts
         EXB/            Execution Bundle artifacts
-    30-Products/        Product-domain artifacts
-    40-Runtime/          Runtime materialization artifacts
+        STD/            Governance standards
+        DECISIONS/      Architectural Decision Records (ADRs)
+    30-Products/        Product-domain artifacts (empty — no product mission approved yet)
+    40-Runtime/          Runtime materialization artifacts (Materialization Playbook)
+    CLAUDE.md            AI operating instructions
+    CHANGELOG.md         Change history
+    ROADMAP.md           Mission direction
 ```
 
 ---
 
 # Core Artifacts
 
-| Artifact ID  | Artifact Name                          | Location                      |
-| ------------ | ---------------------------------------- | ------------------------------ |
-| POA-KER-001  | Execution System Architecture            | 20-Shared/KER/POA-KER-001.md  |
-| POA-RSR-001  | Repository State Report Specification    | 20-Shared/RSR/POA-RSR-001.md  |
-| POA-EXB-001  | Execution Bundle Specification            | 20-Shared/EXB/POA-EXB-001.md  |
+| Artifact ID     | Artifact Name                          | Location                            |
+| --------------- | ---------------------------------------- | ------------------------------------ |
+| POA-KER-001     | Execution System Architecture            | 20-Shared/KER/POA-KER-001.md        |
+| POA-RSR-001     | Repository State Report Specification    | 20-Shared/RSR/POA-RSR-001.md        |
+| POA-EXB-001     | Execution Bundle Specification            | 20-Shared/EXB/POA-EXB-001.md        |
+| POA-STD-011     | Mission Package Standard                  | 20-Shared/STD/POA-STD-011.md        |
+| ADR-RM001-011   | First Architectural Decision Record       | 20-Shared/DECISIONS/ADR-RM-001.md   |
+| POA-CON-001     | Constitutional & Governance Baseline (Interim) | 10-Constitution/POA-CON-001.md |
+| POA-MAT-001     | POA Materialization Playbook              | 40-Runtime/POA-MAT-001.md           |
 
 ---
 
