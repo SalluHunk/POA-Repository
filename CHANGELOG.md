@@ -4,6 +4,23 @@ All notable changes to POA-Repository are recorded here. Entries are grounded in
 
 ---
 
+## [Unreleased] — POA-REPO-003
+
+**Mission:** Repository Structural Conformance
+
+### Moved
+- `REPO-INTEGRITY-REPORT.md` → `40-Runtime/REPO-INTEGRITY-REPORT.md`
+- `REPO-AUTHORITY-RECONCILIATION-REPORT.md` → `40-Runtime/REPO-AUTHORITY-RECONCILIATION-REPORT.md`
+- `PRS-001-CONFLICT-DOSSIER.md` → `40-Runtime/PRS-001-CONFLICT-DOSSIER.md`
+
+Reason: the Commander-approved top-level architecture defines exactly four root documents (`README.md`, `CLAUDE.md`, `CHANGELOG.md`, `ROADMAP.md`). These three mission reports had no approved root location; `40-Runtime/` is explicitly defined by the approved architecture as covering "missions... production/runtime evidence," a direct textual match. Moved with `git mv` to preserve history; all 9 cross-references across the repository updated to the new paths; no artifact ID or content changed.
+
+### Added
+- `40-Runtime/REPO-STRUCTURE-AUDIT-003.md`
+- `40-Runtime/REPO-STRUCTURE-REPORT.md`
+
+---
+
 ## [Unreleased] — POA-REPO-001
 
 **Mission:** Repository Integrity & Governance Materialization

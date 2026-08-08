@@ -47,7 +47,7 @@ Date: 2026-08-08
 | `CHANGELOG.md` | root | Derived from actual `git log` and completion reports |
 | `ROADMAP.md` | root | Derived from BOOT-001-Completion-Report "Next Steps" + POA-CON-001 gap list |
 | `CLAUDE.md` | root | The 10 operating rules specified verbatim in the mission's Phase 5 |
-| `REPO-INTEGRITY-REPORT.md` | root | This report |
+| `40-Runtime/REPO-INTEGRITY-REPORT.md` | 40-Runtime (moved from root by POA-REPO-003) | This report |
 
 No document in this list invents constitutional policy. Every TBD marker traces to a named-but-unmaterialized source (`ACS-001`, `META-001`, `META-002`, full Constitution).
 

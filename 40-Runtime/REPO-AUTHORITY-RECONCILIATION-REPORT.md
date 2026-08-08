@@ -134,7 +134,7 @@ This is a genuine authority conflict, not a drafting inconsistency (both artifac
 
 No option is chosen here. Choosing one unilaterally would be exactly the "silent resolution" this mission was explicitly instructed not to perform.
 
-**Commander decision (this mission continuation):** HOLD. No rename, move, or restructure. Full evidence dossier produced separately: `PRS-001-CONFLICT-DOSSIER.md`. Its key findings, precisely scoped:
+**Commander decision (this mission continuation):** HOLD. No rename, move, or restructure. Full evidence dossier produced separately: `40-Runtime/PRS-001-CONFLICT-DOSSIER.md`. Its key findings, precisely scoped:
 
 - PRS-001 **mandatorily conflicts** with the repo's artifact-identifier convention (§4 of that document is unhedged "SHALL", and none of `POA-KER-001`/`POA-RSR-001`/`POA-EXB-001`/`POA-STD-011`/`POA-CON-001`/`POA-MAT-001`/`CONST-001` use a PRS-001-reserved domain code) — this sub-question remains genuinely **UNRESOLVED**.
 - PRS-001 does **not** explicitly prohibit the repo's directory structure — its mandatory clause (§7, numeric ordering) is already satisfied by `00-Bootstrap/10-Constitution/20-Shared/30-Products/40-Runtime`; the specific names in PRS-001 are marked "Example," not "SHALL." This sub-question is therefore **RESOLVED: no restructuring required or blocked** — the repo does not violate PRS-001's directory rule.
@@ -205,7 +205,7 @@ Two of four citations now resolve to real documents (though Draft, not certified
 - PRS-001 directory-structure sub-question — resolved as non-conflicting; no restructuring required (§7, dossier §10).
 
 **UNRESOLVED — PRS-001 (Category B — held, no action taken):**
-- Artifact-identifier scheme conflict between `POA-PRS-001` (Accepted) and the repository's actual, live convention (aligned with the Draft `POA-META-001` §7). Full evidence in `PRS-001-CONFLICT-DOSSIER.md`. Awaiting Commander/Steward decision.
+- Artifact-identifier scheme conflict between `POA-PRS-001` (Accepted) and the repository's actual, live convention (aligned with the Draft `POA-META-001` §7). Full evidence in `40-Runtime/PRS-001-CONFLICT-DOSSIER.md`. Awaiting Commander/Steward decision.
 
 **NOT IN SCOPE (this mission):**
 - `POA-META-002`, `ACS-001`, `POA-STD-006`–`010` — do not exist; require authoring and approval, not reconciliation.
@@ -221,7 +221,7 @@ Two of four citations now resolve to real documents (though Draft, not certified
 
 Rationale: the factual errors from `POA-REPO-001` are corrected, all genuinely approved/existing foundational artifacts have been materialized without incident, and the three-way reconciliation is complete. One structural conflict (PRS-001 vs. artifact-identifier convention) remains explicitly open and is fully evidenced in a dedicated dossier rather than silently resolved — this is a **declared gap**, not a blocking, repository-compromising conflict: it does not corrupt existing content, does not require a rollback, and does not prevent continued governed work using the repository's current, internally-consistent (if not PRS-001-compliant) identifier convention. The directory-structure dimension of the original concern is fully resolved as non-conflicting.
 
-This verdict applies specifically to the Category A materializations described in §14, which are the only changes committed as a result of this mission. The identifier-scheme question remains open and tracked in `PRS-001-CONFLICT-DOSSIER.md` until the Commander decides.
+This verdict applies specifically to the Category A materializations described in §14, which are the only changes committed as a result of this mission. The identifier-scheme question remains open and tracked in `40-Runtime/PRS-001-CONFLICT-DOSSIER.md` until the Commander decides.
 
 ---
 

@@ -54,7 +54,7 @@ The following are named in prior organizational discussion but have no approved 
 
 Superseded by `ADR-002` (2026-08-08). Sprint Alpha (`POA-VIS-001`) application/visual-system materialization is **authorized to proceed** despite the open governance gaps tracked in `GAP-REGISTER-001.md` — that authorization is scoped strictly to `POA-VIS-001` and does not certify, approve, or promote any gap. Any materialization mission beyond `POA-VIS-001` remains gated on its own explicit Commander authorization.
 
-`GAP-001` (`POA-PRS-001` vs. repository identifier convention) remains formally **HELD** — see `PRS-001-CONFLICT-DOSSIER.md`. No repository identifier or directory may be renamed, moved, or restructured without a dedicated future governance mission resolving it.
+`GAP-001` (`POA-PRS-001` vs. repository identifier convention) remains formally **HELD** — see `40-Runtime/PRS-001-CONFLICT-DOSSIER.md`. No repository identifier or directory may be renamed, moved, or restructured without a dedicated future governance mission resolving it.
 
 ---
 

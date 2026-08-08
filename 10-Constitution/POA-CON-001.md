@@ -31,7 +31,7 @@ Mission `POA-REPO-002` re-inventoried the full vault and found:
 - **`POA-META-001` genuinely exists** (Draft status).
 - **`POA-META-002` and `ACS-001` still do not exist as actual documents** anywhere in the vault — the original conclusion for these two specifically was correct, though a narrative document (`POA - Where We Stand Today.docx`) does mention them by name as artifacts once "produced." No such files were found.
 
-Full evidence and the complete inventory are in `REPO-AUTHORITY-RECONCILIATION-REPORT.md`.
+Full evidence and the complete inventory are in `40-Runtime/REPO-AUTHORITY-RECONCILIATION-REPORT.md`.
 
 ---
 
@@ -77,7 +77,7 @@ Everything not marked "materialized" above remains outside the repository intent
 
 This repository already uses a **different** scheme — `00-Bootstrap/10-Constitution/20-Shared/30-Products/40-Runtime` with IDs like `POA-KER-001`, `POA-STD-011` — established by `BOOT-001` and extended by `POA-REPO-001`, and already committed and pushed to `origin/main`.
 
-`POA-PRS-001` carries higher formal certification (Accepted) than `POA-META-001` (the Draft standard whose numbering convention the current repository actually followed). This is a genuine authority conflict between two governance artifacts, not a drafting inconsistency. Per `POA-REPO-002` Phase 4 and its stop conditions, **this is not silently resolved here.** See `REPO-AUTHORITY-RECONCILIATION-REPORT.md` §6 for the full analysis and the decision this requires from the Steward.
+`POA-PRS-001` carries higher formal certification (Accepted) than `POA-META-001` (the Draft standard whose numbering convention the current repository actually followed). This is a genuine authority conflict between two governance artifacts, not a drafting inconsistency. Per `POA-REPO-002` Phase 4 and its stop conditions, **this is not silently resolved here.** See `40-Runtime/REPO-AUTHORITY-RECONCILIATION-REPORT.md` §6 for the full analysis and the decision this requires from the Steward.
 
 ---
 
@@ -102,4 +102,4 @@ This document SHALL:
 
 # 9. Result
 
-STATUS: **CORRECTED.** Constitution materialized separately (`CONST-001`). One unresolved structural conflict remains open (§6) — see `REPO-AUTHORITY-RECONCILIATION-REPORT.md`.
+STATUS: **CORRECTED.** Constitution materialized separately (`CONST-001`). One unresolved structural conflict remains open (§6) — see `40-Runtime/REPO-AUTHORITY-RECONCILIATION-REPORT.md`.

@@ -11,7 +11,7 @@
 | Artifact ID           | ADR-002                                        |
 | Artifact Name         | Sprint Alpha Materialization Authorized Despite Declared Governance Gaps |
 | Artifact Family       | ADR (Architectural Decision Record)            |
-| Status                | **Accepted** — this is a live Commander decision made in this session, fully traceable, unlike the uncorroborated status claims found elsewhere in the source vault (see `PRS-001-CONFLICT-DOSSIER.md` §4–5 for contrast) |
+| Status                | **Accepted** — this is a live Commander decision made in this session, fully traceable, unlike the uncorroborated status claims found elsewhere in the source vault (see `40-Runtime/PRS-001-CONFLICT-DOSSIER.md` §4–5 for contrast) |
 | Repository Domain     | Shared / Decisions                             |
 | Authority             | Commander (matters reserved to Commander per `ORC-001-GOV-001`) |
 | Decided               | 2026-08-08                                     |

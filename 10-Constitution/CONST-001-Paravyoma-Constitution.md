@@ -18,7 +18,7 @@
 | Source                | `The Paravyoma Constitution.docx`, authoritative source vault: `ParavyomaTech/New Direction of Company/POA- Repository/` (root, not `Deployment/`) |
 | Materialized By       | Mission POA-REPO-002 (Authoritative Source Reconciliation), 2026-08-08 |
 
-This document did not exist anywhere in the repository prior to this mission. `POA-REPO-001` (2026-08-08, earlier the same day) incorrectly asserted it could not be found — that assertion was based on an incomplete inventory (only `Deployment/` was checked, not the vault root) and has been corrected. See `REPO-AUTHORITY-RECONCILIATION-REPORT.md` for the full correction record.
+This document did not exist anywhere in the repository prior to this mission. `POA-REPO-001` (2026-08-08, earlier the same day) incorrectly asserted it could not be found — that assertion was based on an incomplete inventory (only `Deployment/` was checked, not the vault root) and has been corrected. See `40-Runtime/REPO-AUTHORITY-RECONCILIATION-REPORT.md` for the full correction record.
 
 Content below is reproduced verbatim from the source `.docx`. No wording, structure, or substance has been altered. Only Markdown formatting has been applied.
 

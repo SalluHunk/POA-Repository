@@ -6,7 +6,7 @@
 
 # Status
 
-Bootstrap Complete (BOOT-001). Repository Governance & Operating Foundation Materialized (POA-REPO-001) — see `REPO-INTEGRITY-REPORT.md` for readiness verdict.
+Bootstrap Complete (BOOT-001). Repository Governance & Operating Foundation Materialized (POA-REPO-001) — see `40-Runtime/REPO-INTEGRITY-REPORT.md` for readiness verdict.
 
 ---
 
