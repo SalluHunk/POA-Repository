@@ -1,6 +1,6 @@
 # POA-CON-001
 
-## Constitutional & Governance Baseline (Interim)
+## Governance Cross-Reference Index (formerly "Constitutional & Governance Baseline")
 
 ---
 
@@ -9,111 +9,97 @@
 | Field                 | Value                                          |
 | --------------------- | ----------------------------------------------- |
 | Artifact ID           | POA-CON-001                                    |
-| Artifact Name         | Constitutional & Governance Baseline           |
+| Artifact Name         | Governance Cross-Reference Index               |
 | Artifact Family       | CON                                            |
-| Version               | 0.1.0                                          |
-| Status                | **Interim** — consolidates only what is already established; not a ratified Constitution |
-| Authority             | Steward (pending full ratification)            |
+| Version               | 0.2.0                                          |
+| Status                | **CORRECTED — supersedes v0.1.0 (POA-REPO-001) on the point below.** No longer a constitutional substitute — see §2. |
+| Authority             | CONST-001 (The Paravyoma Constitution)         |
 | Repository Domain     | Constitution                                   |
-| Capability Introduced | Constitutional Traceability (interim)          |
+| Capability Introduced | Authority-chain cross-reference index          |
 
 ---
 
-# 2. Purpose
+# 2. Correction Notice (why this document changed)
 
-This document consolidates the constitutional and governance statements that already exist, scattered, across approved POA-Repository artifacts (`POA-KER-001`, `POA-RSR-001`, `POA-EXB-001`, `POA-STD-011`, `README.md`).
+This document was originally written during `POA-REPO-001` (2026-08-08) and stated that the Paravyoma Constitution, `POA-META-001`, and `POA-META-002` "do not exist anywhere in the repository or the source deployment vault."
 
-It does **not** originate governance. It does **not** invent constitutional text. It exists so that `10-Constitution/` is not empty while the full Paravyoma Constitution remains unmaterialized.
+That statement was **false**, and the error was caused by an incomplete audit: `POA-REPO-001` only inventoried `Deployment/` inside the source vault, not the vault root, where the Constitution and most other foundational `.docx` documents actually live.
 
-Every artifact in this repository currently cites "Paravyoma Constitution" and "Organizational Architecture" as its authority. Prior to this document, neither existed anywhere in the repository — an undocumented architectural dependency. This document records that dependency honestly rather than resolving it by invention.
+Mission `POA-REPO-002` re-inventoried the full vault and found:
 
----
+- **The Paravyoma Constitution genuinely exists** and is now materialized verbatim at `10-Constitution/CONST-001-Paravyoma-Constitution.md`. This document (`POA-CON-001`) is **not** a substitute for it and should not be read as one — see `CONST-001` directly for constitutional text.
+- **`POA-META-001` genuinely exists** (Draft status).
+- **`POA-META-002` and `ACS-001` still do not exist as actual documents** anywhere in the vault — the original conclusion for these two specifically was correct, though a narrative document (`POA - Where We Stand Today.docx`) does mention them by name as artifacts once "produced." No such files were found.
 
-# 3. Established Governing Principle (existing — reused verbatim)
-
-Source: `README.md` §"Governing Principle"; `POA-KER-001` §4 "Core Principle" (identical text in both).
-
-> The Steward determines purpose.
->
-> The Constitution governs purpose.
->
-> The Organizational System derives organizational knowledge.
->
-> The Execution System derives execution.
->
-> The Repository preserves organizational memory.
->
-> The Implementation System materializes approved work.
+Full evidence and the complete inventory are in `REPO-AUTHORITY-RECONCILIATION-REPORT.md`.
 
 ---
 
-# 4. Established Authority Model (existing — consolidated from source artifacts)
+# 3. What This Document Now Is
 
-The following authority chain is already asserted, consistently, across every artifact in this repository:
-
-```text
-Paravyoma Constitution
-        ↓
-Organizational Architecture / Organizational System
-        ↓
-Execution System (POA-KER-001)
-        ↓
-Repository State Report (POA-RSR-001) / Execution Bundle (POA-EXB-001)
-        ↓
-Execution Agents (materialize only; never redesign)
-```
-
-Each layer possesses authority **only** within its own domain (§3–§5 of `POA-KER-001`; §3 of `POA-RSR-001`; §3 of `POA-EXB-001`). No layer may assume the constitutional responsibility of a layer above it (`POA-STD-011` §4.4).
+With the real Constitution materialized separately, this document's remaining purpose is narrower: it is a cross-reference index tracking which named governance/architecture documents exist, their real status, and where authority citations in other repository artifacts (`POA-KER-001`, `POA-STD-011`, etc.) currently point.
 
 ---
 
-# 5. Known, Named, Not-Yet-Materialized Governance Standards
+# 4. Note on the "Governing Principle" Quoted in README.md and POA-KER-001
 
-Source: `ADR-RM-001 — Architectural Decision Record` (source vault: `ParavyomaTech/New Direction of Company/POA- Repository/Deployment/`). This table is reproduced, not invented — it is the only record found anywhere that enumerates the full governance standards catalog.
-
-| Standard   | Governs                     | Materialized in this repository? |
-| ---------- | ---------------------------- | --------------------------------- |
-| ACS-001    | Certification                 | No — TBD |
-| META-001   | Architectural documentation   | No — TBD |
-| META-002   | Repository meta-model         | No — TBD |
-| STD-006    | Ontology                      | No — TBD |
-| STD-007    | Categories                    | No — TBD |
-| STD-008    | Lifecycle                     | No — TBD |
-| STD-009    | Relationships                 | No — TBD |
-| STD-010    | Identity                      | No — TBD |
-| STD-011    | Execution                     | **Yes** — `20-Shared/STD/POA-STD-011.md` |
-
-`POA-STD-011` explicitly cites `POA-META-001`, `POA-META-002`, and `ACS-001` as governing authority (its "Authority" section). None of the three exist in this repository or in the source deployment vault at the time of this audit (2026-08-08). This is a genuine, currently unresolved dependency.
+`README.md` and `POA-KER-001` both quote a six-line "Governing Principle" (Steward → Constitution → Organizational System → Execution System → Repository → Implementation System). **This exact chain does not appear anywhere in the actual Paravyoma Constitution text.** It is execution-governance vocabulary that this repository's own artifacts introduced, asserted to derive from "the Constitution" in spirit rather than by quotation. This is not a contradiction — the real Constitution is philosophical/values-level (Purpose, Vision, Mission, 15 Articles of belief) and does not itself define an execution/repository governance model — but it means the chain should be understood as *this repository's own interpretive extension*, not literal constitutional text. Flagged here for honesty per Phase 8 (Authority Chain Validation) of `POA-REPO-002`.
 
 ---
 
-# 6. TBD — Requires Architectural / Steward Decision
+# 5. Document Inventory & Status (corrected)
 
-The following are explicitly **not established** and are not invented by this document:
+| Document | Exists? | Status (as found) | Materialized in repo? |
+| --- | --- | --- | --- |
+| The Paravyoma Constitution | **Yes** — vault root | No explicit Draft/Approved metadata; complete finished prose, treated as root authority by convention | **Yes** — `CONST-001` |
+| POA-000 (Foundational Ontology) | **Yes** — vault root | Draft (0.1, "Foundational Draft") | No — draft only, not materialized as binding architecture |
+| POA-001 (Master Organizational Architecture) | **Yes** — vault root | Draft (internal metadata: 0.1.0 "Foundational Draft" — **note: filename says "v1.0", contents say 0.1.0 Draft; do not trust the filename**) | No — draft only |
+| POA-META-001 (Architecture Documentation Standard) | **Yes** — vault root | Draft (0.1, "Foundational Draft") | No — draft only |
+| POA-META-002 | **No** — not found anywhere (only named in a narrative document, never materialized as a file) | N/A | No |
+| ACS-001 (Certification standard) | **No** — not found anywhere (same as above) | N/A | No |
+| POA-STD-006 through POA-STD-010 | **No** — not found anywhere | N/A | No |
+| POA-STD-011 (Mission Package Standard) | **Yes** — vault root | Draft ("Draft for Architecture Review") | **Yes** — `20-Shared/STD/POA-STD-011.md`, faithfully preserves Draft status, no promotion |
+| POA-101–POA-106 (Layer Specifications) | **Yes** — vault root | Draft ("Construction") | No — draft only |
+| POA-TEMPLATE-001 (LASS) | **Yes** — vault root | Draft ("1.0 Draft" / "Construction") | No — draft only |
+| POA-PRS-001 (Repository Naming Standard) | **Yes** — vault root | **Accepted** (Review Status: Passed) | **No — see §6, unresolved conflict** |
+| ORC-001-GOV-001 (Delegated Materialization Authority) | **Yes** — vault root | **✅ APPROVED** | **Yes** — `20-Shared/GOV/ORC-001-GOV-001.md` |
 
-- Full text of the Paravyoma Constitution.
-- `POA-META-001` (Architectural documentation standard).
-- `POA-META-002` (Repository meta-model standard).
-- `ACS-001` (Certification standard).
-- `STD-006` through `STD-010` (Ontology, Categories, Lifecycle, Relationships, Identity).
-- A formally ratified Master Organizational Architecture document distinct from the Execution System Architecture (`POA-KER-001`), which describes execution, not the full organization.
-
-These remain open until the Steward or POA Chief Architect authorizes their materialization.
+Everything not marked "materialized" above remains outside the repository intentionally — Draft/Construction-status documents are not promoted to certified architecture per `POA-REPO-002` Phase 6, and their eventual repository placement is entangled with the unresolved naming-scheme conflict in §6.
 
 ---
 
-# 7. Operational Constraints
+# 6. Unresolved Conflict: POA-PRS-001 vs. Repository Structure (requires Steward decision)
+
+`POA-PRS-001` is an **Accepted** governance standard (Version 1.0.0, Review Status: Passed) that mandates:
+
+- Identifier format `<Product>-<Domain>-<Sequence>` (e.g. `POA-GOV-001`), not `POA-<FAMILY>-<NNN>`
+- Directory scheme `00-Shared/`, `10-Products/`, `20-Runtime/` with domain codes `GOV, PRS, TMP, REF, BUS, MOD, ARC, EXP, ENG, QLT, RUN`
+
+This repository already uses a **different** scheme — `00-Bootstrap/10-Constitution/20-Shared/30-Products/40-Runtime` with IDs like `POA-KER-001`, `POA-STD-011` — established by `BOOT-001` and extended by `POA-REPO-001`, and already committed and pushed to `origin/main`.
+
+`POA-PRS-001` carries higher formal certification (Accepted) than `POA-META-001` (the Draft standard whose numbering convention the current repository actually followed). This is a genuine authority conflict between two governance artifacts, not a drafting inconsistency. Per `POA-REPO-002` Phase 4 and its stop conditions, **this is not silently resolved here.** See `REPO-AUTHORITY-RECONCILIATION-REPORT.md` §6 for the full analysis and the decision this requires from the Steward.
+
+---
+
+# 7. TBD — Still Requires Architectural / Steward Decision
+
+- `POA-META-002`, `ACS-001`, `POA-STD-006`–`010` — genuinely do not exist; must be authored and approved, not inferred.
+- Whether `POA-000`, `POA-001`, `POA-META-001`, `POA-101`–`106`, `POA-TEMPLATE-001` should be certified as-is, revised, or superseded — all remain Draft/Construction and this document does not promote them.
+- The `POA-PRS-001` naming-scheme conflict (§6).
+- A formal POA Baseline version record (v1.0 / v1.1 / v1.2) — no such record was found anywhere; none is invented here.
+
+---
+
+# 8. Operational Constraints
 
 This document SHALL:
 
-- Be treated as interim scaffolding, not constitutional authority.
-- Be superseded in full or in part the moment any document in §6 is materialized.
-- Not be cited by future artifacts as the source of governance beyond what §3–§5 already establish.
-
-This document SHALL NOT be used to justify new organizational policy. Where policy is needed and not found here, the correct response is to escalate to the Steward, not to extend this document.
+- Be treated as an index, not constitutional authority — `CONST-001` is the Constitution.
+- Be corrected again immediately if further inventory shows any claim above to be inaccurate.
+- Not be cited by future artifacts as a substitute for reading `CONST-001`, `POA-000`, `POA-001`, or `POA-META-001` directly.
 
 ---
 
-# 8. Result
+# 9. Result
 
-CONSTITUTIONAL BASELINE STATUS: **INTERIM — gaps enumerated in §6 remain open**
+STATUS: **CORRECTED.** Constitution materialized separately (`CONST-001`). One unresolved structural conflict remains open (§6) — see `REPO-AUTHORITY-RECONCILIATION-REPORT.md`.
