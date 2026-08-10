@@ -1,0 +1,4 @@
+# Windows Git Bash / MSYS2 crash artifacts (bash.exe.stackdump). Not
+# repository content — see 40-Runtime/POA-VIS-001-COMPLETION-REPORT.md §10
+# for the investigated root cause of the first occurrence.
+*.stackdump
