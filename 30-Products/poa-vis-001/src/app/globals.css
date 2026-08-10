@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/*
+ * POA visual system tokens (POA-VIS-001 "VISUAL DNA"):
+ * executive clarity, calm control-system aesthetic, restrained motion.
+ * Dark-first — a single desaturated accent used only for status signals,
+ * never decoration. No gradients, no glassmorphism.
+ */
+:root {
+  --poa-bg: #0a0b0d;
+  --poa-panel: #121418;
+  --poa-panel-raised: #16191e;
+  --poa-border: #24282f;
+  --poa-text: #e8eaed;
+  --poa-text-muted: #9198a3;
+  --poa-text-faint: #5b6169;
+
+  --poa-status-healthy: #4a9b8e;
+  --poa-status-attention: #c6a15b;
+  --poa-status-at-risk: #c1554a;
+  --poa-accent: #c6a15b;
+
+  --background: var(--poa-bg);
+  --foreground: var(--poa-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-poa-bg: var(--poa-bg);
+  --color-poa-panel: var(--poa-panel);
+  --color-poa-panel-raised: var(--poa-panel-raised);
+  --color-poa-border: var(--poa-border);
+  --color-poa-text: var(--poa-text);
+  --color-poa-text-muted: var(--poa-text-muted);
+  --color-poa-text-faint: var(--poa-text-faint);
+  --color-poa-healthy: var(--poa-status-healthy);
+  --color-poa-attention: var(--poa-status-attention);
+  --color-poa-at-risk: var(--poa-status-at-risk);
+  --color-poa-accent: var(--poa-accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@keyframes poa-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.poa-enter {
+  animation: poa-fade-in 400ms ease-out both;
+}
