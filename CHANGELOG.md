@@ -4,6 +4,27 @@ All notable changes to POA-Repository are recorded here. Entries are grounded in
 
 ---
 
+## [Unreleased] — POA-VIS-002
+
+**Mission:** Organizational Intelligence Core
+
+### Added
+- `services/opportunities.ts`, `services/signals.ts`, `services/recommendations.ts`, `services/relationships.ts` — signal engine, recommendation engine, and relationship/impact traversal, all queryable independently of the UI.
+- `components/OrganizationalSignals.tsx` (replaces `RiskPanel.tsx`) — unified risk/capability-gap/opportunity/organizational-health signal display.
+- Vitest test suite: 22 tests across 6 files covering state derivation, capability-gap detection, signal generation, recommendation generation, relationship traversal, and all 7 required Alexis questions.
+- `40-Runtime/POA-VIS-002-COMPLETION-REPORT.md`.
+
+### Changed
+- Domain model expanded: `Role`, `Resource`, `Budget`, `Opportunity`, `Decision`, `Signal`, `ImpactChain`; `OrgEvent` replaced by a typed `OrganizationalEvent`.
+- `alexis/engine.ts` now reads `OrganizationalState.signals`/`.recommendations` instead of recomputing risk logic inline.
+- POA-VIS-001 scenario numbers (8 required / 5 available / 3 short) preserved unchanged and test-enforced.
+
+### Notes
+- Not a UI redesign — Mission Console panels other than the risk-panel swap are unchanged.
+- No constitutional architecture changes. Per the mission's own execution rule, POA-VIS-003 is not begun.
+
+---
+
 ## [Unreleased] — POA-VIS-001
 
 **Mission:** Sprint Alpha Visual System Materialization (authorized by `ADR-002`)

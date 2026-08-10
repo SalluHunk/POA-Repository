@@ -2,7 +2,7 @@ import type { OrganizationalState } from "@/lib/domain/types";
 import { OrganizationHealth } from "@/components/OrganizationHealth";
 import { ProjectOverview } from "@/components/ProjectOverview";
 import { CapabilityStatus } from "@/components/CapabilityStatus";
-import { RiskPanel } from "@/components/RiskPanel";
+import { OrganizationalSignals } from "@/components/OrganizationalSignals";
 import { ActivityStream } from "@/components/ActivityStream";
 import { ExecutiveBriefing } from "@/components/ExecutiveBriefing";
 import { AlexisPanel } from "@/components/alexis/AlexisPanel";
@@ -31,7 +31,7 @@ export function MissionConsole({ state }: { state: OrganizationalState }) {
           {focusProject && <CapabilityStatus projectName={focusProject.name} gaps={focusGaps} />}
         </div>
         <div className="flex flex-col gap-6">
-          <RiskPanel risks={organization.risks} recommendations={organization.recommendations} />
+          <OrganizationalSignals signals={state.signals} recommendations={state.recommendations} />
           <ActivityStream events={organization.events} />
         </div>
       </div>

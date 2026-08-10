@@ -1,16 +1,20 @@
-import type { EventCategory, OrgEvent } from "@/lib/domain/types";
+import type { OrganizationalEvent, OrganizationalEventType } from "@/lib/domain/types";
 import { Panel } from "@/components/ui";
 
-const CATEGORY_LABEL: Record<EventCategory, string> = {
-  project: "Project",
-  capability: "Capability",
-  risk: "Risk",
-  recommendation: "Recommendation",
-  organization: "Organization",
+const TYPE_LABEL: Record<OrganizationalEventType, string> = {
+  PROJECT_CREATED: "Project",
+  CAPABILITY_GAP_DETECTED: "Capability",
+  PERSON_JOINED: "People",
+  PERSON_UNAVAILABLE: "People",
+  BUDGET_CHANGED: "Budget",
+  DEADLINE_CHANGED: "Schedule",
+  RISK_ESCALATED: "Risk",
+  OPPORTUNITY_DETECTED: "Opportunity",
+  RECOMMENDATION_ISSUED: "Recommendation",
 };
 
 /** Recent organizational changes — POA-VIS-001 PRIMARY EXPERIENCE item 3. */
-export function ActivityStream({ events }: { events: OrgEvent[] }) {
+export function ActivityStream({ events }: { events: OrganizationalEvent[] }) {
   const sorted = [...events].sort((a, b) => b.timestamp.localeCompare(a.timestamp));
 
   return (
@@ -22,7 +26,7 @@ export function ActivityStream({ events }: { events: OrgEvent[] }) {
             <div className="min-w-0">
               <p className="text-xs text-poa-text">{event.summary}</p>
               <p className="mt-0.5 font-mono text-[10px] uppercase tracking-wide text-poa-text-faint">
-                {CATEGORY_LABEL[event.category]} · {new Date(event.timestamp).toLocaleString()}
+                {TYPE_LABEL[event.type]} · {new Date(event.timestamp).toLocaleString()}
               </p>
             </div>
           </li>

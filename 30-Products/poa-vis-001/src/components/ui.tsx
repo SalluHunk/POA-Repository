@@ -67,13 +67,14 @@ export function StatusBadge({ status }: { status: HealthStatus }) {
 }
 
 const SEVERITY_COLOR: Record<string, string> = {
+  info: "text-poa-accent",
   low: "text-poa-healthy",
   medium: "text-poa-attention",
   high: "text-poa-attention",
   critical: "text-poa-at-risk",
 };
 
-export function SeverityLabel({ severity }: { severity: "low" | "medium" | "high" | "critical" }) {
+export function SeverityLabel({ severity }: { severity: "info" | "low" | "medium" | "high" | "critical" }) {
   return (
     <span className={`font-mono text-[11px] font-semibold uppercase tracking-wide ${SEVERITY_COLOR[severity]}`}>
       {severity}

@@ -13,7 +13,7 @@
 import type { OrganizationalState } from "@/lib/domain/types";
 
 export interface AlexisSource {
-  kind: "project" | "capability" | "risk" | "recommendation" | "event";
+  kind: "project" | "capability" | "risk" | "recommendation" | "event" | "opportunity" | "signal";
   id: string;
   label: string;
 }

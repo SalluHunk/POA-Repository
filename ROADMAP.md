@@ -62,4 +62,6 @@ Superseded by `ADR-002` (2026-08-08). Sprint Alpha (`POA-VIS-001`) application/v
 
 `POA-VIS-001` — Sprint Alpha Visual System Materialization — **COMPLETE**. See `40-Runtime/POA-VIS-001-COMPLETION-REPORT.md` and `30-Products/poa-vis-001/`.
 
-Recommended next mission: TBD — requires Mission Control naming. See POA-VIS-001-COMPLETION-REPORT §12 for candidate follow-on scope (voice verification in a real browser, real capacity model, real LLM behind Alexis, real data source).
+`POA-VIS-002` — Organizational Intelligence Core — **COMPLETE**. See `40-Runtime/POA-VIS-002-COMPLETION-REPORT.md`. Per the mission's own execution rule, POA-VIS-003 is not begun — awaiting Chief Architect review.
+
+Recommended next mission: TBD — requires Mission Control naming. See POA-VIS-002-COMPLETION-REPORT §14 ("Future Seams") for candidate follow-on scope.

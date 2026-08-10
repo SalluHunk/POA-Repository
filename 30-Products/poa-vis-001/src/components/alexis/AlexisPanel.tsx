@@ -9,10 +9,11 @@ import { ConversationView, type ConversationMessage } from "@/components/alexis/
 import { VoiceControl } from "@/components/alexis/VoiceControl";
 
 const SUGGESTED_QUESTIONS = [
-  "What's happening with the new project?",
-  "What capabilities are we short on?",
-  "What is the current delivery risk?",
-  "What should I be concerned about?",
+  "What is happening in the organization?",
+  "What changed?",
+  "What requires attention?",
+  "Why is this a risk?",
+  "What should we do?",
   "Give me an executive briefing.",
 ];
 

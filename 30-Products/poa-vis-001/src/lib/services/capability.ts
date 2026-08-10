@@ -8,22 +8,27 @@
  *
  * "Available units" is a simplified capacity model for this vertical
  * slice: one unit per person currently holding that capability, plus one
- * unit if a department provides it with no named person (shared/latent
- * capacity). This is intentionally simple and documented as such — a real
- * capacity model is out of scope for POA-VIS-001.
+ * unit per Resource explicitly supplying it, plus one unit if a department
+ * provides it with no named person or resource (shared/latent capacity).
+ * This is intentionally simple and documented as such — a real capacity
+ * model is out of scope for POA-VIS-001/POA-VIS-002.
  */
 
 import type { Capability, CapabilityGap, Organization, Project } from "@/lib/domain/types";
 
-function availableUnitsFor(capability: Capability, organization: Organization): number {
+export function availableUnitsFor(capability: Capability, organization: Organization): number {
   const personUnits = organization.people.filter((person) =>
     person.capabilityIds.includes(capability.id)
   ).length;
 
-  const hasUnstaffedDepartmentSupply =
-    personUnits === 0 && capability.providedByDepartmentIds.length > 0;
+  const resourceUnits = organization.resources
+    .filter((resource) => capability.providedByResourceIds.includes(resource.id))
+    .reduce((sum, resource) => sum + resource.capacityUnits, 0);
 
-  return personUnits + (hasUnstaffedDepartmentSupply ? 1 : 0);
+  const hasUnstaffedDepartmentSupply =
+    personUnits === 0 && resourceUnits === 0 && capability.providedByDepartmentIds.length > 0;
+
+  return personUnits + resourceUnits + (hasUnstaffedDepartmentSupply ? 1 : 0);
 }
 
 export function computeCapabilityGaps(
