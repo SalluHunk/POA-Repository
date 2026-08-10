@@ -62,6 +62,8 @@ Superseded by `ADR-002` (2026-08-08). Sprint Alpha (`POA-VIS-001`) application/v
 
 `POA-VIS-001` — Sprint Alpha Visual System Materialization — **COMPLETE**. See `40-Runtime/POA-VIS-001-COMPLETION-REPORT.md` and `30-Products/poa-vis-001/`.
 
-`POA-VIS-002` — Organizational Intelligence Core — **COMPLETE**. See `40-Runtime/POA-VIS-002-COMPLETION-REPORT.md`. Per the mission's own execution rule, POA-VIS-003 is not begun — awaiting Chief Architect review.
+`POA-VIS-002` — Organizational Intelligence Core — **COMPLETE**. See `40-Runtime/POA-VIS-002-COMPLETION-REPORT.md`.
 
-Recommended next mission: TBD — requires Mission Control naming. See POA-VIS-002-COMPLETION-REPORT §14 ("Future Seams") for candidate follow-on scope.
+`POA-VIS-003` — Expression Architecture — **COMPLETE**, pending Chief Architect acceptance. Executed under in-session Commander authorization (see `ADR-003`) after the VIS-002 execution rule's review gate was surfaced. See `40-Runtime/POA-VIS-003-COMPLETION-REPORT.md`. Per the mission's own execution governance, POA-VIS-004 is not begun — STOP and await Chief Architect acceptance.
+
+Recommended next mission: TBD — requires Mission Control naming. See POA-VIS-003-COMPLETION-REPORT §17 ("Future Industry-Extension Path") for candidate follow-on scope.

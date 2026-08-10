@@ -61,3 +61,22 @@ body {
 .poa-enter {
   animation: poa-fade-in 400ms ease-out both;
 }
+
+/*
+ * Restrained, signal-driven motion (POA-VIS-003 MISSION 12). Applied ONLY
+ * to high/critical severity signal nodes in the Network Expression Profile
+ * — never perpetual/decorative, never applied by default.
+ */
+@keyframes poa-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.poa-pulse circle {
+  animation: poa-pulse 1.8s ease-in-out infinite;
+}

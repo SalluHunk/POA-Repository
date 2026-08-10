@@ -4,6 +4,28 @@ All notable changes to POA-Repository are recorded here. Entries are grounded in
 
 ---
 
+## [Unreleased] — POA-VIS-003
+
+**Mission:** Expression Architecture (authorized by the mission's own `STATUS: AUTHORIZED — EXECUTE`, confirmed in-session; see `ADR-003`)
+
+### Added
+- `src/lib/expression/` — POA Core / Expression Layer boundary: `types.ts` (`OrganizationalVisualProfile` typed model), `visual-dna.ts` (shared `POA_VISUAL_DNA`), `profiles.ts` (`referenceProfile`, `networkGraphProfile`), `registry.ts` (`EXPRESSION_PROFILES`), `network-mapping.ts` (pure state→graph view-shaping).
+- `src/components/expression/NetworkGraphConsole.tsx` and `src/app/expression/network/page.tsx` — second demonstration expression (Network / Organizational Graph), consuming the identical `OrganizationalState` as the reference console.
+- `src/lib/expression/network-mapping.test.ts` (5 tests), `src/lib/expression/expression-boundary.test.ts` (8 tests, including static import-boundary scans) — 35 tests total, up from 22.
+- `20-Shared/DECISIONS/ADR-003-Expression-Architecture-Boundary.md`.
+- `40-Runtime/POA-VIS-003-COMPLETION-REPORT.md`.
+
+### Changed
+- `src/components/AppShell.tsx` — added one optional `expressionSwitcher?: ReactNode` prop (renders nothing if omitted); no other markup changed.
+- `src/app/page.tsx` — added a small link to the new Network Expression route; now documented as the POA Reference Expression Profile.
+- `src/app/globals.css` — added a restrained `.poa-pulse` animation, applied only to high/critical-severity signal nodes in the new graph profile.
+
+### Notes
+- No existing VIS-001/VIS-002 component, service, or domain file was rewritten — `MissionConsole` and all panels are functionally unchanged; the original scenario numbers (8 required / 3 gapped / at-risk) remain test-enforced.
+- Per the mission's own execution governance, POA-VIS-004 is not begun.
+
+---
+
 ## [Unreleased] — POA-VIS-002
 
 **Mission:** Organizational Intelligence Core

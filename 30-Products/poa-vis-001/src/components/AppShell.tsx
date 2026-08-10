@@ -10,10 +10,13 @@ import { StatusBadge } from "@/components/ui";
 export function AppShell({
   organizationName,
   overallHealth,
+  expressionSwitcher,
   children,
 }: {
   organizationName: string;
   overallHealth: HealthStatus;
+  /** Optional link to another OrganizationalVisualProfile (POA-VIS-003). Renders nothing when omitted — existing callers are unaffected. */
+  expressionSwitcher?: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -25,7 +28,10 @@ export function AppShell({
             <span className="h-4 w-px bg-poa-border" aria-hidden />
             <span className="text-sm font-medium text-poa-text">{organizationName}</span>
           </div>
-          <StatusBadge status={overallHealth} />
+          <div className="flex items-center gap-4">
+            {expressionSwitcher}
+            <StatusBadge status={overallHealth} />
+          </div>
         </div>
       </header>
       <main className="mx-auto w-full max-w-7xl flex-1 px-6 py-8">{children}</main>
