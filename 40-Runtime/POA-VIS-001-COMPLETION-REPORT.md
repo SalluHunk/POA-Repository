@@ -152,3 +152,64 @@ None of the above is required for POA-VIS-001's own Definition of Done, which is
 # 13. Result
 
 MISSION STATUS: **COMPLETE.** All ten Definition-of-Done items are satisfied: the app opens, communicates organizational state, shows the live project and its capability shortage, explains the organizational impact, answers Alexis questions from real state (text and, architecturally, voice), shows the recommended action, and supports both text and voice interaction modalities.
+
+---
+
+# 14. Visual / UX Acceptance Pass (Chief Architect Review)
+
+Performed on request, after provisional acceptance, before final sign-off. The running app was driven directly (`next dev` + a real Chromium-based browser, both headless-CLI and scripted interaction) rather than relying on prior screenshots. No architecture, component structure, or scope changes were made during this pass — findings below are visual/UX review only.
+
+## 14.1 Method
+
+- Desktop (1280px) and mobile (390px) full-page captures of the cold-load state.
+- A scripted interaction (click a suggested question, wait for the real Alexis response, screenshot the result) at both widths, to prove the text flow works end-to-end rather than showing only static markup.
+- A close-up of the voice control row.
+- DOM-level measurement of horizontal overflow at 390px width (`document.documentElement.scrollWidth` vs `clientWidth`), rather than relying on eyeballing a screenshot.
+
+## 14.2 Screenshots
+
+| # | State | File |
+| --- | --- | --- |
+| 1 | Desktop, full page, cold load | `POA-VIS-001-screenshots/01-desktop-full.png` |
+| 2 | Mobile (390px), full page, cold load | `POA-VIS-001-screenshots/02-mobile-full.png` |
+| 3 | Desktop, Alexis panel after asking "What capabilities are we short on?" | `POA-VIS-001-screenshots/03-desktop-alexis-conversation.png` |
+| 4 | Mobile, full page, after asking "Give me an executive briefing." | `POA-VIS-001-screenshots/04-mobile-alexis-interaction.png` |
+| 5 | Desktop, voice control row close-up | `POA-VIS-001-screenshots/05-desktop-voice-control-closeup.png` |
+
+![Desktop full page](POA-VIS-001-screenshots/01-desktop-full.png)
+![Mobile full page](POA-VIS-001-screenshots/02-mobile-full.png)
+![Desktop Alexis conversation](POA-VIS-001-screenshots/03-desktop-alexis-conversation.png)
+![Mobile Alexis interaction](POA-VIS-001-screenshots/04-mobile-alexis-interaction.png)
+![Voice control close-up](POA-VIS-001-screenshots/05-desktop-voice-control-closeup.png)
+
+## 14.3 Findings Against the Requested Checklist
+
+| Item | Finding |
+| --- | --- |
+| Executive entry experience | The first content the user sees, before any raw data grid, is Alexis's synthesized Executive Briefing — a plain-language state-of-the-organization paragraph. Organizational health ("AT RISK") is simultaneously visible in the persistent header badge. This leads with narrative synthesis rather than a data table, which reads as "interacting with the organization," not "opening a dashboard." |
+| Mission Console hierarchy | Order is: Executive Briefing → Organizational Health → (Projects + Capability Status) / (Risks & Recommendations + Activity) → Alexis interaction. This is a deliberate interpretation of the mission's suggested 1–7 ordering: it leads with the synthesized briefing (which itself contains items 1–6) before the supporting detail panels, rather than listing health first and briefing last. All required information categories are present and correctly ordered relative to each other; this is a presentation-emphasis choice, not a missing or reordered requirement, and is left as-is per "do not redesign architecture." |
+| Organizational health visualization | Clean department grid, one status dot per department (amber/red/green), single overall-health heading and header badge. No charts, gauges, or decorative iconography — confirmed no generic-dashboard styling here. |
+| Project → capability → gap → risk → recommendation | Traceable top-to-bottom in one screen: project card shows "3 capability gaps" → Capability Status panel directly below shows Required 8 / Available 5 / Gap 3 with a per-capability bar (green = met, red = short) → Risks & Recommendations panel names the same three short capabilities in the risk description → a distinct "Recommendation" sub-block gives the concrete action. Numbers agree exactly across every panel and the activity log (screenshot 1). |
+| Alexis panel | Clearly labeled ("Alexis / Ask about the organization"), five suggested-question chips, conversation area, text input + Send, voice controls — all present and legible (screenshot 1, 3). |
+| Text interaction | Verified live, not just visually: clicking "What capabilities are we short on?" produced the correct state-derived answer with a "Source:" line naming the three short capabilities (screenshot 3); a second question ("Give me an executive briefing.") verified independently on mobile (screenshot 4). |
+| Voice control visibility and usability | Two clearly labeled, bordered, monospace-uppercase buttons — "Voice" (with a status dot) and "Voice reply off" — sit directly under the conversation, unmistakable and not buried (screenshot 5). Feature-detection gates them correctly (see §9); genuine mic/speaker round-trip still requires a manual check in a real desktop/mobile browser, as already noted in §10. |
+| Responsive behavior | At 390px width, `document.documentElement.scrollWidth === clientWidth` (390 === 390) — zero horizontal overflow, confirmed by direct DOM measurement, not visual estimation. The single element flagged by an automated overflow scan was a project title with Tailwind's `truncate` class, which is the intended ellipsis behavior for long labels in a fixed-width card, not a layout defect. All panels restack to single-column on mobile (screenshot 2, 4). |
+| Animation restraint | Code-level check of `globals.css` and all components confirms exactly one animation exists: a single 400ms fade/slide-in (`poa-enter`) applied once per panel on mount. No looping, pulsing, parallax, or hover-triggered motion anywhere in the codebase. |
+| Visual coherence | One dark background, one border color, one accent hue (muted gold) used consistently for both "active/notable" and "attention" signals — always paired with a text label, never color-only — plus fixed status colors (healthy/attention/at-risk) reused identically across every panel (departments, projects, capability bars, risk severity). Typography is consistently monospace-for-data / sans-for-prose throughout. |
+| Absence of generic SaaS/dashboard styling | No gradients, no glassmorphism/blur, no card drop-shadows, no colorful icon widgets, no bright multi-color chart palette, no rounded pill-shaped stat tiles with big numbers — the whole surface reads as one restrained, dark control-system screen, consistent with the mission's VISUAL DNA constraints. |
+
+## 14.4 Corrections Made This Pass
+
+None. No visual, layout, or interaction defect was found. The only two things investigated as potential concerns — apparent text clipping in one CLI-captured mobile screenshot, and color similarity between the "Active" project-status label and the red gap-warning text — were both resolved as non-issues by direct measurement (DOM overflow check; computed-style color check: `rgb(198,161,91)` vs `rgb(193,85,74)`, genuinely distinct), not by changing code.
+
+## 14.5 Verification Re-Run
+
+- `npx tsc --noEmit` — clean (unchanged from §9; no code was modified this pass).
+- `npx eslint .` — clean (unchanged from §9).
+- `npm run build` — clean (unchanged from §9).
+- Runtime/browser validation — see §14.1–14.3 above (new this pass).
+- `git status` — clean after committing this section and the screenshot set (see §11).
+
+## 14.6 Conclusion
+
+**POA-VIS-001 — READY FOR CHIEF ARCHITECT ACCEPTANCE**
