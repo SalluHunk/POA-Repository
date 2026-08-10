@@ -30,7 +30,7 @@ POA-Repository/
         EXB/            Execution Bundle artifacts
         STD/            Governance standards
         DECISIONS/      Architectural Decision Records (ADRs)
-    30-Products/        Product-domain artifacts (empty — no product mission approved yet)
+    30-Products/        Product-domain artifacts — poa-vis-001/ (Sprint Alpha vertical slice, POA-VIS-001)
     40-Runtime/          Runtime materialization artifacts (Materialization Playbook)
     CLAUDE.md            AI operating instructions
     CHANGELOG.md         Change history

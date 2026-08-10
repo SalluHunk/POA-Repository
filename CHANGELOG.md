@@ -4,6 +4,21 @@ All notable changes to POA-Repository are recorded here. Entries are grounded in
 
 ---
 
+## [Unreleased] — POA-VIS-001
+
+**Mission:** Sprint Alpha Visual System Materialization (authorized by `ADR-002`)
+
+### Added
+- `30-Products/poa-vis-001/` — first product-domain materialization: a Next.js/TypeScript Mission Console vertical slice (domain model, demo dataset, capability-gap/risk services, deterministic Alexis engine, voice provider boundary, Mission Console UI).
+- `40-Runtime/POA-VIS-001-COMPLETION-REPORT.md` — full mission completion report.
+- `.claude/launch.json` — local dev-server preview configuration.
+
+### Notes
+- Does not alter constitutional architecture, resolve `PRS-001`, or restructure the repository — scope confirmed against `ADR-002` before starting.
+- `30-Products/` is no longer empty; `README.md` and `ROADMAP.md` updated to reflect this.
+
+---
+
 ## [Unreleased] — POA-REPO-003
 
 **Mission:** Repository Structural Conformance
