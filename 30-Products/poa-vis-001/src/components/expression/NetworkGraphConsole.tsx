@@ -91,11 +91,23 @@ export function NetworkGraphConsole({
           const isPulsing = node.severity === "high" || node.severity === "critical";
           return (
             <g key={node.id} className={isPulsing ? "poa-pulse" : undefined}>
-              <circle cx={position.x} cy={position.y} r={radiusForKind(node.kind)} fill={fill} fillOpacity={node.kind === "signal" ? 0.85 : 0.25} stroke={fill} strokeWidth={1.5}>
-                <title>
-                  {node.label}: {node.detail}
-                </title>
-              </circle>
+              {/*
+                Deliberately no <title> child here: React 19 hoists any
+                literal `title` element to <head> regardless of SVG
+                nesting, which desyncs server/client output and throws a
+                hydration error. aria-label carries the same detail; the
+                full text is also always visible in the list below.
+              */}
+              <circle
+                cx={position.x}
+                cy={position.y}
+                r={radiusForKind(node.kind)}
+                fill={fill}
+                fillOpacity={node.kind === "signal" ? 0.85 : 0.25}
+                stroke={fill}
+                strokeWidth={1.5}
+                aria-label={`${node.label}: ${node.detail}`}
+              />
               <text
                 x={position.x}
                 y={position.y + radiusForKind(node.kind) + 14}

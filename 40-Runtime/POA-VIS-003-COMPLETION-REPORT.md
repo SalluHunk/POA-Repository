@@ -97,6 +97,8 @@ Restrained by construction: `.poa-pulse` (`globals.css`) is applied only to sign
 
 `referenceProfile` describes the existing VIS-001/VIS-002 console as data — it does not read its own fields back at render time; `AppShell`/`MissionConsole`/all panels are byte-for-byte the mission-9-preserved implementation. The only visible addition is a small "View Network Expression →" link in the header (an optional `AppShell` prop), which does not alter any existing element, class, or copy. Browser-validated: the console rendered the identical scenario (3 of 8 capability gaps, at-risk health, 4 signals, unchanged Executive Briefing text) that VIS-001/VIS-002 acceptance already certified.
 
+**Screenshot evidence:** `40-Runtime/POA-VIS-003-screenshots/01-reference-expression-desktop.png` (1280×900 fixed viewport, full page).
+
 ---
 
 # 12. Network / Organizational Graph Demonstration Profile (Mission 15)
@@ -104,6 +106,8 @@ Restrained by construction: `.poa-pulse` (`globals.css`) is applied only to sign
 `networkGraphProfile` + `NetworkGraphConsole.tsx`, mounted at `/expression/network`. Renders the organizational core, both projects, and all 4 active signals as an SVG node/edge topology, using `networkGraphProfile.terminology` for labels (e.g. "Disruption Pulse" instead of "Signal," "Risk Field" instead of "Risk") — proving mission §8's claim: the underlying signal is identical, only its expression changes. Browser-validated: 7 nodes (1 core + 2 projects + 4 signals) and 6 edges rendered, matching `state.signals.length`/`state.organization.projects.length` exactly; no console errors; round-trip navigation to and from the reference profile confirmed.
 
 This is a demonstration profile per mission §17 (NON-GOALS) — not a production industry console.
+
+**Screenshot evidence:** `40-Runtime/POA-VIS-003-screenshots/02-network-expression-desktop.png` (1280×900 fixed viewport, full page — same viewport as §11's reference-profile capture).
 
 ---
 
@@ -134,9 +138,23 @@ Item 8 ("type safety is preserved") is verified separately, not inside a test fi
 # 16. Known Limitations
 
 - Alexis is not exposed inside the Network Graph profile (§13) — a future profile that wants conversational access gets the same engine for free, but none currently do.
-- The Network Graph profile has no interactive pan/zoom/drag — `hover-for-detail` is implemented via native SVG `<title>` tooltips only, deliberately avoiding a `"use client"` component for this mission's scope.
-- No automated screenshot was captured this session (the Browser pane's screenshot compositor was unavailable in this environment); validation instead used DOM/console/network inspection (`get_page_text`, `read_console_messages`, a `document.querySelectorAll` node/edge count, and confirmed round-trip navigation) — sufficient to verify rendering and the architectural claims, but a visual screenshot pair (reference vs. network) is recommended before Chief Architect acceptance if one is required.
+- The Network Graph profile has no interactive pan/zoom/drag — `hover-for-detail` is implemented via `aria-label` on each node (see §21) rather than a visual hover tooltip, deliberately avoiding a `"use client"` component for this mission's scope. The full detail text for every active signal is always visible in the list below the graph regardless.
 - `POA-000`/`POA-001` (referenced by mission §1, "READ BEFORE MODIFYING") remain Draft-only and not materialized in this repository (`POA-CON-001` §5) — this mission read what's available (`CONST-001`, `POA-STD-011`, prior completion reports, current source) and proceeded per `CLAUDE.md` Rule 7 rather than fabricating their content. TBD — requires architectural decision if full promotion is ever pursued.
+
+---
+
+# 21. Addendum — Screenshot Evidence and a Bug It Surfaced (2026-08-11)
+
+The Chief Architect accepted the architecture in principle but required visual evidence before final acceptance: fixed-desktop-viewport screenshots of both expression profiles, proving they render successfully and represent identical organizational state through different visual structures.
+
+**Capture method.** The Browser pane's screenshot compositor, unavailable during the original validation pass, became available and was tried first (`mcp__Claude_Browser__computer` screenshot) — it worked, but the returned image is inline-only in that tool and cannot be written to a repository file path from this environment. Instead, headless **Puppeteer** (`npx`-resolved, already cached on this machine from the `POA-VIS-001` acceptance pass — same method that mission used, documented in `40-Runtime/POA-VIS-001-screenshots/`) was scripted to load each route at a fixed 1280×900 viewport and save a full-page PNG directly into `40-Runtime/POA-VIS-003-screenshots/`. The capture script itself was a scratchpad file, not committed to the repository.
+
+**What the screenshots show.** Both profiles render successfully and expose the identical underlying organizational state — 4 active signals (3 `HIGH`, 1 `INFO`), 2 projects, the same capability-gap/risk/opportunity/health text — through materially different visual structures: the reference profile as a panel-grid dashboard with inline recommendation callouts and an Alexis conversation surface; the network profile as a radial node/edge topology with "Disruption Pulse"/"Risk Field" terminology and severity-driven pulse motion. See:
+
+- `40-Runtime/POA-VIS-003-screenshots/01-reference-expression-desktop.png`
+- `40-Runtime/POA-VIS-003-screenshots/02-network-expression-desktop.png`
+
+**A real bug the first capture caught.** The first screenshot of the network profile showed a Next.js dev-mode "1 Issue" indicator that earlier console/DOM checks (which only asserted zero *console errors*, not the dev overlay's own error state) had missed. Investigating it surfaced a genuine hydration mismatch: `NetworkGraphConsole.tsx` rendered a literal `<title>` element inside each SVG `<circle>` for hover tooltips — React 19 hoists any literal `title` element to `<head>` regardless of SVG nesting, which desynced server- and client-rendered output. Fixed by removing the `<title>` child and moving the same text to an `aria-label` attribute on the `<circle>` instead (the detail text remains fully visible in the signal list below the graph either way). Typecheck, lint, the full test suite (35/35), and the production build were all re-run clean after the fix, and the dev-mode indicator confirmed zero issues before the screenshots above were recaptured. This is recorded here rather than silently folded into §12, because it is exactly the kind of regression static checks (tests, typecheck, lint, build) do not catch — only live browser rendering does — which is why the Chief Architect's insistence on visual evidence was correct and not merely procedural.
 
 ---
 
@@ -167,7 +185,7 @@ No change to `src/lib/domain`, `src/lib/services`, `src/lib/organizational-state
 - [x] Typecheck passes — `npx tsc --noEmit`, zero errors.
 - [x] Lint passes — `npm run lint` (ESLint via `eslint-config-next`), zero warnings/errors.
 - [x] Production build passes — `npm run build` (Next.js 16.3.0, Turbopack); both `/` and `/expression/network` prerender as static content.
-- [x] Browser validation passes — see §11/§12 (screenshot unavailable this session; DOM/console/network validation performed instead — §16).
+- [x] Browser validation passes — see §11/§12/§21; both profiles screenshotted at a fixed 1280×900 viewport, confirming identical organizational state through different visual structures. A hydration bug the screenshot pass caught was fixed and re-validated (§21).
 - [x] Repository remains clean and structurally compliant — no `50-Deployment/` created; only `30-Products/poa-vis-001/`, `20-Shared/DECISIONS/ADR-003...`, this report, and `README.md`/`ROADMAP.md`/`CHANGELOG.md` touched.
 - [x] Completion report is materialized — this document.
 
@@ -181,4 +199,4 @@ Committed to `main` and pushed to `origin/main` after this report. See the commi
 
 # 20. Result
 
-MISSION STATUS: **COMPLETE.** All 15 Definition-of-Done items are satisfied, with one recorded limitation (no automated screenshot capture — §16). Per the mission's own EXECUTION GOVERNANCE: **do not begin POA-VIS-004.** STOP and await Chief Architect acceptance.
+MISSION STATUS: **COMPLETE.** All 15 Definition-of-Done items are satisfied. Visual evidence for both expression profiles is captured and referenced (§21); a hydration bug that evidence pass surfaced was fixed and re-validated end-to-end (typecheck, lint, tests, build, browser). Per the mission's own EXECUTION GOVERNANCE: **do not begin POA-VIS-004.** STOP and await Chief Architect acceptance.
