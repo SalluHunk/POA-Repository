@@ -162,4 +162,4 @@ TBD — requires Chief Architect acceptance of this mission before any further m
 
 ## Commit / Sync State
 
-Committed to `main` locally after this report. **Not yet pushed to `origin/main`** — the mission brief authorizes push, but that authorization lives outside this repository and is not durable instruction in `CLAUDE.md`; push requires explicit user confirmation in this session (see the git-push safety note in the operator's standing instructions). Awaiting that confirmation.
+Committed to `main` locally: `4837e57`. **Not yet pushed to `origin/main`** — the mission brief authorizes push, but that authorization lives outside this repository and is not durable instruction in `CLAUDE.md`; push requires explicit user confirmation in this session (see the git-push safety note in the operator's standing instructions). Awaiting that confirmation.
