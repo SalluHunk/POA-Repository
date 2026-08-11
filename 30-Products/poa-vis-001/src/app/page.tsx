@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { getOrganizationalState } from "@/lib/organizational-state";
 import { AppShell } from "@/components/AppShell";
 import { MissionConsole } from "@/components/MissionConsole";
+import { ExpressionSwitcher } from "@/components/expression/ExpressionSwitcher";
 
 /**
  * The POA Reference Expression Profile route (POA-VIS-003 MISSION 9) — the
@@ -16,14 +16,7 @@ export default function Home() {
     <AppShell
       organizationName={state.organization.name}
       overallHealth={state.overallHealth}
-      expressionSwitcher={
-        <Link
-          href="/expression/network"
-          className="font-mono text-[11px] uppercase tracking-wide text-poa-text-muted underline decoration-poa-border underline-offset-4 hover:text-poa-text"
-        >
-          View Network Expression →
-        </Link>
-      }
+      expressionSwitcher={<ExpressionSwitcher currentProfileId="poa-reference" />}
     >
       <MissionConsole state={state} />
     </AppShell>

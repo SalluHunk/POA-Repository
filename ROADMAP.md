@@ -64,6 +64,8 @@ Superseded by `ADR-002` (2026-08-08). Sprint Alpha (`POA-VIS-001`) application/v
 
 `POA-VIS-002` — Organizational Intelligence Core — **COMPLETE**. See `40-Runtime/POA-VIS-002-COMPLETION-REPORT.md`.
 
-`POA-VIS-003` — Expression Architecture — **COMPLETE**, pending Chief Architect acceptance. Executed under in-session Commander authorization (see `ADR-003`) after the VIS-002 execution rule's review gate was surfaced. See `40-Runtime/POA-VIS-003-COMPLETION-REPORT.md`. Per the mission's own execution governance, POA-VIS-004 is not begun — STOP and await Chief Architect acceptance.
+`POA-VIS-003` — Expression Architecture — **COMPLETE, ACCEPTED.** Executed under in-session Commander authorization (see `ADR-003`) after the VIS-002 execution rule's review gate was surfaced. Chief Architect acceptance granted in-session, 2026-08-11. See `40-Runtime/POA-VIS-003-COMPLETION-REPORT.md`.
 
-Recommended next mission: TBD — requires Mission Control naming. See POA-VIS-003-COMPLETION-REPORT §17 ("Future Industry-Extension Path") for candidate follow-on scope.
+`POA-VIS-004` — Organizational Mothership — **COMPLETE, pending Chief Architect acceptance.** Mission brief sourced from the Deployment mirror (`POA-VIS-004 — ORGANIZATIONAL MOTHERSHIP.md`, STATUS: AUTHORIZED — EXECUTE), authorized in-session by Commander on 2026-08-11 following recorded VIS-003 acceptance. Builds a living visual embodiment of organizational state (central Organizational Core, People/Projects/Capabilities domains, signal propagation, risk/opportunity visual language, heartbeat, event response, Alexis integration) atop POA Core / Organizational Intelligence / Expression Architecture, as a third registered Expression Profile. See `40-Runtime/POA-VIS-004-COMPLETION-REPORT.md`. Per the mission's own execution governance, no mission beyond VIS-004 begins until Chief Architect acceptance is granted.
+
+Recommended next mission: TBD — requires Mission Control naming, gated on POA-VIS-004 acceptance.

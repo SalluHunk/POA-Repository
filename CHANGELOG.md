@@ -4,6 +4,35 @@ All notable changes to POA-Repository are recorded here. Entries are grounded in
 
 ---
 
+## [Unreleased] — POA-VIS-004
+
+**Mission:** Organizational Mothership (authorized by the mission's own `STATUS: AUTHORIZED — EXECUTE`, sourced from the Deployment mirror; executed after in-session Chief Architect acceptance of POA-VIS-003)
+
+### Added
+- `src/lib/expression/mothership-mapping.ts` — pure view-shaping for a third `OrganizationalVisualProfile` (`"mothership"`): central Organizational Core, People/Projects/Capabilities domains, capability consequence threads, signal/risk/opportunity nodes, plus `resolveEventHighlight` and `resolveSourceHighlight` (pure, tested — no second event or Alexis engine).
+- `src/components/expression/MothershipConsole.tsx` — desktop SVG radial renderer + a genuinely distinct mobile/compact text-first expression (not the desktop canvas shrunk down).
+- `src/components/expression/ExpressionSwitcher.tsx` — registry-driven profile switcher, replacing the two routes' hand-hardcoded single links now that a third profile exists.
+- `src/app/expression/mothership/page.tsx` — the third expression route.
+- `src/lib/expression/mothership-mapping.test.ts` — 15 tests, up from 35 to 50 total.
+- `40-Runtime/POA-VIS-004-COMPLETION-REPORT.md`, `40-Runtime/POA-VIS-004-screenshots/`.
+
+### Changed
+- `src/lib/expression/types.ts` — `ExpressionProfileId`, `spatialComposition`, `MotionLanguage` unions widened (additive) to admit the Mothership profile.
+- `src/lib/expression/profiles.ts`, `registry.ts` — added and registered `mothershipProfile`.
+- `src/components/alexis/AlexisPanel.tsx` — added an optional `onResponse` prop so a consumer can visually highlight the area an Alexis answer cites (existing `MissionConsole` call site unaffected).
+- `src/components/AppShell.tsx` — header now wraps on narrow viewports (`flex-wrap`), fixing a health-badge clipping bug the mobile screenshot pass surfaced; no other markup changed.
+- `src/app/page.tsx`, `src/app/expression/network/page.tsx` — switched to `ExpressionSwitcher`.
+- `src/app/globals.css` — added `.poa-heartbeat` (restrained core idle animation) and `.poa-bloom-ring` (finite, one-time opportunity animation, distinct from risk's continuous pulse).
+
+### Fixed
+- A React hydration mismatch from `Math.cos`/`Math.sin` producing non-bit-identical floats between SSR and CSR (not guaranteed identical across V8 builds, unlike `+`/`-`/`*`/`/`) — fixed by rounding all computed SVG coordinates in `MothershipConsole.tsx`. The same latent pattern exists in `NetworkGraphConsole.tsx` (not yet observed failing there) and is flagged, not fixed, in the completion report.
+
+### Notes
+- No existing VIS-001/002/003 component, service, or domain file was rewritten. The acceptance scenario (8 required / 5 available / 3 short, `at-risk`) remains test-enforced, now from a third independent profile.
+- Per the mission's own execution governance, POA-VIS-004 is complete; STOP and await Chief Architect acceptance before any further mission.
+
+---
+
 ## [Unreleased] — POA-VIS-003
 
 **Mission:** Expression Architecture (authorized by the mission's own `STATUS: AUTHORIZED — EXECUTE`, confirmed in-session; see `ADR-003`)
@@ -22,7 +51,7 @@ All notable changes to POA-Repository are recorded here. Entries are grounded in
 
 ### Notes
 - No existing VIS-001/VIS-002 component, service, or domain file was rewritten — `MissionConsole` and all panels are functionally unchanged; the original scenario numbers (8 required / 3 gapped / at-risk) remain test-enforced.
-- Per the mission's own execution governance, POA-VIS-004 is not begun.
+- Chief Architect acceptance granted in-session, 2026-08-11. POA-VIS-004 is now authorized and complete — see the entry above.
 
 ---
 

@@ -1,5 +1,5 @@
 import type { ExpressionProfileId, OrganizationalVisualProfile } from "@/lib/expression/types";
-import { networkGraphProfile, referenceProfile } from "@/lib/expression/profiles";
+import { mothershipProfile, networkGraphProfile, referenceProfile } from "@/lib/expression/profiles";
 
 /**
  * The canonical list of available OrganizationalVisualProfiles (POA-VIS-003
@@ -11,6 +11,7 @@ import { networkGraphProfile, referenceProfile } from "@/lib/expression/profiles
 export const EXPRESSION_PROFILES: Record<ExpressionProfileId, OrganizationalVisualProfile> = {
   "poa-reference": referenceProfile,
   "network-graph": networkGraphProfile,
+  "mothership": mothershipProfile,
 };
 
 export function getExpressionProfile(id: ExpressionProfileId): OrganizationalVisualProfile {

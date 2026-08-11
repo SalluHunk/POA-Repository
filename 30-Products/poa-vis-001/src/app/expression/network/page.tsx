@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { getOrganizationalState } from "@/lib/organizational-state";
 import { AppShell } from "@/components/AppShell";
 import { NetworkGraphConsole } from "@/components/expression/NetworkGraphConsole";
+import { ExpressionSwitcher } from "@/components/expression/ExpressionSwitcher";
 import { networkGraphProfile } from "@/lib/expression/profiles";
 
 /**
@@ -17,14 +17,7 @@ export default function NetworkExpressionPage() {
     <AppShell
       organizationName={state.organization.name}
       overallHealth={state.overallHealth}
-      expressionSwitcher={
-        <Link
-          href="/"
-          className="font-mono text-[11px] uppercase tracking-wide text-poa-text-muted underline decoration-poa-border underline-offset-4 hover:text-poa-text"
-        >
-          ← POA Reference Expression Profile
-        </Link>
-      }
+      expressionSwitcher={<ExpressionSwitcher currentProfileId="network-graph" />}
     >
       <NetworkGraphConsole state={state} profile={networkGraphProfile} />
     </AppShell>

@@ -85,3 +85,45 @@ export const networkGraphProfile: OrganizationalVisualProfile = {
     recommendationLabel: "Recommended Response",
   },
 };
+
+/**
+ * Organizational Mothership profile (POA-VIS-004). The first living visual
+ * embodiment of the POA Organizational Operating System: one central
+ * Organizational Core with People/Projects/Capabilities domains around it,
+ * signal propagation, and distinct risk vs. opportunity visual language.
+ * Same OrganizationalState as every other profile (mission section 14) —
+ * only the expression changes. Not a production 3D mothership (mission
+ * section 21, NON-GOALS) — the metaphor is structural, not literal.
+ */
+export const mothershipProfile: OrganizationalVisualProfile = {
+  id: "mothership",
+  name: "Organizational Mothership",
+  description:
+    "The living organizational core: People, Projects, and Capabilities as connected domains around one central Organizational Core, with signal propagation, distinct risk/opportunity visual language, and a restrained idle heartbeat. Same signals, capability gaps, and risk as every other profile — only the expression changes.",
+  isReferenceProfile: false,
+
+  visualIdentity: {
+    sharedPrinciples: POA_VISUAL_DNA,
+    accentDescription:
+      "Core-and-domain framing; risk communicated by pressure and restrained pulse, opportunity by a distinct one-time bloom — never by color alone.",
+  },
+  visualMetaphor: "Living organizational core",
+  spatialComposition: "layered-core",
+  visualizationVocabulary: ["core", "domain", "project-node", "capability-thread", "signal-pulse", "risk-pressure", "opportunity-bloom"],
+  metricPresentation: "node-scale",
+  signalPresentation: "graph-node",
+  severityPresentation: "color-and-motion",
+  motionLanguage: "heartbeat-and-signal-pulse",
+  informationDensity: "structural-overview",
+  executivePresentation: "topology-first",
+  navigationModel: "single-viewport-graph",
+  interactionPatterns: ["hover-for-detail", "ask-alexis", "event-replay"],
+  terminology: {
+    organizationalCoreLabel: "Organizational Core",
+    signalLabel: "Signal",
+    riskLabel: "Risk",
+    capabilityGapLabel: "Capability Gap",
+    projectLabel: "Project",
+    recommendationLabel: "Recommendation",
+  },
+};

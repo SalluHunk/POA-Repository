@@ -199,4 +199,6 @@ Committed to `main` and pushed to `origin/main` after this report. See the commi
 
 # 20. Result
 
-MISSION STATUS: **COMPLETE.** All 15 Definition-of-Done items are satisfied. Visual evidence for both expression profiles is captured and referenced (§21); a hydration bug that evidence pass surfaced was fixed and re-validated end-to-end (typecheck, lint, tests, build, browser). Per the mission's own EXECUTION GOVERNANCE: **do not begin POA-VIS-004.** STOP and await Chief Architect acceptance.
+MISSION STATUS: **COMPLETE, ACCEPTED.** All 15 Definition-of-Done items are satisfied. Visual evidence for both expression profiles is captured and referenced (§21); a hydration bug that evidence pass surfaced was fixed and re-validated end-to-end (typecheck, lint, tests, build, browser).
+
+Chief Architect acceptance granted in-session, 2026-08-11. POA-VIS-004 ("Organizational Mothership") is authorized and now in execution — see `ROADMAP.md` and `40-Runtime/POA-VIS-004-COMPLETION-REPORT.md`.

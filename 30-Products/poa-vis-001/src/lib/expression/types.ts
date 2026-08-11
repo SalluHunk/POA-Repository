@@ -18,7 +18,7 @@
  *   -> Visualization Components -> Console
  */
 
-export type ExpressionProfileId = "poa-reference" | "network-graph";
+export type ExpressionProfileId = "poa-reference" | "network-graph" | "mothership";
 
 /** What this profile shares with every other POA expression, plus what makes it distinct. */
 export interface VisualIdentity {
@@ -38,7 +38,7 @@ export type SignalPresentation = "list-with-callout" | "graph-node";
 export type SeverityPresentation = "color-coded-label" | "color-and-motion";
 
 /** What triggers motion, if anything. Restrained by construction (mission section 12) — never perpetual/decorative. */
-export type MotionLanguage = "entrance-fade-only" | "signal-driven-pulse";
+export type MotionLanguage = "entrance-fade-only" | "signal-driven-pulse" | "heartbeat-and-signal-pulse";
 
 /** How much is shown at once. */
 export type InformationDensity = "executive-summary" | "structural-overview";
@@ -75,7 +75,7 @@ export interface OrganizationalVisualProfile {
   visualIdentity: VisualIdentity;
   /** Free-text metaphor label, e.g. "Command console" or "Organizational graph" (mission section 3). */
   visualMetaphor: string;
-  spatialComposition: "panel-grid" | "radial-network";
+  spatialComposition: "panel-grid" | "radial-network" | "layered-core";
   visualizationVocabulary: readonly string[];
   metricPresentation: MetricPresentation;
   signalPresentation: SignalPresentation;

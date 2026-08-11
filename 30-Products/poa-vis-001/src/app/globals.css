@@ -80,3 +80,50 @@ body {
 .poa-pulse circle {
   animation: poa-pulse 1.8s ease-in-out infinite;
 }
+
+/*
+ * Mothership Core heartbeat (POA-VIS-004 MISSION 11). Applied ONLY to the
+ * single central core node — a restrained, low-amplitude breathing cue that
+ * the console is alive at rest. One animated node, negligible GPU cost;
+ * never a busy/loading indicator.
+ */
+@keyframes poa-heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.035);
+    opacity: 0.92;
+  }
+}
+
+.poa-heartbeat {
+  animation: poa-heartbeat 4.5s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/*
+ * Opportunity bloom (POA-VIS-004 MISSION 9). A single, finite expanding
+ * ring played once on mount — deliberately distinct from risk's continuous
+ * pulse (.poa-pulse above): opportunity communicates emergence, not ongoing
+ * pressure. `animation-iteration-count: 1` — never perpetual.
+ */
+@keyframes poa-bloom {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.poa-bloom-ring {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: poa-bloom 2.2s ease-out 1;
+}

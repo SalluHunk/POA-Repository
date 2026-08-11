@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { OrganizationalState } from "@/lib/domain/types";
 import { deterministicAlexisEngine } from "@/lib/alexis/engine";
+import type { AlexisResponse } from "@/lib/alexis/types";
 import { browserSpeechOutputProvider } from "@/lib/voice/browser-provider";
 import { Panel } from "@/components/ui";
 import { ConversationView, type ConversationMessage } from "@/components/alexis/ConversationView";
@@ -28,7 +29,14 @@ function nextId(prefix: string) {
  * deterministic engine and the same OrganizationalState prop, so answers
  * are identical regardless of input modality (POA-VIS-001 ALEXIS + VOICE).
  */
-export function AlexisPanel({ state }: { state: OrganizationalState }) {
+export function AlexisPanel({
+  state,
+  onResponse,
+}: {
+  state: OrganizationalState;
+  /** Optional hook for a consumer (e.g. the Mothership) to visually highlight the organizational area an answer cites (POA-VIS-004 mission section 20). Renders nothing new when omitted — existing callers are unaffected. */
+  onResponse?: (response: AlexisResponse) => void;
+}) {
   const [messages, setMessages] = useState<ConversationMessage[]>([]);
   const [draft, setDraft] = useState("");
   const [speechEnabled, setSpeechEnabled] = useState(false);
@@ -46,6 +54,7 @@ export function AlexisPanel({ state }: { state: OrganizationalState }) {
     setDraft("");
 
     if (speechEnabled) browserSpeechOutputProvider.speak(response.answer);
+    onResponse?.(response);
   }
 
   return (
