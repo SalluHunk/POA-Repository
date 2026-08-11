@@ -12,7 +12,7 @@
 | Mission                | POA-VIS-003 — Expression Architecture          |
 | Repository Domain     | Runtime / Mission Evidence                     |
 | Product Touched       | `30-Products/poa-vis-001`                      |
-| Status                | **COMPLETE** — pending Chief Architect acceptance (mission governance requires STOP-and-await at this point) |
+| Status                | **COMPLETE, ACCEPTED** — Chief Architect acceptance granted in-session, 2026-08-10/11 (see §20). Identity-table field reconciled with §20 and `ROADMAP.md` by `INT-001` integrity cycle (`40-Runtime/POA-INTEGRITY-CONTROL-001.md`), 2026-08-11 — acceptance-traceability basis recorded in `40-Runtime/SR-001-STATE-RECONCILIATION-REPORT.md` §2.a: in-session conversational confirmation, no independently-dated external record. |
 | Date                  | 2026-08-10                                     |
 
 ---
