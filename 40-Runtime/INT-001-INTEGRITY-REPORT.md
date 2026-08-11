@@ -115,7 +115,7 @@ All three corrections satisfy the Control Law in `POA-INTEGRITY-CONTROL-001.md`:
 ## J. Repository State
 
 - Branch: `main`. Prior to this cycle's commit: HEAD `b0e560e`, synced with `origin/main`.
-- This mission's changes are staged for a local commit (not yet made — see §L). No push will be performed without explicit user confirmation, per this repository's standing git-safety instruction and the directive's own "Do NOT automatically push."
+- Committed locally: `54a9ea1` — "INT-001: Integrity Control & Traceability Hardening." **Not pushed to `origin/main`** — per the directive's own "Do NOT automatically push" and this repository's standing git-safety instruction, push requires explicit user confirmation in this session. Local `main` is currently 1 commit ahead of `origin/main`.
 
 ---
 
