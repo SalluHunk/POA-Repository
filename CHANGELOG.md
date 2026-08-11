@@ -4,6 +4,25 @@ All notable changes to POA-Repository are recorded here. Entries are grounded in
 
 ---
 
+## [Unreleased] — SR-001 (POA State Reconciliation), Phase 2
+
+**Mission:** Controlled State Reconciliation (authorized by `CHIEF ARCHITECT DIRECTIVE — SR-001 PHASE 2.md`, following Chief Architect acceptance of the Phase 1 preflight evidence base)
+
+### Added
+- `40-Runtime/SR-001-PREFLIGHT-REPORT.md` (Phase 1 — evidence collection only, no repository documentation modified).
+- `40-Runtime/SR-001-STATE-RECONCILIATION-REPORT.md` — the authoritative reconciliation record for SR-001, distinguishing REPOSITORY-CANONICAL STATE from HISTORICAL / CONVERSATIONAL CONTEXT.
+
+### Changed
+- `ROADMAP.md` — "Current State" section rewritten to reflect all missions actually completed (previously read "as of POA-REPO-001," omitting `POA-REPO-002`/`003` and all four `POA-VIS-*` missions). `POA-VIS-003`/`POA-VIS-004` entries updated from "pending acceptance" to **ACCEPTED**, with an explicit acceptance-traceability note recording that both grants rest on in-session Chief Architect/Commander confirmation rather than an external, independently-dated approval artifact — per this directive's own instruction, not fabricated.
+
+### Explicitly NOT Done (per directive scope)
+- No historical mission completion report was rewritten (`POA-VIS-001`–`004`, `POA-REPO-001`–`003` all left byte-identical).
+- `POA-STD-011`'s "Draft for Architecture Review" status was not touched or promoted.
+- No `RM-001`, `CTR-001`, "Renaissance Age," or "POA Baseline" artifact was created — all four recorded in `SR-001-STATE-RECONCILIATION-REPORT.md` as NOT ESTABLISHED in repository evidence, per the directive's explicit prohibition on inventing them.
+- No application/code file changed.
+
+---
+
 ## [Unreleased] — POA-VIS-004
 
 **Mission:** Organizational Mothership (authorized by the mission's own `STATUS: AUTHORIZED — EXECUTE`, sourced from the Deployment mirror; executed after in-session Chief Architect acceptance of POA-VIS-003)
