@@ -12,7 +12,7 @@
 | Artifact Name | Repository Meta-Model |
 | Artifact Family | META |
 | Version | 0.1.0 — first materialization |
-| Status | **Materialized — acceptance pending (Chief Architect / Commander). Not Approved, Accepted, or Certified.** (Precedent: `ACS-001`, `POA-INTEGRITY-CONTROL-001`.) Materialization of this document does not itself close `GAP-002` — closing requires authorship **and** approval (`GAP-REGISTER-001` resolution-path text); see §S. |
+| Status | **Bounded Accepted (Model B) — accepted for its established architectural provisions only: §A, §B, §C, §H, §I, §J, §K, §O, §P, §Q, §R, §S, §T. Six provisions — Repository Object Ontology (§D), Object/Artifact Categories (§E–F), Ownership Model (§G), Lifecycle Authoritativeness (§L), Identity Ratification (§M), Version Normalization (§N) — remain explicitly EXCLUDED from this acceptance and retain their own prior classification unchanged. Not Certified. Not a baseline. See "GOV-009 Bounded Acceptance Record" below.** (Per Chief Architect ruling under Mission `GOV-008`, formalized by Mission `GOV-009`, 2026-08-12.) This bounded acceptance does not itself close `GAP-002` — full closure requires a separate register-update act, not performed by this materialization; see §S and the GOV-009 record below. |
 | Authority | Paravyoma Constitution → Commander authorization of Mission `GOV-004` (`CHIEF ARCHITECT DIRECTIVE — GOV-004.md`) → Commander decisions GOV-004-A/B/C (`CHIEF ARCHITECT AUTHORIZATION — GOV-004 MATERIALIZATION.md`, Deployment mirror) |
 | Repository Domain | Shared / Governance |
 | Capability Introduced | Repository Meta-Model (abstract Repository Object / Role / Lifecycle / Relationship classification) |
@@ -254,3 +254,57 @@ This document, and the mission that materializes it (`GOV-004`), explicitly do *
 # Result
 
 `POA-META-002` MATERIALIZED. Governance-architecture artifact, not constitutional authority. Status: acceptance pending. `GAP-002` remains OPEN pending Chief Architect / Commander approval; `POA-STD-006`–`010` remain unmaterialized and untouched; no baseline, certification authority, or existing formal role was created, redefined, or modified by this materialization.
+
+---
+
+# GOV-009 Bounded Acceptance Record — Model B Formalization (2026-08-12)
+
+**This section is NOT a rewrite of any text above.** It is an additive record, appended per `POA-INTEGRITY-CONTROL-001` §L(b) and the precedent set by `ORC-001-GOV-001`'s GOV-003 Addendum and `ACS-001`'s GOV-005 Addendum. No word of §A–§T or the "# Result" section above is altered. This record formalizes the Chief Architect's ruling on `POA-META-002`'s acceptance status, communicated via `CHIEF ARCHITECT DIRECTIVE — GOV-009.md`, following the evidence-gathering findings of Missions `GOV-006`, `GOV-007`, `GOV-008`, and `GOV-008`'s Evidence Reconciliation.
+
+## 1. Acceptance Authority
+
+Paravyoma Constitution → Commander authorization of Mission `GOV-008` → Chief Architect ruling (recorded in `CHIEF ARCHITECT DIRECTIVE — GOV-009.md`'s "GOV-008 CHIEF ARCHITECT RULING" section) → formalized by Mission `GOV-009`.
+
+## 2. Acceptance Model
+
+**MODEL B — Bounded Acceptance.** `POA-META-002` is accepted only for its established architectural content; completeness of every internal provision, downstream-standard readiness, certification eligibility, and baseline eligibility are explicitly NOT implied by this acceptance (per the five-way separation first drawn in `GOV-007-PREFLIGHT-REPORT.md` §F).
+
+## 3. Accepted Architectural Boundary
+
+§A (Purpose), §B (Scope), §C (Repository Meta-Model Definition), §H (Authorizing Role Abstraction), §I (Constructing Role Abstraction), §J (Reviewing Role Abstraction), §K (Repository State Model), §O (Relationship Model), §P (Certification Relationship), §Q (RSR Relationship), §R (Parent/Child Standard Relationship), §S (Governance Dependencies), §T (Non-Goals) — thirteen sections, as classified in `GOV-007-PREFLIGHT-REPORT.md` §D and reconciled in `CHIEF ARCHITECT EVIDENCE RECONCILIATION — GOV-008.md` §2. The Identity/Status field and "# Result" section above remain factual self-reporting and are not independently treated as accepted architectural provisions in addition to this list.
+
+## 4. Excluded Boundary
+
+The following six provisions remain explicitly OUTSIDE the accepted authority boundary, each retaining its own prior classification exactly as already established — none is resolved, narrowed, or silently upgraded by this record:
+
+1. **Repository Object Ontology (§D)** — own words: "Partially derivable; full ontology **UNESTABLISHED**."
+2. **Object/Artifact Categories (§E–F)** — own words: "Partially derivable from practice, not formally enumerated / not formally governed" — **UNESTABLISHED** (§E) / **UNESTABLISHED / GOVERNANCE DEPENDENCY** (§F).
+3. **Ownership Model (§G)** — own words, in full: "**UNESTABLISHED / GOVERNANCE DEPENDENCY**."
+4. **Lifecycle Authoritativeness (§L)** — own words: "recorded as observed current practice — not restated as newly authoritative"; authoritativeness "**UNESTABLISHED / GOVERNANCE DEPENDENCY**," sourced from Draft, unmaterialized `POA-META-001` §7.
+5. **Identity Ratification (§M)** — own words: "Derivable from practice; not codified in any single Approved document"; ratification "**UNESTABLISHED / GOVERNANCE DEPENDENCY**."
+6. **Version Normalization (§N)** — own words: "**UNESTABLISHED as a normative rule** — observed practice is actively inconsistent" — a **CONTRADICTORY** practice pattern, explicitly disclosed as such.
+
+## 5. Effective-Status Condition — What This Acceptance Does NOT Constitute
+
+Per explicit Chief Architect instruction, stated without qualification, this bounded acceptance does **not**:
+
+- certify `POA-META-002`;
+- activate certification delegation;
+- establish a baseline;
+- close any GAP (`GAP-002` specifically remains OPEN — see §S above and `GAP-REGISTER-001`, unmodified by this record; closure requires a separate, future register-update act);
+- accept the six excluded provisions listed in §4 above;
+- establish universal lifecycle semantics;
+- establish ownership semantics;
+- establish a Repository Object ontology;
+- establish category taxonomy;
+- ratify Identity;
+- normalize repository versions;
+- automatically authorize `POA-STD-006` through `POA-STD-010` materialization — including `POA-STD-009`, whose own separate Commander-authorization prerequisite (named in `GOV-006-PREFLIGHT-REPORT.md` §N Decision 6) remains outstanding and is not satisfied by this record.
+
+## 6. Historical Integrity
+
+No word of §A–§T or the "# Result" section above is altered, deleted, or retroactively reinterpreted by this record. No terminology used in §A–§T is normalized or restated differently here than in its own original text (§4 above quotes each excluded provision's own original wording verbatim). The history of Missions `GOV-004`, `GOV-007`, and `GOV-008` is not altered by this record — this record formalizes a Chief Architect ruling made *after* those missions' own findings, additively, consistent with `POA-INTEGRITY-CONTROL-001` §L's historical-integrity discipline.
+
+---
+
+*End of GOV-009 Bounded Acceptance Record. Authorized by: Chief Architect ruling under Mission `GOV-008`, via `CHIEF ARCHITECT DIRECTIVE — GOV-009.md`. Materialized by: Mission `GOV-009`, 2026-08-12.*
