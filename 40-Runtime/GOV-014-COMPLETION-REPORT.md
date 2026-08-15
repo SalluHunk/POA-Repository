@@ -108,3 +108,13 @@ HEAD = `origin/main` = `820a10f92fcbb93b3773293e43c6d4d9d3ca2549`, zero divergen
 ---
 
 **GOV-014 MATERIALIZATION COMPLETE — AWAITING CHIEF ARCHITECT ACCEPTANCE.**
+
+---
+
+## OPV-002 Acceptance Recorded (2026-08-15)
+
+**This is an additive note only — no word above is altered, edited, or removed**, per `POA-ACC-001` §E (Mission/Acceptance Symmetry) and `POA-INTEGRITY-CONTROL-001` §L(b)'s historical-integrity discipline.
+
+`POA-ADR-001` — one of this mission's three materialized artifacts (§H above) — has been accepted by the Chief Architect. Acceptance Record: `20-Shared/DECISIONS/POA-ADR-001.md`, "OPV-002 Acceptance Record" section, dated 2026-08-15. Formalized by Mission `OPV-002`. This note does not amend §I's "Materialized — acceptance pending" table above, which remains historically accurate as of `GOV-014`'s own completion; `POA-ACC-001` and `POA-EVID-001`, the other two artifacts listed in that table, remain unaccepted as of this note.
+
+*End of additive note.*

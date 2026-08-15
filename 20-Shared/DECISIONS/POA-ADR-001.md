@@ -12,7 +12,7 @@
 | Artifact Name | Architectural Decision Record Specification |
 | Artifact Family | ADR (Family field follows `ACS-001`'s own precedent of citing the family as it is actually used in the repository, not a normalized alternative) |
 | Version | 1.0.0 — first materialization |
-| Status | **Materialized — acceptance pending (Chief Architect / Commander). Not Approved, Accepted, or Certified.** |
+| Status | **Accepted (Chief Architect) — full acceptance of the artifact in its current authoritative state. Not Certified. Not a baseline. See "OPV-002 Acceptance Record" below.** (Per Chief Architect ruling, communicated via `OPV-002 — Chief Architect Acceptance Ruling & Track B Unblock Directive.md`, formalized by Mission `OPV-002`, 2026-08-15.) |
 | Authority | Paravyoma Constitution → `GOV-012` (evidence-chain gap identified, OPTION D) → `GOV-013` (architecture designed, OPTION D, this mechanism specifically approved) → `CHIEF ARCHITECT DIRECTIVE — GOV-014.md` (materialization authorization) |
 | Repository Domain | Shared / Decisions |
 | Capability Introduced | GOV-family Governance Decision Traceability |
@@ -94,3 +94,57 @@ This document, and the mission that materializes it (`GOV-014`), explicitly do *
 # Result
 
 `POA-ADR-001` MATERIALIZED. Governance-standard artifact, not constitutional authority. Status: acceptance pending. No existing ADR is modified; the ADR mechanism remains the sole Decision Record type; no new authority is created.
+
+---
+
+# OPV-002 Acceptance Record (2026-08-15)
+
+**This section is NOT a rewrite of any text above.** It is an additive record, appended per `POA-INTEGRITY-CONTROL-001` §L(b) and the precedent set by `POA-META-002`'s GOV-009 Bounded Acceptance Record, `ACS-001`'s GOV-005 Addendum, and `ORC-001-GOV-001`'s GOV-003 Addendum. No word of §A–§G or the "# Result" section above is altered. This record formalizes the Chief Architect's acceptance ruling, communicated via `OPV-002 — Chief Architect Acceptance Ruling & Track B Unblock Directive.md` (Deployment mirror), exercising `POA-ACC-001` for the first time since its own materialization.
+
+## 1. WHO
+
+Chief Architect, per `ORC-001-GOV-001`'s GOV-003 Addendum §1 role equivalence.
+
+## 2. WHAT
+
+`POA-ADR-001`, accepted in full — its current authoritative state as of this acceptance (§A–§G: the Baseline Template, the GOV-Family Additive Fields, the Relationship sections, the Non-Goals — the entire document as materialized by `GOV-014`). Not a bounded/partial acceptance — no section is excluded.
+
+## 3. WHEN
+
+2026-08-15.
+
+## 4. AUTHORITY
+
+`OPV-002 — Chief Architect Acceptance Ruling & Track B Unblock Directive.md` (Deployment mirror), §1 ("Chief Architect Ruling").
+
+## 5. DECISION
+
+Restated inline, per `POA-ACC-001` §C's explicit reproducibility requirement — quoted verbatim from the authorizing Directive §1: "The Chief Architect hereby issues an explicit acceptance ruling for: Artifact: `POA-ADR-001`. This is an acceptance of the artifact in its current authoritative state... This ruling does not change the previously established Track A classification. The Track A finding remains: Decision Recording — PARTIAL. The known limitation regarding actor/instance identity and role-level authority remains preserved. No remediation is authorized by this ruling."
+
+## 6. SCOPE
+
+Full acceptance of `POA-ADR-001` as an artifact. Explicitly does **NOT** constitute: certification; baseline establishment; GAP closure; a ruling that `POA-ADR-001`'s actor/instance-identity limitation (`OPV-002-COMPLETION-REPORT.md` §3) is resolved or no longer worth addressing; authorization of any remediation; acceptance of `POA-ACC-001` or `POA-EVID-001` (each would require its own separate ruling, not granted here).
+
+## 7. ARTIFACT
+
+`POA-ADR-001`.
+
+## 8. ARTIFACT STATE/VERSION
+
+v1.0.0, Status = "Materialized — acceptance pending" immediately prior to this acceptance (unchanged since `GOV-014`, confirmed fresh by `OPV-002`, 2026-08-14).
+
+## 9. RELATED MISSION
+
+`GOV-014` (originating materialization); `OPV-002` (this acceptance's formalizing mission).
+
+## 10. RELATED EVIDENCE
+
+`OPV-002 — Chief Architect Acceptance Ruling & Track B Unblock Directive.md` (Deployment mirror, this ruling's sole source); `OPV-002-COMPLETION-REPORT.md` §3 (Track A's own PARTIAL finding, explicitly preserved, not altered, by this ruling); `OPV-002-PREFLIGHT-REPORT.md` §C (Track A's full exercise detail).
+
+## 11. RESULTING REPOSITORY STATE/COMMIT
+
+Not yet committed. To be populated additively once this acceptance is committed, per this field's own "where applicable, once known" rule (`POA-ACC-001` §C).
+
+---
+
+*End of OPV-002 Acceptance Record. Authorized by: Chief Architect ruling via `OPV-002 — Chief Architect Acceptance Ruling & Track B Unblock Directive.md`. Materialized by: Mission `OPV-002`, 2026-08-15.*
