@@ -148,3 +148,57 @@ Not yet committed. To be populated additively once this acceptance is committed,
 ---
 
 *End of OPV-002 Acceptance Record. Authorized by: Chief Architect ruling via `OPV-002 — Chief Architect Acceptance Ruling & Track B Unblock Directive.md`. Materialized by: Mission `OPV-002`, 2026-08-15.*
+
+---
+
+# GCR-001 Decision Record (2026-08-17)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields for the first time to record a *new* decision (unlike the OPV-002 Acceptance Record above, which formalized an already-made decision). No word of §A–§G, the "# Result" section, or the OPV-002 Acceptance Record above is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-17.
+
+## 2. Context
+
+`GCR-001 — Governance Certification Readiness Assessment.md` found exactly one governance prerequisite directly, textually blocking certification of any POA artifact under `ACS-001`: the certification authority delegated to the Chief Navigator & Architecture Steward (`ORC-001-GOV-001` GOV-003 Addendum §2) had never been activated, per `ACS-001` GOV-005 Addendum §A's own explicit requirement that activation occur only through an express Commander decision.
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the Commander's ruling: "I hereby activate the certification authority previously delegated to the Chief Architect under the existing POA authority framework, including the delegation established through `ORC-001-GOV-001` and its existing governance/addendum chain. The Chief Architect is therefore authorized to exercise the already-defined certification authority within its existing scope and boundaries."
+
+## 4. Scope of This Authorization
+
+Activates the existing delegated certification authority. Does **NOT**: create a new authority; expand the authority's existing scope; alter the POA Constitution; alter the authority hierarchy; itself constitute certification of any artifact; constitute Transition; modify `POA-ADR-001`, `POA-ACC-001`, `ORC-001-GOV-001`, or any other architectural mechanism beyond this record and its symmetric `ACS-001` Addendum; narrow Commander's own retained reserve/escalate/override/withhold/revoke supremacy over certification.
+
+## 5. Consequence
+
+Delegated certification authority moves from delegated-but-inactive to activated. The Chief Navigator & Architecture Steward may now exercise certification review (`ACS-001` §H–§J) for eligible candidate artifacts, subject at all times to Commander supremacy (`ORC-001-GOV-001` GOV-003 Addendum §3).
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, exercising exactly the activation power `ACS-001` GOV-005 Addendum §A reserves to the Commander alone.
+
+## 7. Artifact
+
+`ACS-001` (the standard whose GOV-005-A precondition this decision satisfies); `ORC-001-GOV-001` (the artifact whose GOV-003 Addendum §2 grant this decision activates).
+
+## 8. Artifact Version/State
+
+`ACS-001` v0.2.0, Status unchanged ("Materialized — acceptance pending... Not Approved, Accepted, or Certified") at the time of this decision — activation is orthogonal to that status, per precedent (GOV-003/GOV-005 Addenda). `ORC-001-GOV-001` unchanged, Approved, at the time of this decision.
+
+## 9. Related Mission
+
+`GCR-001` (the assessment that identified this as the sole certification-blocking prerequisite); this materialization directive (a direct Commander governance directive, not a newly authorized mission ID, per its own explicit instruction not to invent one).
+
+## 10. Related Evidence
+
+`40-Runtime/GCR-001-COMPLETION-REPORT.md` §4/§12/§13 (the Track A assessment and blocking-condition finding this decision acts on); `20-Shared/GOV/ACS-001.md` GOV-005 Addendum §A (the activation requirement satisfied); `20-Shared/GOV/ORC-001-GOV-001.md` GOV-003 Addendum §2 (the grant activated); the Commander's own ruling text, restated in full at §3 above and at the symmetric `ACS-001` GCR-001 Addendum.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of GCR-001 Decision Record. Authorized by: Commander, via direct governance directive, 2026-08-17. Materialized by: `GCR-001`'s materialization directive, 2026-08-17.*
