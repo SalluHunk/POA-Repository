@@ -45,7 +45,7 @@ Full detail recorded in `40-Runtime/EOV-002-PREFLIGHT-REPORT.md`. Summary:
 | Mission Context | `EOV-002` | `EOV-002` |
 | Execution Context (role) | Execution Agent, per `POA-EXB-001` §8/§12 | Execution Agent |
 | Authority Reference | EOV-002 Directive §4/§16 (preflight + report requirement) | EOV-002 Directive §5 (Write/Edit test requirement) |
-| Timestamp | 2026-08-17, this session (file mtime `10:31`; not itself committed until Test B) | 2026-08-17, this session (file mtime `10:31`, same file) |
+| Timestamp | 2026-08-17T10:31 (minute-level, from file mtime; later commit-anchored to `2026-08-17T10:32:06+05:30` once Test B committed this artifact in `5ba3da6`) | 2026-08-17T10:31 (minute-level, same file, same later commit anchor) |
 | Action/Tool Identity | `Write` tool invocation on `40-Runtime/EOV-002-PREFLIGHT-REPORT.md` | `Edit` tool invocation on the same file, replacing the `(pending)` placeholder line |
 | Target/Context | `40-Runtime/EOV-002-PREFLIGHT-REPORT.md` (new file) | `40-Runtime/EOV-002-PREFLIGHT-REPORT.md` (existing file, line ~64) |
 | Result/Reference | File created, 3073 bytes, 68 lines (independently verified via `ls -la` + `git status --porcelain`, which showed `?? 40-Runtime/EOV-002-PREFLIGHT-REPORT.md`) | File updated, 3356 bytes (independently verified via `grep -n "Edit confirmation (Test A"`, which located the new text at line 64) |
@@ -154,14 +154,14 @@ Performed using only the events recorded in §3–§5, cross-checked against the
 | 2 | Under what authority? | DIRECTLY EVIDENCED — Directive §4/§5/§16 | DIRECTLY EVIDENCED — Directive §15 | DIRECTLY EVIDENCED — Directive §3/§7 |
 | 3 | What execution context was active? | DIRECTLY EVIDENCED — Execution Agent | DIRECTLY EVIDENCED — Execution Agent | DIRECTLY EVIDENCED — Execution Agent |
 | 4 | What action/tool was invoked? | DIRECTLY EVIDENCED — `Write` then `Edit`, verbatim targets | DIRECTLY EVIDENCED — `git add`/`commit`/`push`, verbatim commands | DIRECTLY EVIDENCED — `git cat-file -e`, verbatim command |
-| 5 | When was it invoked? | INFERABLE — session/day-level only (file mtime `10:31`; not itself committed at time of action) | DIRECTLY EVIDENCED for commit (`2026-08-17T10:32:06+05:30`, exact); INFERABLE for add/push (no independent sub-commit timestamp) | INFERABLE — session/day-level only (read-only action, no commit produced) |
+| 5 | When was it invoked? | INFERABLE — minute-level at moment of action (mtime `10:31`); the artifact itself became commit-anchored (`10:32:06+05:30`) once Test B committed it, but the Write/Edit invocations themselves have no finer independent timestamp than the mtime | INFERABLE (mixed) — commit sub-action DIRECTLY EVIDENCED (`2026-08-17T10:32:06+05:30`, exact); add/push sub-actions INFERABLE only (no independent sub-commit timestamp); scored as one non-fully-DE cell | INFERABLE — session/day-level only, no commit anchor of any kind (read-only action produced no artifact to commit) |
 | 6 | What target/context was involved? | DIRECTLY EVIDENCED — `EOV-002-PREFLIGHT-REPORT.md` | DIRECTLY EVIDENCED — git index, `HEAD`, `origin/main` | DIRECTLY EVIDENCED — `origin/main:20-Shared/GOV/POA-EVT-002.md` |
 | 7 | What artifact/evidence was involved? | DIRECTLY EVIDENCED — the file itself, verified by `ls`/`git status`/`grep` | DIRECTLY EVIDENCED — commit `5ba3da6`, parent `b4d1733` | DIRECTLY EVIDENCED — the (absent) path, and the contrast probe against `POA-EVT-001.md` |
 | 8 | What result occurred? | DIRECTLY EVIDENCED — file created/edited, byte counts and content verified verbatim | DIRECTLY EVIDENCED — staged/committed/pushed, exact SHAs and refspec verbatim | DIRECTLY EVIDENCED — exit `128`, exact stderr text verbatim |
 | 9 | Was the action successful or unsuccessful? | DIRECTLY EVIDENCED — both successful | DIRECTLY EVIDENCED — all three successful, `HEAD == origin/main` confirmed post-push | DIRECTLY EVIDENCED — deliberately unsuccessful (that was the test's purpose), unambiguously distinguished from the contrast probe's success |
 | 10 | Can the event be independently reconstructed? | YES — verified via a second, distinct tool call each time | YES — verified via git's own parent-SHA chain and a post-push `rev-parse` re-check | YES — verified via a repeated identical probe plus a contrasting success-case probe |
 
-**28 of 30 DIRECTLY EVIDENCED, 2 INFERABLE (Test A timestamp precision; Test B add/push sub-commit timestamp precision), 0 UNAVAILABLE.**
+**27 of 30 DIRECTLY EVIDENCED, 3 INFERABLE (Test A Q5; Test B Q5 — commit sub-action DE, add/push sub-actions inferable, cell scored as not-fully-DE; Test C Q5), 0 UNAVAILABLE.** All three INFERABLE cells are the same Q5 ("when") — no other question (1–4, 6–10) has any INFERABLE or UNAVAILABLE cell across any test.
 
 ---
 
@@ -176,7 +176,7 @@ Performed using only the events recorded in §3–§5, cross-checked against the
 
 `POA-EVT-001` behaves consistently across all four materially different execution shapes exercised to date. In every case, all required minimum fields (`POA-EVT-001` §D) were populable from real evidence, and reconstruction was actually performed and verified — not merely asserted — using a method independent of the original action (a second tool call, git's own SHA/parentage chain, or a repeated/contrasted probe).
 
-**A measured, not asserted, refinement over `EOV-001`:** Test B's commit-anchored events (`EOV-002-EVT-004`) carry a full ISO-8601 commit timestamp (`2026-08-17T10:32:06+05:30`), narrowing `EOV-001`'s day-level timestamp limitation **for events whose target artifact is committed during the same mission**. That limitation remains unnarrowed for events that produce no commit (Test A's Write/Edit at the moment of action, before Test B committed the resulting file; Test C's read-only probe) — this is measured per-event above (§7 Q5), not generalized.
+**A measured, not asserted, refinement over `EOV-001`:** file mtime narrows the moment-of-invocation precision for Write/Edit actions to minute-level (Test A: `10:31`), and Test B's commit action (`EOV-002-EVT-004`) carries a full ISO-8601 commit timestamp (`2026-08-17T10:32:06+05:30`). Because Test B committed Test A's own artifact, Test A's event is also retroactively commit-anchored — a real, evidence-based improvement over `EOV-001`'s day-level-only limitation, for any event whose target artifact is committed during the same mission. That improvement does **not** extend to actions that produce no committable artifact at all: Test B's own `add`/`push` sub-actions (no independent sub-commit timestamp exists for staging or pushing, only for the commit itself) and Test C's read-only probe (no commit of any kind resulted) remain at session/day-level precision — this is measured per-event above (§7 Q5), not generalized.
 
 **Overall EOV-002 Determination: ROBUSTLY VALIDATED.**
 
@@ -188,9 +188,7 @@ Performed using only the events recorded in §3–§5, cross-checked against the
 
 Based on `EOV-001` + `EOV-002`:
 
-**CLOSED — for the narrow, triple-confirmed gap** ("what action/tool was invoked," per `OPV-001`/`OPV-002`/`OPV-003`) — this gap is now demonstrated closed across four materially different execution shapes (read-only, write/edit, multi-step, controlled failure), each independently reconstructed from real evidence, with no architectural modification to `POA-EVT-001` required at any point.
-
-This is **not** a claim of unbounded execution-observability completeness. It remains bounded by:
+**PARTIALLY CLOSED**, per Directive §13's own definition: "The mechanism works but bounded additional validation or refinement remains." The narrow, triple-confirmed gap itself ("what action/tool was invoked," per `OPV-001`/`OPV-002`/`OPV-003`) is now demonstrated closed across four materially different execution shapes (read-only, write/edit, multi-step, controlled failure), each independently reconstructed from real evidence, with no architectural modification to `POA-EVT-001` required at any point — that specific finding does not remain open. But the directive's broader "Execution Observability" requirement is not fully CLOSED, because bounded additional items remain unvalidated:
 
 - **Operational persistence requirement — not validated by EOV-002.** Per Directive §14: no durable, ongoing event-store mechanism exists; every event recorded by this mission lives in this report and its predecessor, not in a separate, persisted, queryable system. Whether sustained operational recording (across many missions, without a human transcribing each event into a report) is achievable remains open, undecided architecture.
 - Only six total real events have now been exercised across two missions (one in `EOV-001`, six in `EOV-002`) — narrow in volume, though `EOV-002` deliberately targeted shape diversity over volume, per its own governing principle.
@@ -218,8 +216,8 @@ This mission proves, with real evidence: `POA-EVT-001`'s minimum field model rem
 
 - **Bucket-B artifacts:** all 32 pre-existing untracked entries and the 1 pre-existing modified file (`20-Shared/GOV/POA-EVID-001.md`) remain present, unmodified, not cleaned or reset — confirmed by a final `git status --porcelain` re-query, matching the preflight baseline exactly in count and content.
 - **Mechanism artifacts unmodified:** `git status --porcelain 20-Shared/GOV/` shows only `POA-EVID-001.md` (pre-existing, unrelated to this mission) — `POA-EVT-001.md`, `POA-ADR-001.md`, and `POA-ACC-001.md` carry no modification this mission.
-- **EOV-002-owned changes:** exactly one commit (`5ba3da6`), containing exactly `40-Runtime/EOV-002-PREFLIGHT-REPORT.md`, already pushed to `origin/main`. This completion report (`EOV-002-COMPLETION-REPORT.md`) is committed and pushed separately, immediately after this report is finalized.
-- **Sync verification (post Test B):** `HEAD == origin/main == 5ba3da6d162c5641d61e41e8325a06a63dcec148`, divergence `0 0`.
+- **EOV-002-owned changes:** commit `5ba3da6` (Test A/B artifact), followed by commit `36567bb` (this completion report), both pushed to `origin/main`. `git diff b4d1733 36567bb --stat` — comparing the pre-mission `HEAD` against the completion-report commit — returns exactly `40-Runtime/EOV-002-COMPLETION-REPORT.md` and `40-Runtime/EOV-002-PREFLIGHT-REPORT.md`, 2 files changed, confirming no other file was touched across the whole mission.
+- **Sync verification (post Test B):** `HEAD == origin/main == 5ba3da6d162c5641d61e41e8325a06a63dcec148`, divergence `0 0`. A further sync verification follows this report's own commit/push, below.
 
 **This report does not claim a globally clean working tree.** After this report's own commit/push, the working tree will still carry 32 pre-existing Bucket-B untracked entries plus the 1 pre-existing `POA-EVID-001.md` modification — none of which is EOV-002's to resolve, per Directive §15.6/§15 last line.
 
@@ -231,7 +229,7 @@ The robustness claim this mission set out to test is proven across three additio
 
 ---
 
-## 17. Final Integrity Questions
+## Final Integrity Questions (Directive §17)
 
 1. **Did all three tests use genuinely fresh execution?** Yes — all six events were produced by real tool invocations performed during this mission; none was retrofitted onto `EOV-001` or any earlier mission.
 2. **Did Test A produce a real write/edit?** Yes — `40-Runtime/EOV-002-PREFLIGHT-REPORT.md` was genuinely created and then genuinely edited, both independently verified (§3).
@@ -239,13 +237,13 @@ The robustness claim this mission set out to test is proven across three additio
 4. **Did Test C produce a genuine safe failure?** Yes — a real, non-destructive `git cat-file -e` probe against a deliberately nonexistent path, which failed during actual execution (exit `128`), reproduced identically on re-run.
 5. **Was every event recorded using `POA-EVT-001`?** Yes — all six events (§3–§5) use exactly `POA-EVT-001` §D's minimum field set, no additional fields invented.
 6. **Was any event manufactured retroactively?** No — every event's Result/Reference field is the literal output captured at the time of the action, not reconstructed from memory afterward.
-7. **Can an independent observer reconstruct each test?** Yes — §7's cross-test table, 28 of 30 answers DIRECTLY EVIDENCED, 2 INFERABLE (timestamp precision only), 0 UNAVAILABLE.
+7. **Can an independent observer reconstruct each test?** Yes — §7's cross-test table, 27 of 30 answers DIRECTLY EVIDENCED, 3 INFERABLE (all three are the "when" question — timestamp precision only), 0 UNAVAILABLE.
 8. **Can success and failure be distinguished?** Yes — Test C's exit `128`/`fatal:` output is unambiguously distinct from the contrast probe's exit `0`/no-output success case (§5).
 9. **Can multi-step ordering be established?** Yes — Test B's ordering is established via git's own parent-SHA chain (`5ba3da6`'s parent is exactly the pre-mission `HEAD`), not narrative order (§4).
 10. **Was the mechanism left unchanged?** Yes — `POA-EVT-001`, `POA-ADR-001`, `POA-ACC-001` were read/cited only; `git status --porcelain 20-Shared/GOV/` confirms no modification to any of them this mission (§12).
 11. **Was private reasoning excluded?** Yes — only commands, exact outputs, exit codes, and file states are recorded in §3–§5; no internal deliberation trace appears anywhere in the event tables.
 12. **Were the historical Bucket-B artifacts preserved?** Yes — 32 untracked entries and 1 pre-existing modification remain exactly as found at preflight, confirmed by a final re-query (§12).
-13. **Does the evidence justify the final classification?** Yes — ROBUSTLY VALIDATED (§8) is grounded in three independently-verified PASS classifications (§3–§5) and a 28/30 DIRECTLY EVIDENCED cross-test reconstruction (§7), not an assumption; the two INFERABLE items and the unvalidated persistence requirement are disclosed as bounded limitations (§10), not concealed behind the classification.
+13. **Does the evidence justify the final classification?** Yes — ROBUSTLY VALIDATED (§8, for the three test shapes) and PARTIALLY CLOSED (§9, for the broader Execution Observability requirement) are both grounded in the three independently-verified PASS classifications (§3–§5) and a 27/30 DIRECTLY EVIDENCED cross-test reconstruction (§7), not an assumption; the three INFERABLE items and the unvalidated persistence requirement are disclosed as bounded limitations (§10), not concealed behind either classification.
 
 All thirteen answered affirmatively — the limitations named in §9/§10 are reported as scope boundaries, not as negative answers to these questions.
 
@@ -253,12 +251,12 @@ All thirteen answered affirmatively — the limitations named in §9/§10 are re
 
 ## Final Evidence Gate
 
-1. This report read completely before this line.
+1. Every field in this report's event tables (§3–§5) was transcribed from a real tool result at the time that result was produced, not composed from memory after the fact — the same discipline as `EOV-001`'s own evidence gate.
 2. `POA-EVT-001`, `POA-ADR-001`, `POA-ACC-001` confirmed unmodified this mission — none was edited (§12).
 3. No new architecture, schema, or storage mechanism created — all six event records are report table rows, not a new persisted subsystem (§10).
 4. No private reasoning recorded anywhere in §3–§7.
 5. Reconstruction was actually performed for all three tests (§3–§5, §7), not merely claimed.
-6. Repository integrity confirmed: `HEAD == origin/main` after Test B's push; this report's own commit/push is the mission's final act, performed immediately after this line.
+6. Repository integrity confirmed: `HEAD == origin/main` after Test B's push; `git diff b4d1733 36567bb --stat` confirms exactly the two EOV-002 artifacts changed across the whole mission, nothing else (§12).
 
 ---
 
