@@ -202,3 +202,184 @@ Not yet committed. To be populated additively once known, per this field's own "
 ---
 
 *End of GCR-001 Decision Record. Authorized by: Commander, via direct governance directive, 2026-08-17. Materialized by: `GCR-001`'s materialization directive, 2026-08-17.*
+
+---
+
+# ESR-001 Evidence Retention Decision Record (2026-08-17)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the GCR-001 Decision Record immediately above. No word of §A–§G, the "# Result" section, the OPV-002 Acceptance Record, or the GCR-001 Decision Record is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-17.
+
+## 2. Context
+
+`ESR-001 — Evidence & State Reconciliation.md` classified POA's uncommitted mission-evidence inventory (37 files plus one modified tracked file) and determined the primary gap was **EVIDENCE MODEL GAP** (`ESR-001-COMPLETION-REPORT.md` §10): POA had never defined, as a matter of governance, which classes of mission evidence must become authoritative, which may legitimately remain working-tree-only, and on what basis that line is drawn. `ESR-001`'s Mission-Level Determination was **C — EVIDENCE RETENTION POLICY REQUIRED** (§12), and its Recommended Action was **CHIEF ARCHITECT DECISION REQUIRED** (§13) — a policy ruling, not a materialization or synchronization mission.
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the Chief Architect's ruling:
+
+> "POA shall distinguish Authority from Provenance. Authority-bearing evidence must be retained authoritatively where it establishes, records, or is explicitly required to support an authoritative organizational state or decision. Mission reports and other provenance artifacts do not automatically require authoritative repository synchronization merely because they document execution or reasoning behind an outcome already represented authoritatively. Retention shall follow the artifact's organizational role and reconstructability requirement rather than its file type. Synchronization is a consequence of an authority/retention determination and must not itself determine authority. Existing historical artifacts and prior mission instructions must not be rewritten merely to conform to this decision."
+
+## 4. Scope of This Authorization
+
+Establishes the Authority-vs-Provenance retention principle above as POA's evidence-retention rule, extending `POA-EVID-001` §B–§D (unchanged) and the GOV-015 Semantic Boundary Addendum's Authority Basis / Provenance / Evidence / Retention Requirement / Repository Reference vocabulary (also unchanged). Does **NOT**: synchronize, commit, or push any artifact by virtue of this decision alone; delete any artifact; create a new evidence repository, Runtime Observation Register, event system, or persistence mechanism; rewrite, reclassify, or reword any existing historical mission report or prior instruction; modify `POA-ACC-001`, `POA-EVT-001`, or `ACS-001`; constitute Certification or Transition; invent a new mission ID.
+
+## 5. Consequence
+
+`ESR-001`'s inventory is reclassified under this principle in `40-Runtime/ESR-001-RECLASSIFICATION-REPORT.md` (2026-08-18), read-only. That reclassification identifies which artifacts are Authority-bearing (require authoritative retention), which are Provenance-only (may legitimately remain non-authoritative), which are historical/archival (none found), and which remain unresolved (none found) — and names the exact synchronization set implied, without executing that synchronization.
+
+## 6. Decision Authority
+
+Chief Architect, exercising the same evidence-architecture-scoped authority previously exercised for `GOV-012`→`GOV-013`→`GOV-014`→`GOV-015` (a governance/evidence-policy matter, not a "new architectural layer" requiring Commander-reserved Transition authority per `ORC-001-GOV-001`).
+
+## 7. Artifact
+
+`POA-EVID-001` (the Evidence Retention & Reproducibility Rule this decision extends); `ESR-001-COMPLETION-REPORT.md` (the assessment this decision acts on).
+
+## 8. Artifact Version/State
+
+`POA-EVID-001` v1.0.0, Status unchanged ("Materialized — acceptance pending... Not Approved, Accepted, or Certified") at the time of this decision. `ESR-001-COMPLETION-REPORT.md` unchanged, at its own completed state, at the time of this decision.
+
+## 9. Related Mission
+
+`ESR-001` (the classification mission that identified the gap this decision closes); this materialization directive (a direct Chief Architect governance directive, not a newly authorized mission ID, per its own explicit instruction not to invent one).
+
+## 10. Related Evidence
+
+`40-Runtime/ESR-001-COMPLETION-REPORT.md` §5/§6/§9/§10/§12/§13 (the classification, precedent, and gap-determination this decision acts on); `20-Shared/GOV/POA-EVID-001.md` §C–§D and GOV-015 Semantic Boundary Addendum (the retention test and vocabulary this decision extends, restated in full at §3 above and at the symmetric `POA-EVID-001` ESR-001 Addendum); `40-Runtime/ESR-001-RECLASSIFICATION-REPORT.md` (the resulting reclassification).
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of ESR-001 Evidence Retention Decision Record. Authorized by: Chief Architect, via direct governance directive, 2026-08-17. Materialized by: this record, 2026-08-17.*
+
+---
+
+# TRC-002 Commander Transition Framework Decision Record (2026-08-19)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the GCR-001 and ESR-001 Decision Records immediately above. No word of §A–§G, the "# Result" section, the OPV-002 Acceptance Record, the GCR-001 Decision Record, or the ESR-001 Evidence Retention Decision Record is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-19.
+
+## 2. Context
+
+`TRC-002 — Post-Certification Transition Review.md` found `TRANSITION UNPROVEN` (`40-Runtime/TRC-002-COMPLETION-REPORT.md` §13): no transition criteria and no destination state exist anywhere in POA's architecture (§7, §11), and the matter is reserved to Commander authority alone (§12), not delegable to Chief-Architect-level certification authority. `40-Runtime/TRC-002-COMMANDER-DECISION-DOSSIER.md` (this session, evidence-restored) confirmed this finding directly against primary source text and confirmed no evidence produced since TRC-002 — including `PDM-001`, `ESR-001`, `SR-001`, and this session's own `EIA-001`/`DRA-001` campaign — supplies either criteria or a destination state. `DRA-001-COMPLETION-REPORT.md` independently and separately confirmed no current development target has earned readiness, and named Transition Criteria & Destination-State Definition as the single most consequential open item in POA's developmental position, explicitly Commander-reserved and outside that mission's own development-readiness lens.
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from `TRC-002-COMMANDER-TRANSITION-FRAMEWORK-DECISION.md` (Deployment mirror, Commander, 2026-08-19):
+
+> "POA shall have a minimal Transition Review framework. Its destination is defined functionally, not as a new Age, Era, Stage, or other formal label: A transition may be considered only into an explicitly described operating condition whose purpose, boundaries, evidence, authority, and consequences are recorded before the transition is decided. This decision establishes the governance framework only. It does not declare that POA has transitioned, authorize development, create an architectural layer, name a destination state, or select a development target."
+
+The six Transition Review criteria a future transition decision must establish in a Commander-held record, quoted verbatim:
+
+1. **Destination condition** — the intended operating condition, its purpose, scope, and explicit exclusions.
+2. **Evidence sufficiency** — the evidence relevant to the proposed transition, with each material claim distinguished as verified, inferred, or unknown.
+3. **Authority** — the Commander authority making the decision and any delegated responsibilities; certification authority alone is insufficient.
+4. **Decision separation** — transition authorization is distinct from certification, architectural expansion, and authorization of any individual development mission.
+5. **Consequences and controls** — what the transition changes, what remains unchanged, and which subsequent actions still require separate authorization.
+6. **Retention and reconstructability** — the decision, rationale, and cited evidence are retained so the transition can be reconstructed and reviewed.
+
+**Current determination, quoted verbatim: "No transition is declared by this record. The record defines the review mechanism that was previously absent. A later Commander decision may use this framework to evaluate a specific proposed transition only after the destination condition and its supporting evidence are supplied."**
+
+## 4. Scope of This Authorization
+
+Establishes the minimal Transition Review framework and its six criteria above as POA's now-existing mechanism for evaluating any future proposed transition. Does **NOT**: declare that POA has transitioned; establish or name any formal Age/Era/Stage; authorize development, architecture, a mission, a schema, a console, or any implementation; promote or authorize any current development candidate (`DRA-001`'s NOT READY findings remain unchanged); amend `TRC-002-COMPLETION-REPORT.md`, `PDM-001-COMPLETION-REPORT.md`, `DRA-001-COMPLETION-REPORT.md`, `TRC-002-COMMANDER-DECISION-DOSSIER.md`, or any other existing artifact beyond this record itself; expand certification authority (certification remains artifact-level, per `ACS-001` §B/§D.1, and is not transition authorization); constitute Transition itself, which remains explicitly not declared.
+
+## 5. Consequence
+
+POA now possesses a minimal Transition Review framework — six named criteria — where none existed before (`TRC-002` §3/§7/§11 each confirmed this absence directly). A future proposed transition must satisfy all six criteria, recorded in a Commander-held record, before it may be decided. `TRC-002`'s own `TRANSITION UNPROVEN` determination is not overturned by this decision — no transition is declared, no destination condition is named, and no evidence for one is supplied here. What changes is that the review mechanism `TRC-002` §14 identified as the necessary Commander-reserved prerequisite for any future evidence-backed transition determination now exists.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, exercising exactly the "new architectural layers" reserved-matters authority `TRC-002` §12 and `PDM-001` §10 Milestone 1 both independently identified as required and non-delegable to any Chief-Architect-level or certification authority.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `TRC-002-COMPLETION-REPORT.md` (the assessment this decision responds to and closes the reserved gap identified by); `TRC-002-COMMANDER-DECISION-DOSSIER.md` (the evidence-restoration record that directly preceded this decision within this session).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. `TRC-002-COMPLETION-REPORT.md` unchanged, at its own completed, Provenance-only working-tree state (per `ESR-001-COMPLETION-REPORT.md` §5's classification, not among the nine artifacts `SR-001` synchronized) at the time of this decision.
+
+## 9. Related Mission
+
+`TRC-002` (the review that found `TRANSITION UNPROVEN` and identified this decision as the minimum required action, §14); `DRA-001` (the independent developmental-readiness assessment that reconfirmed Transition as Commander-reserved and non-delegable); this materialization directive (a direct Commander governance directive, not a newly authorized mission ID, consistent with the GCR-001 and ESR-001 Decision Records' own precedent of not inventing one).
+
+## 10. Related Evidence
+
+`40-Runtime/TRC-002-COMPLETION-REPORT.md` §7 (confirmed absence of transition criteria), §11 (confirmed absence of a destination state), §13 (`TRANSITION UNPROVEN` determination), §14 (the minimum required Commander action this decision performs); `40-Runtime/DRA-001-COMPLETION-REPORT.md` §1/§14/§17 (no development target ready; Transition named as Commander-reserved, explicitly outside that mission's own development-readiness lens); `40-Runtime/TRC-002-COMMANDER-DECISION-DOSSIER.md` (evidence-restoration record, this session); the Commander's own ruling text, restated in full at §3 above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of TRC-002 Commander Transition Framework Decision Record. Authorized by: Commander, via direct governance directive, 2026-08-19. Materialized by: this record, 2026-08-19.*
+
+---
+
+# Commander Destination Condition Decision Record (2026-08-19)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the OPV-002, GCR-001, ESR-001, and TRC-002 Commander Transition Framework Decision Records immediately above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-19.
+
+## 2. Context
+
+The TRC-002 Commander Transition Framework Decision Record, immediately above, established a minimal Transition Review framework requiring six criteria — the first of which is "Destination condition: the intended operating condition, its purpose, scope, and explicit exclusions." This record populates that first criterion for the first time, defining the functional destination condition any future proposed transition would be evaluated against.
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the Commander's ruling:
+
+> "For any future Transition Review, the functional destination condition is **Evidence-Gated Development**. This means POA may evaluate a proposed development need only where the need is demonstrated by evidence, existing mechanisms are shown insufficient, and a separate authority decision authorizes the specific work."
+
+**Current determination, quoted verbatim: "The destination condition is now defined. Transition remains not declared pending a Commander-held review against all six criteria."**
+
+## 4. Scope of This Authorization
+
+Defines the destination-condition criterion (criterion 1) of the Transition Review framework established by the TRC-002 Commander Transition Framework Decision Record. Does **NOT**: declare a transition — the current determination states explicitly that transition remains not declared; authorize any individual development mission, architecture change, or implementation; establish or name any formal Age/Era/Stage; promote any roadmap item; alter `DRA-001-COMPLETION-REPORT.md`'s finding, which remains unchanged — no current development target is ready; satisfy criteria 2 through 6 of the Transition Review framework, each of which remains open and unaddressed by this record; amend `TRC-002-COMPLETION-REPORT.md`, `DRA-001-COMPLETION-REPORT.md`, `TRC-002-COMMANDER-DECISION-DOSSIER.md`, the TRC-002 Commander Transition Framework Decision Record, or any other existing artifact beyond this record itself.
+
+## 5. Consequence
+
+The destination-condition criterion of the six-part Transition Review framework is now defined as "Evidence-Gated Development" — a proposed development need may be evaluated for transition only where it is evidence-demonstrated, existing mechanisms are shown insufficient, and a separate authority decision authorizes the specific work. This directly mirrors the evidentiary discipline `DRA-001` and `EIA-001` already applied throughout this session (demonstrated need → evidence → gap → necessity → development), now recorded as the standing destination condition rather than merely a developmental assessment method. Transition itself remains not declared; five of the six framework criteria (evidence sufficiency, authority, decision separation, consequences and controls, retention and reconstructability) remain open for a future Commander-held review.
+
+## 6. Decision Authority
+
+Commander, directly — the same authority that established the Transition Review framework itself (TRC-002 Commander Transition Framework Decision Record §6), now exercising it to define that framework's own first criterion.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); the TRC-002 Commander Transition Framework Decision Record, immediately above (the framework this decision populates criterion 1 of).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. The TRC-002 Commander Transition Framework Decision Record unchanged, at its own just-materialized state, at the time of this decision.
+
+## 9. Related Mission
+
+`TRC-002` (the originating review); the TRC-002 Commander Transition Framework Decision Record's own materialization directive (the framework this decision applies to); this materialization directive (destination-condition definition), consistent with the prior four records' own precedent of not inventing a new mission ID for a direct Commander governance directive.
+
+## 10. Related Evidence
+
+The TRC-002 Commander Transition Framework Decision Record, immediately above in this file (the six-criterion framework this decision populates criterion 1 of); `40-Runtime/DRA-001-COMPLETION-REPORT.md` (whose NOT READY finding across every current development candidate is explicitly preserved unchanged by this decision, §4); the Commander's own ruling text, restated in full at §3 above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of Commander Destination Condition Decision Record. Authorized by: Commander, via direct governance directive, 2026-08-19. Materialized by: this record, 2026-08-19.*
