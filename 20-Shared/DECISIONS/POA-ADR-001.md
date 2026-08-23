@@ -445,3 +445,69 @@ Not yet committed. To be populated additively once known, per this field's own "
 ---
 
 *End of CTD-001 Commander Transition Declaration Decision Record. Authorized by: Commander, via direct governance directive (`CTD-001 — Commander Transition Declaration.md`), 2026-08-23. Materialized by: Mission `CTD-001`, 2026-08-23.*
+
+---
+
+# GAP-001 Identifier Convention Decision Record (2026-08-23)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the OPV-002, GCR-001, ESR-001, TRC-002 Commander Transition Framework, Commander Destination Condition, and CTD-001 Commander Transition Declaration Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+## 1. Artifact Identity
+
+Decision ID: **GAP-001 Identifier Convention Decision Record.** Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-23. Decision status: **AUTHORIZED / EFFECTIVE UPON RECORDING** — issued directly by the Commander, the apex of the authority hierarchy; per the identical reasoning already applied to the GCR-001 ruling (`ACS-001` GCR-001 Addendum §E) and every other direct-Commander record in this file, there is no higher authority to accept a Commander ruling, so no separate Acceptance Record is created for this decision.
+
+## 2. Context
+
+`40-Runtime/GAP-001-COMPLETION-REPORT.md` (2026-08-23) assessed the identifier-scheme conflict recorded as `GAP-001` in `GAP-REGISTER-001.md` — between the repository's live `POA-<FAMILY>-<NNN>` convention and the externally-sourced `POA-PRS-001` (Repository Naming Standard, self-declared "Accepted" but uncorroborated anywhere in the source vault: no named approver, no date, no required Change History field). That assessment found neither convention held a clean, independently-verifiable formal-authorization record, evaluated both under twelve decision criteria, and recommended **RESOLUTION A — EXISTING CONVENTION RETAINED**, citing zero disruption to the existing governance corpus's own citation web against `POA-PRS-001`'s closed Domain-code list, which lacks slots for family codes already in active, evidenced use (`KER`, `RSR`, `EXB`, `ADR`, `MAT`, `META`). The Chief Architect reviewed and accepted that report (`GAP-001 — Formal Adoption and Closure Directive.md`, Deployment mirror), and the Commander now authorizes its formal adoption.
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the authorizing directive's own Objective and required minimum content:
+
+> "POA adopts the existing materialized `POA-<FAMILY>-<NNN>` identifier convention as the authoritative identifier convention for POA going forward."
+
+With the following explicitly established, per the same directive:
+
+1. Existing materialized identifiers remain unchanged.
+2. Existing citations and provenance remain valid.
+3. No retroactive renaming is required.
+4. Future POA artifacts shall use the adopted `POA-<FAMILY>-<NNN>` convention unless a later authorized governance decision establishes an exception.
+5. This decision does not authorize repository restructuring, migration, repository splitting, or development.
+6. `POA-PRS-001` is not adopted as POA's governing identifier convention.
+7. The distinction between historical practice and formal adoption, named as open by `GAP-001-COMPLETION-REPORT.md` §4, is now closed by this explicit decision.
+
+## 4. Scope of This Authorization
+
+Adopts `POA-<FAMILY>-<NNN>` as POA's authoritative identifier convention, resolving `GAP-001`. **Existing-artifact treatment:** every already-materialized identifier (`ORC-001-GOV-001`, `POA-ADR-001`, `ACS-001`, `POA-EVID-001`, `POA-ACC-001`, `POA-EVT-001`, `POA-KER-001`, `POA-RSR-001`, `POA-EXB-001`, every `40-Runtime/*` mission report, and all others carrying an Identity block) is grandfathered by construction — already fully conformant, requiring no action. **Future-artifact rule:** every new POA artifact SHALL use `POA-<FAMILY>-<NNN>` unless a later, separately authorized governance decision establishes an exception; no such exception exists today. **Relationship to `POA-PRS-001`:** explicitly and formally **not adopted** as POA's governing identifier convention — `POA-PRS-001` itself is untouched, unmodified, and not amended by this decision; it remains whatever it is in its own external vault, simply not the convention this repository follows. Does **NOT**: authorize repository restructuring, repository splitting, POA Platform creation, POA Core creation, Boundary Acceptance, migration of any artifact, any individual development mission, Mission Console, Knowledge Core, Mission Intelligence, or Execution Intelligence — each remains subject to its own applicable evidence and authority process, wholly unaffected by this decision. Does **NOT** rename, move, or rewrite any existing file or identifier — per the authorizing directive's own Important Identity Rule: "Do not rename anything to make the repository conform to the decision... No migration is required." Does **NOT** modify `POA-PRS-001`, `POA-META-002`, the Constitution, `CLAUDE.md`, or `ROADMAP.md`. Does **NOT** create a new Identity/Naming Standard artifact — `GAP-001-COMPLETION-REPORT.md` §12 named this as one available future mechanism; this decision uses the Decision Record mechanism instead, per the authorizing directive's own Required Materialization instruction, and does not foreclose a future standard from being authored separately.
+
+## 5. Consequence
+
+`GAP-001` moves from HELD to CLOSED (`GAP-REGISTER-001.md`, updated additively alongside this record). POA's identifier-governance ambiguity — open since `POA-REPO-002`, 2026-08-08 — is resolved: `POA-<FAMILY>-<NNN>` is POA's authoritative convention, effective immediately, both prospectively and with respect to existing identifiers (confirmed authoritative as-is, not renamed). No other governance, architectural, or development consequence follows from this decision.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, exercising the "New architectural layers" class of Commander-reserved authority `GAP-001-COMPLETION-REPORT.md` §12 identified as required for this class of foundational, repository-wide decision, communicated via `GAP-001 — Formal Adoption and Closure Directive.md` (Deployment mirror): *"The Chief Architect has reviewed and accepted the `GAP-001 — Identifier Convention Resolution` completion report... The Chief Architect / Commander now authorizes the formal adoption of this resolution."*
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `GAP-REGISTER-001.md` (the register entry this decision closes, updated additively alongside this record); `40-Runtime/GAP-001-COMPLETION-REPORT.md` (the assessment this decision acts on and adopts in full).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. `GAP-001-COMPLETION-REPORT.md` unchanged, at its own completed, working-tree (untracked) state at the time of this decision — its own retention classification under the Authority-vs-Provenance framework is not determined by this record. `GAP-REGISTER-001.md` Status "Active — living record" unchanged; only the `GAP-001` row within it is updated by this decision's own closure action.
+
+## 9. Related Mission
+
+`GAP-001` — Identifier Convention Resolution (`GAP-001-COMPLETION-REPORT.md`, the assessment that reconstructed the conflict and recommended this resolution); `GAP-001` — Formal Adoption and Closure (this materialization directive, 2026-08-23, the Commander authorization this record formalizes).
+
+## 10. Related Evidence
+
+`40-Runtime/GAP-001-COMPLETION-REPORT.md` §3 (Conflict Reconstruction), §4 (Authority/Precedence Analysis — finding neither convention held a clean formal-authorization record), §8/§9 (Resolution Options and Evaluation, all twelve criteria), §10 (Recommended Resolution A), §12 (Required Authority for Formal Adoption, correctly identifying Commander-level authority as required); `40-Runtime/PRS-001-CONFLICT-DOSSIER.md` (the original evidence dossier establishing the conflict, `POA-REPO-002`, 2026-08-08); `20-Shared/GOV/GAP-REGISTER-001.md` (the register entry this decision closes).
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of GAP-001 Identifier Convention Decision Record. Authorized by: Commander, via direct governance directive (`GAP-001 — Formal Adoption and Closure Directive.md`), 2026-08-23. Materialized by: Mission `GAP-001` (Formal Adoption and Closure), 2026-08-23.*

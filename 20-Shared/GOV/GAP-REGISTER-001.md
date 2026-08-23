@@ -29,7 +29,7 @@ This register formally tracks every governance gap identified by `POA-REPO-001` 
 
 | Gap ID | Title | Category | Status | Blocking? | Discovered In | Resolution Path |
 |---|---|---|---|---|---|---|
-| GAP-001 | `POA-PRS-001` artifact-identifier scheme conflicts with the repository's live convention | Category B — Structural Conflict | **HELD** (Commander decision) | Blocks adoption of a PRS-001-compliant identifier scheme. **Does NOT block Sprint Alpha (`POA-VIS-001`)** per `ADR-002`. | `POA-REPO-002` | Dedicated future governance mission to adopt / supersede / reconcile. Full evidence: `40-Runtime/PRS-001-CONFLICT-DOSSIER.md`. |
+| GAP-001 | `POA-PRS-001` artifact-identifier scheme conflicts with the repository's live convention | Category B — Structural Conflict | **CLOSED** (Commander decision, 2026-08-23 — see §6 Closure Record below) | Blocks adoption of a PRS-001-compliant identifier scheme. **Does NOT block Sprint Alpha (`POA-VIS-001`)** per `ADR-002`. | `POA-REPO-002` | Dedicated future governance mission to adopt / supersede / reconcile. Full evidence: `40-Runtime/PRS-001-CONFLICT-DOSSIER.md`. **Resolved — see §6.** |
 | GAP-002 | `POA-META-002` does not exist as a document anywhere in the authoritative source | Missing Governance Standard | OPEN | Blocks full resolution of `POA-STD-011`'s authority citation. Does not block Sprint Alpha. | `POA-REPO-001`, confirmed `POA-REPO-002` | Must be authored and approved by a future governance mission. **Not to be authored merely to close this gap.** |
 | GAP-003 | `ACS-001` (Certification standard) does not exist anywhere in the authoritative source | Missing Governance Standard | OPEN | Blocks formal certification of any Draft artifact. Does not block Sprint Alpha. | `POA-REPO-001`, confirmed `POA-REPO-002` | Same as GAP-002. |
 | GAP-004 | `POA-STD-006` through `POA-STD-010` do not exist anywhere in the authoritative source | Missing Governance Standards | OPEN | Blocks completion of the Standards catalog. Does not block Sprint Alpha. | `POA-REPO-001`, confirmed `POA-REPO-002` | Same as GAP-002. |
@@ -54,3 +54,27 @@ Per Commander instruction, none of the following are to be performed as a side e
 # 5. Relationship to Sprint Alpha (`POA-VIS-001`)
 
 The Commander has authorized Sprint Alpha application/visual-system materialization to proceed despite every gap in this register remaining open. That authorization is recorded in `ADR-002` and is scoped **only** to Sprint Alpha — it does not certify, approve, or promote anything in this register. This register continues to apply to all other governance and architecture work.
+
+---
+
+# 6. GAP-001 Closure Record (2026-08-23)
+
+**This section is NOT a rewrite of any text above.** It is an additive record, appended per this register's own rule (§2: "An entry closes only when the artifact it describes is actually authored/approved/reconciled by a dedicated future governance mission, at which point this register is updated to record that resolution and cite the mission that performed it") and per `POA-INTEGRITY-CONTROL-001` §L(b)'s historical-integrity discipline. No word of §1–§5 above, including `GAP-001`'s own original row content in §3 (Category, Discovered In, and the original Resolution Path text), is altered — only that row's Status cell is updated in place, consistent with the in-place Status-field-update convention already used throughout this repository (`ACS-001` §J.1).
+
+**Resolving Decision Record:** the **GAP-001 Identifier Convention Decision Record**, appended to `20-Shared/DECISIONS/POA-ADR-001.md`, 2026-08-23.
+
+**Resolution:** `POA-<FAMILY>-<NNN>` — the identifier convention already materialized and in universal use across this repository — is formally adopted as POA's authoritative identifier convention going forward, per Commander decision (`GAP-001 — Formal Adoption and Closure Directive.md`, Deployment mirror), following the recommendation of `40-Runtime/GAP-001-COMPLETION-REPORT.md` (RESOLUTION A — EXISTING CONVENTION RETAINED).
+
+**Existing identifiers:** remain unchanged, fully valid, and fully authoritative exactly as currently recorded. No artifact was renamed, moved, or restructured to close this gap.
+
+**Migration:** none was required or performed.
+
+**`POA-PRS-001`:** formally not adopted as POA's governing identifier convention. It is not modified, amended, or otherwise altered by this closure — it remains exactly as originally found and dossiered in `40-Runtime/PRS-001-CONFLICT-DOSSIER.md`.
+
+**Historical record:** the original conflict, its full evidentiary basis, and the reasoning that led to this resolution remain preserved in full in `40-Runtime/PRS-001-CONFLICT-DOSSIER.md` (the original dossier, `POA-REPO-002`, 2026-08-08) and `40-Runtime/GAP-001-COMPLETION-REPORT.md` (the resolving assessment, 2026-08-23). Neither is rewritten, reworded, or reclassified by this closure.
+
+**Scope:** this closure applies to `GAP-001` only. No other entry in this register is closed, modified, or reclassified by this record.
+
+---
+
+*End of GAP-001 Closure Record. Authorized by: Commander, via direct governance directive (`GAP-001 — Formal Adoption and Closure Directive.md`), 2026-08-23. Materialized by: Mission `GAP-001` (Formal Adoption and Closure), 2026-08-23.*
