@@ -383,3 +383,65 @@ Not yet committed. To be populated additively once known, per this field's own "
 ---
 
 *End of Commander Destination Condition Decision Record. Authorized by: Commander, via direct governance directive, 2026-08-19. Materialized by: this record, 2026-08-19.*
+
+---
+
+# CTD-001 Commander Transition Declaration Decision Record (2026-08-23)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the OPV-002, GCR-001, ESR-001, TRC-002 Commander Transition Framework, and Commander Destination Condition Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-23.
+
+## 2. Context
+
+`40-Runtime/CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` independently re-verified, from primary source text, that all six Transition Review criteria established by the TRC-002 Commander Transition Framework Decision Record are **SATISFIED** — including Criterion 6 (Retention and reconstructability), closed by the preceding Criterion-6 Closure mission (`40-Runtime/TRC-002-CRITERION-6-CLOSURE-REPORT.md`) and independently re-confirmed on `origin/main` by CTR-001 itself. CTR-001 found Transition eligibility **YES**, presented a Commander decision matrix without recommending either option, and returned the matter as `COMMANDER DECISION REQUIRED` — deciding nothing itself, per its own explicit non-recommendation discipline (`CTR-001` §14).
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the Commander's ruling (`CTD-001 — Commander Transition Declaration.md`, Deployment mirror):
+
+> "DECLARE TRANSITION. The destination condition is: EVIDENCE-GATED DEVELOPMENT. This is an explicit Commander decision. The decision is not to be inferred from criteria satisfaction."
+
+The required meaning of the declaration, quoted verbatim from the same ruling:
+
+> "POA has transitioned into the Evidence-Gated Development operating condition. The condition is defined by the existing Commander Destination Condition Decision Record: POA may evaluate a proposed development need only where the need is demonstrated by evidence, existing mechanisms are shown insufficient, and a separate authority decision authorizes the specific work."
+
+**Current determination, quoted verbatim: "POA Transition Status: TRANSITION DECLARED. Destination Condition: EVIDENCE-GATED DEVELOPMENT. Development Authorization: NOT GRANTED GENERALLY. Individual Development: Requires separate evidence + authority. Repository Boundary: Unchanged. POA Platform: Not created. Beta: Not authorized. Automation: Deferred."**
+
+## 4. Scope of This Authorization
+
+Declares Transition into Evidence-Gated Development as POA's now-effective operating condition, per §3 above — the destination condition the Commander Destination Condition Decision Record already named (2026-08-19), now formally entered rather than merely defined. Does **NOT**: authorize repository restructuring; POA Platform creation; creation of a second repository; beta development; Knowledge Core; Mission Intelligence; Mission Console; Execution Intelligence; Organizational Memory expansion; Mission Dispatcher; ChatGPT/Claude/Codex automation; client deployment; public exposure; any individual development mission; any architectural expansion; or any implementation — each remains subject to its own applicable evidence and authority process, unchanged by this declaration. Does **NOT** alter the Paravyoma Constitution, `POA-CON-001`, `POA-META-001`/`POA-000`/`POA-001` (confirmed absent from the repository, `CTR-001` §2), `POA-EVID-001`, the Authority/Provenance mechanisms, `ACS-001` certification authority, any existing Decision Record or Acceptance Record above, the existing baseline (`GAP-006`, still OPEN, untouched), or the existing repository topology. Does **NOT** amend, reclassify, or reword `CTR-001`, `TRC-002-COMPLETION-REPORT.md`, `DRA-001-COMPLETION-REPORT.md`, any `EIA-001` assessment, `RSM-001`, `TRC-002-CRITERION-6-CLOSURE-REPORT.md`, or any other historical mission report — each remains historically accurate and unmodified, per §8 of the authorizing directive. Does not collapse Criteria Satisfaction, Transition Eligibility, Transition Declaration, Development Authorization, Architecture Authorization, and Certification into one another — each remains its own distinct concept, per §5 of the authorizing directive.
+
+## 5. Consequence
+
+POA's Transition Status moves from undeclared to **TRANSITION DECLARED**, under the destination condition **Evidence-Gated Development**, exactly as defined by the Commander Destination Condition Decision Record and restated at §3 above. This is a formal-record consequence: POA's currently-unnamed operating condition is superseded by the Commander-declared adoption of the already-named destination condition. No development mission, architecture change, certification action, or repository change is activated by this declaration alone — each requires its own separate evidence and authority determination, per §4 above. `DRA-001`'s NOT READY findings across every current development candidate remain unchanged and are not reinterpreted as newly authorized by this declaration.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, exercising exactly the Transition-declaration authority the TRC-002 Commander Transition Framework Decision Record and Commander Destination Condition Decision Record each reserved to Commander alone, and that `CTR-001` §4/§14 confirmed remained undischarged pending this decision.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `40-Runtime/CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` (the review this decision acts on).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. `CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` unchanged, at its own completed, working-tree (untracked) state at the time of this decision — its own retention classification under the Authority-vs-Provenance framework is not determined by this record.
+
+## 9. Related Mission
+
+`CTR-001` (the review that verified all six criteria SATISFIED, confirmed eligibility YES, and framed this decision without recommending it); `CTD-001` (this materialization directive).
+
+## 10. Related Evidence
+
+`40-Runtime/CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` §3 (six-criterion verification, all SATISFIED), §4 (Transition Eligibility: YES), §15 (Required Decision Statement, left UNDECIDED by CTR-001 itself); `40-Runtime/TRC-002-CRITERION-6-CLOSURE-REPORT.md` (Criterion 6 closure, verified on `origin/main`); the TRC-002 Commander Transition Framework Decision Record and Commander Destination Condition Decision Record, both immediately above in this file (the framework and destination condition this decision now formally enters); the Commander's own ruling text, restated in full at §3 above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of CTD-001 Commander Transition Declaration Decision Record. Authorized by: Commander, via direct governance directive (`CTD-001 — Commander Transition Declaration.md`), 2026-08-23. Materialized by: Mission `CTD-001`, 2026-08-23.*
