@@ -511,3 +511,81 @@ Not yet committed. To be populated additively once known, per this field's own "
 ---
 
 *End of GAP-001 Identifier Convention Decision Record. Authorized by: Commander, via direct governance directive (`GAP-001 — Formal Adoption and Closure Directive.md`), 2026-08-23. Materialized by: Mission `GAP-001` (Formal Adoption and Closure), 2026-08-23.*
+
+---
+
+# BA-001 Core/Platform Boundary Decision Record (2026-08-23)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as every prior additive record in this file, most recently the GAP-001 Identifier Convention Decision Record immediately above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+## 1. Artifact Identity
+
+Decision ID: **BA-001 Core/Platform Boundary Decision Record.** Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-23. Decision status: **AUTHORIZED / EFFECTIVE UPON RECORDING** — issued directly by the Commander, the apex of the authority hierarchy; per the identical reasoning already applied to every direct-Commander record in this file, no separate Acceptance Record is created for this decision.
+
+## 2. Context
+
+`40-Runtime/BA-001-COMPLETION-REPORT.md` (2026-08-23) assessed whether evidence justifies accepting a formal boundary between POA Core and POA Platform, testing `RSM-001`'s own boundary hypothesis against twelve necessity criteria and separating the conceptual, architectural, organizational/governance, and repository questions as four distinct questions, per its own governing directive. It found: the conceptual/architectural distinction directly evidenced (zero verified code coupling, independent dependency graphs and lifecycles); organizational/governance separation and physical repository separation each not currently evidenced or justified (no distinct Platform authority exists anywhere in the evidence base — `ORC-001-GOV-001`'s Commander-reserved matters already include "product vision" — and no material consequence of the current unified structure was found). The report classified this **BOUNDARY B — boundary accepted in principle; physical separation not authorized**. The Chief Architect reviewed the report, requested and confirmed a bounded precision-verification pass (`BA-001 — Chief Review and Precision Verification.md`), and — following two targeted terminology corrections to the completion report disambiguating "conceptual/architectural" recognition from "organizational/governance" separation — the Commander now authorizes formal adoption of the substantive finding under the following explicit disposition.
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the authorizing directive's own required disposition table:
+
+| Boundary | Status |
+|---|---|
+| Conceptual distinction | **ACCEPTED** |
+| Architectural distinction | **ACCEPTED IN PRINCIPLE** |
+| Organizational / governance separation | **NOT ESTABLISHED** |
+| Physical repository separation | **NOT AUTHORIZED / NOT JUSTIFIED** |
+| Migration | **NOT AUTHORIZED** |
+| Development | **NOT AUTHORIZED** |
+
+With the following explicitly established, per the authorizing directive's own required minimum content:
+
+1. POA recognizes Core and Platform as distinct conceptual/architectural domains.
+2. This recognition does **not** establish a separate Platform organization.
+3. This recognition does **not** establish separate Platform governance authority.
+4. This recognition does **not** establish a separate Platform steward.
+5. No physical repository boundary is established.
+6. No repository split is authorized.
+7. No migration is authorized.
+8. No development authorization follows from this decision.
+9. Future repository separation requires separate evidence and explicit authority.
+10. The unresolved Mission Console naming collision (`BA-001-COMPLETION-REPORT.md` §4/§14/§15; originally flagged by `RSM-001` §20) remains an open documentation/terminology issue and is **not** resolved by this decision.
+11. This decision does **not** alter the Paravyoma Constitution or the existing governance authority chain (`ORC-001-GOV-001`).
+12. This decision is based on `BA-001-COMPLETION-REPORT.md` and its underlying evidence, as verified by the subsequent Chief Review and Precision Verification pass.
+
+## 4. Scope of This Authorization
+
+Formally adopts the six-row disposition in §3 above as POA's authoritative position on the Core/Platform boundary question. **Existing-artifact treatment:** no artifact is renamed, moved, or restructured by this decision. **Relationship to `RSM-001`:** this decision formally accepts the conceptual/architectural portion of `RSM-001`'s boundary hypothesis while explicitly declining, at this time, the organizational-governance and repository-topology portions — `RSM-001`'s own two-repository topology hypothesis remains exactly that, a hypothesis, not adopted by this decision. Does **NOT**: create a POA Core repository, a POA Platform repository, or any new repository; split the existing repository; move any directory; rename any artifact; migrate any history; alter repository topology; modify GitHub settings; create a Platform steward or any separate governance track; authorize any individual development mission; create Mission Console, Knowledge Core, Mission Intelligence, or Execution Intelligence; modify `POA-META-002`, the Constitution, `CLAUDE.md`, or `ROADMAP.md`; resolve the Mission Console naming collision (left explicitly open, §3 item 10); or modify `GAP-REGISTER-001` (no existing entry in that register corresponds to this boundary question, so none is touched).
+
+## 5. Consequence
+
+POA now has a formally adopted, disambiguated position on the Core/Platform question: the conceptual and architectural distinction is recognized as POA's authoritative position going forward; the organizational-governance and repository dimensions of the same question remain explicitly open, pending their own future evidence and authority, per §3 items 5–9. No other governance, architectural, or development consequence follows from this decision.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, communicated via `BA-001 — Precision Correction and Formal Adoption.md` (Deployment mirror): *"The BA-001 completion report and subsequent Chief Review / Precision Verification have been reviewed. Decision: APPROVED. The substantive BA-001 finding is accepted."*
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `40-Runtime/BA-001-COMPLETION-REPORT.md` (the assessment this decision formally adopts, as corrected per `BA-001 — Precision Correction and Formal Adoption.md` Correction 1/2).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. `BA-001-COMPLETION-REPORT.md` at its corrected state (two targeted terminology corrections applied per the authorizing directive, no substantive change to evidence, findings, options, or recommendation) — its own retention classification under the Authority-vs-Provenance framework is not determined by this record.
+
+## 9. Related Mission
+
+`BA-001` — Boundary Acceptance Assessment (`BA-001-COMPLETION-REPORT.md`, the assessment that reconstructed `RSM-001`'s hypothesis and recommended BOUNDARY B); `BA-001 — Chief Review and Precision Verification.md` (the bounded integrity pass that confirmed the finding and identified the terminology correction); `BA-001 — Precision Correction and Formal Adoption.md` (this materialization directive, 2026-08-23, the Commander authorization this record formalizes).
+
+## 10. Related Evidence
+
+`40-Runtime/BA-001-COMPLETION-REPORT.md` §4/§6 (conceptual/architectural distinction, evidenced), §7/§9.B (organizational/governance separation, not evidenced), §8/§9.I/§9.J (repository separation, not justified), §13 (recommended outcome), §16 (explicit non-actions); `40-Runtime/RSM-001-REPOSITORY-STRUCTURE-ASSESSMENT.md` (the original boundary hypothesis this decision partially adopts); `40-Runtime/GAP-001-COMPLETION-REPORT.md` and the GAP-001 Identifier Convention Decision Record immediately above (confirming the now-authoritative identifier convention is a non-factor for this decision, per `BA-001-COMPLETION-REPORT.md` §10).
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of BA-001 Core/Platform Boundary Decision Record. Authorized by: Commander, via direct governance directive (`BA-001 — Precision Correction and Formal Adoption.md`), 2026-08-23. Materialized by: Mission `BA-001` (Boundary Acceptance Assessment, Chief Review, and Formal Adoption), 2026-08-23.*
