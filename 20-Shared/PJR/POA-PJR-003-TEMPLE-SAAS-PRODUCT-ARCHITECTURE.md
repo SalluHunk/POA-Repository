@@ -440,3 +440,23 @@ Per the brief's §17 STOP CONDITION, this mission did **not**:
 - **Post-commit verification:** exact commit SHA and full changed-file list are reported in `40-Runtime/TSAAS-001-COMPLETION-REPORT.md` §"Resulting Commit," populated after the commit, following this repository's established pattern for `#11`/`§11` fields in prior TSAAS records.
 
 **This document stops here. No development, no pilot, no dashboard, and no `TSAAS-002` proceeds without separate, explicit Chief Architect/Commander authorization, per the brief's own STOP CONDITION.**
+
+---
+
+## Addendum (2026-08-25/26, `TSAAS-DEC-002`) — Core Architecture Decisions Ratified
+
+**This section is NOT a rewrite of any text above.** Every section of this document — including §13's twelve `OPEN` decisions and every `PROPOSED`/`INFERRED` classification throughout — is preserved verbatim, unedited. This addendum records a subsequent, additive event, per this repository's established append-only convention.
+
+Following `TSAAS-001-REV-001`'s precision review (`40-Runtime/TSAAS-001-REV-001-COMPLETION-REPORT.md`) and Chief Architect / Commander Authorization "EXECUTE" (`TSAAS-DEC-002 — Chief Architect Decision Mission.md`, Deployment mirror), six core architecture decisions plus one cross-cutting decision have been ratified — full text in `20-Shared/DECISIONS/POA-ADR-001.md`, "TSAAS-DEC-002 — Temple Suite Core Architecture Decision Record":
+
+1. **Relationship Memory** is decided as a **Shared Core Domain**, with a four-layer conceptual separation (Identity as a component of Relationship Memory; Transaction History remaining domain-owned but referenced; Journey State excluded, belonging to DGP alone).
+2. **Domain ownership boundaries** (§3 above) are ratified at the conceptual Owns/Produces/Consumes/Does-NOT-own level for all nine domains.
+3. **DGP's orchestration boundary** (§5 above) is ratified in full, including the explicit prohibition on DGP writing directly into another domain's transaction records.
+4. **The authoritative devotee journey model** (§6 above) is decided: the ten-stage strategic arc as the strategic vocabulary, DGP's own ten-stage operational list as the pilot-relevant operational decomposition, the Course Tracking/Belonging tension resolved in favor of the ratified pilot boundary, and Practice/Guide Others formally classified as conceptual-only.
+5. **The Human/Software boundary** (§8 above) is ratified as a product boundary, resolving both ambiguities this document left `UNKNOWN` (mentor-assignment finalization; follow-up prioritization).
+6. **First creation of a person record** — the new gap `TSAAS-001-REV-001` surfaced — is decided: Relationship Memory is authoritative for the canonical identity record regardless of first-touch entry point, as a direct consequence of Decision 1.
+7. **Cross-cutting:** the Community Engagement/DGP communications ambiguity this document flagged at §3.7 is resolved — DGP decides that a journey-triggered communication should occur; Community Engagement owns the delivery infrastructure.
+
+**What remains exactly as this document recorded it, not touched by `TSAAS-DEC-002`:** the exact Relationship Memory entity/field boundary; household/family's first-class status; the consent data-model shape; Inventory's dual taxonomy-label classification (§3.5); the precise strategic-to-operational journey stage mapping; the deduplication matching algorithm; the communications trigger/interface mechanism and channel selection; and four of §13's twelve original `OPEN` items (tenant boundary, observability requirements, artifact-family designation, and the TGP↔ISKCON-Lucknow-pilot identity question) — all explicitly preserved as `OPEN`, per `TSAAS-DEC-002`'s own scope limits. Full reasoning, alternatives considered, and evidence citations: `40-Runtime/TSAAS-DEC-002-COMPLETION-REPORT.md`.
+
+This addendum does not authorize `TSAAS-002`, application development, a technology-stack selection, or pilot execution — see the Decision Record's own §4 (Scope of This Authorization) for the complete non-action list.
