@@ -648,7 +648,7 @@ Chief Architect, directly, via "Chief Architect Review — POA-PJR-001" (chat di
 
 ## 11. Resulting Commit / Repository State
 
-Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+Committed `fd0ee0e887513b0ddaf7274d9b6aa6515ca9eef9` ("POA-PJR-001 — Paravyoma Project Registry + Temple SaaS Baseline"), pushed to `origin/main` (`a57fc6e..fd0ee0e`), 2026-08-25. `HEAD = origin/main = fd0ee0e887513b0ddaf7274d9b6aa6515ca9eef9`, verified via `git rev-parse HEAD origin/main` immediately after push. This field is populated additively, after the fact, per its own rule (§D.6) — no other word of this record is altered by this addition.
 
 ---
 

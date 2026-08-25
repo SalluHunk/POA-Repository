@@ -177,7 +177,7 @@ No historical finding was erased or rewritten in either file.
 
 Performed this session, explicitly authorized by the review's own item 5 ("Commit the resulting PJR-001/PJR-002 materialization and authorized correction(s) to `origin/main`"). Exact commit hash and resulting `origin/main` state recorded below, added additively once known, per `POA-ADR-001` §D.6's own "populate once known" convention:
 
-**Resulting commit:** _to be populated immediately after `git commit`/`git push` complete, in a follow-up additive edit to this section and to the Decision Record's own §11 — never edited into this addendum's prior text._
+**Resulting commit:** `fd0ee0e887513b0ddaf7274d9b6aa6515ca9eef9` ("POA-PJR-001 — Paravyoma Project Registry + Temple SaaS Baseline"), pushed to `origin/main` (`a57fc6e..fd0ee0e`), 2026-08-25 — 4 files changed, 565 insertions, 0 deletions (the registry, baseline, `POA-ADR-001`'s new Decision Record, and this completion report). `HEAD = origin/main = fd0ee0e887513b0ddaf7274d9b6aa6515ca9eef9`, verified via `git rev-parse HEAD origin/main` immediately after push. None of the other 41 pre-existing untracked `40-Runtime/` files (from prior, separately-gated missions) were staged, committed, or otherwise touched — this commit is scoped exactly to `POA-PJR-001`'s own materialization and the naming-resolution correction.
 
 ## G. Non-Actions (Item 6 of the Review, confirmed)
 
