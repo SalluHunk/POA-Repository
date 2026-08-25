@@ -109,3 +109,22 @@ Per Chief Architect Review of `POA-PJR-001` (2026-08-25, chat directive):
 **What this addendum does NOT do:** it does not resolve whether "Temple Solutions" or "Temple Growth Platform" are the same initiative as Temple SaaS under an earlier name, or genuinely separate — that remains explicitly unmapped, per the Chief Architect's own instruction not to infer additional architectural relationships. Baseline §8 Open Questions 2–6 (partner-engagement verification, ISKCON Lucknow pilot status, alternate-repository existence, licensing-document existence, TGP's own identity) are unaffected and remain open.
 
 Full decision record: `20-Shared/DECISIONS/POA-ADR-001.md`, "Temple SaaS Canonical Naming Resolution Decision Record (2026-08-25)."
+
+---
+
+## Addendum (2026-08-25, `TSAAS-DEC-001`) — TGP Naming Evolution Resolved
+
+**This section is NOT a rewrite of any text above.** The Addendum immediately above (Chief Architect Naming Resolution) is preserved verbatim, unedited — including its own explicit statement that "Temple Growth Platform" (TGP) is preserved as historical/source terminology with no relationship to Temple SaaS inferred. This section records a subsequent, additive resolution, per this repository's established append-only convention.
+
+Following `40-Runtime/TSAAS-RECON-001-COMPLETION-REPORT.md`'s reconciliation of a previously unsearched evidence archive (`D:\ISKCON LKO\ISKCON SAAS App`), `TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision.md` (Deployment mirror) formally resolved TGP's relationship to Temple SaaS:
+
+> "Temple Growth Platform (TGP) is retained as historical/working terminology from the earlier discovery/commercial phase of the same product evolution; is not treated as a separate product, module, or competing initiative; remains preserved in historical documents for provenance."
+
+**Effective, additive update to Entry 3:**
+
+| Field | Resolved value |
+|---|---|
+| Temple Growth Platform (TGP) | Historical/working name from the discovery and commercial-negotiation phase (2026-06-03 → 2026-06-30) of the same product evolution that produced Devotee Growth Platform as its canonical, currently-advancing name. Not a separate product or competing initiative. No formal rename date or signed renaming decision is claimed to exist — this is a naming-evolution characterization, not a documented single rename event. |
+| Resulting hierarchy | `Paravyoma → Temple Suite → Devotee Growth Platform`, with `Devotee Growth Platform → ISKCON Lucknow pilot` as the first commercial/pilot implementation, and `Temple Growth Platform → historical/working name` preserved for provenance. |
+
+Full decision record: `20-Shared/DECISIONS/POA-ADR-001.md`, "TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision Record (2026-08-25)." This resolution does not authorize `TSAAS-001` or any implementation, commercial, or pilot activity — see that record's own §4/§7 for the full non-action list.

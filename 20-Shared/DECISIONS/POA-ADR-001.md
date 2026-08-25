@@ -657,3 +657,69 @@ Committed `fd0ee0e887513b0ddaf7274d9b6aa6515ca9eef9` ("POA-PJR-001 — Paravyoma
 ---
 
 *End of BA-001 Core/Platform Boundary Decision Record. Authorized by: Commander, via direct governance directive (`BA-001 — Precision Correction and Formal Adoption.md`), 2026-08-23. Materialized by: Mission `BA-001` (Boundary Acceptance Assessment, Chief Review, and Formal Adoption), 2026-08-23.*
+
+---
+
+# TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision Record (2026-08-25)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as every prior additive record in this file, most recently the Temple SaaS Canonical Naming Resolution Decision Record immediately above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+## 1. Artifact Identity
+
+Decision ID: **TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision.** Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-25. Decision status: **AUTHORIZED / EFFECTIVE UPON RECORDING** — issued directly via `TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision.md` (Deployment mirror), headed "Chief Architect / Commander Authorization: EXECUTE," following the same authority equivalence the Temple SaaS Canonical Naming Resolution Decision Record above already establishes for this class of naming/registry resolution.
+
+## 2. Context
+
+The Temple SaaS Canonical Naming Resolution Decision Record (2026-08-25, immediately above) resolved the canonical project name (Temple SaaS) and first-module priority (Devotee Growth Platform), while explicitly declining to characterize any relationship between those names and "Temple Growth Platform" (TGP) — leaving TGP's identity as an open question (`POA-PJR-002` §8 Open Question 6). `40-Runtime/TSAAS-RECON-001-COMPLETION-REPORT.md` (2026-08-25) subsequently reconciled a previously unsearched evidence archive (`D:\ISKCON LKO\ISKCON SAAS App`, 41 files, including four full ChatGPT discovery transcripts and a fresh live-webpage fetch) and found a circumstantial but consistent evidentiary case — same pilot site (ISKCON Lucknow), an exact 14-week rollout-plan match between the archived commercial material and the live Devotee Growth Platform page, and `KB-001`'s own effort-estimation line item literally named "Temple Growth Pilot" — that TGP is the discovery/commercial-negotiation-phase working name for the same product evolution that was subsequently published under the canonical name "Devotee Growth Platform." `TSAAS-RECON-001` §13 recorded this as `INFERRED`, not decided, and returned it to Chief Architect/Commander for an explicit ruling either confirming or declining the relationship. This record supplies that ruling.
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the authorizing directive (`TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision.md`, §1):
+
+> "Temple SaaS remains the canonical POA project/product initiative; Temple Suite is the canonical product/platform expression of Temple SaaS; Devotee Growth Platform (DGP) is the canonical name of the first Temple Suite growth-oriented module/solution being advanced for commercial/pilot implementation; Temple Growth Platform (TGP) is retained as historical/working terminology from the earlier discovery/commercial phase of the same product evolution; is not treated as a separate product, module, or competing initiative; remains preserved in historical documents for provenance."
+
+With the following explicitly established, per the authorizing directive's own required formulation (§1, §3):
+
+1. This decision does **not** invent a formal rename date or claim a signed renaming decision exists anywhere in the evidence. No such artifact was found by `TSAAS-RECON-001` or any prior mission, and none is asserted here.
+2. The authoritative formulation is a **product naming evolution**: TGP as the working name used during the discovery/commercial-negotiation phase (2026-06-03 → 2026-06-30, per `TSAAS-RECON-001` §9's chat-archive timeline), DGP as the subsequently adopted, currently-live canonical name (published on the Paravyoma-Site marketing pages by 2026-06-25 and confirmed still current by `TSAAS-RECON-001`'s live-webpage fetch, 2026-08-25).
+3. Resulting product hierarchy: `Paravyoma → Temple Suite → Devotee Growth Platform`, with the first commercial/pilot implementation represented as `Devotee Growth Platform → ISKCON Lucknow pilot`. Historical commercial/discovery terminology: `Temple Growth Platform → historical/working name`. No second TGP product is created.
+4. DGP's architectural characterization is preserved exactly as `TSAAS-RECON-001` §7 established: **presented** as a conventional Temple Suite module, but exhibiting cross-module/journey-orchestration **behavior** because its own workflows interact with Events, Seva, Volunteer Management, Book Distribution, Analytics, and related capabilities. This decision does **not** freeze the detailed technical architecture — it records this characterization as a requirement `TSAAS-001`, if and when separately authorized, must investigate and materialize, not as an architecture decided here.
+5. The pilot boundary is preserved exactly as `TSAAS-RECON-001` §8/§11 established: `Awareness → Visit → Registration → First Association → Belonging`, out of the complete strategic journey `Awareness → Visit → Registration → First Association → Belonging → Education → Practice → Service → Leadership → Guide Others`. The later stages remain strategic vision, not automatically included in the first implementation. This decision does not expand the MVP.
+6. The Human/Software boundary principle identified by `TSAAS-RECON-001` §9 ("Temple Suite supports human relationships; it does not replace them" — human responsibilities: welcoming, relationship building, guidance, teaching, mentoring, encouragement, spiritual care; software responsibilities: registration, segmentation, guide assignment, notifications, event reminders, engagement tracking, analytics) is recorded as a **candidate Temple Suite Product Principle**. This decision does **not** elevate it into the Paravyoma Constitution or any other constitutional artifact — formal constitutional elevation, if pursued, requires its own separate decision under whatever governance convention applies to constitutional artifacts, a requirement this record identifies rather than bypasses.
+7. Commercial status is preserved exactly as `TSAAS-RECON-001` §10 established: historical estimates remain historical, proposals remain proposed, no discovered price is institutionally operative, and no SOW/licensing proposal is treated as executed absent evidence of acceptance. This decision performs no commercial approval or pricing action.
+
+## 4. Scope of This Authorization
+
+Formally resolves the TGP↔DGP naming relationship left open by the Temple SaaS Canonical Naming Resolution Decision Record and `POA-PJR-002` §8 Open Question 6, adopting the "product naming evolution" framing in §3 above. Does **NOT**: authorize `TSAAS-001` or any other implementation, application-development, database-schema, API, UI, POA-dashboard, observation-adapter, or runtime-automation mission — explicitly excluded per the authorizing directive's own §9. Does **NOT** modify the source archive (`D:\ISKCON LKO\ISKCON SAAS App`) in any way. Does **NOT** execute commercial pricing or begin the DGP pilot. Does **NOT** freeze DGP's detailed technical architecture — §3 item 4 records a characterization requirement for a future mission, not an architecture decision. Does **NOT** elevate the Human/Software boundary principle into the Paravyoma Constitution or any other constitutional artifact — §3 item 6 identifies that as a distinct, separately-required decision. Does **NOT** rewrite `POA-PJR-001`, `POA-PJR-002`, `40-Runtime/TSAAS-RECON-001-COMPLETION-REPORT.md`, `40-Runtime/TEMPLE-SAAS-EVIDENCE-INVENTORY-AND-RECONCILIATION-REPORT.md`, or any other historical report — each is updated, where applicable, only by a dated additive addendum, per this repository's established append-only convention. Does **NOT** rename any historical source document merely to make terminology consistent — `Temple Growth Platform - *.docx`, `KB-001`, `KB-002`, and every other archive file retain their original names exactly.
+
+## 5. Consequence
+
+`POA-PJR-002` §8 Open Question 6 (TGP's identity/relationship to Temple SaaS) is resolved: TGP is the historical/working name for the discovery and commercial-negotiation phase of the same product evolution that produced Devotee Growth Platform as its canonical, currently-advancing name. The Temple SaaS Canonical Naming Resolution Decision Record's own explicit non-resolution of this question (§4 of that record: "does NOT adopt, reject, or otherwise characterize any relationship... that mapping remains explicitly open") is superseded on this one point only, by this later, more-evidenced decision — every other element of that earlier record (canonical project name, first-module designation, non-authorization of implementation) remains unchanged and is not reopened. `POA-PJR-001` and `POA-PJR-002` are updated additively (dated 2026-08-25 addendum sections, this record's own materialization) to reflect this resolution without altering their original historical text. `TSAAS-RECON-001`'s own `INFERRED` classification of the TGP≈DGP relationship (§5, §14 Evidence/Provenance Matrix) is not rewritten — it remains an accurate record of what that mission found and how confidently, prior to this decision converting it into an organizational determination. No commercial, architectural-freeze, or development consequence follows from this decision.
+
+## 6. Decision Authority
+
+Chief Architect / Commander, directly, via `TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision.md` (Deployment mirror): *"Chief Architect / Commander Authorization: EXECUTE. Execute TSAAS-DEC-001 as a bounded governance decision mission following the completed TSAAS-RECON-001."*
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `20-Shared/PJR/POA-PJR-001-PARAVYOMA-PROJECT-REGISTRY.md` (updated additively); `20-Shared/PJR/POA-PJR-002-TEMPLE-SAAS-PROJECT-BASELINE.md` (updated additively); `40-Runtime/TSAAS-RECON-001-COMPLETION-REPORT.md` (the reconciliation this decision acts on); the Temple SaaS Canonical Naming Resolution Decision Record, immediately above in this file (the prior decision this record partially supersedes, on the TGP-relationship point only).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. `POA-PJR-001`/`POA-PJR-002` at their 2026-08-25 state (including the Temple SaaS Canonical Naming Resolution addenda and, for `POA-PJR-001`'s predecessor evidence report, the file-count correction addendum from `TSAAS-RECON-001`), each updated by one further additive addendum section alongside this record — original content unmodified. `TSAAS-RECON-001-COMPLETION-REPORT.md` unchanged, at its own completed, working-tree (untracked) state at the time of this decision.
+
+## 9. Related Mission
+
+`TSAAS-RECON-001` — Temple SaaS Evidence Reconciliation (the mission that produced the `INFERRED` finding this decision converts into a determination); `POA-PJR-001` — Paravyoma Project Registry + Temple SaaS Materialization (the mission whose Temple SaaS Canonical Naming Resolution Decision Record this record partially supersedes); `TSAAS-DEC-001` (this materialization directive, 2026-08-25).
+
+## 10. Related Evidence
+
+`40-Runtime/TSAAS-RECON-001-COMPLETION-REPORT.md` §5 (Product Hierarchy Reconciliation, the TGP≈DGP circumstantial case), §7 (DGP Architectural-Role Analysis), §8 (Devotee Journey Reconciliation, MVP boundary), §9 (Human/Software Boundary), §10 (Commercial-State Reconciliation), §13 (Recommended Authoritative State), §14 (Evidence/Provenance Matrix); `40-Runtime/TEMPLE-SAAS-EVIDENCE-INVENTORY-AND-RECONCILIATION-REPORT.md` §4–§6, §9 (the underlying archive evidence `TSAAS-RECON-001` reconciled); the Temple SaaS Canonical Naming Resolution Decision Record, immediately above in this file (the prior decision this record extends); the authorizing directive's own text, restated in full at §3 above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision Record. Authorized by: Chief Architect / Commander, via direct governance directive (`TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision.md`), 2026-08-25. Materialized by: Mission `TSAAS-DEC-001`, 2026-08-25.*
