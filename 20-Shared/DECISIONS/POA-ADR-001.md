@@ -588,4 +588,72 @@ Not yet committed. To be populated additively once known, per this field's own "
 
 ---
 
+*End of BA-001 Core/Platform Boundary Decision Record. Authorized by: Commander, via direct governance directive (`BA-001 — Precision Correction and Formal Adoption.md`), 2026-08-23. Materialized by: Mission `BA-001`, 2026-08-23.*
+
+---
+
+# Temple SaaS Canonical Naming Resolution Decision Record (2026-08-25)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as every prior additive record in this file, most recently the BA-001 Core/Platform Boundary Decision Record immediately above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+## 1. Artifact Identity
+
+Decision ID: **Temple SaaS Canonical Naming Resolution Decision Record.** Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-25. Decision status: **AUTHORIZED / EFFECTIVE UPON RECORDING** — issued directly by the Chief Architect, via "Chief Architect Review — POA-PJR-001" (chat directive, 2026-08-25). Per the same equivalence this file's own GAP-001 Identifier Convention Decision Record §6 already uses ("The Chief Architect / Commander now authorizes..."), this record treats "Chief Architect" as carrying the authority to resolve a naming/registry question about material already authorized under this session's own prior "Chief Architect Authorization" — distinct from, and not exercising, the Commander-reserved "Product vision"/"Commercial strategy" categories `ORC-001-GOV-001` names, which this decision does not touch (see §4).
+
+## 2. Context
+
+`20-Shared/PJR/POA-PJR-001-PARAVYOMA-PROJECT-REGISTRY.md` and `20-Shared/PJR/POA-PJR-002-TEMPLE-SAAS-PROJECT-BASELINE.md` (materialized 2026-08-25, Mission `POA-PJR-001`) found at least four related but unresolved names in the Temple evidence base — "Temple Solutions," "Temple Suite," "Temple Growth Platform" (product code `TGP`), and "Temple SaaS" (product code `TSA`) — and flagged their relationship as Open Question 1, the single most consequential unresolved question the mission's completion report named (§8). The Chief Architect reviewed `POA-PJR-001` in full and resolved the canonical-name and first-module questions directly, via "Chief Architect Review — POA-PJR-001" (chat directive, 2026-08-25).
+
+## 3. Decision
+
+Restated inline, per §D.5 / `POA-EVID-001`'s reproducibility discipline — quoted verbatim from the authorizing review:
+
+> "Temple SaaS is the canonical project/product initiative being materialized under POA. It consists of nine modules as captured in the Temple baseline. Devotee Growth Platform is the first module selected for implementation/commercial advancement. Do not infer additional architectural relationships for the names Temple Solutions or Temple Growth Platform. Preserve those terms as historical/source terminology unless an explicit authoritative mapping is available."
+
+With the following explicitly established:
+
+1. **Temple SaaS** is the canonical project/product initiative materialized under POA — the nine-module platform documented in `POA-PJR-002-TEMPLE-SAAS-PROJECT-BASELINE.md` §4.
+2. **Devotee Growth Platform** (Module 8 of 9) is designated the first module selected for implementation/commercial advancement.
+3. **"Temple Solutions" and "Temple Growth Platform" (TGP) remain preserved as historical/source terminology.** No additional architectural relationship between either term and Temple SaaS is inferred by this decision.
+4. This decision does not certify, approve, or authorize implementation, application development, dashboard development, adapters, observation stores, or runtime automation for Temple SaaS or Devotee Growth Platform.
+5. `POA-PJR-001`/`POA-PJR-002`'s original historical findings (including their own naming-ambiguity tables and Open Question 1 text) are not rewritten — this decision is recorded as a dated addendum in each, per this repository's established append-only convention, exactly as this decision itself is recorded additively here.
+
+## 4. Scope of This Authorization
+
+Resolves the canonical project name (Temple SaaS) and designates first-module priority (Devotee Growth Platform) for the `POA-PJR-001`/`POA-PJR-002` registry and baseline only. Does **NOT**: adopt, reject, or otherwise characterize any relationship between Temple SaaS and Temple Solutions/Temple Growth Platform (TGP) beyond "no additional architectural relationship is inferred" — that mapping remains explicitly open, to be resolved only by a future explicit authoritative mapping, not by inference. Does **NOT** authorize `TSAAS-001` or any other implementation mission, application code, dashboard development, adapters, observation stores, or runtime automation — explicitly excluded per the authorizing review's own item 6. Does **NOT** resolve `POA-PJR-002` §8 Open Questions 2–6 (partner-engagement verification, ISKCON Lucknow pilot status, alternate-repository existence, licensing-document existence, TGP's own identity) — these remain open, unaffected by this decision. Does **NOT** modify `POA-PRS-001` (still not adopted as POA's governing identifier convention, per the GAP-001 Identifier Convention Decision Record above) or any other source document. Does **NOT** exercise the Commander-reserved "Product vision" or "Commercial strategy" categories (`ORC-001-GOV-001`) beyond naming/priority-designation of material already authorized for materialization under `POA-PJR-001`.
+
+## 5. Consequence
+
+`POA-PJR-002` §8 Open Question 1 is resolved for its canonical-name and first-module sub-questions specifically; its Temple-Solutions/TGP-relationship sub-question is explicitly **not** resolved and remains open, per the Chief Architect's own instruction. `POA-PJR-001` and `POA-PJR-002` are updated additively (dated 2026-08-25 addendum sections) to record this resolution without altering their original historical text. No other governance, architectural, or development consequence follows from this decision.
+
+## 6. Decision Authority
+
+Chief Architect, directly, via "Chief Architect Review — POA-PJR-001" (chat directive, 2026-08-25): *"The Chief Architect now resolves the principal Temple naming ambiguity as follows: Temple SaaS is the canonical project/product initiative being materialized under POA... Devotee Growth Platform is the first module selected for implementation/commercial advancement."*
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `20-Shared/PJR/POA-PJR-001-PARAVYOMA-PROJECT-REGISTRY.md` (updated additively); `20-Shared/PJR/POA-PJR-002-TEMPLE-SAAS-PROJECT-BASELINE.md` (updated additively); `40-Runtime/POA-PJR-001-COMPLETION-REPORT.md` (the materialization this decision reviews).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. `POA-PJR-001`/`POA-PJR-002` at their materialized 2026-08-25 state, each updated by one additive addendum section alongside this record — original content unmodified.
+
+## 9. Related Mission
+
+`POA-PJR-001` — Paravyoma Project Registry + Temple SaaS Materialization (this mission, 2026-08-25, the materialization this decision reviews and partially resolves); Chief Architect Review — `POA-PJR-001` (this decision's own authorizing directive, chat, 2026-08-25).
+
+## 10. Related Evidence
+
+`20-Shared/PJR/POA-PJR-002-TEMPLE-SAAS-PROJECT-BASELINE.md` §1 (naming ambiguity, preserved), §4 (nine-module extraction), §7 (first-commercial-module candidates, pre-ruling), §8 Open Question 1; `40-Runtime/POA-PJR-001-COMPLETION-REPORT.md` §6 (lifecycle/state), §8 (unknowns), §13 (recommended next state, naming resolution named as the most consequential open item).
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of Temple SaaS Canonical Naming Resolution Decision Record. Authorized by: Chief Architect, via direct governance directive ("Chief Architect Review — POA-PJR-001", chat), 2026-08-25. Materialized by: Mission `POA-PJR-001`, 2026-08-25.*
+
+---
+
 *End of BA-001 Core/Platform Boundary Decision Record. Authorized by: Commander, via direct governance directive (`BA-001 — Precision Correction and Formal Adoption.md`), 2026-08-23. Materialized by: Mission `BA-001` (Boundary Acceptance Assessment, Chief Review, and Formal Adoption), 2026-08-23.*
