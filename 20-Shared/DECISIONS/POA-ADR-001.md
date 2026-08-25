@@ -718,7 +718,7 @@ Chief Architect / Commander, directly, via `TSAAS-DEC-001 — DGP Canonical Nami
 
 ## 11. Resulting Commit / Repository State
 
-Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+Committed `923c9dbd31cb3f96d2c9d1835b2285b6575f00a3` ("TSAAS-DEC-001 — DGP Canonical Naming & Product Boundary Decision"), pushed to `origin/main` (`9c33db6..923c9db`), 2026-08-25. `HEAD = origin/main = 923c9dbd31cb3f96d2c9d1835b2285b6575f00a3`, verified via `git rev-parse HEAD origin/main` immediately after push. This field is populated additively, after the fact, per its own rule (§D.6) — no other word of this record is altered by this addition.
 
 ---
 
