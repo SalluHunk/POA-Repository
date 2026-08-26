@@ -793,3 +793,73 @@ Committed and pushed to `origin/main` as commit `4dd313f99bd92a53b6eadce18130304
 ---
 
 *End of TSAAS-DEC-002 — Temple Suite Core Architecture Decision Record. Authorized by: Chief Architect / Commander, via direct governance directive (`TSAAS-DEC-002 — Chief Architect Decision Mission.md`), 2026-08-25/26. Materialized by: Mission `TSAAS-DEC-002`, 2026-08-26.*
+
+---
+
+# TSAAS-TECH-001 — Temple Suite Technology Architecture Decision Record (2026-08-26)
+
+**This section is NOT a rewrite of any text above.** Every prior section and additive record in this file is preserved verbatim, unedited. This is a new, additive Decision Record, appended per this repository's established append-only convention.
+
+## 1. Artifact Identity
+
+Decision ID: **TSAAS-TECH-001 — Temple Suite Technology Architecture Decision Record.** Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-26. Decision status: **AUTHORIZED / EFFECTIVE UPON RECORDING** — issued directly via `TSAAS-TECH-001 - TEMPLE SUITE TECHNOLOGY ARCHITECTURE DECISION MISSION.md` (Deployment mirror), headed "AUTHORITY: Chief Architect / Commander, STATUS: AUTHORIZED — EXECUTE."
+
+## 2. Context
+
+`TSAAS-DEC-002` ratified Temple Suite's product architecture. Its technology architecture remained undecided. `TSAAS-TECH-001` was authorized to determine the technology foundation, under the governing principle *"TECHNOLOGY MUST SERVE THE RATIFIED PRODUCT ARCHITECTURE"* — not the reverse.
+
+## 3. Scope Note — This Record Is Deliberately Narrow
+
+Per the authorizing brief's own §"DECISION AUTHORITY" (*"Do not treat every recommendation as an automatically authorized implementation decision"*) and its instruction not to falsely label a recommendation as a Decision Record decision, this record contains **only** the technology items that reached genuine `DECIDED` status — those directly forced by an already-ratified `TSAAS-DEC-002` product decision, with no credible technology alternative able to satisfy that product boundary otherwise. The full twenty-question evaluation (application architecture candidates, frontend, backend language, persistence, multi-tenancy, domain communication patterns, background jobs, file storage, API style, security, deployment, CI/CD, scalability, customer-managed deployment, and cost) — the large majority of which correctly landed at `RECOMMENDED`, `PROPOSED`, `OPEN`, or `DEFERRED`, not `DECIDED` — is recorded in full only in `40-Runtime/TSAAS-TECH-001-COMPLETION-REPORT.md`. Reasoning, alternatives, and evidence citations for every item below are in that report's corresponding numbered section.
+
+## 4. Decision
+
+**Decision 1 — Application Architecture: `DECIDED`.** Temple Suite's starting application architecture is a **modular monolith**: one deployable application, internally organized into ten modules — the nine ratified product domains plus Relationship Memory as a tenth, first-class module (not a domain). **No module may query another module's underlying storage directly; all cross-module access is through that module's own explicit interface.** This is the direct technological encoding of `TSAAS-DEC-002` Decisions 2 and 3 (domain ownership boundaries; DGP's anti-god-module rule) — a microservices, service-oriented, or serverless-first starting architecture was evaluated and rejected for the pilot because each would either fragment transactional consistency across the frequent cross-domain flows `TSAAS-DEC-002` already establishes as legitimate, or lose the code-level enforcement a monolith's module system provides for free. Full candidate evaluation: `TSAAS-TECH-001-COMPLETION-REPORT.md` §5–6.
+
+**Decision 2 — Relationship Memory's Technology Boundary: `DECIDED`.** Relationship Memory is represented as a module **inside the same application and database as the nine domains initially, not a separate service**, and exposes only domain-level interfaces (e.g., "get current relationship context for person X") — no module, including the nine domains, may read or write its underlying tables directly. This preserves Decision 1's shared-core-domain ownership in code rather than allowing a convenient shared database to silently collapse into "everyone owns everything," which the authorizing brief names explicitly as the failure mode to prevent. Full reasoning: `TSAAS-TECH-001-COMPLETION-REPORT.md` §12.
+
+**Decision 3 — Person Identity vs. Application User Identity: `DECIDED`.** A person's canonical record (owned by Relationship Memory, per `TSAAS-DEC-002` Decision 1/6) and an application user account (staff/volunteer/trustee/administrator login) are **separate technical entities, linked but never merged**; a Relationship Memory person record never requires a corresponding login, and most devotees will have none. Merging the two would directly contradict Relationship Memory's own already-ratified independence from any application-account concept. Full reasoning: `TSAAS-TECH-001-COMPLETION-REPORT.md` §11.
+
+**Decision 4 — Communications Delivery-Channel Abstraction: `DECIDED`, at the boundary level only.** A delivery-channel abstraction interface is required between Community Engagement's communications-delivery responsibility (per `TSAAS-DEC-002`'s Cross-Cutting decision) and any specific channel provider (WhatsApp, email, SMS, push) — no domain, including Community Engagement's own implementation, may wire a specific vendor's SDK directly into domain logic. Forced jointly by the already-ratified fact that DGP does not own communication infrastructure and by POA's standing vendor-independence principle. **This decision does not select a channel, provider, or BSP** — those remain `OPEN`/`RECOMMENDED` in the completion report. Current market evidence considered: Meta deprecated the legacy on-premise WhatsApp Business API on 2025-10-23 (Cloud API is now the only integration path), with new Meta pricing tiers taking effect 2026-08-01 and 2026-10-01 — cited as reinforcing, not establishing, this decision. Full reasoning and sourcing: `TSAAS-TECH-001-COMPLETION-REPORT.md` §13.
+
+**Decision 5 — Observability's Fourfold Record Distinction: `DECIDED`.** Audit record, application log, domain event, and POA governance evidence are **four separate technical concerns, not collapsible into one logging stream** — each has a different retention, structure, and audience requirement. POA governance evidence in particular is not an application-level concept at all; it is the repository/process artifact this file itself is an instance of, and this decision does not replace or automate it. **This decision does not select an instrumentation product or vendor** — that remains `RECOMMENDED` (OpenTelemetry) in the completion report, not decided here. Full reasoning and sourcing: `TSAAS-TECH-001-COMPLETION-REPORT.md` §15.
+
+**Decision 6 — AI/Automation Write-Boundary: `DECIDED`.** AI-produced output may be written only to a distinct recommendation/suggestion record class; **AI may never write directly to any domain's transactional record or to Relationship Memory's canonical identity/consent fields**, and any action `TSAAS-DEC-002` Decision 5 gates behind human confirmation (mentor-assignment finalization, spiritual-readiness/advancement determination) must pass through that human-confirmation step before an AI-produced recommendation becomes an authoritative fact. This is the direct technological encoding of `TSAAS-DEC-002` Decision 5's already-ratified human/software boundary — a structural enforcement mechanism, not merely a stated convention. **This decision does not select an AI provider, model, or gateway product** — that remains `RECOMMENDED`/`DEFERRED` in the completion report. Full reasoning: `TSAAS-TECH-001-COMPLETION-REPORT.md` §17.
+
+## 5. Scope of This Authorization
+
+Ratifies the six technology-boundary decisions above, at the architectural-boundary level only. Does **NOT**: select a backend language, frontend framework, ORM, specific database vendor, specific multi-tenancy isolation model beyond a starting recommendation, specific messaging/BSP vendor, specific AI provider, specific object-storage vendor, specific CI/CD product, or API style beyond the pilot; write application code, schemas, migrations, APIs, UI, or infrastructure; claim any compliance certification; begin `TSAAS-002` or any DGP implementation. Every one of these is recorded as `RECOMMENDED`, `PROPOSED`, `OPEN`, or `DEFERRED` in `40-Runtime/TSAAS-TECH-001-COMPLETION-REPORT.md` §26 (Final Technology Decision Matrix) and §28 (Deferred Decisions) — not ratified here, and not to be treated as Decision Record authority merely because this record exists alongside them.
+
+## 6. Consequence
+
+`TSAAS-TECH-001`'s own §"NEXT-MISSION TEST" is answered **YES WITH CONDITIONS**: the technology architecture is sufficiently decided for `TSAAS-002` — Application Architecture — to begin, provided `TSAAS-002` respects the six conditions listed in `40-Runtime/TSAAS-TECH-001-COMPLETION-REPORT.md` §30 (backend-language choice remains open; multi-tenancy escalation thresholds remain proposed, not fixed; WhatsApp vendor/BSP choice remains open and unconfirmed against Meta's own primary documentation; API style beyond the pilot remains open; scalability candidates must not be pre-emptively split into services; formal security/compliance review remains entirely out of scope). This record does not itself authorize `TSAAS-002` to begin — per the brief's own Final Stop Condition, that requires separate, explicit Chief Architect/Commander authorization.
+
+## 7. Decision Authority
+
+Chief Architect / Commander, directly, via `TSAAS-TECH-001 - TEMPLE SUITE TECHNOLOGY ARCHITECTURE DECISION MISSION.md` (Deployment mirror): *"AUTHORITY: Chief Architect / Commander. STATUS: AUTHORIZED — EXECUTE."*
+
+## 8. Artifact
+
+`POA-ADR-001` (this record); `40-Runtime/TSAAS-TECH-001-COMPLETION-REPORT.md` (full reasoning, the twenty-question evaluation, alternatives, and evidence — including the majority of items this mission answered that are explicitly **not** part of this Decision Record); `20-Shared/PJR/POA-PJR-003-TEMPLE-SAAS-PRODUCT-ARCHITECTURE.md` and the `TSAAS-DEC-002` Decision Record above (the ratified product architecture this technology architecture serves, unmodified).
+
+## 9. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. `POA-PJR-003` unchanged by this mission — no product-architecture text was touched, per this mission's own instruction not to reopen `TSAAS-DEC-002` absent a material contradiction (none was found).
+
+## 10. Related Mission
+
+`TSAAS-DEC-002` — Temple Suite Core Architecture Decision Record, above in this file (the ratified product-boundary input this technology decision serves and does not reopen); `TSAAS-TECH-001` (this materialization directive, 2026-08-26).
+
+## 11. Related Evidence
+
+`40-Runtime/TSAAS-TECH-001-COMPLETION-REPORT.md` §5–6 (Application Architecture candidate evaluation), §11 (Identity/Auth/AuthZ), §12 (Relationship Memory technology boundary and domain communication), §13 (Communications), §15 (Observability), §17 (AI/Automation Boundary), §26 (Final Technology Decision Matrix), §27 (Architectural Invariants check).
+
+## 12. Resulting Commit / Repository State
+
+`TSAAS-TECH-001` itself left this section as "Not applicable," since its own Commit/Push Rule explicitly prohibited commit and push pending Chief Architect review (*"Do NOT infer commit/push authority from precedent... For this mission: DO NOT COMMIT. DO NOT PUSH."*). That review has now occurred: **Chief Architect / Commander, via `TSAAS-TECH-001 APPROVAL TO AUTHORIZATION.md` (Deployment mirror), formally accepts `TSAAS-TECH-001`'s bounded technology-architecture conclusions and explicitly authorizes commit and push of the accepted artifacts** — this is a new, separate authorization, not a retroactive reversal of the prior mission's own stop condition, which was correctly honored at the time. Per this repository's established two-step Decision Record pattern, the resulting commit hash is populated below in a second, subsequent edit after the commit is made.
+
+*(Populated after commit, per this repository's established two-step pattern.)*
+
+---
+
+*End of TSAAS-TECH-001 — Temple Suite Technology Architecture Decision Record. Authorized by: Chief Architect / Commander, via direct governance directive (`TSAAS-TECH-001 - TEMPLE SUITE TECHNOLOGY ARCHITECTURE DECISION MISSION.md`), 2026-08-26. Materialized by: Mission `TSAAS-TECH-001`, 2026-08-26. Left uncommitted per this mission's own explicit instruction.*
