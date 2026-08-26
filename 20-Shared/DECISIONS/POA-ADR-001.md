@@ -856,9 +856,9 @@ Chief Architect / Commander, directly, via `TSAAS-TECH-001 - TEMPLE SUITE TECHNO
 
 ## 12. Resulting Commit / Repository State
 
-`TSAAS-TECH-001` itself left this section as "Not applicable," since its own Commit/Push Rule explicitly prohibited commit and push pending Chief Architect review (*"Do NOT infer commit/push authority from precedent... For this mission: DO NOT COMMIT. DO NOT PUSH."*). That review has now occurred: **Chief Architect / Commander, via `TSAAS-TECH-001 APPROVAL TO AUTHORIZATION.md` (Deployment mirror), formally accepts `TSAAS-TECH-001`'s bounded technology-architecture conclusions and explicitly authorizes commit and push of the accepted artifacts** — this is a new, separate authorization, not a retroactive reversal of the prior mission's own stop condition, which was correctly honored at the time. Per this repository's established two-step Decision Record pattern, the resulting commit hash is populated below in a second, subsequent edit after the commit is made.
+`TSAAS-TECH-001` itself left this section as "Not applicable," since its own Commit/Push Rule explicitly prohibited commit and push pending Chief Architect review (*"Do NOT infer commit/push authority from precedent... For this mission: DO NOT COMMIT. DO NOT PUSH."*). That review has now occurred: **Chief Architect / Commander, via `TSAAS-TECH-001 APPROVAL TO AUTHORIZATION.md` (Deployment mirror), formally accepts `TSAAS-TECH-001`'s bounded technology-architecture conclusions and explicitly authorizes commit and push of the accepted artifacts** — this is a new, separate authorization, not a retroactive reversal of the prior mission's own stop condition, which was correctly honored at the time. Per this repository's established two-step Decision Record pattern, the resulting commit hash is populated below.
 
-*(Populated after commit, per this repository's established two-step pattern.)*
+Committed and pushed to `origin/main` as commit `89ca641a4771b9b34353f54e7915538a79ea525c`. Verified `HEAD == origin/main` immediately after push. Files changed: `20-Shared/DECISIONS/POA-ADR-001.md` (this section, additive), `40-Runtime/TSAAS-TECH-001-COMPLETION-REPORT.md` (new file). No other tracked or untracked file touched.
 
 ---
 
