@@ -396,7 +396,7 @@ Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-08-23.
 
 ## 2. Context
 
-`40-Runtime/CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` independently re-verified, from primary source text, that all six Transition Review criteria established by the TRC-002 Commander Transition Framework Decision Record are **SATISFIED** — including Criterion 6 (Retention and reconstructability), closed by the preceding Criterion-6 Closure mission (`40-Runtime/TRC-002-CRITERION-6-CLOSURE-REPORT.md`) and independently re-confirmed on `origin/main` by CTR-001 itself. CTR-001 found Transition eligibility **YES**, presented a Commander decision matrix without recommending either option, and returned the matter as `COMMANDER DECISION REQUIRED` — deciding nothing itself, per its own explicit non-recommendation discipline (`CTR-001` §14).
+`40-Runtime/CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` independently re-verified, from primary source text, that all six Transition Review criteria established by the TRC-002 Commander Transition Framework Decision Record are **SATISFIED** — including Criterion 6 (Retention and reconstructability), closed by the preceding Criterion-6 Closure mission (commit `be92ea3`, synchronizing the three Authority-bearing artifacts this closure identified) and independently re-confirmed on `origin/main` by CTR-001 itself. CTR-001 found Transition eligibility **YES**, presented a Commander decision matrix without recommending either option, and returned the matter as `COMMANDER DECISION REQUIRED` — deciding nothing itself, per its own explicit non-recommendation discipline (`CTR-001` §14).
 
 ## 3. Decision
 
@@ -436,7 +436,7 @@ Commander, directly — the apex authority under `ORC-001-GOV-001`, exercising e
 
 ## 10. Related Evidence
 
-`40-Runtime/CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` §3 (six-criterion verification, all SATISFIED), §4 (Transition Eligibility: YES), §15 (Required Decision Statement, left UNDECIDED by CTR-001 itself); `40-Runtime/TRC-002-CRITERION-6-CLOSURE-REPORT.md` (Criterion 6 closure, verified on `origin/main`); the TRC-002 Commander Transition Framework Decision Record and Commander Destination Condition Decision Record, both immediately above in this file (the framework and destination condition this decision now formally enters); the Commander's own ruling text, restated in full at §3 above.
+`40-Runtime/CTR-001-CONSTITUTIONAL-TRANSITION-REVIEW.md` §3 (six-criterion verification, all SATISFIED), §4 (Transition Eligibility: YES), §15 (Required Decision Statement, left UNDECIDED by CTR-001 itself); the Criterion 6 closure action (commit `be92ea3`, verified on `origin/main`; the report documenting this closure, `40-Runtime/TRC-002-CRITERION-6-CLOSURE-REPORT.md`, is separately retained as Provenance-only evidence per `POA-EVID-001`'s Authority-vs-Provenance framework); the TRC-002 Commander Transition Framework Decision Record and Commander Destination Condition Decision Record, both immediately above in this file (the framework and destination condition this decision now formally enters); the Commander's own ruling text, restated in full at §3 above.
 
 ## 11. Resulting Commit / Repository State
 
