@@ -1,0 +1,14 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# typescript
+*.tsbuildinfo
+
+# env files -- this slice must never contain real secrets (DGP-DEV-001 Phase B)
+.env*
+
+# misc
+.DS_Store

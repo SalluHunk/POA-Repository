@@ -1,0 +1,15 @@
+{
+  "name": "temple-suite-dgp-slice",
+  "version": "0.0.1",
+  "private": true,
+  "description": "DGP-DEV-001 Phase B architecture-proving slice (synthetic data only). NOT a production application. See IMPLEMENTATION.md.",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5",
+    "vitest": "^4.1.10"
+  }
+}
