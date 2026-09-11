@@ -128,6 +128,67 @@ Journey Stage chain, both attributable to the same synthetic person.
     Scheduling never imports from dgp, and dgp never references
     recordSevaBooking or imports seva-scheduling's internal store.
 
+## DGP-DEV-009: persistence runtime-realism slice
+
+A bounded evidence experiment, not a production database architecture.
+Proves exactly three properties the in-memory implementation could
+never test: restart survival, idempotency-state survival across
+restart, and two-tenant isolation.
+
+17. Technology: Node's built-in `node:sqlite` (`DatabaseSync`), chosen
+    for zero new dependencies (no `npm install`, no network access, no
+    external server process) and true file-based durability -- the
+    smallest reproducible local setup available, per mission section 5.
+    A minimal ambient typing (`src/shared/node-sqlite.d.ts`) covers the
+    surface used, since the project's pinned `@types/node@^20` predates
+    this module's typings.
+18. The durable path is entirely additive and parallel to the existing
+    in-memory system -- zero existing file was modified except
+    `test/architecture-boundary.test.ts` (append-only new `describe`
+    blocks) and `tsconfig.json` (one new flag,
+    `allowImportingTsExtensions`). No existing module's `index.ts`,
+    `store.ts`, `app.ts`, `shared/tenant.ts`, `shared/audit.ts`, or
+    `shared/eventBus.ts` was touched. All 36 pre-existing tests pass
+    unchanged.
+19. Each module owns exactly its own durable table(s) via its own new
+    `persistence.ts` file: Relationship Memory owns `rm_identities`;
+    Events owns `events_registrations`; Seva Scheduling owns
+    `seva_bookings`; DGP owns `dgp_journey_stages`,
+    `dgp_seva_journey_evidence`, and -- the mission's central
+    artifact -- `dgp_processed_domain_events`, the durable idempotency
+    guard. No `persistence.ts` file imports another module; extended
+    architecture-boundary tests prove this by both import-path and
+    table-name-reference scanning.
+20. `src/shared/persistent-orchestrator.ts` plays exactly the role
+    `src/app.ts` plays for the in-memory system, calling only each
+    module's own persistence functions -- never a peer module's table,
+    never a module's internal `store.ts`.
+21. Deliberate style break: every file in this persistence path uses
+    plain relative imports with explicit `.ts` extensions, never the
+    `@/` alias the rest of the codebase uses. This is required, not
+    stylistic -- the restart-survival tests must invoke this code as a
+    genuine separate OS process via a bare `node` command (mission
+    section 9), which understands neither tsconfig path aliases nor
+    bundler-style extension resolution.
+22. `test/persistence-harness.ts` is the restart-survival CLI, invoked
+    via `child_process.spawnSync` from `test/persistence-restart.test.ts`
+    -- never imported into the vitest process itself. Every invocation
+    is a brand-new Node process with zero shared memory; Test D's
+    "no duplicate effect" proof rests entirely on a THIRD such process
+    independently re-reading durable state.
+23. A second, experiment-scoped tenant guard
+    (`src/shared/persistence-tenant.ts`, tenant-synthetic-a /
+    tenant-synthetic-b) was added rather than loosening the existing
+    single-tenant `shared/tenant.ts` -- doing the latter would have
+    silently changed the meaning of the tenant boundary for the entire
+    existing architecture-proving evidence chain, not just this slice.
+24. What this slice does NOT claim, even though every test passes:
+    production database readiness, production security, production
+    scalability, production concurrency safety, complete tenant
+    isolation architecture, or final schema architecture. See
+    `40-Runtime/DGP-DEV-009-PERSISTENCE-RUNTIME-REALISM-REPORT.md` for
+    the full evidence classification.
+
 ## What this slice deliberately does not implement
 
 Outbound messaging (WhatsApp/email/SMS), consent-gated communications,

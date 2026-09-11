@@ -99,3 +99,55 @@ describe("DGP-DEV-006: DGP <-> Seva Scheduling peer-module write boundary", () =
     }
   });
 });
+
+/**
+ * DGP-DEV-009 mission directive section 7/12: the durable persistence
+ * layer must not become a reason for one module to reach into another
+ * module's table -- no "DGP -> direct SQL -> Events tables" or
+ * equivalent peer-bypass pattern. Extends the existing static-scan
+ * mechanism rather than introducing a second one, per section 12's own
+ * instruction.
+ */
+describe("DGP-DEV-009: durable persistence module ownership", () => {
+  const OWN_TABLES: Record<string, string[]> = {
+    "relationship-memory": ["rm_identities"],
+    events: ["events_registrations"],
+    "seva-scheduling": ["seva_bookings"],
+    dgp: ["dgp_journey_stages", "dgp_seva_journey_evidence", "dgp_processed_domain_events"],
+  };
+  const ALL_TABLES = Object.values(OWN_TABLES).flat();
+
+  for (const [moduleName, ownTables] of Object.entries(OWN_TABLES)) {
+    const forbiddenTables = ALL_TABLES.filter((t) => !ownTables.includes(t));
+    it("module " + moduleName + "'s persistence.ts never references a peer module's durable table", () => {
+      const file = path.join(MODULES_DIR, moduleName, "persistence.ts");
+      const content = readFileSync(file, "utf8");
+      for (const table of forbiddenTables) {
+        expect(content.includes(table), moduleName + "/persistence.ts must not reference " + table).toBe(false);
+      }
+    });
+  }
+
+  it("no module's persistence.ts imports another module (every dependency is its own ./types.ts or shared/)", () => {
+    for (const moduleName of MODULE_NAMES) {
+      const file = path.join(MODULES_DIR, moduleName, "persistence.ts");
+      const content = readFileSync(file, "utf8");
+      for (const importPath of extractImportPaths(content)) {
+        const label = moduleName + "/persistence.ts imports " + importPath;
+        expect(importPath.includes("/modules/"), label).toBe(false);
+      }
+    }
+  });
+
+  it("the durable orchestrator never imports a module's internal store.ts, only its persistence.ts", () => {
+    const orchestratorPath = path.resolve(import.meta.dirname, "../src/shared/persistent-orchestrator.ts");
+    const content = readFileSync(orchestratorPath, "utf8");
+    expect(content.includes("/store.ts"), "persistent-orchestrator.ts must not import a module's store.ts").toBe(false);
+    for (const importPath of extractImportPaths(content)) {
+      if (!importPath.includes("/modules/")) continue;
+      const label = "persistent-orchestrator.ts imports " + importPath;
+      const isAllowed = importPath.endsWith("/persistence.ts") || importPath.endsWith("/types.ts");
+      expect(isAllowed, label).toBe(true);
+    }
+  });
+});
