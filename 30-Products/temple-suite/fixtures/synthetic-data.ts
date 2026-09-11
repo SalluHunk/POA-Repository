@@ -17,3 +17,7 @@ export const SYNTHETIC_PERSON_TWO = {
 };
 
 export const SYNTHETIC_PILOT_EVENT_ID = "synthetic-pilot-event-001";
+
+/** DGP-DEV-006 -- synthetic Seva Scheduling fixtures. Fixed, not derived from new Date(), per deterministic-behavior convention. */
+export const SYNTHETIC_SEVA_TYPE = "synthetic-seva-type-flower-offering";
+export const SYNTHETIC_SEVA_SLOT = "2026-01-01T06:00:00.000Z";

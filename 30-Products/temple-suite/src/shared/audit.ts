@@ -7,7 +7,7 @@
  */
 export interface AuditRecord {
   id: string;
-  module: "relationship-memory" | "events" | "dgp";
+  module: "relationship-memory" | "events" | "dgp" | "seva-scheduling";
   action: string;
   recordId: string;
   tenantId: string;

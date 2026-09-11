@@ -5,17 +5,13 @@
  * Enforced by test/architecture-boundary.test.ts.
  *
  * In-memory only (implementation-level decision, DGP-DEV-001 Phase B): no
- * database is introduced for this architecture-proving slice. The
- * database-level module-boundary enforcement technique TSAAS-002 section
- * 10 leaves OPEN (per-module schema namespace vs flat schema) is
- * therefore not yet applicable -- it remains a recommendation for
- * whichever future slice introduces a real database.
+ * database is introduced for this architecture-proving slice.
  */
-import type { PersonIdentity } from "./types";
+import type { PersonIdentity, FollowUpContextRecord } from "./types";
 
 const identitiesById = new Map<string, PersonIdentity>();
 const identitiesByNaturalKey = new Map<string, string>();
-let seq = 0;
+let identitySeq = 0;
 
 export function findByNaturalKey(tenantId: string, contactReference: string): PersonIdentity | undefined {
   const id = identitiesByNaturalKey.get(tenantId + "::" + contactReference);
@@ -24,7 +20,7 @@ export function findByNaturalKey(tenantId: string, contactReference: string): Pe
 
 export function insert(record: Omit<PersonIdentity, "id" | "createdAt" | "updatedAt">): PersonIdentity {
   const now = new Date().toISOString();
-  const id = "identity-" + (++seq);
+  const id = "identity-" + (++identitySeq);
   const full: PersonIdentity = { id, createdAt: now, updatedAt: now, ...record };
   identitiesById.set(id, full);
   identitiesByNaturalKey.set(record.tenantId + "::" + record.contactReference, id);
@@ -35,8 +31,31 @@ export function findById(id: string): PersonIdentity | undefined {
   return identitiesById.get(id);
 }
 
+const followUpContextsByPerson = new Map<string, FollowUpContextRecord>();
+let followUpSeq = 0;
+
+export function insertFollowUpContext(
+  record: Omit<FollowUpContextRecord, "id" | "createdAt" | "confirmedAt">
+): FollowUpContextRecord {
+  const now = new Date().toISOString();
+  const full: FollowUpContextRecord = {
+    id: "followup-" + (++followUpSeq),
+    createdAt: now,
+    confirmedAt: now,
+    ...record,
+  };
+  followUpContextsByPerson.set(record.personId, full);
+  return full;
+}
+
+export function findFollowUpContextForPerson(personId: string): FollowUpContextRecord | undefined {
+  return followUpContextsByPerson.get(personId);
+}
+
 export function _clearForTests(): void {
   identitiesById.clear();
   identitiesByNaturalKey.clear();
-  seq = 0;
+  identitySeq = 0;
+  followUpContextsByPerson.clear();
+  followUpSeq = 0;
 }

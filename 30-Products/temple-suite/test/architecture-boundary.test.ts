@@ -58,3 +58,44 @@ describe("module boundary: cross-module imports must resolve to a sibling public
     });
   }
 });
+
+/**
+ * DGP-DEV-006 mission directive section 9: prove DGP does not write to
+ * Seva Scheduling, Seva Scheduling does not write to DGP internals, and
+ * DGP does not bypass the event/interface boundary by reaching for Seva
+ * Scheduling's write interface directly. Extends the existing static
+ * scan mechanism above rather than introducing a second one.
+ */
+describe("DGP-DEV-006: DGP <-> Seva Scheduling peer-module write boundary", () => {
+  it("Seva Scheduling never imports from dgp (in either direction, peer modules do not reach into each other)", () => {
+    const sevaFiles = collectTsFiles(path.join(MODULES_DIR, "seva-scheduling"));
+    for (const file of sevaFiles) {
+      const content = readFileSync(file, "utf8");
+      for (const importPath of extractImportPaths(content)) {
+        const label = path.relative(MODULES_DIR, file) + " imports " + importPath;
+        expect(importPath.includes("modules/dgp"), label).toBe(false);
+      }
+    }
+  });
+
+  it("dgp's source never references Seva Scheduling's write interface (recordSevaBooking)", () => {
+    const dgpFiles = collectTsFiles(path.join(MODULES_DIR, "dgp"));
+    for (const file of dgpFiles) {
+      const content = readFileSync(file, "utf8");
+      const label = path.relative(MODULES_DIR, file) + " must not reference recordSevaBooking";
+      expect(content.includes("recordSevaBooking"), label).toBe(false);
+    }
+  });
+
+  it("dgp only imports seva-scheduling's public index, never its internal store", () => {
+    const dgpFiles = collectTsFiles(path.join(MODULES_DIR, "dgp"));
+    for (const file of dgpFiles) {
+      const content = readFileSync(file, "utf8");
+      for (const importPath of extractImportPaths(content)) {
+        if (!importPath.includes("modules/seva-scheduling")) continue;
+        const label = path.relative(MODULES_DIR, file) + " imports " + importPath;
+        expect(importPath.endsWith("/store"), label).toBe(false);
+      }
+    }
+  });
+});
