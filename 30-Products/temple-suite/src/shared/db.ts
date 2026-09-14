@@ -25,3 +25,30 @@ export function openDurableDatabase(filePath: string): DatabaseSync {
 export function closeDurableDatabase(db: DatabaseSync): void {
   db.close();
 }
+
+/**
+ * DGP-DEV-011: a generic, domain-agnostic explicit-transaction wrapper.
+ * Carries no table/domain knowledge, consistent with this file's role.
+ * If `fn` throws, a best-effort ROLLBACK is attempted and the ORIGINAL
+ * error is rethrown even if SQLite has already auto-aborted the
+ * transaction itself (e.g. on a UNIQUE constraint violation, which would
+ * otherwise make ROLLBACK itself throw "no transaction is active" and
+ * mask the real error).
+ */
+export function runInTransaction<T>(db: DatabaseSync, fn: () => T): T {
+  db.exec("BEGIN;");
+  let result: T;
+  try {
+    result = fn();
+  } catch (err) {
+    try {
+      db.exec("ROLLBACK;");
+    } catch {
+      // SQLite may have already aborted the transaction itself; the
+      // original error below is what matters, not this secondary one.
+    }
+    throw err;
+  }
+  db.exec("COMMIT;");
+  return result;
+}

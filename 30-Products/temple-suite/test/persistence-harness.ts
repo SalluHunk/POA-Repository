@@ -21,6 +21,7 @@ import {
   bookSevaDurable,
   getIdentityDurable,
   getEventRegistrationsDurable,
+  getEventRegistrationByDomainEventIdDurable,
   getSevaBookingsDurable,
   getJourneyStagesDurable,
   getSevaJourneyEvidenceDurable,
@@ -93,6 +94,11 @@ try {
     case "get-registrations": {
       const [tenantId, personId] = rest;
       printJson(getEventRegistrationsDurable(db, tenantId, personId));
+      break;
+    }
+    case "get-registration-by-domain-event": {
+      const [tenantId, domainEventId] = rest;
+      printJson(getEventRegistrationByDomainEventIdDurable(db, tenantId, domainEventId) ?? null);
       break;
     }
     case "get-seva-bookings": {
