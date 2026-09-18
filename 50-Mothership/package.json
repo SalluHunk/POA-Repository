@@ -1,0 +1,16 @@
+{
+  "name": "poa-mothership-bld-001",
+  "version": "0.0.1",
+  "private": true,
+  "description": "POA-BLD-001 Mothership Foundation - minimal operational POA runtime (synthetic/local only). See IMPLEMENTATION.md.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5",
+    "vitest": "^4.1.10"
+  }
+}
