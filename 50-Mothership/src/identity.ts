@@ -17,6 +17,15 @@ export interface ExecutionPrincipal {
   role: string;
   keys: KeyPair;
   active: boolean;
+  /**
+   * Execution-engine neutrality (POA-BLD-002 S17): which engine this
+   * principal's actions are actually carried out by ("claude", "codex",
+   * "gemini", "human", etc). Optional/defaulted so no existing call site
+   * or test (which never passes it) changes behavior. This is the minimum
+   * abstraction requested by the brief - it is a label on an already-
+   * existing principal, not a new adapter or execution contract.
+   */
+  engine: string;
 }
 
 export class IdentityRegistry {
@@ -30,7 +39,7 @@ export class IdentityRegistry {
     return org;
   }
 
-  registerPrincipal(id: string, organizationId: string, role: string): ExecutionPrincipal {
+  registerPrincipal(id: string, organizationId: string, role: string, engine = "unspecified"): ExecutionPrincipal {
     if (!this.organizations.has(organizationId)) {
       throw new Error(`Unknown organization: ${organizationId}`);
     }
@@ -40,6 +49,7 @@ export class IdentityRegistry {
       role,
       keys: generateIdentityKeyPair(),
       active: true,
+      engine,
     };
     this.principals.set(id, principal);
     return principal;
@@ -67,6 +77,20 @@ export class IdentityRegistry {
 
   hasCapability(principalId: string, capability: string): boolean {
     return this.capabilities.get(principalId)?.has(capability) ?? false;
+  }
+
+  /** Read-only enumeration for the Control Panel (POA-BLD-002 S5/S9). */
+  listOrganizations(): Organization[] {
+    return [...this.organizations.values()];
+  }
+
+  /** Scoped to one organization - never returns another organization's principals. */
+  listPrincipals(organizationId: string): ExecutionPrincipal[] {
+    return [...this.principals.values()].filter((p) => p.organizationId === organizationId);
+  }
+
+  listCapabilities(principalId: string): string[] {
+    return [...(this.capabilities.get(principalId) ?? new Set<string>())];
   }
 }
 

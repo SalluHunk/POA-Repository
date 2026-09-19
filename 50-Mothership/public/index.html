@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>POA Mothership Control Panel</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">POA MOTHERSHIP <small>Control Panel &middot; POA-BLD-002</small></div>
+    <nav id="nav">
+      <a href="#/" data-route="/">Home</a>
+      <a href="#/missions" data-route="/missions">Mission Console</a>
+      <a href="#/capabilities" data-route="/capabilities">Capability / Authorization</a>
+      <a href="#/isolation" data-route="/isolation">Isolation Check</a>
+    </nav>
+    <div class="context-picker">
+      <label for="org-select">Organization</label>
+      <select id="org-select"></select>
+    </div>
+  </header>
+  <main id="app">Loading Mothership runtime state&hellip;</main>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

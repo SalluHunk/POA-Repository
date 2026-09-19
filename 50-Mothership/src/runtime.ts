@@ -41,6 +41,15 @@ export class MothershipRuntime {
     return mission;
   }
 
+  /**
+   * Read-only enumeration for the Control Panel (POA-BLD-002 S5B).
+   * Scoped to one organization - never returns another organization's
+   * missions, preserving the S15 isolation boundary.
+   */
+  listMissions(organizationId: string): Mission[] {
+    return [...this.missions.values()].filter((m) => m.organizationId === organizationId);
+  }
+
   private appendEvidence(
     mission: Mission,
     producer: ExecutionPrincipal,

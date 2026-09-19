@@ -7,6 +7,6 @@
  */
 export { MothershipRuntime, type RuntimeResult, type MissionResult } from "@/runtime";
 export { type MissionState, type Mission } from "@/mission";
-export { type Organization, type ExecutionPrincipal, type AuthorizationDecision } from "@/identity";
+export { type Organization, type ExecutionPrincipal, type AuthorizationDecision, IdentityRegistry } from "@/identity";
 export { type EvidenceEnvelope, type EvidencePayload, type VerificationResult } from "@/evidence";
 export { type WitnessComparison } from "@/witness";
