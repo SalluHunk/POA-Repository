@@ -51,6 +51,16 @@ function boolBadge(value, trueLabel = "PASS", falseLabel = "FAIL") {
   return badge(value ? trueLabel : falseLabel, value ? "pass" : "fail");
 }
 
+// witness.code has three distinct meanings (witness.ts) that a plain
+// pass/fail boolean cannot express: a witness checked and agreed (MATCH),
+// no witness check has ever run (NO_CHECKPOINT - honest absence, not a
+// pass), or a witness checked and caught a rollback (CHECKPOINT_MISMATCH).
+function witnessBadge(code) {
+  if (code === "MATCH") return badge("PASS", "pass");
+  if (code === "NO_CHECKPOINT") return badge("NO CHECKPOINT", "neutral");
+  return badge("FAIL", "fail");
+}
+
 // --- Organization context (POA-BLD-002 S9) ---------------------------------
 
 async function loadOrganizations() {
@@ -160,11 +170,16 @@ async function renderHome() {
     missions.map((m) => api(`/api/missions/${encodeURIComponent(m.id)}/verify?org=${encodeURIComponent(currentOrgId)}`)),
   );
   const chainOk = results.filter((r) => r.body?.chain?.ok).length;
-  const witnessOk = results.filter((r) => r.body?.witness?.ok).length;
+  // NO_CHECKPOINT is witness.ok:true (witness.ts: "honest absence, not a
+  // false pass") but must NOT count as "verified" here - only a MATCH means
+  // a witness actually checked this mission's evidence and agreed with it.
+  const witnessMatched = results.filter((r) => r.body?.witness?.code === "MATCH").length;
+  const witnessUnchecked = results.filter((r) => r.body?.witness?.code === "NO_CHECKPOINT").length;
   integrityCard.appendChild(
     el("div", { class: "grid" }, [
       statCard("Chain-verified missions", `${chainOk} / ${missions.length}`),
-      statCard("Witness-verified missions", `${witnessOk} / ${missions.length}`),
+      statCard("Witness-matched missions", `${witnessMatched} / ${missions.length}`),
+      statCard("Missions never checkpointed", `${witnessUnchecked} / ${missions.length}`),
     ]),
   );
   integrityCard.appendChild(
@@ -266,6 +281,7 @@ async function renderMissionDetail(missionId) {
   }
 
   const mission = detailRes.body.mission;
+  const witnessCode = detailRes.body.witnessCode;
   const evidence = evidenceRes.ok ? evidenceRes.body.evidence : [];
   const principals = principalsRes.body.principals ?? [];
 
@@ -286,14 +302,29 @@ async function renderMissionDetail(missionId) {
   integrity.appendChild(el("h2", { text: "Integrity" }));
   const grid = el("div", { class: "grid" });
   grid.appendChild(rowStat("Evidence chain", mission.chainVerified));
-  grid.appendChild(rowStat("Independent witness", mission.witnessVerified));
-  const overallOk = mission.chainVerified && mission.witnessVerified;
+  grid.appendChild(el("div", { class: "stat" }, [
+    el("div", { class: "label", text: "Independent witness" }),
+    el("div", { class: "value" }, witnessBadge(witnessCode)),
+  ]));
+  // NO_CHECKPOINT means no witness check has ever run for this mission -
+  // that is NOT the same as a witness having checked and agreed (MATCH),
+  // even though witness.ts's own boolean collapses both to ok:true
+  // ("honest absence, not a false pass"). Overall trust must not imply a
+  // check happened when it didn't (POA-DEC-SEC-001: "Evidence exists !=
+  // Evidence is verified").
+  const overallStatus = !mission.chainVerified
+    ? { text: "FAIL", kind: "fail" }
+    : witnessCode === "MATCH"
+      ? { text: "CONDITIONAL", kind: "conditional" }
+      : witnessCode === "NO_CHECKPOINT"
+        ? { text: "UNCHECKPOINTED", kind: "neutral" }
+        : { text: "FAIL", kind: "fail" };
   grid.appendChild(el("div", { class: "stat" }, [
     el("div", { class: "label", text: "Overall evidence trust" }),
-    el("div", { class: "value" }, badge(overallOk ? "CONDITIONAL" : "FAIL", overallOk ? "conditional" : "fail")),
+    el("div", { class: "value" }, badge(overallStatus.text, overallStatus.kind)),
   ]));
   integrity.appendChild(grid);
-  integrity.appendChild(el("div", { class: "limitation", text: "\"CONDITIONAL\" (not PASS) because the Independent Witness is a test double, not a production-independent trust anchor (POA-DEC-SEC-001)." }));
+  integrity.appendChild(el("div", { class: "limitation", text: "\"CONDITIONAL\" (not PASS) because the Independent Witness is a test double, not a production-independent trust anchor (POA-DEC-SEC-001). \"UNCHECKPOINTED\" means no witness check has run for this mission yet - use the button below." }));
   integrity.appendChild(el("button", {
     text: "Checkpoint mission",
     onclick: async () => {

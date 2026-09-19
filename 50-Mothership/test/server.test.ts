@@ -140,6 +140,24 @@ describe("Security / Integrity (POA-BLD-002 S19)", () => {
     expect(body.code).toBe("ISOLATION_VIOLATION");
   });
 
+  it("denies Organization B creating a mission with an ID Organization A already owns (would otherwise overwrite A's mission and destroy its evidence chain)", async () => {
+    const before = await get("/api/missions/mission-demo-001/evidence?org=org-paravyoma");
+    const { status, body } = await post("/api/missions", { missionId: "mission-demo-001", organizationId: "org-beta" });
+    expect(status).toBe(409);
+    expect(body.code).toBe("MISSION_ALREADY_EXISTS");
+    const after = await get("/api/missions/mission-demo-001/evidence?org=org-paravyoma");
+    expect(after.body.evidence.length).toBe(before.body.evidence.length);
+    expect(after.body.evidence.length).toBeGreaterThan(0);
+  });
+
+  it("mission detail distinguishes a witness that matched (MATCH) from a mission never checkpointed (NO_CHECKPOINT) - both are witness.ok:true but are not the same claim", async () => {
+    const checkpointed = await get("/api/missions/mission-demo-001?org=org-paravyoma");
+    expect(checkpointed.body.witnessCode).toBe("MATCH");
+
+    const neverCheckpointed = await get("/api/missions/mission-demo-002?org=org-paravyoma");
+    expect(neverCheckpointed.body.witnessCode).toBe("NO_CHECKPOINT");
+  });
+
   it("denies a Beta principal acting on a Paravyoma mission even when directly targeted", async () => {
     const { status, body } = await post("/api/missions/mission-beta-001/authorize", {
       organizationId: "org-paravyoma", principalId: "agent-beta", capability: "mission:execute", action: "cross-org-attempt",

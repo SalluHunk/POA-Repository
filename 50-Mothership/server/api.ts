@@ -135,8 +135,17 @@ export function getMissionDetail(state: MothershipState, missionId: string, orga
   if (!outcome.ok || !outcome.result) {
     return err(404, outcome.code, outcome.detail);
   }
+  // produceMissionResult flattens witness.ok to a boolean, and witness.ts
+  // deliberately returns ok:true for NO_CHECKPOINT ("honest absence, not a
+  // false pass" - see witness.ts). Flattened to a boolean alone, that reads
+  // identically to a genuine MATCH in the UI - collapsing exactly the
+  // distinction POA-DEC-SEC-001 requires ("Evidence exists != Evidence is
+  // verified"). Carry the real witness.code through so the Control Panel
+  // can render NO_CHECKPOINT as "not yet checked", not as a green PASS.
+  const { witness } = state.runtime.verifyMission(missionId);
   return ok({
     mission: outcome.result,
+    witnessCode: witness.code,
     origin: state.missionOrigin.get(missionId) ?? "operator",
   });
 }
@@ -161,7 +170,18 @@ export function createMission(state: MothershipState, missionId: string, organiz
   if (!state.runtime.identity.getOrganization(organizationId)) {
     return err(404, "UNKNOWN_ORGANIZATION");
   }
-  if (state.runtime.listMissions(organizationId).some((m) => m.id === missionId)) {
+  // Mission IDs are global inside MothershipRuntime (a single Map keyed by
+  // id, shared across every organization) even though every READ path is
+  // organization-scoped. Deduping only within `organizationId` would let
+  // Organization B's create-mission call silently overwrite Organization
+  // A's existing mission (same id) via runtime.createMission's
+  // unconditional `missions.set(...)` - destroying A's evidence chain
+  // outright, not just misreading it. So this check must scan every
+  // organization, not just the requesting one.
+  const collision = state.runtime.identity
+    .listOrganizations()
+    .some((org) => state.runtime.listMissions(org.id).some((m) => m.id === missionId));
+  if (collision) {
     return err(409, "MISSION_ALREADY_EXISTS");
   }
   const mission = state.runtime.createMission(missionId, organizationId);
