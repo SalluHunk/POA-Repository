@@ -5,8 +5,8 @@
 **Predecessor:** POA-BLD-001 (commit `db29a7a7caf43f97476e5e47217f67cf19a551fb`)
 
 Starting HEAD: `db29a7a7caf43f97476e5e47217f67cf19a551fb` (VERIFIED — matches the mission brief's stated predecessor commit)
-Ending HEAD: recorded at commit time below (VERIFIED after commit)
-Commit SHA: recorded at commit time below (VERIFIED after commit)
+Ending HEAD: `c7381e4` (VERIFIED)
+Commit SHA: `c7381e4` (VERIFIED)
 
 Mission status: **COMPLETE** — a functional first-generation Control Panel exists, runs against the real `50-Mothership` runtime, and was exercised live in a real browser (VERIFIED).
 
