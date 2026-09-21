@@ -1,0 +1,87 @@
+/**
+ * Motion + depth-tier classes. Every animation here maps to a real state
+ * change (POA-MOTHERSHIP-EXPERIENCE-ARCHITECTURE.md §8) - nothing is
+ * decorative. Depth tiers per POA-MOTHERSHIP-MVP-DECISION-BRIEF.md §E:
+ * Environment (opaque ground, no glass), Contextual (bounded translucency),
+ * Evidence/decision-critical (always fully opaque, regardless of state).
+ */
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes converge {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stabilize {
+  0% {
+    opacity: 0.3;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.depth-environment {
+  background: var(--bg);
+}
+
+/* Tier 1 - glanceable, low cost to misread. Bounded translucency only. */
+.depth-contextual {
+  background: var(--depth-contextual-bg);
+  backdrop-filter: blur(var(--depth-contextual-blur));
+  border: 1px solid var(--border);
+}
+
+/* Tier 2 - evidence, authorization, action confirmation, verification.
+   Always fully opaque, no exceptions, regardless of which state renders it. */
+.depth-evidence {
+  background: var(--depth-evidence-bg);
+  border: 1px solid var(--border-2);
+}
+
+.fade-in {
+  animation: rise 0.35s ease-out both;
+}
+
+.converge-in {
+  animation: converge 0.3s ease-out both;
+}

@@ -1,0 +1,71 @@
+/**
+ * Design tokens - unchanged from the established chain
+ * (POA-BLD-003-DESIGN-ARTIFACT.md §D, POA-MOTHERSHIP-UX-ARCHITECTURE.md §E).
+ * No new palette is introduced here.
+ */
+:root {
+  --bg: #0e1116;
+  --panel: #161b22;
+  --panel-2: #1c2229;
+  --panel-3: #20262f;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-2: rgba(255, 255, 255, 0.16);
+  --text: #e7eaf0;
+  --text-dim: #8b93a1;
+  --text-faint: #576072;
+  --cyan: #4fb3e8;
+  --violet: #9884e0;
+  --green: #3ecf8e;
+  --amber: #d9a441;
+  --red: #e0554f;
+  --grey: #6b7280;
+
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Visual-depth system (POA-MOTHERSHIP-MVP-DECISION-BRIEF.md §E).
+     Depth is assigned by stakes, not by which state a surface belongs to. */
+  --depth-contextual-bg: rgba(22, 27, 34, 0.6); /* >= ~55-60% alpha, per the decision brief's rule */
+  --depth-contextual-blur: 10px;
+  --depth-evidence-bg: var(--panel); /* always fully opaque */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--cyan);
+}
+
+button {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

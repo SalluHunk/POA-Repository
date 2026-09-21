@@ -6,6 +6,18 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "30-Products/poa-vis-001"],
       "port": 3000
+    },
+    {
+      "name": "mothership-api",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "console", "--prefix", "50-Mothership"],
+      "port": 5310
+    },
+    {
+      "name": "mothership-command-center",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "50-Mothership/command-center"],
+      "port": 5311
     }
   ]
 }

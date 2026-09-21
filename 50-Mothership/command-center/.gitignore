@@ -1,0 +1,15 @@
+# dependencies (the parent 50-Mothership/.gitignore's /node_modules is
+# anchored to that directory and does not cover this nested package)
+node_modules
+
+# build output
+dist
+
+# testing
+coverage
+
+# typescript
+*.tsbuildinfo
+
+# misc
+.DS_Store

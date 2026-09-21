@@ -1,0 +1,29 @@
+{
+  "name": "poa-mothership-command-center",
+  "version": "0.0.1",
+  "private": true,
+  "description": "POA-BLD-MOTHERSHIP-001 - Mothership Living Command Center client. A separate presentation package consuming the existing 50-Mothership Node API. Does not modify or replace the BLD-002/003 Operational Console.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.4"
+  }
+}
