@@ -165,4 +165,90 @@ export class MothershipRuntime {
   __unsafeGetMutableChainForAdversarialTesting(missionId: string): EvidenceEnvelope[] {
     return this.evidenceByMission.get(missionId)!;
   }
+
+  // --- Key-Lifecycle Evidence (POA-DEC-SEC-001 S16; Phase 3 "Authorize
+  // Key-Lifecycle Evidence") -------------------------------------------
+  //
+  // Revocation is a principal-lifecycle event, not a mission event, so it
+  // cannot live in evidenceByMission - EvidenceEnvelope.missionId would
+  // then falsely claim membership in a real mission (Data Integrity Rule).
+  // This reuses the exact same envelope/hash/signature/chain mechanism
+  // from evidence.ts, completely unmodified, keyed by organization instead
+  // of mission. Deliberately NOT wired to witness.ts/checkpoint - that
+  // remains out of this phase's authorized scope.
+
+  private identityEvidenceByOrganization = new Map<string, EvidenceEnvelope[]>();
+
+  /** Reserved chain-scope label - distinguishable from any real mission id (never collides: real mission ids come from createMission's caller-supplied string, this format is reserved). */
+  private identityScope(organizationId: string): string {
+    return `__identity__:${organizationId}`;
+  }
+
+  private appendIdentityEvidence(
+    organizationId: string,
+    producer: ExecutionPrincipal,
+    authorityBearing: boolean,
+    what: string,
+    why: string,
+    result: string,
+  ): EvidenceEnvelope {
+    const chain = this.identityEvidenceByOrganization.get(organizationId) ?? [];
+    this.identityEvidenceByOrganization.set(organizationId, chain);
+    const payload: EvidencePayload = {
+      who: producer.id,
+      what,
+      why,
+      when: new Date().toISOString(),
+      result,
+      mission: this.identityScope(organizationId),
+      organization: organizationId,
+    };
+    const prevHash = chain.length > 0 ? chain[chain.length - 1].envelopeHash : null;
+    const envelope = createEnvelope(chain.length, this.identityScope(organizationId), organizationId, producer, authorityBearing, payload, prevHash);
+    chain.push(envelope);
+    return envelope;
+  }
+
+  /**
+   * Revocation requested -> revocation act recorded as evidence ->
+   * principal becomes inactive -> subsequent authorization attempts are
+   * evaluated against the new state. Sequence enforced by construction:
+   * the evidence is appended BEFORE identity.revokePrincipal() mutates
+   * anything, never after. authorityBearing=true - revocation determines
+   * the outcome of every future authorization check against this
+   * principal, exactly the category of event this model already signs
+   * (compare AUTHORIZATION_DECISION/ACTION_EXECUTED, both signed; only
+   * MISSION_TRANSITION, a bookkeeping-only event, is not).
+   */
+  revokePrincipal(targetPrincipalId: string, organizationId: string, revoker: ExecutionPrincipal): RuntimeResult {
+    const target = this.identity.getPrincipal(targetPrincipalId);
+    if (!target) return { ok: false, code: "UNKNOWN_IDENTITY" };
+    if (target.organizationId !== organizationId || revoker.organizationId !== organizationId) {
+      return {
+        ok: false,
+        code: "ISOLATION_VIOLATION",
+        detail: `organization ${organizationId} cannot revoke a principal outside its own organization`,
+      };
+    }
+    this.appendIdentityEvidence(organizationId, revoker, true, "PRINCIPAL_REVOKED", targetPrincipalId, "ACTIVE->REVOKED");
+    this.identity.revokePrincipal(targetPrincipalId);
+    return { ok: true, code: "REVOKED" };
+  }
+
+  /** Read-only enumeration, organization-isolated like getEvidence() above. */
+  getIdentityEvidence(organizationId: string, requestingOrganizationId: string): EvidenceEnvelope[] | RuntimeResult {
+    if (organizationId !== requestingOrganizationId) {
+      return {
+        ok: false,
+        code: "ISOLATION_VIOLATION",
+        detail: `organization ${requestingOrganizationId} attempted to read organization ${organizationId}'s identity evidence`,
+      };
+    }
+    return this.identityEvidenceByOrganization.get(organizationId) ?? [];
+  }
+
+  /** Adversarial-testing hook ONLY - mirrors __unsafeGetMutableChainForAdversarialTesting above, for the identity-scoped chain. */
+  __unsafeGetMutableIdentityChainForAdversarialTesting(organizationId: string): EvidenceEnvelope[] {
+    return this.identityEvidenceByOrganization.get(organizationId) ?? [];
+  }
 }

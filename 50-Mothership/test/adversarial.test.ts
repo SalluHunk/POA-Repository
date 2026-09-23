@@ -154,3 +154,53 @@ describe("Test G - Identity substitution (POA-BLD-001 S17)", () => {
     expect(result.code).toBe("SIGNATURE_INVALID");
   });
 });
+
+// Timestamp Manipulation (POA-DEC-SEC-001 S18 row 7; Phase 3 "Authorize
+// Key-Lifecycle Evidence" Objective 5). `when` is diagnostic-only by design
+// (never the basis for ordering - `sequence`/`prevHash` do that) but it IS
+// part of the hashed payload, so it is not unprotected either. Two distinct
+// claims, tested separately, per the objective's explicit instruction not
+// to conflate them:
+describe("Timestamp Manipulation (POA-DEC-SEC-001 S18 row 7)", () => {
+  it("naive timestamp mutation (hash left stale) is detected as a hash-integrity failure", () => {
+    const { runtime } = buildMissionWithThreeAuthorityBearingEvents();
+    const chain = runtime.__unsafeGetMutableChainForAdversarialTesting("mission-1");
+    chain[1].payload.when = "2099-01-01T00:00:00.000Z"; // payloadHash left unchanged - stale
+
+    const result = verifyChain("mission-1", chain, (id) => runtime.identity.getPrincipal(id));
+    expect(result.ok).toBe(false);
+    expect(result.code).toBe("PAYLOAD_HASH_MISMATCH");
+  });
+
+  it("a recomputed forged timestamp is correctly understood as a forgery/authenticity problem, not a timestamp-specific one - identical in kind to Test B's substitution, because that is exactly what it is", () => {
+    const { runtime } = buildMissionWithThreeAuthorityBearingEvents();
+    const chain = runtime.__unsafeGetMutableChainForAdversarialTesting("mission-1");
+    const original = chain[1];
+
+    // Attacker forges a false wall-clock time AND fully recomputes both
+    // hashes to stay internally self-consistent - everything an attacker
+    // WITHOUT the signing key can do. This is not "solved" merely because
+    // the result is internally coherent; it is caught for the same reason
+    // Test B is caught (no valid new signature), never because of anything
+    // timestamp-specific - there is no timestamp-specific defense here by
+    // design (S12).
+    const newPayload = { ...original.payload, when: "2099-01-01T00:00:00.000Z" };
+    const newPayloadHash = sha256Hex(canonicalize(newPayload));
+    const newEnvelopeHash = sha256Hex(
+      canonicalize({
+        sequence: original.sequence,
+        missionId: original.missionId,
+        organizationId: original.organizationId,
+        producerId: original.producerId,
+        authorityBearing: original.authorityBearing,
+        payloadHash: newPayloadHash,
+        prevHash: original.prevHash,
+      }),
+    );
+    chain[1] = { ...original, payload: newPayload, payloadHash: newPayloadHash, envelopeHash: newEnvelopeHash, signature: original.signature };
+
+    const result = verifyChain("mission-1", chain, (id) => runtime.identity.getPrincipal(id));
+    expect(result.ok).toBe(false);
+    expect(result.code).toBe("SIGNATURE_INVALID");
+  });
+});

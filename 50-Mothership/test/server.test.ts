@@ -16,14 +16,36 @@ let server: Server;
 let baseUrl: string;
 let state: MothershipState;
 
+// node's fetch (undici) refuses to connect to a small set of ports the
+// WHATWG Fetch spec reserves (https://fetch.spec.whatwg.org/#port-blocking).
+// server.listen(0) asks the OS for any free ephemeral port and, rarely,
+// lands on one of those, surfacing as `TypeError: fetch failed / bad port`
+// - a test-harness/environment quirk, not an application defect (Phase 3
+// "Authorize Key-Lifecycle Evidence" Objective 6). Probing with a real
+// fetch and rebinding on failure is the mechanical fix: it changes nothing
+// about server behavior, only which ephemeral port this one test run
+// happens to land on.
+const PORT_BIND_MAX_ATTEMPTS = 5;
+
 beforeEach(async () => {
   __resetWitnessForTests();
   state = createMothershipState();
   seedDemoData(state);
-  server = createMothershipHttpServer(state);
-  await new Promise<void>((resolve) => server.listen(0, resolve));
-  const address = server.address();
-  if (address && typeof address === "object") baseUrl = `http://127.0.0.1:${address.port}`;
+
+  for (let attempt = 1; attempt <= PORT_BIND_MAX_ATTEMPTS; attempt++) {
+    server = createMothershipHttpServer(state);
+    await new Promise<void>((resolve) => server.listen(0, resolve));
+    const address = server.address();
+    if (!address || typeof address !== "object") throw new Error("server failed to bind to a port");
+    baseUrl = `http://127.0.0.1:${address.port}`;
+    try {
+      await fetch(`${baseUrl}/`);
+      return; // bound to a usable, non-forbidden port
+    } catch (err) {
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+      if (attempt === PORT_BIND_MAX_ATTEMPTS) throw err;
+    }
+  }
 });
 
 afterEach(async () => {
