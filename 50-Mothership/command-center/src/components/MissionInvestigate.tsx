@@ -1,4 +1,5 @@
 import type { EvidenceEnvelope } from "../api/types";
+import { Chip, Breadcrumb } from "./shared";
 
 interface Props {
   missionId: string;
@@ -21,6 +22,8 @@ export function MissionInvestigate({ missionId, evidence, chainVerified, onRetur
     // Tier 2 - always fully opaque, regardless of which state renders it
     // (POA-MOTHERSHIP-MVP-DECISION-BRIEF.md §E). This is evidence content.
     <div className="depth-evidence converge-in" style={{ borderRadius: 10, padding: "36px 44px", maxWidth: 720, margin: "48px auto" }}>
+      <Breadcrumb segments={[{ label: "Mission", onClick: onReturn }, { label: "Investigate" }]} />
+
       <div style={{ fontSize: 20, fontWeight: 500, marginBottom: 4 }}>{missionId} — evidence chain</div>
       <div className="mono" style={{ fontSize: 12, color: "var(--text-dim)", marginBottom: 24 }}>
         chain {chainVerified ? "✓ intact" : "✕ broken"} · {evidence.length} {evidence.length === 1 ? "entry" : "entries"}
@@ -32,9 +35,13 @@ export function MissionInvestigate({ missionId, evidence, chainVerified, onRetur
         </div>
       )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+      <div className="evidence-chain" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         {evidence.map((e) => (
-          <div key={e.sequence} style={{ background: "var(--panel-2)", border: "1px solid var(--border)", borderLeft: "2px solid var(--cyan)", borderRadius: 8, padding: "18px 22px" }}>
+          <div
+            key={e.sequence}
+            className="evidence-chain-node"
+            style={{ background: "var(--panel-2)", border: "1px solid var(--border)", borderLeft: "2px solid var(--cyan)", borderRadius: 8, padding: "18px 22px" }}
+          >
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
               <span className="mono" style={{ fontSize: 10.5, color: "var(--text-faint)" }}>
                 #{e.sequence + 1} · SEQUENCE {e.sequence}
@@ -44,32 +51,8 @@ export function MissionInvestigate({ missionId, evidence, chainVerified, onRetur
               </span>
             </div>
             <div style={{ display: "flex", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
-              <span
-                className="mono"
-                style={{
-                  fontSize: 11.5,
-                  padding: "3px 9px",
-                  borderRadius: 4,
-                  background: chainVerified ? "rgba(62,207,142,.12)" : "rgba(224,85,79,.12)",
-                  border: `1px solid ${chainVerified ? "rgba(62,207,142,.35)" : "rgba(224,85,79,.35)"}`,
-                  color: chainVerified ? "var(--green)" : "var(--red)",
-                }}
-              >
-                {chainVerified ? "✓ INTEGRITY — intact" : "✕ INTEGRITY — broken"}
-              </span>
-              <span
-                className="mono"
-                style={{
-                  fontSize: 11.5,
-                  padding: "3px 9px",
-                  borderRadius: 4,
-                  background: e.authorityBearing ? "rgba(62,207,142,.12)" : "var(--panel)",
-                  border: `1px solid ${e.authorityBearing ? "rgba(62,207,142,.35)" : "var(--border-2)"}`,
-                  color: e.authorityBearing ? "var(--green)" : "var(--text-dim)",
-                }}
-              >
-                {e.authorityBearing ? "✓ AUTHORITY — signed" : "↳ AUTHORITY — informational"}
-              </span>
+              <Chip tone={chainVerified ? "green" : "red"}>{chainVerified ? "✓ INTEGRITY — intact" : "✕ INTEGRITY — broken"}</Chip>
+              <Chip tone={e.authorityBearing ? "green" : "neutral"}>{e.authorityBearing ? "✓ AUTHORITY — signed" : "↳ AUTHORITY — informational"}</Chip>
             </div>
             <div style={{ fontSize: 13.5 }}>{decisionLine(e)}</div>
             <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", marginTop: 8 }}>

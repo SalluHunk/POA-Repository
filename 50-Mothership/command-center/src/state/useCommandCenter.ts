@@ -14,7 +14,7 @@ import { deriveAttention, type AttentionItem } from "./attention";
 // (POA-MOTHERSHIP-MVP-DECISION-BRIEF.md §G).
 export const ORGANIZATION_ID = "org-paravyoma";
 
-export type Subject = { type: "mission"; id: string } | { type: "principal"; id: string } | null;
+export type Subject = { type: "mission"; id: string } | { type: "principal"; id: string } | { type: "people" } | null;
 export type Depth = "presence" | "context" | "investigation";
 
 export interface CommandCenterState {
@@ -105,6 +105,14 @@ export function useCommandCenter() {
     setState((s) => ({ ...s, subject: { type: "principal", id: principalId }, depth: "context", actionResult: null }));
   }, []);
 
+  // People domain orb - navigates to the real principal roster (not a
+  // narrative overlay). Reuses the same subject/depth mechanism as
+  // focusMission/focusPrincipal so it converges on the identical Focus
+  // architecture rather than a parallel navigation model.
+  const focusPeople = useCallback(() => {
+    setState((s) => ({ ...s, subject: { type: "people" }, depth: "context", actionResult: null }));
+  }, []);
+
   const drillInvestigate = useCallback(async () => {
     if (state.subject?.type !== "mission") return;
     const { evidence } = await api.getMissionEvidence(state.subject.id, ORGANIZATION_ID);
@@ -187,5 +195,5 @@ export function useCommandCenter() {
     [state.missions, state.principals, focusMission, focusPrincipal],
   );
 
-  return { state, actions: { focusMission, focusPrincipal, drillInvestigate, returnTo, requestAction, cancelAction, confirmAction, toggleOverlay, lookup } };
+  return { state, actions: { focusMission, focusPrincipal, focusPeople, drillInvestigate, returnTo, requestAction, cancelAction, confirmAction, toggleOverlay, lookup } };
 }

@@ -6,16 +6,6 @@
  * Evidence/decision-critical (always fully opaque, regardless of state).
  */
 
-@keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.82;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
 @keyframes pulse {
   0%,
   100% {
@@ -68,7 +58,7 @@
 .depth-contextual {
   background: var(--depth-contextual-bg);
   backdrop-filter: blur(var(--depth-contextual-blur));
-  border: 1px solid var(--border);
+  border: 1px solid var(--depth-contextual-border);
 }
 
 /* Tier 2 - evidence, authorization, action confirmation, verification.
@@ -84,4 +74,341 @@
 
 .converge-in {
   animation: converge 0.3s ease-out both;
+}
+
+/* Evidence reads as a connected chain, not a stacked list - each entry
+   links visually to the one before it. */
+.evidence-chain {
+  position: relative;
+  padding-left: 28px;
+}
+
+.evidence-chain::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  background: var(--border-2);
+}
+
+.evidence-chain-node {
+  position: relative;
+}
+
+.evidence-chain-node::before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: 22px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--cyan);
+}
+
+/* ActionConfirm anchors to the subject it concerns - a connecting bar,
+   never a separate screen or centered modal. */
+.action-anchor {
+  width: 2px;
+  height: 20px;
+  background: var(--amber);
+  opacity: 0.5;
+  margin: 0 auto;
+}
+
+/* Persistent environment - the core sphere, starfield, orbital tracks and
+   domain orbs. Pure atmosphere, no data. Verbatim from the canonical
+   reference (POA Command.dc.html lines 19-34) - exact names, durations,
+   easing and transform/opacity values, not an approximation. Two of the
+   reference's own elements this vocabulary drives turned out to be
+   perfectly STATIC in the source (the core's internal wireframe/mesh
+   group, and the bottom horizon wave-lines) - the prior `coreWireframeSpin`
+   and `waveFlow` keyframes were invented motion with no reference
+   equivalent and are removed rather than renamed. */
+@keyframes cmSpin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cmSpinR {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes cmDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes cmDriftB {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(9px, 10px, 0);
+  }
+}
+
+@keyframes cmBreathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes cmGlow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes cmTwinkle {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes cmBeam {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleY(0.94);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes cmRipple {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes cmFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -320;
+  }
+}
+
+@keyframes cmWave {
+  0%,
+  100% {
+    transform: scaleY(0.14);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes cmHalo {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes cmThink {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes cmFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cmSlide {
+  from {
+    opacity: 0;
+    transform: translateX(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Domain orbs are informational, not clickable (no domain drill-down
+   screen exists) - hover still gives a restrained "this is alive and
+   present" response, but never cursor:pointer and never a scale/glow
+   large enough to imply an affordance that isn't there. */
+.domain-orb {
+  transition: filter 0.25s ease;
+}
+.domain-orb:hover .domain-orb-sphere {
+  filter: brightness(1.18);
+}
+.domain-orb:hover .domain-orb-label {
+  color: var(--text);
+}
+
+/* Mission/principal orbit markers (OrbitMarkers) - these ARE clickable,
+   so hover signals actionability: brighten and grow slightly. The base
+   transform is set inline (it already varies per-marker for focus state),
+   so hover drives a CSS custom property the inline `scale(var(...))`
+   reads, rather than a `transform` declaration - inline styles always
+   win over stylesheet rules of any specificity except this. */
+.orbit-marker {
+  --marker-scale: 1;
+  transition:
+    filter 0.2s ease;
+}
+.orbit-marker:hover {
+  --marker-scale: 1.35;
+  filter: brightness(1.35);
+}
+
+/* Command bar - focus-within glow, since a plain inline style can't
+   express :focus-within. */
+.command-bar-form {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.command-bar-form:focus-within {
+  border-color: rgba(127, 216, 255, 0.55);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 3px rgba(127, 216, 255, 0.12);
+}
+.command-bar-submit {
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+.command-bar-submit:hover {
+  background: rgba(127, 216, 255, 0.24);
+  transform: scale(1.06);
+}
+
+/* Command overlay (hamburger menu) - opens via .converge-in (existing),
+   closes via this reverse transition instead of an instant unmount. */
+@keyframes overlayExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+}
+.overlay-exit {
+  animation: overlayExit 0.18s ease-in both;
+}
+
+/* Reference's exact cmEmerge - emerges from below, not converge's
+   above+scale entrance (they read as visually different motions). */
+@keyframes cmEmerge {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.cm-emerge {
+  animation: cmEmerge 0.3s ease-out both;
+}
+
+.overlay-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 14px;
+  font-size: 15px;
+}
+.overlay-item:hover:not(:disabled) {
+  background: rgba(127, 216, 255, 0.1);
+}
+
+/* Listening surface action pills (reference lines 546-547's style-hover). */
+.listening-ask:hover {
+  background: rgba(167, 139, 250, 0.22);
+}
+.listening-stop:hover {
+  border-color: rgba(255, 110, 120, 0.6);
+  color: #ff9ba5;
+}
+
+/* CommandBar mic (reference line 469's style-hover) and quick-prompt chips
+   (reference line 478's style-hover). */
+.command-bar-mic:hover {
+  background: rgba(127, 216, 255, 0.2);
+}
+.quick-prompt:hover {
+  border-color: rgba(127, 216, 255, 0.5);
+  color: #c4efff;
+}
+
+/* Respect prefers-reduced-motion: collapse every animation/transition to
+   effectively instant rather than disabling the ambient-life design
+   language outright - state still communicates, motion doesn't. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

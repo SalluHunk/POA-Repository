@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 interface Props {
   open: boolean;
   onClose: () => void;
@@ -5,21 +7,60 @@ interface Props {
   onFocusLookup: () => void;
 }
 
-// Not a permanent sidebar, not a top nav bar - a compact overlay above the
-// environment (POA-BLD-MOTHERSHIP-001 §8). Only entries that are actually
-// functional are active; Diagnostics is not built in this MVP and stays
-// visibly inert rather than a dead link (§21's scope stopping rule).
+// A glass command surface emerging from the environment, positioned near
+// the hamburger that opened it - not a centered modal with a dark scrim
+// (POA Command.dc.html lines 491-498: translucent gradient, cyan border,
+// backdrop-filter blur(18px), cmEmerge). The click-catcher behind it is
+// transparent so the environment stays visible, matching the brief's "no
+// hard white/gray modal treatment" requirement.
+//
+// Only entries that are actually functional are active; Diagnostics is
+// not built in this MVP and stays visibly inert rather than a dead link
+// (POA-BLD-MOTHERSHIP-001 §21's scope stopping rule).
+// Open animates in via .converge-in on mount; close needs the opposite -
+// React would otherwise unmount this instantly on `open=false`, giving no
+// chance to play an exit transition. A short-lived `closing` state keeps
+// it mounted just long enough to play .overlay-exit first.
 export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup }: Props) {
-  if (!open) return null;
+  const [mounted, setMounted] = useState(open);
+  const [closing, setClosing] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setMounted(true);
+      setClosing(false);
+      return;
+    }
+    if (!mounted) return;
+    setClosing(true);
+    const t = setTimeout(() => {
+      setMounted(false);
+      setClosing(false);
+    }, 180);
+    return () => clearTimeout(t);
+  }, [open, mounted]);
+
+  if (!mounted) return null;
   return (
-    <div
-      role="dialog"
-      aria-label="Command overlay"
-      style={{ position: "fixed", inset: 0, background: "rgba(6,8,11,.72)", backdropFilter: "blur(4px)", zIndex: 20, display: "flex", alignItems: "flex-start", justifyContent: "center", paddingTop: 120 }}
-      onClick={onClose}
-    >
-      <div className="depth-evidence" onClick={(e) => e.stopPropagation()} style={{ borderRadius: 10, padding: 8, width: 320 }}>
+    <div role="dialog" aria-label="Command overlay" style={{ position: "fixed", inset: 0, zIndex: 20 }} onClick={onClose}>
+      <div
+        className={closing ? "overlay-exit" : "cm-emerge"}
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          position: "absolute",
+          left: 34,
+          top: 76,
+          width: 300,
+          borderRadius: 14,
+          padding: 8,
+          background: "linear-gradient(160deg, rgba(12,24,46,.95), rgba(6,12,24,.9))",
+          border: "1px solid rgba(127,216,255,.22)",
+          backdropFilter: "blur(18px)",
+          boxShadow: "0 26px 70px rgba(0,0,0,.6)",
+        }}
+      >
         <button
+          className="overlay-item"
           onClick={() => {
             onCommandCenter();
             onClose();
@@ -29,6 +70,7 @@ export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup }
           Command Center
         </button>
         <button
+          className="overlay-item"
           onClick={() => {
             onFocusLookup();
             onClose();
@@ -38,6 +80,7 @@ export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup }
           Missions — jump to one
         </button>
         <button
+          className="overlay-item"
           onClick={() => {
             onFocusLookup();
             onClose();
@@ -46,7 +89,7 @@ export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup }
         >
           People — jump to one
         </button>
-        <button disabled style={overlayItemStyle(false)} aria-disabled="true" title="Not built in this MVP">
+        <button className="overlay-item" disabled style={overlayItemStyle(false)} aria-disabled="true" title="Not built in this MVP">
           Diagnostics <span className="mono" style={{ fontSize: 10.5, color: "var(--text-faint)" }}>not yet available</span>
         </button>
       </div>
@@ -56,14 +99,6 @@ export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup }
 
 function overlayItemStyle(active: boolean) {
   return {
-    display: "block",
-    width: "100%",
-    textAlign: "left" as const,
-    background: "none",
-    border: "none",
-    borderRadius: 6,
-    padding: "12px 14px",
-    fontSize: 14,
     color: active ? "var(--text)" : "var(--text-faint)",
     cursor: active ? "pointer" : "not-allowed",
   };

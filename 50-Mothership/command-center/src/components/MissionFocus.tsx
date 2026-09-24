@@ -1,45 +1,39 @@
 import type { MissionDetail } from "../api/types";
 import { legalTransitions } from "../state/legalTransitions";
+import { Chip, Breadcrumb, buttonStyle } from "./shared";
 
 interface Props {
   missionId: string;
   detail: MissionDetail | undefined;
+  dimmed?: boolean;
   onDrill: () => void;
   onRequestTransition: (to: string) => void;
   onReturn: () => void;
 }
 
-export function MissionFocus({ missionId, detail, onDrill, onRequestTransition, onReturn }: Props) {
+export function MissionFocus({ missionId, detail, dimmed, onDrill, onRequestTransition, onReturn }: Props) {
   if (!detail) return null;
   const legal = legalTransitions(detail.mission.state);
+  const witnessTone = detail.witnessCode === "MATCH" ? "green" : detail.witnessCode === "MISMATCH" ? "red" : "neutral";
 
   return (
-    <div className="depth-contextual converge-in" style={{ borderRadius: 10, padding: "40px 48px", maxWidth: 640, margin: "60px auto" }}>
+    <div
+      className="depth-contextual converge-in"
+      style={{ borderRadius: 10, padding: "40px 48px", maxWidth: 640, margin: "60px auto 0", opacity: dimmed ? 0.5 : 1, pointerEvents: dimmed ? "none" : undefined, transition: "opacity 0.25s ease" }}
+    >
+      <Breadcrumb segments={[{ label: "Presence", onClick: onReturn }, { label: missionId }]} />
+
       <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", marginBottom: 8 }}>
         MISSION
       </div>
       <div style={{ fontSize: 24, fontWeight: 500, marginBottom: 18 }}>{missionId}</div>
 
       <div style={{ display: "flex", gap: 12, marginBottom: 22, flexWrap: "wrap" }}>
-        <span className="mono" style={{ fontSize: 12.5, padding: "5px 11px", borderRadius: 4, background: "rgba(79,179,232,.12)", border: "1px solid rgba(79,179,232,.35)", color: "var(--cyan)" }}>
-          ● {detail.mission.state}
-        </span>
-        <span className="mono" style={{ fontSize: 12.5, padding: "5px 11px", borderRadius: 4, background: "var(--panel-2)", border: "1px solid var(--border-2)", color: "var(--text-dim)" }}>
-          {detail.origin === "fixture" ? "TEST FIXTURE" : "OPERATOR-CREATED"}
-        </span>
-        <span
-          className="mono"
-          style={{
-            fontSize: 12.5,
-            padding: "5px 11px",
-            borderRadius: 4,
-            background: detail.witnessCode === "MATCH" ? "rgba(62,207,142,.12)" : "var(--panel-2)",
-            border: `1px solid ${detail.witnessCode === "MATCH" ? "rgba(62,207,142,.35)" : "var(--border-2)"}`,
-            color: detail.witnessCode === "MATCH" ? "var(--green)" : "var(--text-dim)",
-          }}
-        >
+        <Chip tone="cyan">● {detail.mission.state}</Chip>
+        <Chip>{detail.origin === "fixture" ? "TEST FIXTURE" : "OPERATOR-CREATED"}</Chip>
+        <Chip tone={witnessTone}>
           {detail.witnessCode === "MATCH" ? "✓✓ VERIFIED" : detail.witnessCode === "NO_CHECKPOINT" ? "○ UNVERIFIED — not yet checked" : "✕ MISMATCH"}
-        </span>
+        </Chip>
       </div>
 
       <div style={{ display: "flex", gap: 16, marginBottom: 8, flexWrap: "wrap" }}>
@@ -63,18 +57,4 @@ export function MissionFocus({ missionId, detail, onDrill, onRequestTransition, 
       </button>
     </div>
   );
-}
-
-export function buttonStyle(kind: "caution" | "quiet") {
-  return {
-    padding: "10px 16px",
-    borderRadius: 6,
-    fontSize: 13.5,
-    fontWeight: 500 as const,
-    cursor: "pointer",
-    border: "1px solid",
-    background: kind === "caution" ? "rgba(217,164,65,.1)" : "var(--panel-2)",
-    borderColor: kind === "caution" ? "rgba(217,164,65,.4)" : "var(--border-2)",
-    color: kind === "caution" ? "var(--amber)" : "var(--text-dim)",
-  };
 }

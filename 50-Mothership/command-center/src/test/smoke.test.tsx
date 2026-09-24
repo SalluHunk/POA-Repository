@@ -94,13 +94,32 @@ describe("Mothership Command Center — smoke", () => {
     expect(screen.getByText(/Denied — CAPABILITY_NOT_GRANTED/i)).toBeInTheDocument();
   });
 
-  it("focuses a principal via the structured lookup", async () => {
+  it("focuses a principal via a real ID typed into the ask bar", async () => {
     render(<App />);
-    await screen.findByPlaceholderText(/Jump to a mission or principal/i);
-    fireEvent.change(screen.getByPlaceholderText(/Jump to a mission or principal/i), { target: { value: "agent-materializer" } });
-    fireEvent.submit(screen.getByPlaceholderText(/Jump to a mission or principal/i).closest("form")!);
+    await screen.findByPlaceholderText(/Jump to a mission or principal by ID/i);
+    fireEvent.change(screen.getByPlaceholderText(/Jump to a mission or principal by ID/i), { target: { value: "agent-materializer" } });
+    fireEvent.submit(screen.getByPlaceholderText(/Jump to a mission or principal by ID/i).closest("form")!);
     await waitFor(() => expect(screen.getAllByText("agent-materializer").length).toBeGreaterThan(0));
     expect(screen.getByText(/GRANTED CAPABILITIES/i)).toBeInTheDocument();
+  });
+
+  // Product contract (POA-DEC-MOTHERSHIP-002): by default the Layer-B demo
+  // layer is quarantined - free text never yields a fabricated answer, the
+  // unbacked domains show the honest NOT CONNECTED placeholder, and the
+  // listening affordance is inert. The canned-answer behavior itself is
+  // exercised only in src/demo/demo.test.tsx, as demo behavior.
+  it("never fabricates an answer, figures, or listening by default (demo layer quarantined)", async () => {
+    render(<App />);
+    await screen.findByPlaceholderText(/Jump to a mission or principal by ID/i);
+    fireEvent.change(screen.getByPlaceholderText(/Jump to a mission or principal by ID/i), { target: { value: "Prepare my morning brief" } });
+    fireEvent.submit(screen.getByPlaceholderText(/Jump to a mission or principal by ID/i).closest("form")!);
+    await waitFor(() => expect(screen.getByText(/Only mission and principal IDs resolve/i)).toBeInTheDocument());
+    expect(screen.queryByText(/REASONING OVER ORGANIZATIONAL CONTEXT/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/eleven o'clock/i)).not.toBeInTheDocument();
+    expect(screen.getAllByText("NOT CONNECTED")).toHaveLength(3);
+    expect(screen.queryByText("1,204 VERIFIED")).not.toBeInTheDocument();
+    expect(screen.getByLabelText(/Listening not available/i)).toBeDisabled();
+    expect(screen.queryByText(/DEMO · FICTIONAL/)).not.toBeInTheDocument();
   });
 
   it("opens and closes the command overlay", async () => {

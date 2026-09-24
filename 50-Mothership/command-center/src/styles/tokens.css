@@ -1,32 +1,38 @@
 /**
- * Design tokens - unchanged from the established chain
- * (POA-BLD-003-DESIGN-ARTIFACT.md §D, POA-MOTHERSHIP-UX-ARCHITECTURE.md §E).
- * No new palette is introduced here.
+ * Design tokens - palette ported verbatim from the canonical reference
+ * (POA Command.dc.html's inline hex/rgba literals). This supersedes the
+ * prior palette, which used different hues entirely (e.g. --cyan #4fb3e8
+ * vs the reference's #7fd8ff/#4fc9ff) - every panel reading these tokens
+ * now resolves to the reference's actual colors.
  */
 :root {
-  --bg: #0e1116;
-  --panel: #161b22;
-  --panel-2: #1c2229;
-  --panel-3: #20262f;
+  --bg: #020409;
+  --panel: #0b162a;
+  --panel-2: #060c18;
+  --panel-3: #0a1222;
   --border: rgba(255, 255, 255, 0.08);
   --border-2: rgba(255, 255, 255, 0.16);
-  --text: #e7eaf0;
-  --text-dim: #8b93a1;
-  --text-faint: #576072;
-  --cyan: #4fb3e8;
-  --violet: #9884e0;
-  --green: #3ecf8e;
-  --amber: #d9a441;
-  --red: #e0554f;
-  --grey: #6b7280;
+  --text: #dfe9f7;
+  --text-dim: rgba(223, 233, 247, 0.72);
+  --text-faint: rgba(223, 233, 247, 0.5);
+  --cyan: #7fd8ff;
+  --cyan-2: #4fc9ff;
+  --violet: #a78bfa;
+  --green: #2ee6a6;
+  --amber: #f2a53c;
+  --red: #ff6b7d;
+  --grey: rgba(160, 190, 230, 0.85);
 
-  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-sans: "Archivo", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
-  /* Visual-depth system (POA-MOTHERSHIP-MVP-DECISION-BRIEF.md §E).
-     Depth is assigned by stakes, not by which state a surface belongs to. */
-  --depth-contextual-bg: rgba(22, 27, 34, 0.6); /* >= ~55-60% alpha, per the decision brief's rule */
-  --depth-contextual-blur: 10px;
+  /* Visual-depth system (POA-MOTHERSHIP-MVP-DECISION-BRIEF.md §E), glass
+     values ported from the reference's panel gradient/border exactly
+     (POA Command.dc.html lines 95, 118, 135: linear-gradient(160deg,
+     rgba(11,22,42,.78),rgba(6,12,24,.62)), border rgba(127,216,255,.16)). */
+  --depth-contextual-bg: linear-gradient(160deg, rgba(11, 22, 42, 0.78), rgba(6, 12, 24, 0.62));
+  --depth-contextual-border: rgba(127, 216, 255, 0.16);
+  --depth-contextual-blur: 14px;
   --depth-evidence-bg: var(--panel); /* always fully opaque */
 }
 
@@ -38,6 +44,9 @@ html,
 body,
 #root {
   height: 100%;
+  height: 100dvh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -45,7 +54,6 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
-  font-weight: 300;
 }
 
 .mono {
