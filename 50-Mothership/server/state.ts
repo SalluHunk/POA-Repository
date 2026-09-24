@@ -8,17 +8,24 @@
  * mutating BLD-001's tested Mission shape).
  */
 import { MothershipRuntime } from "@/runtime";
+import type { RepositoryRecords } from "./repository-records.ts";
 
 export type MissionOrigin = "fixture" | "operator";
+
+// Kept outside `runtime` and `missionOrigin` on purpose: repository records
+// are not missions and never pass through the fixture/operator runtime.
+export type RepositoryRecordsSlot = { ok: true; records: RepositoryRecords } | { ok: false; detail: string };
 
 export interface MothershipState {
   runtime: MothershipRuntime;
   missionOrigin: Map<string, MissionOrigin>;
+  repositoryRecords: RepositoryRecordsSlot;
 }
 
 export function createMothershipState(): MothershipState {
   return {
     runtime: new MothershipRuntime(),
     missionOrigin: new Map<string, MissionOrigin>(),
+    repositoryRecords: { ok: false, detail: "NOT_LOADED" },
   };
 }

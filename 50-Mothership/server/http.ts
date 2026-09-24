@@ -93,6 +93,16 @@ export function createMothershipHttpServer(state: MothershipState) {
         return sendJson(res, api.listOrganizations(state));
       }
 
+      // GET /api/repository/decision-records (read-only; no write route exists)
+      if (method === "GET" && pathname === "/api/repository/decision-records") {
+        return sendJson(res, api.getDecisionRecords(state));
+      }
+
+      // GET /api/repository/project-registry (read-only; no write route exists)
+      if (method === "GET" && pathname === "/api/repository/project-registry") {
+        return sendJson(res, api.getProjectRegistry(state));
+      }
+
       // GET /api/organizations/:orgId/principals
       let m = pathname.match(/^\/api\/organizations\/([^/]+)\/principals$/);
       if (method === "GET" && m) {

@@ -223,6 +223,26 @@ export function authorizeAndExecute(
   return { status, body: result };
 }
 
+// Repository records are not organization-scoped: the only runtime
+// organization named Paravyoma is the seed fixture "Paravyoma (Demo
+// Organization)", and hanging committed records off it would merge real
+// data with fictional data.
+export function getDecisionRecords(state: MothershipState): ApiResponse {
+  const slot = state.repositoryRecords;
+  if (!slot.ok) return err(503, "REPOSITORY_RECORDS_UNAVAILABLE", slot.detail);
+  const feed = slot.records.decisionRecords;
+  if (!feed.ok) return err(503, "REPOSITORY_RECORDS_UNAVAILABLE", feed.detail);
+  return ok({ decisionRecords: feed.value });
+}
+
+export function getProjectRegistry(state: MothershipState): ApiResponse {
+  const slot = state.repositoryRecords;
+  if (!slot.ok) return err(503, "REPOSITORY_RECORDS_UNAVAILABLE", slot.detail);
+  const feed = slot.records.projectRegistry;
+  if (!feed.ok) return err(503, "REPOSITORY_RECORDS_UNAVAILABLE", feed.detail);
+  return ok(feed.value);
+}
+
 export function checkpointMission(state: MothershipState, missionId: string, organizationId: string): ApiResponse {
   const violation = assertMissionOwnedBy(state, missionId, organizationId);
   if (violation) return violation;
