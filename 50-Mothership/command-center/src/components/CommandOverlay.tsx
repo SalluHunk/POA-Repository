@@ -5,6 +5,7 @@ interface Props {
   onClose: () => void;
   onCommandCenter: () => void;
   onFocusLookup: () => void;
+  onProjects: () => void;
 }
 
 // A glass command surface emerging from the environment, positioned near
@@ -21,7 +22,7 @@ interface Props {
 // React would otherwise unmount this instantly on `open=false`, giving no
 // chance to play an exit transition. A short-lived `closing` state keeps
 // it mounted just long enough to play .overlay-exit first.
-export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup }: Props) {
+export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup, onProjects }: Props) {
   const [mounted, setMounted] = useState(open);
   const [closing, setClosing] = useState(false);
 
@@ -88,6 +89,19 @@ export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup }
           style={overlayItemStyle(true)}
         >
           People — jump to one
+        </button>
+        {/* POA-PJR-001 Project Registry (read-only repository record). An
+            overlay entry rather than an eighth domain orb: DOMAIN_SPEC is a
+            verbatim port of the reference's seven domains. */}
+        <button
+          className="overlay-item"
+          onClick={() => {
+            onProjects();
+            onClose();
+          }}
+          style={overlayItemStyle(true)}
+        >
+          Projects — repository registry
         </button>
         <button className="overlay-item" disabled style={overlayItemStyle(false)} aria-disabled="true" title="Not built in this MVP">
           Diagnostics <span className="mono" style={{ fontSize: 10.5, color: "var(--text-faint)" }}>not yet available</span>

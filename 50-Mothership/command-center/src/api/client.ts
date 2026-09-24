@@ -11,6 +11,7 @@ import type {
   MissionDetail,
   Organization,
   Principal,
+  ProjectRegistry,
   RuntimeResult,
 } from "./types";
 
@@ -109,4 +110,12 @@ export function checkpointMission(
   organizationId: string,
 ): Promise<{ missionId: string; headHash: string | null }> {
   return postJson(`/missions/${encodeURIComponent(missionId)}/checkpoint`, { organizationId });
+}
+
+// Read-only; not organization-scoped (server/api.ts: repository records are
+// never hung off the fictional seed organization). A 503
+// REPOSITORY_RECORDS_UNAVAILABLE surfaces as ApiError with the server's
+// { ok, code, detail } body.
+export function getProjectRegistry(): Promise<ProjectRegistry> {
+  return getJson("/repository/project-registry");
 }

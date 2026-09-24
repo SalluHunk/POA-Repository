@@ -91,3 +91,34 @@ export interface RuntimeResult {
   code: string;
   detail?: string;
 }
+
+/**
+ * Mirrors server/repository-records.ts's POA-PJR-001 feed exactly
+ * (GET /api/repository/project-registry, Dogfooding Slice 001). Fields,
+ * values and addenda arrive verbatim - including PJR-001's own inline
+ * confidence markers - and every entry/addendum carries the Repository
+ * Reference that distinguishes committed repository content from anything
+ * else the Command Center renders (Project Surface Decision Brief D3).
+ * Addenda are NOT attributed to entries: the loader deliberately leaves
+ * that reconciliation undecided, and so does this client.
+ */
+export interface RepositoryReference {
+  path: string;
+  commit: string;
+  heading: string;
+}
+
+export interface ProjectRegistryEntry {
+  fields: Array<{ field: string; value: string }>;
+  repositoryReference: RepositoryReference;
+}
+
+export interface ProjectRegistryAddendum {
+  body: string;
+  repositoryReference: RepositoryReference;
+}
+
+export interface ProjectRegistry {
+  entries: ProjectRegistryEntry[];
+  addenda: ProjectRegistryAddendum[];
+}

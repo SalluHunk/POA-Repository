@@ -6,6 +6,7 @@ import type {
   Mission,
   MissionDetail,
   Principal,
+  ProjectRegistry,
   RuntimeResult,
 } from "../api/types";
 import { deriveAttention, type AttentionItem } from "./attention";
@@ -14,9 +15,22 @@ import { deriveAttention, type AttentionItem } from "./attention";
 // (POA-MOTHERSHIP-MVP-DECISION-BRIEF.md §G).
 export const ORGANIZATION_ID = "org-paravyoma";
 
-export type Subject = { type: "mission"; id: string } | { type: "principal"; id: string } | { type: "people" } | null;
+// `project` is a UI navigation container over POA-PJR-001's existing
+// Project identity (Project Surface Decision Brief D1 = functionalization),
+// shaped like `people`: the surface renders the whole registry at uniform
+// depth, so there is no per-project id to carry. It is not a runtime
+// Mission-model entity and has no relationship to missions (D-A).
+export type Subject = { type: "mission"; id: string } | { type: "principal"; id: string } | { type: "people" } | { type: "project" } | null;
 export type Depth = "presence" | "context" | "investigation";
 
+// Loaded independently of Presence: a REPOSITORY_RECORDS_UNAVAILABLE must
+// never blank out missions/people (Slice 001 isolates that failure on the
+// server; the client keeps it isolated too).
+export type ProjectRegistryState =
+  | { status: "idle" }
+  | { status: "loading" }
+  | { status: "ok"; registry: ProjectRegistry }
+  | { status: "failed"; code: string; detail: string };
 export interface CommandCenterState {
   loading: boolean;
   error: string | null;
@@ -33,6 +47,7 @@ export interface CommandCenterState {
   actionResult: RuntimeResult | null;
   overlayOpen: boolean;
   lookupError: string | null;
+  projectRegistry: ProjectRegistryState;
 }
 
 export type MissionActionKind = { kind: "transition"; to: string } | { kind: "authorize"; capability: string; action: string };
@@ -54,6 +69,7 @@ export function useCommandCenter() {
     actionResult: null,
     overlayOpen: false,
     lookupError: null,
+    projectRegistry: { status: "idle" },
   });
 
   const loadPresence = useCallback(async () => {
@@ -111,6 +127,27 @@ export function useCommandCenter() {
   // architecture rather than a parallel navigation model.
   const focusPeople = useCallback(() => {
     setState((s) => ({ ...s, subject: { type: "people" }, depth: "context", actionResult: null }));
+  }, []);
+
+  // Project Registry (POA-PJR-001 only) - same subject/depth mechanism as
+  // focusPeople. Read lazily on focus, read-only; nothing here writes.
+  const focusProject = useCallback(async () => {
+    setState((s) => ({
+      ...s,
+      subject: { type: "project" },
+      depth: "context",
+      actionResult: null,
+      projectRegistry: s.projectRegistry.status === "ok" ? s.projectRegistry : { status: "loading" },
+    }));
+    try {
+      const registry = await api.getProjectRegistry();
+      setState((s) => ({ ...s, projectRegistry: { status: "ok", registry } }));
+    } catch (e) {
+      const body = e instanceof api.ApiError ? (e.body as { code?: unknown; detail?: unknown } | null) : null;
+      const code = typeof body?.code === "string" ? body.code : "REQUEST_FAILED";
+      const detail = typeof body?.detail === "string" ? body.detail : e instanceof Error ? e.message : String(e);
+      setState((s) => ({ ...s, projectRegistry: { status: "failed", code, detail } }));
+    }
   }, []);
 
   const drillInvestigate = useCallback(async () => {
@@ -195,5 +232,5 @@ export function useCommandCenter() {
     [state.missions, state.principals, focusMission, focusPrincipal],
   );
 
-  return { state, actions: { focusMission, focusPrincipal, focusPeople, drillInvestigate, returnTo, requestAction, cancelAction, confirmAction, toggleOverlay, lookup } };
+  return { state, actions: { focusMission, focusPrincipal, focusPeople, focusProject, drillInvestigate, returnTo, requestAction, cancelAction, confirmAction, toggleOverlay, lookup } };
 }

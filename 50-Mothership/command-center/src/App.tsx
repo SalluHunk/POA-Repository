@@ -11,6 +11,7 @@ import { ActionConfirm } from "./components/ActionConfirm";
 import { ActionResult } from "./components/ActionResult";
 import { PrincipalFocus } from "./components/PrincipalFocus";
 import { PeopleFocus } from "./components/PeopleFocus";
+import { ProjectFocus } from "./components/ProjectFocus";
 import { CommandOverlay } from "./components/CommandOverlay";
 import { DomainDetailOverlay } from "./demo/DomainDetailOverlay";
 import { AnswerOverlay } from "./demo/AnswerOverlay";
@@ -115,7 +116,10 @@ export function App() {
       {demo && depth === "presence" && selectedDomain && !answer && !thinking && <DomainDetailOverlay domainId={selectedDomain} onClose={closeDetail} onAsk={send} />}
       {demo && depth === "presence" && answer && !thinking && <AnswerOverlay answer={answer} onClose={closeAnswer} />}
       {demo && depth === "presence" && thinking && <ThinkingIndicator />}
-      {demo && listening && <ListeningOverlay onAskOpinion={askOpinion} onStop={toggleListen} />}
+      {/* Not over the Project surface: the listening narrative names the
+          fictional "Temple Growth", which must never share the screen with
+          repository-backed projects (Project Surface Decision Brief D3). */}
+      {demo && listening && subject?.type !== "project" && <ListeningOverlay onAskOpinion={askOpinion} onStop={toggleListen} />}
       {/* Demo mode also shows fictional example figures on the orbs, so the
           mode itself is disclosed globally, not only per overlay. */}
       {demo && <DemoDisclosure style={{ position: "fixed", right: 32, bottom: 20, zIndex: 50, background: "rgba(6,10,22,.85)" }} />}
@@ -175,11 +179,22 @@ export function App() {
         </ContextualSurface>
       )}
 
+      {/* Context depth only - the demo narrative overlays render only at
+          Presence, and the listening overlay is excluded for this subject
+          above, so repository-backed projects and fictional content are
+          never on screen together (Project Surface Decision Brief D3). */}
+      {depth === "context" && subject?.type === "project" && (
+        <ContextualSurface variant="scroll">
+          <ProjectFocus registry={state.projectRegistry} onReturn={() => actions.returnTo("presence")} />
+        </ContextualSurface>
+      )}
+
       <CommandOverlay
         open={state.overlayOpen}
         onClose={actions.toggleOverlay}
         onCommandCenter={() => actions.returnTo("presence")}
         onFocusLookup={() => actions.returnTo("presence")}
+        onProjects={() => void actions.focusProject()}
       />
       <Footer />
     </Stage>
