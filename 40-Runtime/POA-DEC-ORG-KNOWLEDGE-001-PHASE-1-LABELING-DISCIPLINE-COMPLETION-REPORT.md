@@ -76,3 +76,24 @@ The Phase 1 reports are committed together in the checkpoint commit that follows
 ---
 
 *End of Phase 1 Completion Report. Written 2026-09-25 by the Execution Agent. Documentation only; no existing record modified; no decision made.*
+
+---
+
+## Correction (2026-09-25, appended; original text above retained unchanged)
+
+Recorded in the same style as KNOWLEDGE-001 §11.3: the earlier statements stay as written, and each correction below supersedes one of them by reference.
+
+**C-1 (supersedes §3, row 2, "four `40-Runtime/*.md` reports").**
+- **Correct statement:** the files written were the ADR-001 append and **three** `40-Runtime/*.md` reports: the two exit-evidence reports and this completion report.
+- **Source:** `git show --stat 0f37a06` lists exactly three added files.
+- **Labels:** kind SOURCE-OBSERVATION; basis VERIFIED (as-sourced); freshness UNKNOWN; no known conflict; source authority UNKNOWN (no declaration).
+- **What went wrong:** the original row was labeled VERIFIED (as-sourced) but was not checked against its source at the time of writing. It was a basis mislabel.
+
+**C-2 (supersedes §3, row 5, "The one presentation qualifier … is disclosed as F-5", and the §1 coverage-table claim that source authority was "UNKNOWN (no declaration) only").** The reports depart from the ratified value sets in three further ways beyond "DECISION (as recorded)":
+- **(a)** R4, R13, G9 and G14 record source authority as "n/a (not sourced)", which is not a §12.4 value.
+- **(b)** G1, and every row marked "as G1", leave source authority unassigned ("See F-3").
+- **(c)** G12's consistency cell is free text, not a §12.3 value.
+
+**F-8 (added friction).** The source-authority axis (§12.4) is defined per *source predicate*. It is therefore undefined for kinds that have no source, such as an INFERENCE produced by the Execution Agent. The reports improvised "n/a (not sourced)". Disposition: TBD — requires architectural decision.
+
+**Revised friction count:** eight items (F-1–F-8). Five of them concern how the labels are defined: F-1, F-2, F-3, F-5 and F-8.
