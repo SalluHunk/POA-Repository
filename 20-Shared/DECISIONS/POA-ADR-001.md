@@ -1045,3 +1045,82 @@ Committed to `main` as commit `9729df9d890a165005015f52828f90584ebbf72c`. Files:
 ---
 
 *End of POA-DEC-ORG-KNOWLEDGE-001 Commander Ratification Decision Record. Authorized by: Commander, rulings of 2026-09-25 (R-1; recording authorized with items 1–3 resolved). Materialized under `POA-DEC-ORG-KNOWLEDGE-001`, 2026-09-25. Not staged, committed, or pushed.*
+
+---
+
+# POA-DEC-ORG-KNOWLEDGE-001 Phase 1 (Labeling Discipline) Development Authorization Decision Record (2026-09-25)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered. It was recorded **before** Phase 1 execution began, as the Commander's ruling directs.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-25. Subject: `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0 §24, **Phase 1 — "Apply the labeling discipline to existing records"**. Decision class: **Development Authorization** under `CTD-001`, scoped to Phase 1 only.
+
+## 2. Context
+
+The POA-DEC-ORG-KNOWLEDGE-001 Commander Ratification Decision Record above discharged Phase 0 and ratified KD-12 (truth classes as a labeling discipline) and KD-15 (four-axis confidence), and answered Q9 YES. That record's §4 states that no §24 phase beyond Phase 0 is authorized. The Phase 1 row of §24 reads, verbatim: scope *"Apply the labeling discipline to existing records: truth kind + four-axis confidence in future PJR-style and mission reports"*; entry gate *"Phase 0 (KD-12, KD-15)"*; exit evidence *"Two or more reports using the labels without friction"*; builds infrastructure *"No (documentation practice)"*.
+
+## 3. Decision
+
+Commander ruling, quoted verbatim:
+
+> "Phase 1 — Labeling Discipline is authorized exactly as currently defined.
+> Convention-only implementation is still Development under CTD-001 and therefore requires Development Authorization.
+> Phase 1 is strictly documentation-only.
+> Do not modify existing historical records.
+> Do not touch PJR-001.
+> Do not build code, schemas, storage, connectors, UI, AI integration, or any Phase 2+ capability.
+> Truth/confidence labels describe evidence state; they do not create organizational authority.
+> Record this Commander ruling additively in POA-ADR-001 before executing the phase.
+> Then execute Phase 1 and produce the required exit evidence.
+> Follow the established checkpoint rule: commit after a stable major execution, or earlier if execution-resource usage reaches 75%."
+
+## 4. Scope of This Authorization
+
+- **Authorizes:** execution of `POA-DEC-ORG-KNOWLEDGE-001` §24 Phase 1 exactly as defined in that row, as documentation practice only, and production of its exit evidence.
+- **Entry gate:** "Phase 0 (KD-12, KD-15)" is met by the Ratification Decision Record above.
+- **CTD-001 basis:** this ruling is the separate authority decision required by `CTD-001`'s Evidence-Gated Development condition. The ruling does not enumerate the condition's other elements (demonstrated need; existing mechanisms shown insufficient). This record does not supply them.
+- **"Existing records" wording:** the §24 row title says "existing records", while its scope column says "future PJR-style and mission reports" and the ruling says "Do not modify existing historical records." Accordingly, labels are applied only in newly written reports, and no existing record is edited. This is stated from the row and the ruling, not as a new interpretation.
+- **Does NOT:**
+  - modify any existing historical record, `POA-PJR-001`, `POA-DEC-ORG-KNOWLEDGE-001` (pinned at SHA-256 `ba19e96f…`) or its Status field;
+  - build code, schemas, storage, connectors, UI or AI integration;
+  - authorize any Phase 2+ capability, or answer Q2, Q3, Q6, Q7, Q12 or any other open question;
+  - resolve K1–K4 or K7–K9;
+  - create a new standard, artifact family or labeling vocabulary beyond KD-12/KD-15 as ratified.
+- **Labels are not authority:** a truth-kind or confidence label describes the evidence state of a claim. It creates no organizational authority, and applying a label (including DECISION) to a claim does not make that claim authoritative.
+- **Exit evaluation:** whether the exit evidence shows the labels in use "without friction" is left to the Commander. Execution evidence is advisory.
+
+## 5. Consequence
+
+Phase 1 may be executed as documentation practice. The next phase (Phase 2) remains unauthorized and separately gated, including by Q3. Development Authorization remains "NOT GRANTED GENERALLY" under `CTD-001`; this record grants it for Phase 1 only.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`. The ruling was given in session on 2026-09-25. No Deployment-mirror directive file carries it; this record is its written source.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` v1.1.0 §9, §10.2, §12 and §24 (referenced, unmodified).
+
+## 8. Artifact Version/State
+
+- `POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)", unchanged.
+- `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0 unchanged (SHA-256 `ba19e96fc6499a41f7a2c18c1c07e74ee7d3d73f8543848fff4fecc1a197e1e5`).
+- `POA-PJR-001` unchanged (SHA-256 `d95e12af1b6e0629…`).
+- Repository HEAD at recording: `16d323d` (== `origin/main`).
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` §24 Phase 1 (Labeling Discipline).
+
+## 10. Related Evidence
+
+The CTD-001 Commander Transition Declaration, CTD-001 Scope Interpretation (Q1) and POA-DEC-ORG-KNOWLEDGE-001 Commander Ratification Decision Records above; `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` §24. Phase 1 exit evidence is filed in `40-Runtime/` under the `POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-*` prefix.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of POA-DEC-ORG-KNOWLEDGE-001 Phase 1 (Labeling Discipline) Development Authorization Decision Record. Authorized by: Commander, ruling of 2026-09-25. Recorded before Phase 1 execution.*
