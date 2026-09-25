@@ -1128,3 +1128,103 @@ Committed to `main` as commit `7913fe85ce0ed2d7b32d0be5aa20ce87fd32a78c` (this r
 ---
 
 *End of POA-DEC-ORG-KNOWLEDGE-001 Phase 1 (Labeling Discipline) Development Authorization Decision Record. Authorized by: Commander, ruling of 2026-09-25. Recorded before Phase 1 execution.*
+
+---
+
+# POA-DEC-ORG-KNOWLEDGE-001 Truth/Provenance Friction Disposition Decision Record (2026-09-25)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-25. Subject: `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-TRUTH-PROVENANCE-FRICTION-DECISION.md` (the "friction decision"), which disposes of Phase 1 friction items F-1, F-2, F-3, F-5 and F-8. Decision status: **DECIDED IN PART.** D-1, D-3, D-5 and D-8 are adopted as proposed. D-2 (F-2) remains unresolved.
+
+## 2. Context
+
+§24 Phase 1 of `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0 ("K-001") was executed under the "POA-DEC-ORG-KNOWLEDGE-001 Phase 1 (Labeling Discipline) Development Authorization Decision Record (2026-09-25)" above. The Phase 1 completion report (`40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-LABELING-DISCIPLINE-COMPLETION-REPORT.md`, commits `0f37a06` / `3f6b2b6`) logged eight friction items; five of them concern how the labels are defined.
+
+At the Commander's instruction, the Execution Agent traced those five against existing mechanisms: `POA-EVID-001` (including the GOV-015 and ESR-001 Addenda), the ESR-001 Evidence Retention Decision Record, `POA-EVT-001`, `POA-OBS-001`, `POA-ACC-001`, `ACS-001` GOV-005, the OPV-002 Acceptance Record and `GAP-REGISTER-001`. It produced a decision candidate. The trace found that the items arise from existing notions being conflated, and that no new mechanism is required.
+
+## 3. Decision
+
+The Commander's instruction, quoted verbatim: *"finalize the friction ADR with the rulings above; preserve F-2 as unresolved; make no Q3 changes; make no Phase 2 implementation; make no changes to PJR-001; add the appropriate Commander decision record to POA-ADR-001"*.
+
+In session, the Execution Agent asked whether "the rulings above" meant adopting the proposed determinations as written, D-1(a–d), D-3(a–c), D-5 and D-8, with F-2 left unresolved. The Commander answered verbatim: *"Yes, adopt as proposed"*.
+
+The adopted determinations, restated inline (`POA-EVID-001` §C.4). The friction decision's §3 is the full text and controls where they differ:
+
+- **D-1 (F-1, source authority).**
+  - (a) For POA-scope predicates, a governing specification's own designation of the mechanism that records a predicate may serve as the K-001 §12.4 declaration, with that specification's standing disclosed. Where no such designation exists, the axis remains UNKNOWN.
+  - (b) This confers no authority basis and implies no retention class.
+  - (c) For Organization-A predicates, §12.4 applies as ratified. UNKNOWN persists until a Source Declaration exists.
+  - (d) The `POA-OBS-001` self-designation / platform-nature precedent is recorded as a tension and is not adopted.
+- **D-3 (F-3, acceptance-state dependency).**
+  - (a) Labels disclose the acceptance state of any governing standard whose definition they rely on. Basis is never upgraded on the strength of a pending standard.
+  - (b) The general standing of acceptance-pending GOV standards is referred to separate acceptance rulings under `POA-ACC-001`.
+  - (c) The GAP-003 / `ACS-001` existence contradiction is referred to that same track.
+- **D-5 (F-5, restated decisions).**
+  - (i) A restated claim keeps kind DECISION, with its authority basis in the cited decision record.
+  - (ii) Reading it is a SOURCE-OBSERVATION of that record.
+  - (iii) The restating report is Provenance plus a Repository Reference and confers nothing.
+  - (iv) No new label value is created.
+- **D-8 (F-8, inference/source semantics).**
+  - (a) The source-authority axis applies to sourced kinds only.
+  - (b) It is not asserted for INFERENCE, ANALYSIS or RECOMMENDATION, and is never inherited from inputs.
+  - (c) For DECISION, authority basis is shown instead.
+  - (d) No new axis value is created.
+- **D-2 (F-2, independent verification): UNRESOLVED.** Options A, B and C remain open. Until decided, kind VERIFIED FACT is not claimed on the strength of a same-role re-check.
+
+## 4. Scope of This Authorization
+
+- These rulings are interpretations of ratified KD-12 and KD-15, applied through existing mechanisms. They preserve the boundary set by the Commander: facts, observations, decisions, authority, verification, inference and analysis do not collapse into one another. No label, and no ruling here, creates organizational authority.
+- **Does NOT:**
+  - resolve F-2;
+  - answer, alter or advance Q3;
+  - authorize Phase 2 or any implementation (no code, database, connectors or UI);
+  - modify `POA-PJR-001`, K-001 (SHA-256 `ba19e96f…`) or the Phase 1 reports;
+  - accept `POA-EVID-001`, `POA-ACC-001`, `POA-EVT-001`, `ACS-001` or `POA-INTEGRITY-CONTROL-001`;
+  - resolve the GAP-003 contradiction, the OBS-001 tension, F-4/F-6/F-7, or K1–K4/K7–K9;
+  - mint a new artifact ID, family or label value.
+
+## 5. Consequence
+
+- Future labeled reports apply D-1, D-3, D-5 and D-8.
+- F-2 remains open for a separate decision.
+- F-3(b) awaits acceptance rulings on the ACC-001 track, whenever the Commander or Chief Architect chooses.
+- Because this record cites the friction decision as its subject, that file is **Authority-bearing** under the ESR-001 test and must be retained with this record.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, as the ratifying authority of KD-12 and KD-15 (R-1). The ruling was given in session on 2026-09-25. No Deployment-mirror directive file carries it; this record is its written source.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-TRUTH-PROVENANCE-FRICTION-DECISION.md` (subject; its §8 records the same rulings symmetrically).
+
+## 8. Artifact Version/State
+
+- `POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)", unchanged.
+- K-001 v1.1.0 unchanged.
+- `POA-PJR-001` unchanged.
+- Repository HEAD at recording: `3f6b2b6` (== `origin/main`).
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Phase 1 → friction trace → this disposition).
+
+## 10. Related Evidence
+
+- The friction decision, §1–§8.
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-LABELING-DISCIPLINE-COMPLETION-REPORT.md` §2 and the Correction section.
+- The POA-DEC-ORG-KNOWLEDGE-001 Commander Ratification and Phase 1 Authorization Decision Records above.
+- The ESR-001 Evidence Retention Decision Record and the OPV-002 Acceptance Record above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+**Authorship note.** §3's quoted instruction and answer are the Commander's words, verbatim. The restatement of the determinations and §1–§2 and §4–§10 were drafted by the Execution Agent. They are presented for Commander inspection before commit.
+
+---
+
+*End of POA-DEC-ORG-KNOWLEDGE-001 Truth/Provenance Friction Disposition Decision Record. Authorized by: Commander, ruling of 2026-09-25. Not staged, committed, or pushed at drafting.*
