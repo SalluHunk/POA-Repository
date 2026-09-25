@@ -863,3 +863,181 @@ Committed and pushed to `origin/main` as commit `89ca641a4771b9b34353f54e7915538
 ---
 
 *End of TSAAS-TECH-001 — Temple Suite Technology Architecture Decision Record. Authorized by: Chief Architect / Commander, via direct governance directive (`TSAAS-TECH-001 - TEMPLE SUITE TECHNOLOGY ARCHITECTURE DECISION MISSION.md`), 2026-08-26. Materialized by: Mission `TSAAS-TECH-001`, 2026-08-26. Left uncommitted per this mission's own explicit instruction.*
+
+---
+
+# CTD-001 Scope Interpretation (Q1) Decision Record (2026-09-25)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of §A–§G, the "# Result" section, the CTD-001 Commander Transition Declaration Decision Record, or any other prior additive record in this file is altered. This record interprets the existing scope of `CTD-001`; it does not amend, extend, or create an exception to it.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Ruling rendered: 2026-09-24. Wording confirmed by the Commander for recording: 2026-09-25. Interprets: the CTD-001 Commander Transition Declaration Decision Record (2026-08-23), above in this file.
+
+## 2. Context
+
+The candidate decision record `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` (a decision-candidate record, not ratified) raised Q1 for Commander decision in its §20, quoted verbatim: *"Does `CTD-001`'s Evidence-Gated condition govern **ratification of an architectural expansion** like this one, or only development?"*
+
+## 3. Decision
+
+Quoted verbatim — Commander ruling:
+
+> "CTD-001's Evidence-Gated condition governs development authorization. It does not govern ratification of architecture. This is an interpretation of CTD-001's existing scope (§3 defines the condition by 'development need'; §4 separates Architecture Authorization from Development Authorization), not an exception to it. Every implementation phase in §24 stays fully evidence-gated."
+
+Reference notes, not part of the ruling: "§3" and "§4" refer to §3 and §4 of the CTD-001 Commander Transition Declaration Decision Record above ("POA may evaluate a proposed development need only where…"; "Does not collapse … Development Authorization, Architecture Authorization … into one another"). "§24" refers to §24 (phased implementation) of `POA-DEC-ORG-KNOWLEDGE-001`.
+
+## 4. Scope of This Authorization
+
+Records this interpretation only. Does **NOT**: alter the text or substantive meaning of `CTD-001` — the Evidence-Gated Development condition, "Development Authorization: NOT GRANTED GENERALLY", and every exclusion in the CTD-001 record's §4 remain exactly as recorded; ratify, accept, or advance `POA-DEC-ORG-KNOWLEDGE-001` or any of its determinations (the ruling establishes that ratification of architecture is not governed by CTD-001's evidence gate — it does not itself ratify any architecture); authorize any implementation phase of that document, each of which remains evidence-gated; resolve Q3, Q15, or any other open question of that document; resolve any contradiction recorded in `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q15-CLASSIFICATION-REPORT.md`; determine the status of `POA-SVC-001`, `POA-IMPL-001`, `POA-ORG-003`, `POA-DEC-ORG-003`/`004`, or any other record; or modify the candidate ADR.
+
+## 5. Consequence
+
+Q1 is answered: the absence of demonstrated development need does not, under `CTD-001`, bar the Commander from considering an architecture for ratification. Whether any specific architecture is ratified remains a separate Commander decision. Development and implementation remain governed by `CTD-001`, unchanged.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`. The ruling was rendered in session on 2026-09-24; its exact wording, drafted by the Execution Agent from that ruling, was adopted by the Commander verbatim on 2026-09-25 for recording. No Deployment-mirror directive file carries this ruling; this record is its written source.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); the CTD-001 Commander Transition Declaration Decision Record above (interpreted, unmodified).
+
+## 8. Artifact Version/State
+
+`POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)" unchanged at the time of this decision. The CTD-001 record unchanged. `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` unchanged (untracked decision-candidate record; its Q1 row is not updated by this record).
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Q1).
+
+## 10. Related Evidence
+
+The CTD-001 Commander Transition Declaration Decision Record above, §3 and §4; the Commander Destination Condition Decision Record above; `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` §20 (Q1) and §24.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of CTD-001 Scope Interpretation (Q1) Decision Record. Authorized by: Commander, ruling rendered 2026-09-24, wording confirmed for recording 2026-09-25. Materialized under `POA-DEC-ORG-KNOWLEDGE-001` (Option 2), 2026-09-25. Not staged, committed, or pushed.*
+
+---
+
+# POA-DEC-ORG-KNOWLEDGE-001 Commander Ratification Decision Record (2026-09-25)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered. It contains two explicitly separated decisions: **Act 1 — Foundation Recognition** and **Act 2 — Architectural Ratification**.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-25. Decision status: **RATIFIED — ARCHITECTURE ONLY; EFFECTIVE UPON RECORDING**, subject to the conditions in §4. Subject: `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` **v1.1.0**, SHA-256 `ba19e96fc6499a41…` (prefix).
+
+## 2. Context
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Organizational Knowledge Architecture & Intelligence Substrate) was materialized as a decision candidate (v1.0.0, 2026-09-24) and revised to v1.1.0 (2026-09-25) to reflect: the CTD-001 Scope Interpretation (Q1) Decision Record immediately above; the Q15 classification of its ten untracked predecessors (`40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q15-CLASSIFICATION-REPORT.md`: 0 Authority-bearing, 8 Provenance-only, 2 Indeterminate); and qualification of every self-described RATIFIED/ESTABLISHED tag. `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-RATIFICATION-READINESS-REVIEW-REPORT.md` found it **CONDITIONALLY READY** (conditions RC-1–RC-7), with KD-20 blocked on an unrecognized foundation. The proposed act and its validation are in `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PROPOSED-RATIFICATION-ACT-AND-VALIDATION-REPORT.md`.
+
+## 3. Decision
+
+Commander rulings, quoted verbatim: *"Commander ruling: proceed with R-1. We will recognize the required architectural foundation and ratify KNOWLEDGE-001 in the same explicit Commander act."* and *"Commander ruling — authorize recording of R-1."* Resolutions of the outstanding items, verbatim: *"1. P1–P5: ADOPT ALL FIVE. Act 1 shall explicitly recognize P1, P2, P3, P4 and P5. … Adoption of P1–P5 is an adoption of the principles themselves. It does not retroactively recognize RAT-ORG-001, ORG-003, or any other provenance-only/indeterminate record as an authoritative record."* — *"2. Identity and capability-grant model: DEFER. Do not adopt it as authoritative in this ratification. It may remain referenced as proposed/provenance material. Any future recognition must occur through an explicit architectural/governance decision."* — *"3. Repository-tier vocabulary: DEFER. Do not adopt SVC-001's tier vocabulary as authoritative. It may remain referenced as proposed/provenance material. Any future recognition requires its own architectural decision."*
+
+**ACT 1 — FOUNDATION RECOGNITION.** The Commander recognizes, by this act, the following propositions as restated here (verbatim from the Commander's direction):
+
+1. POA is a supra-organizational operating system.
+2. Paravyoma Technologies is POA's Creator/Steward and first Organizational Pilot.
+3. Creator/Steward status does not constitute organizational authority over organizations.
+4. Technical access, organizational authority, ownership and sovereignty remain distinct.
+5. Paravyoma's Organization-A representation is explicitly recognized without collapsing the distinction between Paravyoma and POA.
+
+And the five principles, worded exactly as in `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0 §4:
+
+> **P1 — Organizational Sovereignty:** An organization retains sovereignty over its substantive organizational information and interests, subject to explicitly authorized POA capabilities.
+> **P2 — Creator Separation:** POA creation/stewardship does not automatically confer organizational access.
+> **P3 — Authority Separation:** Technical access does not constitute organizational authority.
+> **P4 — Explicit Delegation:** POA acts within an organization's domain through explicitly authorized capabilities.
+> **P5 — Provenance:** Derived knowledge crossing organizational boundaries requires sufficient provenance to establish origin, classification, and authorization status.
+
+Act 1 recognizes these propositions and principles themselves. **It does not recognize `POA-RAT-ORG-001`, `POA-ORG-003`, `POA-DEC-ORG-001`–`004`, `POA-SVC-001`, `POA-IMPL-001`, `POA-DEC-EXEC-001` or any other untracked record as an authoritative record, retroactively or otherwise.** Those records remain Provenance-only or Indeterminate, as classified. Organization-A recognition does not select a representation-bootstrap mechanism and does not designate Paravyoma's Representative.
+
+**ACT 2 — ARCHITECTURAL RATIFICATION.** The Commander ratifies `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0 as an architectural decision:
+
+- **Ratified (10):** KD-03, KD-04, KD-07, KD-09, KD-12, KD-13, KD-15, KD-17, KD-21, KD-22.
+- **Ratified with qualification (11):**
+  - KD-01: identity classes referenced, recognition deferred.
+  - KD-02: conceptual only; structural persistence of INFERENCE/ANALYSIS gated by `EIA-001` A3.
+  - KD-05: measure governance `TBD`; Q7 gate.
+  - KD-06: capability-grant gates reference a deferred model.
+  - KD-08: Q6 gate.
+  - KD-10: the organizational knowledge plane is adopted as a **cross-cutting, organization-scoped plane within the existing architecture, not a new POA layer**; tier labels are proposed; `POA-DEC-SEC-001` §13 is referenced, not ratified.
+  - KD-11: the scope principle only, not `POA-DEC-SEC-001` §13; Q2 gate.
+  - KD-14: a conceptual requirement only.
+  - KD-16: "POA never approves on its own authority"; Q5 deferred.
+  - KD-18: only as far as it maps onto `POA-KER-001` §7 / `POA-EXB-001`.
+  - KD-19: a conceptual discipline within the `EIA-001` A2/A3 boundary, not an intelligence engine; Q6/Q12 gates.
+- **Enabled by Act 1 (1):** KD-20. Paravyoma is dogfooded as Organization A with no Steward exception.
+- **Q8 and Q9 answered YES** through KD-03/KD-04 and KD-15.
+
+No KD-01–KD-22 text is altered by this act.
+
+## 4. Scope of This Authorization
+
+**Architectural Ratification ≠ Development Authorization ≠ Implementation.** This act ratifies architecture only.
+
+- **Development stays gated.** `CTD-001`'s Evidence-Gated Development condition, as interpreted by the CTD-001 Scope Interpretation (Q1) Decision Record above, applies in full to every subsequent phase. No phase of `POA-DEC-ORG-KNOWLEDGE-001` §24 beyond Phase 0 (discharged by this act) is authorized.
+- **No runtime is created or authorized.** That covers databases, connectors, knowledge stores, API integrations, UI, agents, services and runtime behavior.
+- **The `EIA-001` Assessment-003 boundary is preserved.** This ratification converts no AI inference, analysis or recommendation into organizational truth. Such content becomes organizational position only through an authorized human DECISION that restates it and is synchronized. Structural representation of interpretation or meaning stays subject to A3's necessity test.
+
+**Deferred** (referenced as proposed/provenance material only; each needs its own future decision):
+- the identity/capability-grant model (`POA-ORG-003` §5, §13);
+- `POA-SVC-001`'s repository-tier vocabulary.
+
+**Question dispositions:**
+
+| Type | Questions |
+|---|---|
+| **Gates on later phases** | Q2 (before Phase 4 and before organization-scoped Authority-bearing evidence relies on KD-11); Q6 (no external AI provider processes organization information until answered); Q7 (no measure in an executive answer until governance is decided); Q12 (Phase 6) |
+| **Condition** | Q3 authority aspect: it cannot be answered as authority without a recognized tier source |
+| **Deferred** (implementation/design) | Q3 physical data location (still a gate on Phase 2; restructuring still needs a governance mission); Q4, Q5, Q10, Q11, Q13 |
+| **Unaffected** | Q14; the name "Knowledge Core" is not adopted |
+
+**Conflicts not resolved.** K1–K4 and K7–K9 (Q15 report §8) are **not** resolved by this act, which was given no instruction to resolve them. K2 in particular: P1–P5 become authoritative prospectively, by this act, and `POA-ORG-003`'s earlier claim is not adjudicated.
+
+## 5. Consequence
+
+- Model C, the Creator/Steward vs Organization-A separation, the four-way access/authority/ownership/sovereignty distinction, and P1–P5 are now recognized POA foundation, by this act.
+- `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0 is POA's ratified architectural direction for organizational knowledge, within the scope above. Its Status field is not edited by this record.
+- Under ESR-001 test (1), this record's citation makes that document **Authority-bearing**. Reproducible retention (RC-4) remains outstanding until its synchronization is authorized.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, exercising the Matters Reserved for Commander "New architectural layers" and "Major scope expansion" (lines 61–72). The subject extends POA's scope into organizations' business-domain knowledge. It adds a cross-cutting persistence plane outside git, but no formal POA layer, because no authoritative POA layer taxonomy exists (`POA-CON-001` line 62; GAP-005). Rulings were given in session on 2026-09-25. No Deployment-mirror directive file carries them; this record is their written source.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` v1.1.0 (ratified subject, unmodified); `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PROPOSED-RATIFICATION-ACT-AND-VALIDATION-REPORT.md` (proposed act, verification, and the disclosed P1–P5 wording variance against `POA-DEC-ORG-001` §20, whose earlier wording is not adopted).
+
+## 8. Artifact Version/State
+
+- `POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)", unchanged.
+- `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0, untracked, unmodified (its Status field still reads "Decision candidate" — to be updated additively only on separate authorization).
+- The ten Q15 records are unchanged.
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Q1 → Q15 classification → v1.1.0 revision → Ratification Readiness Review → this ratification).
+
+## 10. Related Evidence
+
+- The CTD-001 Commander Transition Declaration and CTD-001 Scope Interpretation (Q1) Decision Records, above.
+- The ESR-001 Evidence Retention Decision Record, above.
+- `20-Shared/GOV/POA-EVID-001.md`; `20-Shared/GOV/ORC-001-GOV-001.md` lines 61–72.
+- `40-Runtime/EIA-001-ASSESSMENT-003-REPORT.md` §1.
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q15-CLASSIFICATION-REPORT.md`, `…-RATIFICATION-READINESS-REVIEW-REPORT.md`, and `…-PROPOSED-RATIFICATION-ACT-AND-VALIDATION-REPORT.md`.
+- `POA-RAT-ORG-001` §A/§C/§D and `POA-ORG-003` §4 are cited as Provenance (origin of wording) only.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of POA-DEC-ORG-KNOWLEDGE-001 Commander Ratification Decision Record. Authorized by: Commander, rulings of 2026-09-25 (R-1; recording authorized with items 1–3 resolved). Materialized under `POA-DEC-ORG-KNOWLEDGE-001`, 2026-09-25. Not staged, committed, or pushed.*
