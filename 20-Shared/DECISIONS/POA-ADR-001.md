@@ -1354,3 +1354,131 @@ Committed to `main` as commit `af2b6309d4c82044aa08ad8dd7cdab63274787ac` (this r
 ---
 
 *End of POA-DEC-ORG-KNOWLEDGE-001 F-2 Independent Verification Decision Record. Authorized by: Commander, ruling of 2026-09-25. Not staged, committed, or pushed at drafting.*
+
+---
+
+# POA-DEC-ORG-KNOWLEDGE-001 Q3-A Organization A Representation Decision Record (2026-09-26)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered.
+
+**This record holds two distinct acts.** §3 records **Act-OA**, which is Organization A's act, and **Act-POA**, which is POA governance's recognition of it. They are recorded together here for the interim period only, as the Commander's ruling permits. Act-OA's presence in this file does not make it a POA-governance decision, and it does not make `POA-ADR-001` the permanent or canonical repository for Organization A's governance records.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-26. Subject: `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q3A-ORGANIZATION-A-REPRESENTATION-DECISION.md` (the "Q3-A decision"). It answers the questions that `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q3A-ORGANIZATION-A-REPRESENTATION-AUTHORITY-REPORT.md` ("Q3-A") §5.5 (i)–(iv) left for a Commander ruling. Decision status: **DECIDED.** An interim Organization A Representative is designated for organizational-knowledge matters, and POA recognizes that designation. The Q3 physical location is **not** decided. Phase 2 is **not** authorized.
+
+## 2. Context
+
+R-1 Act 1 recognized Organization A's representation and sovereignty in principle, but did not designate Paravyoma's Representative or select a bootstrap mechanism. The Q3 reconciliation and authority-resolution reports found that no committed record names anyone who may act for Paravyoma as Organization A.
+
+The Q3-A evidence mission found:
+- The Commander cannot act for Organization A **by virtue of** the POA-governance role, Steward status or technical control (P2, P3; Act 1 prop. 3 and 5).
+- No ratified or committed text prohibits the same person from doing so under an **explicit** act made in a capacity distinct from POA governance.
+- Two acts are needed: Organization A's designation (Act-OA) and POA's recognition of it (Act-POA).
+- The questions for a ruling were: capacity (R-a vs R-b), the designee, scope and bounds, and Act-OA's interim record placement.
+
+## 3. Decision
+
+The Commander's ruling, quoted verbatim:
+
+*"The Commander accepts the Q3-A authority resolution and authorizes recording of the ruling. Record the following four determinations: The Commander may act for Paravyoma Technologies in the distinct capacity of an authorized executive of Organization A, separate from the Commander’s POA-governance capacity. The Commander is designated as the interim human Organization A Representative for organizational-knowledge matters. The authority is strictly bounded to organizational-knowledge governance, authoritative-source designation, the Organization A side of the eventual Q3 location decision, and the associated Source Declaration. It is interim, revocable, non-transferable without separate authorization, creates no precedent for other organizations, and grants no technical/access/implementation authority. For the interim period, the designation and POA recognition may be recorded together in POA-ADR-001. This does not establish POA-ADR-001 as the permanent canonical repository for Organization A's governance records and does not pre-decide Q3. Add the explicit safeguard: Representative authority does not constitute storage, access, hosting, processing, technical, development, or implementation authorization. Preserve the distinction between the two capacities and between Organization A’s act and POA’s recognition of that act. Create the appropriate decision record/report, validate it, but do not yet decide Q3 physical location, do not authorize Phase 2, do not modify KNOWLEDGE-001, and do not implement anything. Stop for Commander review before commit/push."*
+
+The two acts, restated inline (`POA-EVID-001` §C.4; Q3-A D-G option (a)). The Commander's ruling quoted above controls. The Q3-A decision's §2 is the fuller rendering of the two acts, drafted by the Execution Agent; where it or this restatement differs from the ruling, the ruling controls.
+
+### Act-OA — Organization A's act (recorded here for the interim period only)
+
+- **Actor and capacity.** Paravyoma Technologies, acting as Organization A, through the Commander in the capacity of an **authorized executive of Organization A**, separate from the Commander's POA-governance capacity.
+- **Not resting on** ORC-001 reserved-matter authority, POA Creator/Steward status, technical control, or the POA-governance role.
+- **Designation.** The Commander is designated as the **interim human Organization A Representative** for organizational-knowledge matters.
+- **Scope, strictly bounded to:**
+  - organizational-knowledge governance;
+  - authoritative-source designation;
+  - the Organization A side of the eventual Q3 location decision;
+  - the associated Source Declaration.
+- **Bounds.** Interim. Revocable. Non-transferable without separate authorization. No precedent for other organizations. No technical, access or implementation authority.
+
+### Act-POA — POA governance's recognition of Act-OA
+
+- **Actor and capacity.** POA governance, through the Commander in the Commander's **POA-governance capacity**.
+- **Recognition.** POA will treat the acts of the Act-OA designee, **within Act-OA's scope and bounds only**, as Organization A's acts.
+- **Limit.** This recognition confers no Organization A authority. It is a determination about POA's own conduct, not a grant to Organization A.
+
+### Safeguard (applies to both acts)
+
+**"Representative authority does not constitute storage, access, hosting, processing, technical, development, or implementation authorization."**
+
+### Distinctions preserved
+
+- **The two capacities.** The Commander acting for POA governance and the Commander acting as an authorized executive of Organization A are distinct capacities. Neither is derived from the other.
+- **The two acts.** Organization A's act (Act-OA) and POA's recognition of it (Act-POA) are separate acts. Neither substitutes for the other.
+- **Identity limit (Q3-A D-H).** POA records identity at role level only, so this separation is **declared, not mechanically enforced**. Every future act under this designation must state its capacity expressly. An act that does not state it is not presumed to be an Organization A act.
+
+## 4. Scope of This Authorization
+
+- These acts establish an interim Organization A Representative for Paravyoma only, and POA's recognition of that Representative. No ruling here creates ownership, source authority, technical authority or authority over POA.
+- **Does NOT:**
+  - decide the Q3 physical location, on either the Organization A side or the POA side, or classify that decision (Q3-A §5.6 step 4);
+  - authorize Phase 2 or any implementation (no code, schema, storage, connectors, UI or infrastructure);
+  - make the Source Declaration or the Business Function Map. The designee may make them later, as separate acts;
+  - make any custody, hosting, access or processing grant to POA over Organization A's knowledge. Whether such a grant could ever fall within the designee's authority over the Organization A side of the Q3 location decision is not ruled (O-4);
+  - select the general representation bootstrap mechanism, or the identity/capability-grant model or tier vocabulary deferred by R-1;
+  - establish any ownership model (`POA-META-002` §G remains UNESTABLISHED);
+  - interpret ORC-001's "organizational decisions";
+  - modify K-001 (SHA-256 `ba19e96f…`), `POA-PJR-001`, the Phase 1 reports, or the friction, F-2 or Q3 reports;
+  - mint a new artifact ID, family, kind, basis value, scope value or field.
+
+## 5. Consequence
+
+- **Representation is established on an interim basis.** For the first time, a committed record names who may act for Paravyoma as Organization A in organizational-knowledge matters. It is bounded and interim, and it holds for Paravyoma only.
+- **Q3 prerequisite chain.** Q3-A §5.6 steps 1–3 (the ruling, Act-OA and Act-POA) are satisfied by this record once committed, with step 2 satisfied **on the Commander's declaration** of Paravyoma company authority (O-2), not on an independently evidenced instrument. Step 4, classification of the Q3 location decision, is next and is not taken here.
+- **Retention.** Under the ESR-001 operative test, the following are **Authority-bearing** and must be retained with this record:
+  - Act-OA's inline text in this record;
+  - the Q3-A decision, cited as subject;
+  - the Q3-A report, cited as basis.
+- **Open items, recorded in the Q3-A decision §6 and not ruled here:**
+  - **O-1.** The termination event, and who may revoke.
+  - **O-2.** The executive capacity rests on the Commander's declaration alone. No Paravyoma corporate instrument is cited.
+  - **O-3.** The designee is identified by role title.
+  - **O-4.** Whether a custody, hosting, access or processing grant to POA can fall within the designee's authority over the Organization A side of the Q3 location decision.
+
+## 6. Decision Authority
+
+The two acts rest on **different authorities**, recorded separately:
+- **Act-OA:** Paravyoma Technologies acting as Organization A, through the Commander as an authorized executive of Organization A. This authority is declared by the Commander in that capacity (O-2). It is **not** derived from `ORC-001-GOV-001` or from any POA role.
+- **Act-POA:** the Commander, directly, as the apex authority under `ORC-001-GOV-001`, in the POA-governance capacity.
+
+The ruling was given in session on 2026-09-26. No Deployment-mirror directive file carries it; this record is its written source. The Chief Architect's delegation does not reach either act (Q3-A D-I).
+
+## 7. Artifact
+
+- `POA-ADR-001` (this record, including Act-OA's inline text for the interim period).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q3A-ORGANIZATION-A-REPRESENTATION-DECISION.md` (the subject).
+
+## 8. Artifact Version/State
+
+- `POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)", unchanged. That status belongs to this specification and does not attach to Act-OA.
+- K-001 v1.1.0 unchanged.
+- `POA-PJR-001` unchanged.
+- Repository HEAD at recording: `253c2b0` (== `origin/main`).
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Phase 1 → friction disposition → F-2 → Q3 reconciliation → Q3 authority resolution → Q3-A Organization A representation decision).
+
+## 10. Related Evidence
+
+- The Q3-A decision, §1–§8.
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q3A-ORGANIZATION-A-REPRESENTATION-AUTHORITY-REPORT.md`, §3–§5 (the accepted analysis; unmodified).
+- `10-Constitution/CONST-001-Paravyoma-Constitution.md`, Article VIII.
+- `20-Shared/GOV/ORC-001-GOV-001.md`.
+- The Commander Ratification Decision Record (R-1) and the F-2 Independent Verification Decision Record above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+**Authorship note.** §3's quoted ruling is the Commander's words, verbatim. The restatement of the two acts, and §1–§2 and §4–§10, were drafted by the Execution Agent. They are presented for Commander inspection before commit.
+
+---
+
+*End of POA-DEC-ORG-KNOWLEDGE-001 Q3-A Organization A Representation Decision Record. Authorized by: Commander, ruling of 2026-09-26. Not staged, committed, or pushed at drafting.*
