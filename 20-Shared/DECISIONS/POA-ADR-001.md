@@ -1477,6 +1477,8 @@ The ruling was given in session on 2026-09-26. No Deployment-mirror directive fi
 
 Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
 
+Committed to `main` as commit `c5f2f348af749927bef167ba1fd56837cba44f8f` (this record together with `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q3A-ORGANIZATION-A-REPRESENTATION-DECISION.md` and `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q3A-ORGANIZATION-A-REPRESENTATION-AUTHORITY-REPORT.md`). This commit reference was recorded additively in a separate bookkeeping commit.
+
 **Authorship note.** §3's quoted ruling is the Commander's words, verbatim. The restatement of the two acts, and §1–§2 and §4–§10, were drafted by the Execution Agent. They are presented for Commander inspection before commit.
 
 ---
