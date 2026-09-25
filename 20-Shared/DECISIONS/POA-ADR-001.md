@@ -1223,6 +1223,8 @@ Commander, directly — the apex authority under `ORC-001-GOV-001`, as the ratif
 
 Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
 
+Committed to `main` as commit `023a85aeb7b51ddd3ec27f3f1ce1d8acfa2129b8` (this record together with `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-TRUTH-PROVENANCE-FRICTION-DECISION.md`). This commit reference was recorded additively in a separate bookkeeping commit.
+
 **Authorship note.** §3's quoted instruction and answer are the Commander's words, verbatim. The restatement of the determinations and §1–§2 and §4–§10 were drafted by the Execution Agent. They are presented for Commander inspection before commit.
 
 ---
