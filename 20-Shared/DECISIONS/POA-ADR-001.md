@@ -1121,6 +1121,8 @@ The CTD-001 Commander Transition Declaration, CTD-001 Scope Interpretation (Q1) 
 
 Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
 
+Committed to `main` as commit `7913fe85ce0ed2d7b32d0be5aa20ce87fd32a78c` (this record alone, before Phase 1 execution). Phase 1 exit evidence committed as `0f37a066cafea3f953f1e61298426b07948b8d81`: `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-REPOSITORY-STATE-LABELED-OBSERVATION-REPORT.md`, `…-PHASE-1-GOVERNANCE-STATUS-LABELED-READBACK-REPORT.md`, `…-PHASE-1-LABELING-DISCIPLINE-COMPLETION-REPORT.md`. These commit references were recorded additively in a separate bookkeeping commit. Not pushed.
+
 ---
 
 *End of POA-DEC-ORG-KNOWLEDGE-001 Phase 1 (Labeling Discipline) Development Authorization Decision Record. Authorized by: Commander, ruling of 2026-09-25. Recorded before Phase 1 execution.*
