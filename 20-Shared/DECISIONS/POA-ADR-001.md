@@ -918,6 +918,8 @@ The CTD-001 Commander Transition Declaration Decision Record above, §3 and §4;
 
 Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
 
+Committed to `main` as commit `9729df9d890a165005015f52828f90584ebbf72c` (together with the POA-DEC-ORG-KNOWLEDGE-001 Commander Ratification Decision Record below). This commit reference was recorded additively in a separate bookkeeping commit.
+
 ---
 
 *End of CTD-001 Scope Interpretation (Q1) Decision Record. Authorized by: Commander, ruling rendered 2026-09-24, wording confirmed for recording 2026-09-25. Materialized under `POA-DEC-ORG-KNOWLEDGE-001` (Option 2), 2026-09-25. Not staged, committed, or pushed.*
@@ -1037,6 +1039,8 @@ Commander, directly — the apex authority under `ORC-001-GOV-001`, exercising t
 ## 11. Resulting Commit / Repository State
 
 Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+Committed to `main` as commit `9729df9d890a165005015f52828f90584ebbf72c`. Files: `20-Shared/DECISIONS/POA-ADR-001.md` (this record and the Q1 record above, additive), `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` (v1.1.0, byte-identical to the ratified text, SHA-256 `ba19e96fc6499a41…`, which satisfies RC-4), and the three `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-*` reports cited in §2/§7/§10. This commit reference was recorded additively in a separate bookkeeping commit.
 
 ---
 
