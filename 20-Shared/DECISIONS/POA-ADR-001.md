@@ -1230,3 +1230,125 @@ Committed to `main` as commit `023a85aeb7b51ddd3ec27f3f1ce1d8acfa2129b8` (this r
 ---
 
 *End of POA-DEC-ORG-KNOWLEDGE-001 Truth/Provenance Friction Disposition Decision Record. Authorized by: Commander, ruling of 2026-09-25. Not staged, committed, or pushed at drafting.*
+
+---
+
+# POA-DEC-ORG-KNOWLEDGE-001 F-2 Independent Verification Decision Record (2026-09-25)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered. That includes the Truth/Provenance Friction Disposition Decision Record immediately above, whose "D-2 … UNRESOLVED" entry remains a true record of that moment.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-25. Subject: `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-F-2-INDEPENDENT-VERIFICATION-DECISION.md` (the "F-2 decision"). It decides determination D-2 (friction item F-2), which the Friction Disposition Decision Record above left unresolved. Decision status: **DECIDED.** B′ is adopted, including the independent-source control condition. No attesting role is designated. Mechanized verifiers and producers remain unresolved.
+
+## 2. Context
+
+The Friction Disposition Decision Record above preserved D-2 as UNRESOLVED, with Options A (reproducibility reading), B (identity reading) and C (split by method) open. The interim rule was that kind VERIFIED FACT is not claimed on the strength of a same-role re-check.
+
+At the Commander's instruction, from checkpoint `5896b6f`, the Execution Agent reconciled the existing mechanisms:
+- K-001 §6.1, §9, §10.2, §12;
+- `POA-DEC-SEC-001` §5, §15, §25–§26;
+- `POA-EVID-001` §D and `POA-EVT-001` §D;
+- `OPV-002` / `OPV-003` and the OPV-002 Acceptance Record above;
+- `ACS-001` GOV-005 §D–§F and `POA-ACC-001` §F;
+- the Mothership `identity.ts`;
+- `CONST-001` Articles VI, VIII, X and XIV.
+
+It produced a decision candidate with four findings:
+- "Independent" carries three distinct notions in POA: reproducibility, party/control-boundary distinctness, and material-conflict independence.
+- Reproducibility makes a claim verifiable, not verified.
+- Only role-level and source-level distinctness can be recorded under POA's preserved role-level identity limitation.
+- Same-role deterministic re-checks already have a complete ratified home as DERIVED FACT. The strict reading therefore costs POA essentially nothing in reachability of organizational truth.
+
+The candidate recommended a refinement of Option B, designated B′.
+
+## 3. Decision
+
+The Commander's ruling, quoted verbatim: *"Proceed to finalize F-2 with these rulings: B′ adopted. Independent-source control condition adopted. No attesting role designated. CI / adapters / mechanized checkers remain unresolved pending the identity/capability-grant track. Preserve the distinction between reproducibility, verification, independence, authority and attestation. Do not resolve Q3. Do not authorize Phase 2. Do not modify PJR-001. Do not change Phase 1 reports. No code or infrastructure implementation."*
+
+The adopted determinations, restated inline (`POA-EVID-001` §C.4). The F-2 decision's §6 and §13 are the full text and control where they differ:
+
+- **(a) Meaning of "distinct".** A verifier is distinct from a producer when the distinctness is recordable: at role level (routes 1 and 3), or at source level (route 2). Instance-level distinctness is neither required nor claimed.
+- **(b) Route 1 — deterministic re-check.** This yields kind VERIFIED FACT only when a role distinct from the producing role executes it, with the K-001 §10.2 verification method, verifier identity (role) and verification time recorded.
+- **(c) Same-role deterministic re-checks.** These are DERIVED FACTs (K-001 §9.1, §12.5) and inherit basis. They are never VERIFIED FACTs, however reproducible.
+- **(d) Route 2 — independent source.** This qualifies only when all of the following hold:
+  - the corroborating source is distinct;
+  - both source identities are recorded;
+  - the readings and the comparison are deterministic;
+  - **the producing role neither authored the corroborating source's content for the predicate nor can unilaterally alter it** (the control condition, modeled on `POA-DEC-SEC-001` §25.1 as precedent, not governing text).
+
+  Otherwise the check is DERIVED under (c). Source distinctness does not settle source authority.
+- **(e) Route 3 — attestation.** This qualifies only from a role that is both distinct from the producing role and authorized to attest.
+- **(f) No attesting role is designated.** Route 3 cannot be claimed by any role until a separate, explicit decision designates one. This ruling neither designates nor forecloses any particular role.
+- **(g) Mechanized verifiers and producers** (CI, Observation Adapters, mechanized checkers): **UNRESOLVED**, pending the identity/capability-grant track that R-1 deferred. Until decided, such checks are DERIVED under (c).
+- **(h) Scope rendering.** "Independently corroborated" (K-001 §12.1) is used only for VERIFIED FACTs under (b), (d) or (e). The route is disclosed in the existing §10.2 "verification method" field. No new label value is created.
+- **(i) No material-conflict import.** The `ACS-001` GOV-005 §D test is not imported. Any further attestation requirement stays on the F-3b governance track.
+- **(j) The interim practice becomes the general rule.** It is confirmed as the rule under (c). No Phase 1 report is relabeled.
+
+**Distinctions preserved, per the Commander's instruction:**
+- **Reproducibility** is a property of the record. It is not verification or independence.
+- **Verification** is corroboration. It is not authority, integrity, source authority, certification or acceptance.
+- **Independence** is recordable role-level or source-level distinctness. It is not instance-level or adversarial independence, which belongs to `POA-DEC-SEC-001`.
+- **Authority** belongs to synchronized DECISIONS and is never conferred by verification.
+- **Attestation** is corroboration by a designated role. It is not a DECISION, even when the same person holds decision authority.
+
+## 4. Scope of This Authorization
+
+- These rulings interpret ratified KD-12 and KD-13, and the KD-06 stage-7 gate as it applies to labeling, through existing mechanisms. No label, and no ruling here, creates organizational authority.
+- **Does NOT:**
+  - designate any attesting role;
+  - resolve mechanized verifiers or producers, or the identity/capability-grant model;
+  - answer, alter or advance Q3;
+  - authorize Phase 2 or any implementation (no code, schema, storage, connectors, UI or infrastructure);
+  - modify `POA-PJR-001`, K-001 (SHA-256 `ba19e96f…`), the Phase 1 reports, or the friction decision record;
+  - ratify `POA-DEC-SEC-001` as a whole, or decide whether its §5 governs the knowledge-plane gate;
+  - determine which four §9.2 rules KD-12 ratifies;
+  - accept `POA-EVID-001`, `POA-ACC-001`, `POA-EVT-001`, `ACS-001` or `POA-INTEGRITY-CONTROL-001`;
+  - resolve the GAP-003 contradiction, F-4/F-6/F-7, or K1–K4/K7–K9;
+  - mint a new artifact ID, family, kind, basis value, scope value or field.
+
+## 5. Consequence
+
+- **Future labeled reports apply D-2′.** A same-role deterministic re-check is recorded as a DERIVED FACT. Kind VERIFIED FACT is claimed only through a distinct-role re-check, or through a controlled independent source.
+- **Route 3 (attestation) is currently unavailable** to every role.
+- **With this record, all five label-definition friction items (F-1, F-2, F-3, F-5, F-8) have a Commander disposition.** F-3(b) remains referred to the ACC-001 track.
+- **Retention.** Because this record cites the F-2 decision as its subject, that file is **Authority-bearing** under the ESR-001 test and must be retained with this record.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`, as the ratifying authority of KD-12 and KD-13 (R-1). The ruling was given in session on 2026-09-25. No Deployment-mirror directive file carries it; this record is its written source.
+
+## 7. Artifact
+
+- `POA-ADR-001` (this record).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-F-2-INDEPENDENT-VERIFICATION-DECISION.md` (the subject; its §13 records the same rulings symmetrically).
+
+## 8. Artifact Version/State
+
+- `POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)", unchanged.
+- K-001 v1.1.0 unchanged.
+- `POA-PJR-001` unchanged.
+- Repository HEAD at recording: `5896b6f` (== `origin/main`).
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Phase 1 → friction trace → friction disposition → F-2 independent verification decision).
+
+## 10. Related Evidence
+
+- The F-2 decision, §1–§13.
+- The friction decision (`40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-TRUTH-PROVENANCE-FRICTION-DECISION.md`) §3 F-2 and §8.
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-LABELING-DISCIPLINE-COMPLETION-REPORT.md` §2 (F-2).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-REPOSITORY-STATE-LABELED-OBSERVATION-REPORT.md` R9.
+- `40-Runtime/POA-DEC-SEC-001-DECISION.md` §5, §15 and §25–§26.
+- The OPV-002 Acceptance Record, the Commander Ratification Decision Record and the Friction Disposition Decision Record above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+**Authorship note.** §3's quoted ruling is the Commander's words, verbatim. The restatement of the determinations, and §1–§2 and §4–§10, were drafted by the Execution Agent. They are presented for Commander inspection before commit.
+
+---
+
+*End of POA-DEC-ORG-KNOWLEDGE-001 F-2 Independent Verification Decision Record. Authorized by: Commander, ruling of 2026-09-25. Not staged, committed, or pushed at drafting.*
