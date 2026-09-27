@@ -1484,3 +1484,195 @@ Committed to `main` as commit `c5f2f348af749927bef167ba1fd56837cba44f8f` (this r
 ---
 
 *End of POA-DEC-ORG-KNOWLEDGE-001 Q3-A Organization A Representation Decision Record. Authorized by: Commander, ruling of 2026-09-26. Not staged, committed, or pushed at drafting.*
+
+---
+
+# POA-DEC-ORG-KNOWLEDGE-001 Q6 R-1 Gate Scope Decision Record (2026-09-27)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of §A–§G, the "# Result" section, or any prior additive record in this file is altered. That includes the Q3-A Organization A Representation Decision Record immediately above.
+
+**This record holds one act**, made by the Commander in the POA-governance capacity. **No Organization A act is made** (SP-2-A was selected; the SP-2-B paired acts were not adopted).
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-27. Subject: `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION.md` (the "Q6 decision"). It answers K-001 §20 Q6 **in part**: it states the scope of the R-1 Q6 gate and an interim AI-processing boundary. Decision status: **DECIDED.** The gate's scope is stated. The gate is **not** lifted for any organization information. The full authorization model is **not** decided. Q3 is **not** decided. Phase 2 is **not** authorized.
+
+## 2. Context
+
+The Commander Ratification Decision Record (R-1) above qualified KD-08 and KD-19 by the Q6 gate: "no external AI provider processes organization information until answered". R-1 did not define "external AI provider", "processes" or "organization information".
+
+At the Commander's instruction, the Execution Agent produced:
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-GATE-RECONCILIATION-REPORT.md` ("Q6-R"), which reconciled what the gate says and what it could reach;
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION-BRIEF.md` (the "Brief"), which set out the supported readings of each term;
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION-CANDIDATE.md` (the "candidate"), which gave verbatim-ready ruling text with six selection points (SP-1 to SP-6). SP-2 had no default.
+
+The Commander ruled on 2026-09-27. The Q6 decision records the rulings verbatim in its Part I and preserves the candidate's text unchanged in its Part II.
+
+## 3. Decision
+
+The Commander's rulings, carried from the Q6 decision's Part I §A. The Q6 decision's Part I controls wherever this record and it differ.
+
+**Ruling 1 — authority, historical treatment and scope boundary** (in-session text, verbatim):
+
+> "Commander-only. No Chief Architect concurrence is required for validity.
+>
+> Record this explicitly:
+>
+> The Commander decides this Q6 interpretation. Chief Architect concurrence is not required for validity of this ruling. The Chief Architect may subsequently review or challenge the ruling through the applicable POA governance process.
+>
+> Historical treatment
+>
+> Retain the candidate's existing treatment:
+>
+> This ruling makes no retrospective compliance determination. Where historical model inputs or processing cannot be reconstructed from available evidence, that uncertainty is not converted into a finding of violation, breach, or non-compliance.
+>
+> Scope boundary
+>
+> And retain the previously established boundary:
+>
+> This ruling does not:
+>
+> decide Q3;
+> decide the physical location of Organization A knowledge;
+> authorize Phase 2;
+> authorize the Source Declaration;
+> authorize a Business Function Map;
+> grant POA custody or hosting authority;
+> resolve the deferred capability-grant model;
+> modify KNOWLEDGE-001.
+>
+> These are the Commander rulings. You can now produce POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION.md with them recorded verbatim, then stop for inspection."
+
+**Ruling 2 — selection points.** These were given through the Execution Agent's structured question, 2026-09-27. The questions were drafted by the Execution Agent; the answers are the Commander's selections, verbatim:
+
+- Q: *"… Which wording does the Commander select for Q6-5?"* — **"2-A operating info"**
+- Q: *"For the other selection points (SP-1 classification, SP-3 external provider, SP-4 processes, SP-5 PJR-001, SP-6 analysis about Org A), does the Commander adopt the candidate's proposed defaults and the §2 ruling text as drafted?"* — **"Adopt all defaults"**
+
+**Resulting selections:**
+
+- SP-1: interpretive governance decision.
+- SP-2: **2-A**. The SP-2-B paired acts are not adopted, and **no Organization A act is made**.
+- SP-3: any third-party model, including AI Execution Agents.
+- SP-4: any transmission.
+- SP-5: `POA-PJR-001` entries are organization information; its metadata is governance material.
+- SP-6: governance analysis that does not reproduce operating information is governance material.
+
+**Adopted ruling text**, carried verbatim from the Q6 decision's Part I §B (`POA-EVID-001` §C.4). Q6-0, Q6-10A and Q6-10B are Ruling 1's own words. Every other clause is the candidate's §2 wording, adopted "as drafted" by Ruling 2:
+
+> **Commander ruling — POA-DEC-ORG-KNOWLEDGE-001 Q6: Scope of the R-1 Gate and Interim AI-Processing Boundary (partial answer).**
+>
+> **Capacity.** I act as Commander, the apex authority under `ORC-001-GOV-001`, in my POA-governance capacity. K-001 §20 names "Commander / Chief Architect" as deciders of Q6. This ruling is made by the Commander.
+>
+> **Q6-0 — Decision authority.** The Commander decides this Q6 interpretation. Chief Architect concurrence is not required for validity of this ruling. The Chief Architect may subsequently review or challenge the ruling through the applicable POA governance process.
+>
+> **Q6-1 — Identity.** The question answered in part here is K-001 §20 Q6, "Authorization model for external AI model providers processing organization information", and the gate recorded by the R-1 Ratification Decision Record, §3 (KD-08, KD-19 qualifications) and §4 ("Q6 (no external AI provider processes organization information until answered)"). It is not `POA-DEC-ORG-001` §11 Q6 (post-exit pattern retention), which remains within K-001 §20 Q4 and is unaffected.
+>
+> **Q6-2 — Classification.** This is an interpretive governance decision on the scope of an existing ratified gate, as the CTD-001 Scope Interpretation (Q1) ruling was an interpretation of an existing scope. It is not an architectural expansion and not a Development Authorization.
+>
+> **Q6-3 — External AI provider.** For the gate, an "external AI provider" is any AI model operated by a party other than the organization whose information is concerned. That includes AI Execution Agents (for example the consumers named in `POA-EXB-001` §8), whether or not they operate under an Execution Bundle.
+>
+> **Q6-4 — Processes.** For the gate, "processes" includes any transmission of organization information to an external AI provider, whatever the purpose, including reading it in an agent session, as well as extraction, reasoning or synthesis over it.
+>
+> **Q6-5 — Organization information.** For the gate, "organization information" means an organization's substantive operating information: its financial, sales, workforce, customer, project, product and operational data and documents, and descriptions of them. An organization's governance acts recorded in POA governance records, such as its designation of a Representative, are not organization information for the gate, except as Q6-6(a) provides.
+>
+> **Q6-6 — Named records.**
+> (a) The content of any Organization A Source Declaration, Business Function Map, or measure definition, including its systems, owners, cadences and sensitivities, is organization information. AI processing of it remains gated by R-1 until Q6 is fully answered and Organization A has authorized that processing.
+> (b) The engagement entries of `POA-PJR-001` are organization information. Its status line, schema, registry discipline, location, file hash and consumers are POA governance material. This classifies content for the gate only. It does not move, convert or modify PJR-001, and does not decide K-001 §8.4 or Q3.
+> (c) POA governance reasoning that refers to Organization A by role, capacity, structure, or the existence or absence of its knowledge, without reproducing Organization A's operating information, is POA governance material.
+>
+> **Q6-7 — Relationship to `POA-EXB-001`.** `POA-EXB-001` §8 continues to authorize AI Execution Agents to perform POA work. That authorization does not extend to processing organization information, which remains subject to the R-1 gate.
+>
+> **Q6-8 — Effect on the R-1 gate.** This ruling states the gate's scope. It **does not lift** the gate for any organization information. The R-1 gate stays in force for all organization information until the full authorization model (K-001 §20 Q6) is decided and the organization concerned has authorized the processing. External-model ingestion, extraction and synthesis over organization information (KD-08; KD-19; K-001 §24 Phases 3–6 where a model is used) remain gated.
+>
+> **Q6-9 — What remains open.** The following are not decided: the full authorization model, including its form, scope dimensions and revocation; the Organization A authorization path, in full; the treatment of client organizations recorded in `POA-PJR-001`/`002`/`003`; and the vendor data-handling question.
+>
+> **Q6-10A — Historical treatment.** This ruling makes no retrospective compliance determination. Where historical model inputs or processing cannot be reconstructed from available evidence, that uncertainty is not converted into a finding of violation, breach, or non-compliance.
+>
+> **Q6-10B — Scope boundary.** This ruling does not:
+> - decide Q3;
+> - decide the physical location of Organization A knowledge;
+> - authorize Phase 2;
+> - authorize the Source Declaration;
+> - authorize a Business Function Map;
+> - grant POA custody or hosting authority;
+> - resolve the deferred capability-grant model;
+> - modify KNOWLEDGE-001.
+>
+> **Q6-10C — Other non-effects (from the candidate, as drafted).** This ruling:
+> - does not authorize any development, runtime, connector, or AI integration;
+> - does not modify `POA-EXB-001`, `POA-PJR-001`, or `CLAUDE.md`;
+> - does not resolve Q3-A O-1 to O-4;
+> - leaves the post-R-1 inventory in the Q6 Gate Reconciliation Report §7.2 reserved for any separate Commander determination.
+>
+> **Q6-11 — Recording.** Upon authorization, this ruling is recorded additively in `POA-ADR-001` as a dated Decision Record.
+
+## 4. Scope of This Authorization
+
+- This ruling interprets the scope of the existing R-1 Q6 gate. It creates no organizational authority and grants no processing, custody, hosting, access or technical authority.
+- **Does NOT**, in addition to Q6-10A–Q6-10C:
+  - lift the R-1 gate for any organization information (Q6-8);
+  - make any Organization A act, or rule on Q3-A O-4;
+  - decide the full K-001 §20 Q6 authorization model, the Organization A authorization path, client-organization treatment, or vendor data handling (Q6-9);
+  - modify K-001 (SHA-256 `ba19e96f…`), `POA-EXB-001`, `POA-PJR-001`, the Q6 decision, the candidate, the Brief, Q6-R, or any prior report;
+  - determine the status of any prior work (Q6-10A; Q6-10C);
+  - mint a new artifact ID, family, kind, basis value, scope value or field.
+
+## 5. Consequence
+
+- **The gate's scope is stated.** "External AI provider", "processes" and "organization information" now have recorded meanings for the R-1 gate (Q6-3 to Q6-5). The named straddling records are classified (Q6-6).
+- **Continued use (DERIVED from Q6-3 to Q6-7; not a separate ruling).** POA may continue using an external AI provider, including AI Execution Agents, to reason over POA governance material. Organization A's operating information stays outside the AI processing boundary. So do the content of its Source Declaration, Business Function Map and measure definitions, and `POA-PJR-001`'s entries.
+- **Under SP-2-A**, Execution Agents may read `POA-ADR-001`, including Act-OA in the Q3-A record above, and cite Act-OA's bounds.
+- **Phase 2 effect.** Execution-Agent drafting of the Source Declaration or Business Function Map remains gated (Q6-6(a) with Q6-3 and Q6-4). Phase 2 remains unauthorized in all cases.
+- **Retention.** Under the ESR-001 operative test, the following are **Authority-bearing** and must be retained with this record:
+  - the Q6 decision, cited as subject;
+  - the candidate, whose §2 wording Ruling 2 adopted "as drafted";
+  - the Brief and Q6-R, cited as basis.
+
+## 6. Decision Authority
+
+The Commander, directly, as the apex authority under `ORC-001-GOV-001`, in the POA-governance capacity. K-001 §20 names "Commander / Chief Architect" as deciders of Q6. Per Q6-0, the Commander decides this interpretation, and Chief Architect concurrence is not required for validity. The Chief Architect may subsequently review or challenge the ruling through the applicable POA governance process.
+
+The rulings were given in session on 2026-09-27. No Deployment-mirror directive file carries them. The Q6 decision is their written source, and this record restates them.
+
+## 7. Artifact
+
+- `POA-ADR-001` (this record).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION.md` (the subject; its Part I records the same rulings).
+
+## 8. Artifact Version/State
+
+- `POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)", unchanged. That status belongs to this specification. It does not imply Chief Architect concurrence in this ruling (Q6-0).
+- K-001 v1.1.0 unchanged.
+- `POA-EXB-001` unchanged.
+- `POA-PJR-001` unchanged.
+- The Q6 decision, SHA-256 `5a11e97c509415dc9a454e928972d296287674e4ba07139f9bdec9b8fb89ce51` at recording (after its Status row was updated to record this recording).
+- Repository HEAD at recording: `65aaa8d` (== `origin/main`).
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Phase 1 → friction disposition → F-2 → Q3 reconciliation → Q3 authority resolution → Q3-A Organization A representation decision → Q6 gate reconciliation → Q6 decision).
+
+## 10. Related Evidence
+
+- The Q6 decision, Part I §A–§D and Part II §1–§7.
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION-CANDIDATE.md` (unmodified; SHA-256 `81523e40f6202ac4…`).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION-BRIEF.md` (unmodified).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-GATE-RECONCILIATION-REPORT.md` (unmodified), including §7.2.
+- `20-Shared/EXB/POA-EXB-001.md` §8.
+- The Commander Ratification Decision Record (R-1) and the Q3-A Organization A Representation Decision Record above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+**Authorship note.**
+- Ruling 1 in §3 is the Commander's words, verbatim.
+- In Ruling 2, the answers are the Commander's words, verbatim. The questions were drafted by the Execution Agent.
+- In the adopted ruling text, Q6-0, Q6-10A and Q6-10B are Ruling 1's words. The Capacity paragraph, Q6-1 to Q6-9, Q6-10C and Q6-11 are wording drafted by the Execution Agent in the candidate, which the Commander adopted "as drafted".
+- The resulting-selections list, and §1–§2 and §4–§10, were drafted by the Execution Agent.
+- All of it is presented for Commander inspection before commit.
+
+---
+
+*End of POA-DEC-ORG-KNOWLEDGE-001 Q6 R-1 Gate Scope Decision Record. Authorized by: Commander, rulings of 2026-09-27. Not staged, committed, or pushed at drafting.*
+
