@@ -1665,6 +1665,8 @@ The rulings were given in session on 2026-09-27. No Deployment-mirror directive 
 
 Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
 
+Committed to `main` as commit `970d0620064a34be2e000497452daf2b18311880` (this record together with `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION.md`, `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION-CANDIDATE.md`, `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION-BRIEF.md` and `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-GATE-RECONCILIATION-REPORT.md`). This commit reference was recorded additively in a separate bookkeeping commit.
+
 **Authorship note.**
 - Ruling 1 in §3 is the Commander's words, verbatim.
 - In Ruling 2, the answers are the Commander's words, verbatim. The questions were drafted by the Execution Agent.
