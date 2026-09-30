@@ -1991,3 +1991,73 @@ To be recorded once committed.
 
 *End of POA-ORG-KNOW-P5-AUTH-001 Decision Record. Authorized by: Commander, ruling rendered 2026-09-30.*
 
+---
+
+# POA-ORG-KNOW-P5-UI-FOUND-001 — Foundational UI/Runtime Mission Authorization Decision Record (2026-09-30)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), following the same pattern as the Decision Records above. It is the explicit Commander ratification act required by `POA-STD-011` §6.4 for the authorization artifact `40-Runtime/POA-ORG-KNOW-P5-UI-FOUND-001-AUTHORIZATION.md`.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-30. Mission ID: `POA-ORG-KNOW-P5-UI-FOUND-001`. Title: **Mothership Design-System Formalization & Runtime Baseline (Foundational, Non-Surface)**. Decision status: **AUTHORIZED, EFFECTIVE UPON RECORDING**, scoped exactly as stated in the authorization artifact and summarized in §4 below. Subject: execution of `POA-ORG-KNOW-P5-UI-FOUND-001` only.
+
+## 2. Context
+
+The original external brief `P5-UI-001` self-declared "AUTHORIZED IMPLEMENTATION MISSION"; `POA-STD-011` §6.2 holds that self-declaration is not an act of authorization. `40-Runtime/P5-UI-001-AUTHORIZATION-RECONCILIATION-REPORT.md` classified it REQUIRES A NEW COMMANDER AUTHORIZATION ACT, under a Phase 7 surface gate (`POA-DEC-ORG-KNOWLEDGE-001` §24) that is not met. The Commander declined to treat any UI work as exempt from that gate and split the scope into FOUNDATIONAL UI/RUNTIME WORK (authorizable by a separate, named act) and MOTHERSHIP SURFACE IMPLEMENTATION (remains gated). An authorization-form review of the proposal against `POA-STD-011` §6, this file's mechanism and the `POA-ORG-KNOW-P5-AUTH-001` pattern was corrected to 12/12 PASS (Revision 2).
+
+## 3. Decision
+
+Commander assent, recorded exactly as given:
+
+> "APPROVED as drafted, subject to the corrections identified in the authorization-form review."
+
+The Commander further authorized recording of this act as the effective authorization under `POA-STD-011` §6 and this file's ratification mechanism. This record does not attribute drafted wording to the Commander as a verbatim ruling; the assent above is the Commander's own.
+
+## 4. Authorized Foundation Scope (exact; no broader)
+
+1. Existing design-system inventory and formalization.
+2. Preservation of the existing typography and visual language.
+3. Reusable UI primitives where genuinely required.
+4. Mothership runtime/UI foundation baseline.
+5. Responsive behavior baseline.
+6. Accessibility baseline.
+7. Visual/runtime regression-test infrastructure.
+8. Runtime validation infrastructure.
+9. Regression validation of the EXISTING Executive Panel only.
+10. Documentation/evidence necessary to establish the above foundation.
+
+**This authorization does NOT:** create a Phase 7 exemption; authorize general Phase 5; authorize Mothership surface implementation; authorize new Executive Panel behavior or expanded text interaction; authorize voice, speech recognition or TTS; authorize LLM interaction; authorize autonomous agents; authorize KnowledgePlane expansion; authorize business-function implementation; authorize Phase 6 or Phase 7; authorize `POA-ORG-KNOW-P5-IMPL-001` (separately authorized, unaffected); authorize `P5-UI-002` or any successor mission; or modify `POA-DEC-ORG-KNOWLEDGE-001` §24. The original `P5-UI-001` brief is not ratified or adopted, in whole or in part.
+
+## 5. Boundary, Evidence, Execution Profile, Commit/Push
+
+The full implementation boundary (Authorized Work, Explicit Exclusions, Stop Conditions, Decision Boundaries per `POA-STD-011` §6.6), evidence obligations (§6.9), execution-resource statement, and commit/push boundary are stated in the authorization artifact and are incorporated here by reference, unmodified. In summary:
+
+- **Stop and escalate** if implementation discovers that a Mothership surface must be modified; existing Executive Panel behavior must change; voice/speech/TTS, LLM interaction or autonomous behavior is required; KnowledgePlane/API/data-model changes or business-function capabilities are required; `POA-DEC-ORG-KNOWLEDGE-001` §24 must be changed; another governance or architectural decision is required; or any work falls outside this authorization.
+- **Required evidence:** execution/completion record citing this authorization and its ratification commit; reproducible typecheck, build and test evidence; runtime boot/validation evidence; responsive validation; accessibility validation; visual/regression evidence where applicable.
+- **Execution profile (a preference, NOT a MODEL-GATE rule):** preferred model Claude Sonnet 5.5; preferred effort High for substantial implementation passes and Medium for routine validation/test/iteration loops; Claude Opus 5.5 may be used when architectural ambiguity, governance conflict or materially complex reasoning requires it. No ratified MODEL-GATE mechanism binds this repository; the execution record MUST nevertheless report the actual model/resource/profile used and any material mismatch.
+- **Commit/push:** bounded commits only; no history rewriting; no amend/rebase of previous governance commits; no unrelated files staged; no push; any future push requires separate authorization.
+
+## 6. Artifact
+
+`40-Runtime/POA-ORG-KNOW-P5-UI-FOUND-001-AUTHORIZATION.md` (the authorization artifact, `POA-STD-011` §6.3; committed together with this record); `POA-ADR-001` (this record).
+
+## 7. Artifact Version/State
+
+`POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` §24 unchanged. `50-Mothership/` and `50-Mothership/command-center/` unmodified by this record. `POA-ORG-KNOW-P5-AUTH-001` above unchanged.
+
+## 8. Related Mission
+
+`POA-ORG-KNOW-P5-PLAN-001`; `POA-ORG-KNOW-P5-AUTH-001`; `P5-UI-001-AUTHORIZATION-RECONCILIATION-REPORT.md`; enables `POA-ORG-KNOW-P5-UI-FOUND-001`. Implementation commits must cite this record by ID (`POA-STD-011` §6.8), and may commence only after this record's commit exists (`POA-STD-011` §6.5, §6.7).
+
+## 9. Related Evidence
+
+`40-Runtime/POA-ORG-KNOW-P5-UI-FOUND-001-AUTHORIZATION.md`; `40-Runtime/P5-UI-001-AUTHORIZATION-RECONCILIATION-REPORT.md`; `POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` §23.3, §24; `20-Shared/STD/POA-STD-011.md` §6.
+
+## 10. Resulting Commit / Repository State
+
+Committed together with the authorization artifact in one bounded governance commit. The commit SHA may be added additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of POA-ORG-KNOW-P5-UI-FOUND-001 Decision Record. Authorized by: Commander, assent recorded 2026-09-30.*
+
