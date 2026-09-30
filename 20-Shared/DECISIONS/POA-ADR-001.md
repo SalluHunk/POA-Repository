@@ -1678,3 +1678,174 @@ Committed to `main` as commit `970d0620064a34be2e000497452daf2b18311880` (this r
 
 *End of POA-DEC-ORG-KNOWLEDGE-001 Q6 R-1 Gate Scope Decision Record. Authorized by: Commander, rulings of 2026-09-27. Not staged, committed, or pushed at drafting.*
 
+---
+
+# POA-DEC-ORG-KNOWLEDGE-001 Phase 1 Exit Decision Record (2026-09-29)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), using this specification's own §C/§D fields, following the same pattern as the Decision Records above. No word of any prior section, or any prior additive record in this file, is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-29. Subject: `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-EXIT-DECISION.md` (the "Phase 1 Exit Decision"), SHA-256 `eb1a5d6e7aad1b41…`. Decision class: the exit evaluation the Phase 1 (Labeling Discipline) Development Authorization Decision Record above reserved to the Commander ("whether the exit evidence shows the labels in use 'without friction' is left to the Commander"). Decision status: **DECIDED.**
+
+## 2. Context
+
+K-001 §24's Phase 1 row states exit evidence as "two or more reports using the labels without friction." The Phase 1 Authorization Decision Record above authorized execution and reserved the "without friction" finding to the Commander, stating "execution evidence is advisory." Phase 1 was executed; exit evidence (three labeled reports) was committed `0f37a066…`. Five friction items logged during execution (F-1, F-2, F-3, F-5, F-8) were subsequently disposed of by the Friction Disposition Decision Record and the F-2 Independent Verification Decision Record above. Three further items (F-4, F-6, F-7) were logged in the completion report but not previously the subject of any Commander ruling.
+
+## 3. Decision
+
+Commander ruling, quoted verbatim, given in session on 2026-09-29 in answer to four selection points (`40-Runtime/POA-PHASE1-EXIT-EVALUATION-DECISION-CANDIDATE.md`):
+
+> "SP-P1.1 = P1.1-yes
+> Friction logged and then resolved through the normal governance process is not disqualifying; the exit-evidence standard is met.
+>
+> SP-P1.2 = P1.2-required
+> F-4/F-6/F-7 must be examined before the exit finding is made.
+>
+> SP-P1.3 = P1.3-encountered-resolved
+> 'Without friction' refers to friction that, if encountered, was resolved through governance before exit; the standard looks at resolution, not occurrence.
+>
+> SP-P1.4 = P1.4-dedicated
+> A dedicated Phase 1 Exit decision record is required to close Phase 1 formally.
+>
+> Record these as Commander selections. Do not add further interpretation or modify committed governance records. Proceed only to the evidence examination required by P1.2 and prepare the dedicated Phase 1 Exit Decision Record for inspection. Do not commit or push yet."
+
+The required F-4/F-6/F-7 examination (Phase 1 Exit Decision §C) found each item already self-disposed in the completion report as not requiring a Commander decision ("observation only," "minor; noted," "practice cost only"), unlike F-1/F-2/F-3/F-5/F-8, each of which required and received a separate Commander disposition.
+
+**Resulting determination** (Phase 1 Exit Decision §E, a mechanical application of SP-P1.1/SP-P1.3 to the now-complete evidence set, adding no interpretation beyond the Commander's own selections): Phase 1 exit evidence satisfies K-001 §24's standard. **Phase 1 is closed.**
+
+## 4. Scope of This Authorization
+
+- **Closes:** the Phase 1 exit evaluation only — the single question the Phase 1 Authorization Decision Record reserved to the Commander.
+- **Does NOT:**
+  - authorize Phase 2 or any subsequent phase;
+  - answer Q2, Q3 (beyond what the separate Q3 chain already answers), Q6 (beyond the committed Q6 decision), Q7, Q12, or any other K-001 §20 open question;
+  - modify K-001 (SHA-256 `ba19e96f…`), `POA-PJR-001`, the Phase 1 exit-evidence reports, the Friction Disposition Decision Record, or the F-2 Decision Record;
+  - reopen or reinterpret F-1, F-2, F-3, F-5, or F-8, each already disposed by the records above;
+  - mint a new artifact ID, family, kind, or field.
+
+## 5. Consequence
+
+- Phase 1, K-001 §24, is closed as of this record.
+- The Phase 2 entry gate's "Phase 0 + Q3 answered" text is unaffected — this record neither adds nor removes a Phase 1 dependency to that gate; whether Phase 1's closure bears on Phase 2 at all remains a separate, open question (per `40-Runtime/POA-PHASE2-AUTHORIZATION-ANALYSIS.md` §5).
+- All eight Phase 1 friction items (F-1 through F-8) now carry either a Commander disposition or a self-evident non-decision status; none remains outstanding.
+
+## 6. Decision Authority
+
+Commander, directly — the apex authority under `ORC-001-GOV-001`. The rulings were given in session on 2026-09-29, in answer to selection points drafted by the Execution Agent from the controlling analysis. No Deployment-mirror directive file carries the rulings' substance; the Phase 1 Exit Decision record is their written source, and this record restates them.
+
+## 7. Artifact
+
+`POA-ADR-001` (this record); `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-EXIT-DECISION.md` (subject, unmodified, SHA-256 `eb1a5d6e7aad1b41…`).
+
+## 8. Artifact Version/State
+
+- `POA-ADR-001` v1.0.0, Status "Accepted (Chief Architect)", unchanged.
+- K-001 v1.1.0 unchanged (SHA-256 `ba19e96fc6499a41f7a2c18c1c07e74ee7d3d73f8543848fff4fecc1a197e1e5`).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-LABELING-DISCIPLINE-COMPLETION-REPORT.md` unchanged (SHA-256 `a05176d7cda94dd4…`).
+- Repository HEAD at recording: `d19d18f` (== `origin/main`).
+
+## 9. Related Mission
+
+`POA-DEC-ORG-KNOWLEDGE-001` (Ratification → Phase 1 Authorization → execution → Friction Disposition → F-2 Decision → this Phase 1 Exit Decision).
+
+## 10. Related Evidence
+
+- `40-Runtime/POA-PHASE1-EXIT-EVALUATION-ANALYSIS.md` and `…-DECISION-CANDIDATE.md` (unmodified).
+- `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-PHASE-1-LABELING-DISCIPLINE-COMPLETION-REPORT.md` §2 (friction log; source of the F-4/F-6/F-7 examination).
+- The Phase 1 (Labeling Discipline) Development Authorization, Truth/Provenance Friction Disposition, and F-2 Independent Verification Decision Records, above.
+
+## 11. Resulting Commit / Repository State
+
+Not yet committed. To be populated additively once known, per this field's own "where applicable, once known" rule.
+
+**Authorship note.** §3's quoted ruling is the Commander's words, verbatim. §1–§2 and §4–§10 were drafted by the Execution Agent from that ruling and the Phase 1 Exit Decision record. Presented for Commander inspection before staging, commit, or push.
+
+---
+
+*End of POA-DEC-ORG-KNOWLEDGE-001 Phase 1 Exit Decision Record. Authorized by: Commander, ruling of 2026-09-29. Not staged, committed, or pushed at drafting.*
+
+---
+
+# POA-R-001 — Commander Ratification: Authorization-Provenance Mechanism & Mothership Implementation Disposition (2026-09-30)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, following the same pattern as every prior Decision Record in this file. No word of any prior section is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-30. Subject: `40-Runtime/POA-R-001-COMMANDER-RATIFICATION-PROPOSAL.md` (the "Ratification Proposal"), itself built on `40-Runtime/POA-COMMANDER-GOVERNANCE-DECISION-001.md` and `40-Runtime/POA-GOVERNANCE-AUTHORIZATION-CHAIN-RECONCILIATION-REPORT.md`. Decision class: Commander ratification of a governance mechanism plus formal disposition of a specific historical instance. Decision status: **DECIDED.**
+
+## 2. Context
+
+A read-only Boot & Boundary Verification mission identified that `40-Runtime/POA-IMPL-001-ARCHITECTURE.md` — the document whose §18 issues "BUILD AUTHORIZED WITH CONDITIONS" for the `50-Mothership/` implementation — had never entered this repository's git history (`git log --all` returns zero commits for that path; filesystem `mtime` 2026-09-17 22:59:40 +05:30), while the Mothership implementation it purports to authorize was already committed to `main` beginning with commit `db29a7a` (2026-09-18 23:27:28 +05:30) and continuing through commits `c7381e4`, `e3d9a65`, `00c2faf`, `57f83ce`, `3356ba0`, `168708c`, `988602e`, `1547472`. A follow-on Governance Authorization Chain Reconciliation established that no commit anywhere in history cites `POA-IMPL-001` by artifact ID, and that `POA-STD-011` (the standard that would define the authorization/provenance relationship) is itself "Draft for Architecture Review," not ratified — so no approved governance rule existed either condemning or validating the gap. A Commander Governance Decision analysis then recommended a minimum effective-authorization mechanism and a Ratification Proposal drafted the exact act text below. The Commander has now reviewed that proposal and ratifies it, with the provenance safeguards stated here.
+
+## 3. Decision
+
+Commander ruling, quoted verbatim, given 2026-09-30, ratifying the proposed act with stated safeguards:
+
+> "I have reviewed `40-Runtime/POA-R-001-COMMANDER-RATIFICATION-PROPOSAL.md`. I hereby RATIFY the proposed Commander Act, subject to the exact provenance safeguards below.
+>
+> 1. Governance mechanism: Effective implementation authority shall be established through an explicit Commander act recorded in `POA-ADR-001`. The authorization chain shall be: AUTHORITY → AUTHORIZATION ARTIFACT → EXPLICIT COMMANDER ACT → EFFECTIVE AUTHORIZATION → IMPLEMENTATION COMMENCEMENT → IMPLEMENTATION ARTIFACTS → VALIDATION / EVIDENCE. Future implementation work must identify its authorizing mission/decision artifact.
+>
+> 2. Historical provenance: The existing Git history must remain historically truthful. No commit date, authoring date, implementation date, authorization date, or historical relationship may be fabricated or backdated. The fact that `POA-IMPL-001-ARCHITECTURE.md` existed on disk before implementation does not establish a historical Git-provenance event that did not occur.
+>
+> 3. POA-IMPL-001 disposition: `POA-IMPL-001-ARCHITECTURE.md` is to be committed honestly at the present commit time. Its content must not be rewritten merely to manufacture historical provenance. The commit must make clear, through its commit-time provenance, that the artifact is entering governed repository history now. Do NOT amend, rewrite, rebase, or otherwise alter existing implementation commits to create a false historical chain.
+>
+> 4. Existing Mothership implementation: The existing Mothership implementation is preserved. It is not to be reverted merely because the authorization artifact lacked repository provenance at the time of implementation. Its historical status remains: implementation performed before the effective repository-provenance mechanism was ratified. Its present governance disposition is: conditionally recognized and preserved under this Commander ratification, subject to the stated implementation boundary and subsequent governance formalization. Do not rewrite history to describe it as having been governed by a repository event that did not occur.
+>
+> 5. POA-STD-011: `POA-STD-011 — Mission Package Standard` is confirmed as the intended governing location for the general mission-package authorization/provenance mechanism. However, DO NOT modify or ratify POA-STD-011 in this mission. That is a subsequent governance action.
+>
+> 6. Implementation status: This ratification does NOT authorize resumption of new implementation. The current implementation freeze remains in force until all transition conditions established by the Commander decision are satisfied.
+>
+> 7. Transition conditions, before new implementation resumes: (1) this Commander act is recorded in `POA-ADR-001`; (2) `POA-IMPL-001-ARCHITECTURE.md` is committed honestly at the current commit time; (3) the resulting repository state is validated; (4) the relationship between the Commander act, POA-IMPL-001, and the existing Mothership implementation is explicitly evidenced; (5) the required POA-STD-011 governance work is completed or otherwise formally dispositioned according to POA governance; (6) a new implementation mission is explicitly authorized before additional implementation begins.
+>
+> Execution boundary: authorized only to perform the governance ratification and provenance checkpoint. Not authorized to modify Mothership implementation, add features, fix UI defects, change architecture, modify POA-STD-011, rewrite Git history, amend existing commits, rebase existing history, reset/stash/clean, or push to remote."
+
+## 4. Ratified Effective-Authorization Mechanism
+
+Adopted, effective from this record's own commit:
+
+```text
+AUTHORITY
+  → AUTHORIZATION ARTIFACT
+  → EXPLICIT COMMANDER ACT
+  → EFFECTIVE AUTHORIZATION
+  → IMPLEMENTATION COMMENCEMENT
+  → IMPLEMENTATION ARTIFACTS
+  → VALIDATION / EVIDENCE
+```
+
+Future implementation work must identify its authorizing mission/decision artifact. This mechanism does not modify `POA-STD-011` (Draft for Architecture Review, unchanged by this record) and is recommended for subsequent incorporation there, but is independently binding now regardless of that standard's own ratification status.
+
+## 5. Formal Disposition — Existing Mothership Implementation
+
+**Historical status:** implementation performed before the effective repository-provenance mechanism was ratified.
+
+**Present governance disposition:** conditionally recognized and preserved under this Commander ratification, subject to the stated implementation boundary (`POA-IMPL-001-ARCHITECTURE.md` §19) and subsequent governance formalization. Not reverted. Not retroactively described as having been governed by a repository event that did not occur.
+
+## 6. Formal Disposition — POA-IMPL-001
+
+To be committed honestly at present commit time, content unchanged, entering governed repository history now (not backdated to its 2026-09-17 `mtime`). Recorded in `POA-ADR-001` §7 (Resulting Commit / Repository State) below once the commit SHA is known.
+
+## 7. Resulting Commit / Repository State
+
+Not yet committed at the time this record's text was drafted. To be populated additively once known, per this field's own "where applicable, once known" rule — populated in the completion report `40-Runtime/POA-R-001-COMMANDER-RATIFICATION-COMPLETION-REPORT.md` and, per repository convention, in a subsequent short additive record citing the exact commit SHA(s).
+
+## 8. Related Mission
+
+`POA-R-001` (Boot & Boundary Verification → Governance Authorization Chain Reconciliation → Commander Governance Decision 001 → Ratification Proposal → this Commander Ratification).
+
+## 9. Related Evidence
+
+- `40-Runtime/POA-IMPLEMENTATION-BOOT-BOUNDARY-VERIFICATION-REPORT.md`
+- `40-Runtime/POA-GOVERNANCE-AUTHORIZATION-CHAIN-RECONCILIATION-REPORT.md`
+- `40-Runtime/POA-COMMANDER-GOVERNANCE-DECISION-001.md`
+- `40-Runtime/POA-R-001-COMMANDER-RATIFICATION-PROPOSAL.md`
+- `40-Runtime/POA-IMPL-001-ARCHITECTURE.md` (committed alongside this record per §6 above)
+
+**Authorship note.** §3's quoted ruling is the Commander's words, verbatim, from `POA-R-001 — COMMANDER RATIFICATION.md`. §1–§2 and §4–§9 were drafted by the Execution Agent from that ruling and the preceding mission chain's own reports.
+
+---
+
+*End of POA-R-001 Commander Ratification Decision Record. Authorized by: Commander, ruling of 2026-09-30.*
+
