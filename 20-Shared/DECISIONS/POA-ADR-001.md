@@ -1914,3 +1914,80 @@ Not yet committed at the time this record's text was drafted. To be populated ad
 
 *End of POA-STD-011 Approval Decision Record. Authorized by: Commander/Chief Architect, ruling of 2026-09-30.*
 
+---
+
+# POA-ORG-KNOW-P5-AUTH-001 — Phase 5 Implementation Authorization Decision Record (2026-09-30)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), following the same pattern as the Decision Records above.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-30. Decision status: **AUTHORIZED, EFFECTIVE UPON RECORDING**, scoped exactly as stated in §4 below. Subject: **execution of `POA-ORG-KNOW-P5-IMPL-001` only** — the bounded Finance/Accounting routing dry-run reconstructed from `POA-DEC-ORG-KNOWLEDGE-001` v1.1.0 §24 Phase 5. This record does not authorize Phase 5 in general.
+
+## 2. Context
+
+`POA-ORG-KNOW-P5-PLAN-001-EXECUTION-PLAN.md` (Phase 5 Entry-Gate Review + Digitalization Execution Plan, 2026-09-30) found the entry gate **PASS WITH CONDITIONS**, explicitly withholding implementation authorization pending closure of four conditions (§4.9):
+
+- **C1** — Commander acceptance of the two Phase 2 artifacts under OQ-5.
+- **C2** — a recorded demonstrated need for the routing dry-run, or an explicit Commander waiver.
+- **C3** — confirmation of KD-16 and KD-18's exact ratification status.
+- **C4** — verification that the `POA-DEC-ORG-KNOWLEDGE-001` ratification commit (`9729df9d890a165005015f52828f90584ebbf72c`) is reachable from this branch's current `main`.
+
+## 3. Condition Closure
+
+- **C1 — CLOSED.** `40-Runtime/POA-ORG-KNOW-P5-ACCEPT-001-DECISION.md`: Commander accepted both `60-Organization-A/Paravyoma-Source-Declaration.md` and `60-Organization-A/Business-Function-Map.md` as sufficiently complete for use, as-is, including declared `[UNK]` fields.
+- **C2 — CLOSED (waived).** `40-Runtime/POA-ORG-KNOW-P5-NEED-001-REPORT.md`: Commander waived the `CTD-001` demonstrated-need condition for this specific, bounded, no-commit pilot, with the waiver's scope explicitly not extending to Phases 6–7 or to any function beyond the one authorized in §4 below.
+- **C3 — CLOSED.** Verified against this file's own Commander Ratification Decision Record (above, §"ACT 2 — ARCHITECTURAL RATIFICATION"): **KD-16** is ratified with qualification ("POA never approves on its own authority"; Q5 deferred) — Q5 was subsequently resolved by `POA-Q5-001` (`EXISTING AUTHORITY PROHIBITS` delegation of approval authority to any AI/agent/Service identity, per CONST-001 Article VIII), closing that qualification for this narrow, no-approval dry-run. **KD-18** is ratified with qualification (only as far as it maps onto `POA-KER-001` §7 / `POA-EXB-001`) — the routing dry-run's authorization-check step (link 7 of `POA-DEC-ORG-KNOWLEDGE-001` §14.1, checking initiation grant only, never approval) stays within that mapping.
+- **C4 — CLOSED.** Mechanically verified: `git merge-base --is-ancestor 9729df9d890a165005015f52828f90584ebbf72c HEAD` returns true against this repository's `main` at the time of this record. The ratification is confirmed binding on this branch.
+
+## 4. Decision
+
+**Commander ruling: AUTHORIZE execution of `POA-ORG-KNOW-P5-IMPL-001` — and ONLY `POA-ORG-KNOW-P5-IMPL-001` — the bounded Finance/Accounting routing dry-run, scoped exactly as follows, and no more broadly:**
+
+- **Function piloted:** Finance / Accounting only (owner, cadence, and sensitivity all declared per `60-Organization-A/Business-Function-Map.md` and `Paravyoma-Source-Declaration.md`; recommended in `POA-ORG-KNOW-P5-PLAN-001-EXECUTION-PLAN.md` §7 as the best first pilot candidate).
+- **Capability authorized:** routing + authorization *checks* only, per `POA-DEC-ORG-KNOWLEDGE-001` §14.1 links 1–7 (intent-to-function resolution as INFERENCE requiring confirmation; owning-unit/role lookup; initiation-grant check) — **no commit, no write to any system of record, no approval action on any identity's behalf**, consistent with Q5.
+- **Consumption path:** left to the implementing mission (`POA-ORG-KNOW-P5-IMPL-001`) to select between `POA-ORG-KNOW-P5-PLAN-001-EXECUTION-PLAN.md` §9's two recorded options (direct Markdown parse, or SELF-DECLARED KnowledgePlane assertion), consistent with that section's own analysis; evidence for each dry-run is recorded via `POA-EVT-001`, not `knowledge-plane.ts`, per the plan's §17 recommendation.
+
+**This authorization explicitly does NOT authorize:**
+
+- general implementation of `POA-DEC-ORG-KNOWLEDGE-001` §24 Phase 5 beyond the single bounded `POA-ORG-KNOW-P5-IMPL-001` mission;
+- `P5-UI-001` ("Mothership Design System & Runtime Baseline") or any other UI/design-system mission;
+- Phase 6 (executive-question synthesis) or Phase 7 (Mothership surfaces) in any form;
+- any KnowledgePlane modification, UI change, new business-function API, or new business-function data model;
+- any persistent organizational-state change of any kind (this act authorizes read-only routing checks with no commit, per §24 Phase 5's own "no commit" scope);
+- any approval execution, or any action that simulates or records approval on a non-human identity's authority, consistent with Q5 and KD-16.
+
+## 5. Scope of This Authorization
+
+**This act grants execution authority for the bounded dry-run only — not general Phase 5 implementation authority, and not architectural ratification.** It authorizes exactly one bounded execution mission (`POA-ORG-KNOW-P5-IMPL-001`), subject to `CTD-001`'s remaining conditions (implementation-boundary definition, traceability, no retroactive provenance fabrication — per `POA-STD-011` §6, above).
+
+- No KD text is altered by this act.
+- No other phase of `POA-DEC-ORG-KNOWLEDGE-001` §24 is authorized.
+- `P5-UI-001` is not authorized by this act, in any form.
+- `POA-ORG-KNOW-P5-IMPL-001` must reference this record as its authorizing mission, per `CLAUDE.md` Rule 6.
+- Any expansion beyond Finance/Accounting, into general Phase 5 implementation, or into Phases 6–7, requires its own separate Commander authorization act.
+
+## 6. Artifact
+
+`POA-ADR-001` (this record); `POA-ORG-KNOW-P5-PLAN-001-EXECUTION-PLAN.md` (interpreted, unmodified); `POA-ORG-KNOW-P5-ACCEPT-001-DECISION.md` and `POA-ORG-KNOW-P5-NEED-001-REPORT.md` (incorporated, unmodified).
+
+## 7. Artifact Version/State
+
+`POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` unchanged by this record. `20-Shared/STD/POA-STD-011.md` unchanged.
+
+## 8. Related Mission
+
+`POA-ORG-KNOW-P5-PLAN-001` (entry-gate review and condition identification); `POA-ORG-KNOW-P5-ACCEPT-001`; `POA-ORG-KNOW-P5-NEED-001`; enables `POA-ORG-KNOW-P5-IMPL-001`.
+
+## 9. Related Evidence
+
+`POA-ORG-KNOW-P5-PLAN-001-EXECUTION-PLAN.md` §4.9, §13, §22; `40-Runtime/POA-ORG-KNOW-P5-ACCEPT-001-DECISION.md`; `40-Runtime/POA-ORG-KNOW-P5-NEED-001-REPORT.md`; this file's own Commander Ratification Decision Record (above) for KD-16/KD-18 status; `POA-Q5-001` for Q5 resolution.
+
+## 10. Resulting Commit / Repository State
+
+To be recorded once committed.
+
+---
+
+*End of POA-ORG-KNOW-P5-AUTH-001 Decision Record. Authorized by: Commander, ruling rendered 2026-09-30.*
+
