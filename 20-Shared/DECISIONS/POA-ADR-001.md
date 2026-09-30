@@ -1849,3 +1849,68 @@ Not yet committed at the time this record's text was drafted. To be populated ad
 
 *End of POA-R-001 Commander Ratification Decision Record. Authorized by: Commander, ruling of 2026-09-30.*
 
+---
+
+# POA-STD-011 Approval — Commander/Chief Architect Act (2026-09-30)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, following the same pattern as every prior Decision Record in this file. No word of any prior section is altered.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-09-30. Subject: `20-Shared/STD/POA-STD-011.md` v1.1 (formalization commit `c3a8397`). Decision class: Commander/Chief Architect standard-approval act, promoting `POA-STD-011` from `Review` to `Approved`. Decision status: **DECIDED.**
+
+## 2. Context
+
+Following the `POA-R-001` Commander Ratification (above) and the subsequent formalization mission that added `POA-STD-011` §6 (codifying the ratified authorization-provenance mechanism) without self-promoting the standard's status, the Commander/Chief Architect reviewed the formalization outcome and issued the approval act quoted at §3 below, subject to ten stated conditions verified at §4.
+
+## 3. Decision
+
+Commander/Chief Architect ruling, quoted verbatim, given 2026-09-30:
+
+> "I have reviewed the formalization outcome and approve `POA-STD-011 v1.1` for promotion from `Review` to `Approved`. This approval is limited strictly to the standard as prepared in the formalization mission. No additional authority is granted beyond the ratified mechanism already established in `POA-ADR-001`.
+>
+> Approval conditions — the approved standard must: (1) preserve the effective-authorization mechanism already ratified; (2) preserve truthful Git provenance; (3) require an authoritative authorization artifact before implementation begins; (4) require explicit effective authorization; (5) require implementation-boundary definition; (6) require traceability between implementation work and its authorizing mission; (7) preserve the prohibition against retroactive Git-history fabrication; (8) preserve the handling of pre-existing implementation established by the Commander ratification; (9) not create an emergency loophole beyond existing ratified governance; (10) not redesign the evidence-integrity architecture."
+
+## 4. Verification of Approval Conditions Against POA-STD-011 v1.1
+
+Each condition checked against the standard's actual committed text (`c3a8397`) before this approval was recorded:
+
+| # | Condition | Satisfied by |
+|---|---|---|
+| 1 | Preserve the ratified effective-authorization mechanism | §6.4, mechanism diagram stated verbatim, unmodified from `POA-ADR-001` |
+| 2 | Preserve truthful Git provenance | §6.7, §6.11 |
+| 3 | Require an authorization artifact before implementation begins | §6.3, §6.7 |
+| 4 | Require explicit effective authorization | §6.4 |
+| 5 | Require implementation-boundary definition | §6.6 |
+| 6 | Require traceability between implementation work and authorizing mission | §6.8 |
+| 7 | Preserve prohibition against retroactive Git-history fabrication | §6.11 ("historical Git provenance must never be fabricated") |
+| 8 | Preserve pre-existing-implementation handling from the Commander ratification | §6.11 |
+| 9 | No emergency loophole beyond existing ratified governance | §6.10 |
+| 10 | No evidence-integrity architecture redesign | §6.9 |
+
+All ten conditions satisfied without exception. No clause was found requiring revision before approval could be recorded.
+
+## 5. Approved Status
+
+`POA-STD-011` — Version 1.1 — Status: **Approved**, effective from this record's own commit and the corresponding status-field update in `20-Shared/STD/POA-STD-011.md`. Approval authority: Commander/Chief Architect, per the same authority basis as the `POA-R-001` Commander Ratification above (`ORC-001-GOV-001`, Constitution).
+
+## 6. Resulting Commit / Repository State
+
+Not yet committed at the time this record's text was drafted. To be populated additively once known, per this field's own "where applicable, once known" rule — populated in the completion report `40-Runtime/POA-STD-011-APPROVAL-COMPLETION-REPORT.md`.
+
+## 7. Related Mission
+
+`POA-R-001` (Boot & Boundary Verification → Governance Authorization Chain Reconciliation → Commander Governance Decision 001 → Ratification Proposal → Commander Ratification → `POA-STD-011` Formalization → this Approval).
+
+## 8. Related Evidence
+
+- `40-Runtime/POA-STD-011-FORMALIZATION-REPORT.md`
+- `20-Shared/STD/POA-STD-011.md` (commit `c3a8397`, formalization content approved unmodified by this act)
+- The `POA-R-001` Commander Ratification entry, above, for the underlying ratified mechanism
+
+**Authorship note.** §3's quoted ruling is the Commander/Chief Architect's words, verbatim. §1–§2 and §4–§8 were drafted by the Execution Agent from that ruling and the preceding formalization report.
+
+---
+
+*End of POA-STD-011 Approval Decision Record. Authorized by: Commander/Chief Architect, ruling of 2026-09-30.*
+
