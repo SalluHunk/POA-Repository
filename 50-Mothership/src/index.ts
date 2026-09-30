@@ -17,5 +17,7 @@ export {
   type AssertionBasis,
   type AssertionFreshness,
   type SourceAuthority,
+  type AssertionClassification,
+  type AssertionSensitivity,
   type RecordResult,
 } from "@/knowledge-plane";

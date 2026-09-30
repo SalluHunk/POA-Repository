@@ -44,6 +44,27 @@ export type AssertionFreshness = "CURRENT" | "STALE" | "UNKNOWN";
 /** Source authority (S12.4) - whether the source is authoritative for this predicate. */
 export type SourceAuthority = "AUTHORITATIVE" | "SUPPORTING" | "NON-AUTHORITATIVE";
 
+/**
+ * Classification (S5.3, S8.2's cross-reference to POA-DEC-ORG-001 S12).
+ * "UNCLASSIFIED-DERIVED" is the architecture's own stated default -
+ * applied by recordAssertion() when the caller omits this field, not
+ * invented here.
+ */
+export type AssertionClassification =
+  | "ORGANIZATION-INFORMATION"
+  | "POA-PATTERN"
+  | "POA-PRIVATE"
+  | "UNCLASSIFIED-DERIVED"
+  | "AUTHORIZED-SHARED";
+
+/**
+ * Sensitivity (S5.3, S8.2's cross-reference to POA-OBS-001 S4). No default
+ * is stated by the architecture for this axis (unlike classification) -
+ * callers must always supply it, exactly as they already must for basis
+ * and freshness.
+ */
+export type AssertionSensitivity = "MUST" | "SHOULD" | "SOURCE-ONLY" | "SENSITIVE-RESTRICTED";
+
 export interface AssertionProvenance {
   /** Declared source reference (S7.1), e.g. a Source subject id, or "manual-entry". */
   sourceRef: string;
@@ -71,6 +92,9 @@ export interface KnowledgeAssertion {
   basis: AssertionBasis;
   freshness: AssertionFreshness;
   sourceAuthority: SourceAuthority;
+  /** Defaults to UNCLASSIFIED-DERIVED when omitted (S5.3's own stated default). */
+  classification: AssertionClassification;
+  sensitivity: AssertionSensitivity;
   provenance: AssertionProvenance;
   /** Time axes (S11.1). */
   validFrom: string;
@@ -90,8 +114,11 @@ export interface KnowledgeAssertion {
 
 export type RecordAssertionInput = Omit<
   KnowledgeAssertion,
-  "assertionId" | "recordedAt" | "supersededBy"
->;
+  "assertionId" | "recordedAt" | "supersededBy" | "classification"
+> & {
+  /** Optional on input only: recordAssertion() applies S5.3's stated UNCLASSIFIED-DERIVED default when omitted. */
+  classification?: AssertionClassification;
+};
 
 let nextAssertionSeq = 0;
 function generateAssertionId(): string {
@@ -101,7 +128,14 @@ function generateAssertionId(): string {
 
 export type RecordResult =
   | { ok: true; assertion: KnowledgeAssertion }
-  | { ok: false; code: "UNKNOWN_ORGANIZATION" | "UNKNOWN_SUPERSEDED_ASSERTION" | "ORGANIZATION_MISMATCH"; detail: string };
+  | {
+      ok: false;
+      code: "UNKNOWN_ORGANIZATION" | "UNKNOWN_SUPERSEDED_ASSERTION" | "ORGANIZATION_MISMATCH" | "MISSING_AUTHORITY_REF";
+      detail: string;
+    };
+
+/** Kinds for which S5.3 requires authorityRef ("required only for DECISION and ACTION kinds"). */
+const AUTHORITY_REQUIRED_KINDS: ReadonlySet<AssertionKind> = new Set(["DECISION", "ACTION"]);
 
 /**
  * Organization-scoped, append-only store of Knowledge Assertions
@@ -133,6 +167,16 @@ export class KnowledgePlane {
     if (!this.identity.getOrganization(input.organizationId)) {
       return { ok: false, code: "UNKNOWN_ORGANIZATION", detail: `Unknown organization: ${input.organizationId}` };
     }
+    // S5.3: "Authority ref required for DECISION and ACTION kinds" - enforced
+    // here, the single path every write (direct call or HTTP) goes through,
+    // not merely represented as an optional type-level field.
+    if (AUTHORITY_REQUIRED_KINDS.has(input.kind) && !input.authorityRef) {
+      return {
+        ok: false,
+        code: "MISSING_AUTHORITY_REF",
+        detail: `authorityRef is required for kind "${input.kind}" (POA-DEC-ORG-KNOWLEDGE-001 S5.3)`,
+      };
+    }
     if (input.supersedes) {
       const prior = this.assertions.get(input.supersedes);
       if (!prior) {
@@ -144,6 +188,7 @@ export class KnowledgePlane {
     }
     const assertion: KnowledgeAssertion = {
       ...input,
+      classification: input.classification ?? "UNCLASSIFIED-DERIVED",
       assertionId: generateAssertionId(),
       recordedAt: new Date().toISOString(),
     };

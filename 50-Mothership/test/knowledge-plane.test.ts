@@ -15,6 +15,7 @@ function baseInput(overrides: Partial<RecordAssertionInput> = {}): RecordAsserti
     basis: "SELF-DECLARED",
     freshness: "CURRENT",
     sourceAuthority: "AUTHORITATIVE",
+    sensitivity: "SHOULD",
     provenance: { sourceRef: "manual-entry", producerId: "human-1", evidenceRefs: [] },
     validFrom: "2026-09-01",
     observedAt: "2026-09-01T00:00:00.000Z",
@@ -156,5 +157,84 @@ describe("KnowledgePlane", () => {
     expect(result.assertion.basis).toBe("VERIFIED");
     expect(result.assertion.freshness).toBe("STALE");
     expect(result.assertion.sourceAuthority).toBe("SUPPORTING");
+  });
+
+  // POA-ORG-DATA-REM-001 D1/D2: classification/sensitivity.
+  it("defaults classification to UNCLASSIFIED-DERIVED when omitted (S5.3's own stated default)", () => {
+    const { knowledge } = setup();
+    const { classification: _omit, ...withoutClassification } = baseInput();
+    const result = knowledge.recordAssertion(withoutClassification);
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.assertion.classification).toBe("UNCLASSIFIED-DERIVED");
+  });
+
+  it("persists and retrieves an explicit classification and sensitivity", () => {
+    const { knowledge } = setup();
+    const result = knowledge.recordAssertion(
+      baseInput({ classification: "POA-PRIVATE", sensitivity: "SENSITIVE-RESTRICTED" }),
+    );
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.assertion.classification).toBe("POA-PRIVATE");
+    expect(result.assertion.sensitivity).toBe("SENSITIVE-RESTRICTED");
+
+    const fetched = knowledge.getAssertion("org-a", result.assertion.assertionId);
+    expect(fetched?.classification).toBe("POA-PRIVATE");
+    expect(fetched?.sensitivity).toBe("SENSITIVE-RESTRICTED");
+  });
+
+  // POA-ORG-DATA-REM-001 D3: authorityRef enforcement for DECISION/ACTION.
+  it("rejects a DECISION assertion with no authorityRef", () => {
+    const { knowledge } = setup();
+    const result = knowledge.recordAssertion(baseInput({ kind: "DECISION" }));
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.code).toBe("MISSING_AUTHORITY_REF");
+  });
+
+  it("rejects an ACTION assertion with no authorityRef", () => {
+    const { knowledge } = setup();
+    const result = knowledge.recordAssertion(baseInput({ kind: "ACTION" }));
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.code).toBe("MISSING_AUTHORITY_REF");
+  });
+
+  it("accepts a DECISION assertion when authorityRef is present", () => {
+    const { knowledge } = setup();
+    const result = knowledge.recordAssertion(baseInput({ kind: "DECISION", authorityRef: "human-commander" }));
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.assertion.authorityRef).toBe("human-commander");
+  });
+
+  it("accepts an ACTION assertion when authorityRef is present", () => {
+    const { knowledge } = setup();
+    const result = knowledge.recordAssertion(baseInput({ kind: "ACTION", authorityRef: "human-commander" }));
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.assertion.authorityRef).toBe("human-commander");
+  });
+
+  it("does not require authorityRef for non-DECISION/ACTION kinds", () => {
+    const { knowledge } = setup();
+    const result = knowledge.recordAssertion(baseInput({ kind: "SOURCE-OBSERVATION" }));
+    expect(result.ok).toBe(true);
+  });
+
+  // POA-ORG-DATA-REM-001 D4: contradiction-exclusion regression coverage (S12.3).
+  it("listCurrent excludes an assertion that carries a contradiction reference", () => {
+    const { knowledge } = setup();
+    const clean = knowledge.recordAssertion(baseInput({ subjectRef: "project:apollo", predicate: "status" }));
+    expect(clean.ok).toBe(true);
+    if (!clean.ok) return;
+
+    const contradicted = knowledge.recordAssertion(
+      baseInput({ subjectRef: "project:beacon", predicate: "status", contradicts: [clean.assertion.assertionId] }),
+    );
+    expect(contradicted.ok).toBe(true);
+    if (!contradicted.ok) return;
+
+    const current = knowledge.listCurrent("org-a");
+    const ids = current.map((a) => a.assertionId);
+    expect(ids).toContain(clean.assertion.assertionId);
+    expect(ids).not.toContain(contradicted.assertion.assertionId);
   });
 });

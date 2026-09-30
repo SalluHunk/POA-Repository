@@ -261,7 +261,8 @@ export function recordKnowledgeAssertion(
 ): ApiResponse {
   const result = state.runtime.knowledge.recordAssertion({ ...input, organizationId });
   if (!result.ok) {
-    return err(result.code === "UNKNOWN_ORGANIZATION" ? 404 : 400, result.code, result.detail);
+    const status = result.code === "UNKNOWN_ORGANIZATION" ? 404 : result.code === "MISSING_AUTHORITY_REF" ? 422 : 400;
+    return err(status, result.code, result.detail);
   }
   return ok({ assertion: result.assertion }, 201);
 }
