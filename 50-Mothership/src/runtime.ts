@@ -9,6 +9,7 @@ import { IdentityRegistry, evaluateAuthorization, type ExecutionPrincipal } from
 import { createEnvelope, verifyChain, type EvidenceEnvelope, type EvidencePayload, type VerificationResult } from "@/evidence";
 import { transition, type Mission, type MissionState } from "@/mission";
 import { checkpoint, verifyAgainstCheckpoint, computeHeadHash, type WitnessComparison } from "@/witness";
+import { KnowledgePlane } from "@/knowledge-plane";
 
 export interface RuntimeResult {
   ok: boolean;
@@ -28,6 +29,8 @@ export interface MissionResult {
 
 export class MothershipRuntime {
   readonly identity = new IdentityRegistry();
+  /** Organizational Data Plane (POA-ORG-DATA-001) - observations/derived facts, never governance. */
+  readonly knowledge = new KnowledgePlane(this.identity);
   private missions = new Map<string, Mission>();
   private evidenceByMission = new Map<string, EvidenceEnvelope[]>();
 

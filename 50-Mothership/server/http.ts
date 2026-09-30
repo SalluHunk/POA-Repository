@@ -179,6 +179,18 @@ export function createMothershipHttpServer(state: MothershipState) {
         return sendJson(res, api.checkpointMission(state, decodeURIComponent(m[1]), String(body.organizationId ?? "")));
       }
 
+      // POST /api/organizations/:orgId/knowledge (POA-ORG-DATA-001)
+      m = pathname.match(/^\/api\/organizations\/([^/]+)\/knowledge$/);
+      if (method === "POST" && m) {
+        const body = await readJsonBody(req);
+        return sendJson(res, api.recordKnowledgeAssertion(state, decodeURIComponent(m[1]), body as never));
+      }
+
+      // GET /api/organizations/:orgId/knowledge?subject=...
+      if (method === "GET" && m) {
+        return sendJson(res, api.listKnowledgeAssertions(state, decodeURIComponent(m[1]), searchParams.get("subject") ?? undefined));
+      }
+
       // GET /api/missions/:id?org=... (kept last: least specific pattern)
       m = pathname.match(/^\/api\/missions\/([^/]+)$/);
       if (method === "GET" && m) {

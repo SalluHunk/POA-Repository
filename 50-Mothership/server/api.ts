@@ -25,6 +25,7 @@
 import type { MothershipState } from "./state.ts";
 import type { MissionState } from "@/mission";
 import type { ExecutionPrincipal } from "@/identity";
+import type { RecordAssertionInput } from "@/knowledge-plane";
 
 export interface ApiResponse {
   status: number;
@@ -248,4 +249,29 @@ export function checkpointMission(state: MothershipState, missionId: string, org
   if (violation) return violation;
   const headHash = state.runtime.checkpointMission(missionId);
   return ok({ missionId, headHash });
+}
+
+// Organizational Data Plane (POA-ORG-DATA-001). Knowledge Assertions are
+// Provenance-only (POA-DEC-ORG-KNOWLEDGE-001 S9.2 rule 5) - never routed
+// through the authority-bearing evidence chain above.
+export function recordKnowledgeAssertion(
+  state: MothershipState,
+  organizationId: string,
+  input: Omit<RecordAssertionInput, "organizationId">,
+): ApiResponse {
+  const result = state.runtime.knowledge.recordAssertion({ ...input, organizationId });
+  if (!result.ok) {
+    return err(result.code === "UNKNOWN_ORGANIZATION" ? 404 : 400, result.code, result.detail);
+  }
+  return ok({ assertion: result.assertion }, 201);
+}
+
+export function listKnowledgeAssertions(state: MothershipState, organizationId: string, subjectRef?: string): ApiResponse {
+  if (!state.runtime.identity.getOrganization(organizationId)) {
+    return err(404, "UNKNOWN_ORGANIZATION");
+  }
+  const assertions = subjectRef
+    ? state.runtime.knowledge.listBySubject(organizationId, subjectRef)
+    : state.runtime.knowledge.listCurrent(organizationId);
+  return ok({ organizationId, subjectRef: subjectRef ?? null, assertions });
 }

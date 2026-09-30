@@ -10,3 +10,12 @@ export { type MissionState, type Mission } from "@/mission";
 export { type Organization, type ExecutionPrincipal, type AuthorizationDecision, IdentityRegistry } from "@/identity";
 export { type EvidenceEnvelope, type EvidencePayload, type VerificationResult } from "@/evidence";
 export { type WitnessComparison } from "@/witness";
+export {
+  KnowledgePlane,
+  type KnowledgeAssertion,
+  type AssertionKind,
+  type AssertionBasis,
+  type AssertionFreshness,
+  type SourceAuthority,
+  type RecordResult,
+} from "@/knowledge-plane";
