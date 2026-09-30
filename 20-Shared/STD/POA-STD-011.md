@@ -11,7 +11,7 @@
 | Document ID      | POA-STD-011                   |
 | Artifact Family  | Standard                      |
 | Version          | 1.1                           |
-| Status           | **Review — formalization prepared per `POA-R-001` Commander Ratification (`POA-ADR-001` entry, commit `0e73e35`); pending Commander/Chief Architect Approval.** Not self-promoted to Approved by this edit — see §6.13. |
+| Status           | **Approved** — Commander/Chief Architect act, `POA-ADR-001` §"POA-STD-011 Approval," 2026-09-30, subject to the ten approval conditions verified there. Formalization prepared per `POA-R-001` Commander Ratification (`POA-ADR-001` §"POA-R-001 — Commander Ratification," commit `0e73e35`). |
 | Governance Layer | Execution Governance          |
 
 ## Authority
