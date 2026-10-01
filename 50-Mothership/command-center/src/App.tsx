@@ -20,6 +20,7 @@ import { ListeningOverlay } from "./demo/ListeningOverlay";
 import { useCommandCenter } from "./state/useCommandCenter";
 import { usePresenceAsk } from "./demo/usePresenceAsk";
 import { useInteraction } from "./state/useInteraction";
+import { useVoiceGreeting } from "./state/useVoiceGreeting";
 import type { NavigateSuggestion } from "./interaction";
 import { DOMAIN_SPEC } from "./components/environment/constants";
 import { isDemoLayerEnabled, DemoDisclosure } from "./demo/demoLayer";
@@ -43,14 +44,17 @@ export function App() {
 
   // Session interaction (POA-ORG-KNOW-EXEC-INTERACTION-001). Deterministic,
   // local, read-only over the loaded state above.
-  const interaction = useInteraction({
+  const interactionSnapshot = {
     loading: state.loading,
     missions: state.missions,
     principals: state.principals,
     decisions: state.decisions,
     missionDetails: state.missionDetails,
     attention: state.attention,
-  });
+  };
+  const interaction = useInteraction(interactionSnapshot);
+  // P0 voice shell (Phase 3): speech OUTPUT only, user-gesture initiated.
+  const voice = useVoiceGreeting(interactionSnapshot);
   // A navigation suggestion is inert until the user clicks it; it then invokes
   // only the EXISTING focus actions. Nothing here mutates organizational state.
   const handleNavigateSuggestion = (s: NavigateSuggestion) => {
@@ -127,6 +131,7 @@ export function App() {
           isKnownId={isKnownId}
           listening={listening}
           onToggleListen={toggleListen}
+          voice={voice}
           interaction={{ turns: interaction.turns, error: interaction.error, onSubmit: interaction.submit, onNavigate: handleNavigateSuggestion }}
         />
       )}

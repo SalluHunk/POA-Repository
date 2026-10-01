@@ -6,6 +6,7 @@ import { CommandBar } from "./CommandBar";
 import { QuickPrompts } from "./QuickPrompts";
 import { InteractionTranscript } from "./InteractionTranscript";
 import type { InteractionTurn, NavigateSuggestion } from "../interaction";
+import type { VoiceGreeting } from "../state/useVoiceGreeting";
 import type { AuthorizationDecisionRecord, Mission, MissionDetail, Principal } from "../api/types";
 import type { AttentionItem } from "../state/attention";
 
@@ -24,6 +25,8 @@ interface Props {
   isKnownId: (id: string) => boolean;
   listening: boolean;
   onToggleListen: () => void;
+  /** P0 spoken greeting (speech output only); starts only from a user gesture. */
+  voice: VoiceGreeting;
   /** Session interaction (POA-ORG-KNOW-EXEC-INTERACTION-001); `onNavigate` fires only on an explicit user click. */
   interaction: { turns: InteractionTurn[]; error: string | null; onSubmit: (text: string) => void; onNavigate: (s: NavigateSuggestion) => void };
 }
@@ -37,7 +40,7 @@ interface Props {
  * they stay visible - spatially connected to their origin - through
  * Focus/Investigate rather than disappearing with this surface.
  */
-export function CommandCenter({ missions, principals, missionDetails, decisions, attention, loading, error, lookupError, onFocusMission, onLookup, onAsk, isKnownId, listening, onToggleListen, interaction }: Props) {
+export function CommandCenter({ missions, principals, missionDetails, decisions, attention, loading, error, lookupError, onFocusMission, onLookup, onAsk, isKnownId, listening, onToggleListen, voice, interaction }: Props) {
   const details = [...missionDetails.values()];
   const verified = details.filter((d) => d.witnessCode === "MATCH").length;
   const unverified = details.length - verified;
@@ -82,7 +85,7 @@ export function CommandCenter({ missions, principals, missionDetails, decisions,
       )}
 
       <InteractionTranscript turns={interaction.turns} error={interaction.error} onNavigate={interaction.onNavigate} />
-      <CommandBar onAsk={onAsk} onLookup={onLookup} onInteract={interaction.onSubmit} isKnownId={isKnownId} lookupError={lookupError} listening={listening} onToggleListen={onToggleListen} />
+      <CommandBar onAsk={onAsk} onLookup={onLookup} onInteract={interaction.onSubmit} isKnownId={isKnownId} lookupError={lookupError} listening={listening} onToggleListen={onToggleListen} voice={voice} />
       <QuickPrompts onAsk={onAsk} />
     </div>
   );

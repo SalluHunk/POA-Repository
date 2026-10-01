@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { isDemoLayerEnabled } from "../demo/demoLayer";
 import { MAX_INPUT_LENGTH } from "../interaction";
+import { detectMicrophoneApi } from "../voice/voiceShell";
+import { VoiceGreetingButton, VoiceStatus } from "./VoiceGreeting";
+import type { VoiceGreeting } from "../state/useVoiceGreeting";
 
 interface Props {
   onAsk: (q: string) => void;
@@ -10,6 +13,8 @@ interface Props {
   lookupError: string | null;
   listening: boolean;
   onToggleListen: () => void;
+  /** P0 spoken greeting (speech output only; POA-ORG-KNOW-EXEC-INTERACTION-001 Phase 3). */
+  voice: VoiceGreeting;
 }
 
 /**
@@ -29,8 +34,10 @@ interface Props {
  *     does free text reach the fictional ask-POA -> canned answer flow.
  * The mic stays inert outside the demo layer: no listening is built.
  */
-export function CommandBar({ onAsk, onLookup, onInteract, isKnownId, lookupError, listening, onToggleListen }: Props) {
+export function CommandBar({ onAsk, onLookup, onInteract, isKnownId, lookupError, listening, onToggleListen, voice }: Props) {
   const [query, setQuery] = useState("");
+  // Informational only: the microphone API is never called (no recognition exists).
+  const [micApi] = useState(() => detectMicrophoneApi());
   const demo = isDemoLayerEnabled();
   return (
     <div style={{ position: "fixed", left: "calc(50% - 410px)", bottom: 96, zIndex: 2, width: 820, pointerEvents: "auto" }}>
@@ -61,7 +68,7 @@ export function CommandBar({ onAsk, onLookup, onInteract, isKnownId, lookupError
           type="button"
           onClick={demo ? onToggleListen : undefined}
           disabled={!demo}
-          title={demo ? undefined : "Listening is not a POA capability (not built)"}
+          title={demo ? undefined : `Listening is not enabled in this release. No microphone access is requested. ${micApi === "present" ? "This browser exposes a microphone API; it is not used." : "This browser exposes no microphone API."}`}
           aria-label={demo ? (listening ? "Stop listening" : "Start listening") : "Listening not available"}
           className="command-bar-mic"
           style={{
@@ -82,6 +89,7 @@ export function CommandBar({ onAsk, onLookup, onInteract, isKnownId, lookupError
             <path d="M4.5 10.5a6.5 6.5 0 0 0 13 0M11 17v3" />
           </svg>
         </button>
+        <VoiceGreetingButton voice={voice} />
         <input
           id="cc-ask"
           value={query}
@@ -101,6 +109,7 @@ export function CommandBar({ onAsk, onLookup, onInteract, isKnownId, lookupError
           ↑
         </button>
       </form>
+      <VoiceStatus voice={voice} />
       {lookupError && (
         <div className="mono" style={{ marginTop: "var(--space-8)", fontSize: "var(--fs-12)", color: "var(--amber)", textAlign: "center" }}>
           {lookupError}

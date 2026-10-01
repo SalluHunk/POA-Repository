@@ -148,7 +148,7 @@ describe("Executive Panel interaction — existing behaviour preserved", () => {
 describe("Executive Panel interaction — accessibility", () => {
   it("announces each response through a persistent polite status region", async () => {
     const input = await ready();
-    const status = screen.getByRole("status");
+    const status = screen.getByRole("status", { name: "Interaction announcements" });
     expect(status).toHaveAttribute("aria-live", "polite");
     expect(status).toHaveTextContent("");
     ask(input, "mission risks");

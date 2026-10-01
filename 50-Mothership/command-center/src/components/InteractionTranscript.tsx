@@ -35,11 +35,11 @@ export function InteractionTranscript({ turns, error, onNavigate }: Props) {
 
   return (
     <>
-      <div role="status" aria-live="polite" aria-atomic="true" style={SR_ONLY}>
+      <div role="status" aria-label="Interaction announcements" aria-live="polite" aria-atomic="true" style={SR_ONLY}>
         {announcement}
       </div>
       {visible && (
-        <div className="depth-contextual fade-in" style={{ position: "fixed", left: "calc(50% - 320px)", bottom: 172, zIndex: 2, width: 640, borderRadius: "var(--radius-14)", overflow: "hidden", pointerEvents: "auto" }}>
+        <div className="depth-contextual fade-in" style={{ position: "fixed", left: "calc(50% - 320px)", bottom: 192, zIndex: 2, width: 640, borderRadius: "var(--radius-14)", overflow: "hidden", pointerEvents: "auto" }}>
           <div style={{ padding: "15px 18px", borderBottom: "1px solid var(--border)" }}>
             <span className="mono" style={{ fontSize: "var(--fs-10)", letterSpacing: "var(--ls-wide)", color: "var(--text-dim)" }}>
               INTERACTION · THIS SESSION ONLY

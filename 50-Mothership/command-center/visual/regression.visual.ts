@@ -44,6 +44,46 @@ for (const [name, viewport] of Object.entries(VIEWPORTS)) {
   });
 }
 
+// POA-ORG-KNOW-EXEC-INTERACTION-001 Phase 3: authorized voice-shell states.
+// Speech synthesis is stubbed in the page so the states are deterministic and
+// independent of the machine's voices; nothing is ever spoken or recorded.
+test("Voice shell — speaking (mocked synthesis)", async ({ page }) => {
+  await page.setViewportSize(VIEWPORTS.desktop);
+  await page.addInitScript(() => {
+    // speechSynthesis is a read-only accessor on window, so plain assignment is ignored.
+    Object.defineProperty(window, "speechSynthesis", { value: { speak() {}, cancel() {} }, configurable: true });
+    Object.defineProperty(window, "SpeechSynthesisUtterance", {
+      value: function (this: { text: string }, t: string) {
+        this.text = t;
+      },
+      configurable: true,
+    });
+  });
+  await openPresence(page);
+  // Transcript open too, so the status caption and transcript are proven not to collide.
+  await page.getByPlaceholder(/Jump to a mission or principal by ID/i).fill("What needs attention?");
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("log", { name: /Interaction transcript/i })).toBeVisible();
+  await page.getByRole("button", { name: "Speak greeting" }).click();
+  await expect(page.getByRole("status", { name: "Voice status" })).toContainText("Speaking:");
+  await page.evaluate(() => document.fonts.ready);
+  await expect(page).toHaveScreenshot("voice-speaking-desktop.png");
+});
+
+test("Voice shell — unsupported browser", async ({ page }) => {
+  await page.setViewportSize(VIEWPORTS.desktop);
+  await page.addInitScript(() => {
+    Object.defineProperty(window, "speechSynthesis", { value: undefined, configurable: true });
+  });
+  await openPresence(page);
+  // aria-disabled (not `disabled`) keeps the control clickable for users;
+  // Playwright's actionability check treats aria-disabled as disabled, hence force.
+  await page.getByRole("button", { name: "Spoken greeting not supported" }).click({ force: true });
+  await expect(page.getByRole("status", { name: "Voice status" })).toContainText("not supported in this browser");
+  await page.evaluate(() => document.fonts.ready);
+  await expect(page).toHaveScreenshot("voice-unsupported-desktop.png");
+});
+
 for (const name of ["desktop", "tablet"] as const) {
   test(`People focus — ${name}`, async ({ page }) => {
     await page.setViewportSize(VIEWPORTS[name]);
