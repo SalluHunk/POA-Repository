@@ -42,3 +42,51 @@ for (const name of ["desktop", "tablet"] as const) {
     await expect(page).toHaveScreenshot(`people-focus-${name}.png`);
   });
 }
+
+// Coverage added before the token migration so every surface it touches is
+// pixel-guarded (desktop only). Read-only navigation: nothing here triggers a
+// state-changing action (no transition/checkpoint/confirm).
+test.describe("additional surfaces — desktop", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.setViewportSize(VIEWPORTS.desktop);
+    await openPresence(page);
+  });
+
+  test("Mission focus", async ({ page }) => {
+    await page.getByLabel(/Focus mission mission-demo-002/).click();
+    await expect(page.getByText(/Mark Running/i)).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page).toHaveScreenshot("mission-focus-desktop.png");
+  });
+
+  test("Mission investigate (evidence chain)", async ({ page }) => {
+    await page.getByLabel(/Focus mission mission-demo-003/).click();
+    await page.getByText(/Investigate/i).first().click();
+    await expect(page.getByText(/evidence chain/i)).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page).toHaveScreenshot("mission-investigate-desktop.png");
+  });
+
+  test("Principal focus", async ({ page }) => {
+    await page.getByPlaceholder(/Jump to a mission or principal by ID/i).fill("agent-materializer");
+    await page.keyboard.press("Enter");
+    await expect(page.getByText(/GRANTED CAPABILITIES/i)).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page).toHaveScreenshot("principal-focus-desktop.png");
+  });
+
+  test("Project registry", async ({ page }) => {
+    await page.getByLabel("Open command overlay").click();
+    await page.getByText(/Projects — repository registry/).click();
+    await expect(page.getByText(/Return to Presence/i)).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page).toHaveScreenshot("project-registry-desktop.png");
+  });
+
+  test("Command overlay", async ({ page }) => {
+    await page.getByLabel("Open command overlay").click();
+    await expect(page.getByRole("dialog", { name: "Command overlay" })).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page).toHaveScreenshot("command-overlay-desktop.png");
+  });
+});
