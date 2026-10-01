@@ -2061,3 +2061,75 @@ Committed together with the authorization artifact in one bounded governance com
 
 *End of POA-ORG-KNOW-P5-UI-FOUND-001 Decision Record. Authorized by: Commander, assent recorded 2026-09-30.*
 
+---
+
+# POA-ORG-KNOW-EXEC-INTERACTION-001 — Executive Panel Interaction Foundation Authorization Decision Record (2026-10-01)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), following the same pattern as the Decision Records above. It is the explicit Commander ratification act required by `POA-STD-011` §6.4 for the authorization artifact `40-Runtime/POA-ORG-KNOW-EXEC-INTERACTION-001-AUTHORIZATION.md`.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-10-01. Mission ID: `POA-ORG-KNOW-EXEC-INTERACTION-001`. Title: **Executive Panel — Interaction Foundation: deterministic text interaction over the existing runtime snapshot with cited responses, plus a P0 speech-output shell**. Decision status: **AUTHORIZED, EFFECTIVE UPON RECORDING; IMPLEMENTATION COMMENCEMENT GATED on a further explicit Commander instruction**, scoped exactly as stated in the authorization artifact and summarized in §4 below. Subject: execution of `POA-ORG-KNOW-EXEC-INTERACTION-001` only.
+
+## 2. Context
+
+`POA-DEC-MOTHERSHIP-002` §7 conditions any production revival of natural-language conversation/listening on a separate Commander-authorized mission, real data binding, evidence citations, an explicit listening consent model, and a deliberate change to the `smoke.test.tsx` contract. The foundation mission `POA-ORG-KNOW-P5-UI-FOUND-001` closed at `b0a2936` and expressly excluded new Executive Panel behavior. A proposal was prepared (read-only, untracked) and the Commander ruled on decisions D1–D7. An authorization-form review of the artifact against `POA-STD-011` §6, this file's mechanism and the `POA-ORG-KNOW-P5-UI-FOUND-001` pattern was completed at 12/12 PASS.
+
+## 3. Decision
+
+Commander assent, recorded exactly as given:
+
+> "APPROVED as drafted, subject to the corrections and scope decisions stated in this review."
+
+Commander rulings: **D1** APPROVED (this mission is the separate authorizing mission contemplated by `POA-DEC-MOTHERSHIP-002` §7); **D2** APPROVED (real data binding, evidence citations, listening consent boundary, deliberate smoke-test contract treatment are acceptance criteria); **D3** P0 output only APPROVED, speech recognition NOT AUTHORIZED; **D4** APPROVED (bounded user-gesture greeting: generic, or derived from already-exposed runtime state; no invented facts, no unsupported-capability implication, no LLM/external inference; explicit user gesture only); **D5** APPROVED (transcript belongs to the existing Executive Panel; no new surface); **D6** APPROVED (in-memory evidence only; may carry citation/reference information); **D7** APPROVED (intentional authorized visual-baseline changes may be recorded).
+
+Required voice boundary, verbatim: "P0 voice output: browser-provided speech synthesis only; no application-controlled network request, external inference, or audio upload is authorized. The implementation must expose capability and failure states honestly." Speech synthesis is not described as definitively "local." This record does not represent drafted wording as a verbatim historical statement by the Commander beyond the assent above.
+
+## 4. Authorized Scope (exact; no broader)
+
+1. Deterministic text interaction.
+2. Known-intent interpretation against the existing runtime snapshot (the `Interpreter` abstraction may exist as an extension point; the implementation remains deterministic with no network or LLM invocation).
+3. Cited responses.
+4. In-session history.
+5. Genuine processing/success/error states.
+6. Keyboard/accessibility behavior.
+7. P0 speech-output shell and fallback states.
+8. In-memory interaction evidence.
+9. Tests and evidence necessary to prove the above, including the deliberate replacement of the `smoke.test.tsx` DEC-MOTHERSHIP-002 contract test and classified D7 baseline updates.
+
+**This authorization does NOT:** authorize speech recognition; microphone audio capture or transmission; LLM calls; external inference; autonomous agents; multi-turn intelligence; cross-session memory; business-function routing; KnowledgePlane expansion; approval execution; new Mothership surfaces or any Executive Panel expansion into one; Phase 6 or Phase 7 work; resurrection or reuse of the old demo interaction layer; persistent organizational-state changes or persistent evidence stores; analytics; `P5-UI-002` or any successor or other follow-on mission; or any modification of `POA-DEC-ORG-KNOWLEDGE-001` §24 or `POA-DEC-MOTHERSHIP-002`.
+
+## 5. Boundary, Evidence, Execution Profile, Commit/Push
+
+The full implementation boundary (Authorized Work, Explicit Exclusions, Stop Conditions, Decision Boundaries per `POA-STD-011` §6.6), evidence obligations (§6.9), execution-resource statement, and commit/push boundary are stated in the authorization artifact and are incorporated here by reference, unmodified. In summary:
+
+- **Stop and escalate** if implementation needs data that is not real runtime state, an uncited answer, recognition/capture/transmission, an application-controlled network request, an LLM/agent/external inference, a new surface, redesign, dependency or persistence; if an existing test other than the replaced contract test or a baseline outside D7 would change; if existing lookup or Executive Panel behavior regresses; if §24 or any governance artifact must change; if cost/size overruns the envelope by more than 50 %; or if any work falls outside this authorization.
+- **Required evidence:** execution record citing this record and its ratification commit; reproducible typecheck, build, test and canonical visual results; 60 consecutive runs per affected or added visual surface; per-criterion evidence (data binding, citations, no-network path, no listening path, speech-output states, accessibility); baseline inventory with classification.
+- **Execution profile (a preference, NOT a MODEL-GATE rule):** Claude Sonnet 5.5 for routine work; Claude Opus 5.5 only for genuinely difficult architectural reasoning or escalation; the execution record MUST report the actual model/resource/profile used. Intended strategy: freeze the core contract first; parallel agents only on disjoint files, at most two concurrent implementers; `App.tsx`, `CommandBar.tsx`, `CommandCenter.tsx`, `shared.tsx` under a single integrator.
+- **Commit/push:** bounded commits only; no history rewriting; no amend/rebase; no unrelated files staged; `CLAUDE.md` untouched; no push; any future push requires separate authorization.
+- **Commencement gate:** implementation does not begin until the Commander explicitly instructs it after reviewing this record's commit.
+
+## 6. Artifact
+
+`40-Runtime/POA-ORG-KNOW-EXEC-INTERACTION-001-AUTHORIZATION.md` (the authorization artifact, `POA-STD-011` §6.3; committed together with this record); `POA-ADR-001` (this record).
+
+## 7. Artifact Version/State
+
+`POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` §24 and `POA-DEC-MOTHERSHIP-002` unchanged. `50-Mothership/` and `50-Mothership/command-center/` unmodified by this record. All Decision Records above unchanged.
+
+## 8. Related Mission
+
+`POA-ORG-KNOW-P5-UI-FOUND-001`; `POA-DEC-MOTHERSHIP-002` §7; enables `POA-ORG-KNOW-EXEC-INTERACTION-001`. Implementation commits must cite this record by ID (`POA-STD-011` §6.8) and may commence only after this record's commit exists and the Commander has instructed commencement (`POA-STD-011` §6.5, §6.7).
+
+## 9. Related Evidence
+
+`40-Runtime/POA-ORG-KNOW-EXEC-INTERACTION-001-AUTHORIZATION.md`; `40-Runtime/POA-ORG-KNOW-P5-UI-FOUND-001-FOUNDATION-REMEDIATION-REPORT.md`; `20-Shared/STD/POA-STD-011.md` §6.
+
+## 10. Resulting Commit / Repository State
+
+Committed together with the authorization artifact in one bounded governance commit. The commit SHA may be added additively once known, per this field's own "where applicable, once known" rule.
+
+---
+
+*End of POA-ORG-KNOW-EXEC-INTERACTION-001 Decision Record. Authorized by: Commander, assent recorded 2026-10-01.*
+
