@@ -19,6 +19,8 @@ import { ThinkingIndicator } from "./demo/ThinkingIndicator";
 import { ListeningOverlay } from "./demo/ListeningOverlay";
 import { useCommandCenter } from "./state/useCommandCenter";
 import { usePresenceAsk } from "./demo/usePresenceAsk";
+import { useInteraction } from "./state/useInteraction";
+import type { NavigateSuggestion } from "./interaction";
 import { DOMAIN_SPEC } from "./components/environment/constants";
 import { isDemoLayerEnabled, DemoDisclosure } from "./demo/demoLayer";
 
@@ -38,6 +40,25 @@ export function App() {
   const focusedPrincipalWithCaps = subject?.type === "principal" ? state.capabilityPrincipals.find((p) => p.id === subject.id) : undefined;
 
   const isKnownId = (id: string) => state.missions.some((m) => m.id === id) || state.principals.some((p) => p.id === id);
+
+  // Session interaction (POA-ORG-KNOW-EXEC-INTERACTION-001). Deterministic,
+  // local, read-only over the loaded state above.
+  const interaction = useInteraction({
+    loading: state.loading,
+    missions: state.missions,
+    principals: state.principals,
+    decisions: state.decisions,
+    missionDetails: state.missionDetails,
+    attention: state.attention,
+  });
+  // A navigation suggestion is inert until the user clicks it; it then invokes
+  // only the EXISTING focus actions. Nothing here mutates organizational state.
+  const handleNavigateSuggestion = (s: NavigateSuggestion) => {
+    if (s.kind === "mission") void actions.focusMission(s.id);
+    else if (s.kind === "principal") actions.focusPrincipal(s.id);
+    else if (s.kind === "people") actions.focusPeople();
+    else void actions.focusProject();
+  };
 
   // PEOPLE is the one domain orb wired to a real Focus surface so far - it
   // bypasses the narrative pickDomain/DomainDetailOverlay path entirely and
@@ -106,6 +127,7 @@ export function App() {
           isKnownId={isKnownId}
           listening={listening}
           onToggleListen={toggleListen}
+          interaction={{ turns: interaction.turns, error: interaction.error, onSubmit: interaction.submit, onNavigate: handleNavigateSuggestion }}
         />
       )}
 

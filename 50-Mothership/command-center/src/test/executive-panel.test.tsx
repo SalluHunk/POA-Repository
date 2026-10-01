@@ -99,7 +99,7 @@ describe("Executive Panel (CommandCenter / Executive Home + Presence) — preser
     for (const p of prompts) {
       const chip = screen.getByRole("button", { name: p });
       expect(chip).toBeDisabled();
-      expect(chip).toHaveAttribute("title", expect.stringMatching(/not a POA capability/i));
+      expect(chip).toHaveAttribute("title", expect.stringMatching(/not available as a shortcut/i));
       fireEvent.click(chip);
     }
     expect(screen.queryByText(/REASONING OVER ORGANIZATIONAL CONTEXT/i)).not.toBeInTheDocument();
@@ -111,7 +111,9 @@ describe("Executive Panel (CommandCenter / Executive Home + Presence) — preser
     const input = await screen.findByPlaceholderText(/Jump to a mission or principal by ID/i);
     fireEvent.change(input, { target: { value: "   " } });
     fireEvent.submit(input.closest("form")!);
-    expect(screen.queryByText(/Only mission and principal IDs resolve/i)).not.toBeInTheDocument();
+    // Empty submission is ignored: no interaction turn, no transcript, no error.
+    expect(screen.queryByRole("log", { name: /Interaction transcript/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
     expect(screen.getByText("Your organization is stable.")).toBeInTheDocument();
   });
 

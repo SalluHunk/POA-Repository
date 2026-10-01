@@ -92,6 +92,17 @@ test.describe("additional surfaces — desktop", () => {
     await expect(page).toHaveScreenshot("principal-focus-desktop.png");
   });
 
+  // POA-ORG-KNOW-EXEC-INTERACTION-001 Phase 2: the interaction transcript
+  // inside the Executive Panel (typed question -> cited deterministic answer).
+  // Read-only: asking never triggers an action.
+  test("Executive Panel interaction transcript", async ({ page }) => {
+    await page.getByPlaceholder(/Jump to a mission or principal by ID/i).fill("What needs attention?");
+    await page.keyboard.press("Enter");
+    await expect(page.getByRole("log", { name: /Interaction transcript/i })).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page).toHaveScreenshot("interaction-transcript-desktop.png");
+  });
+
   test("Project registry", async ({ page }) => {
     await page.getByLabel("Open command overlay").click();
     await page.getByText(/Projects — repository registry/).click();

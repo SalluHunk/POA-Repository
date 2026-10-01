@@ -6,7 +6,7 @@
  * without needing the actual Node server running.
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor, within } from "@testing-library/react";
 import { App } from "../App";
 
 const ORG = "org-paravyoma";
@@ -103,17 +103,23 @@ describe("Mothership Command Center — smoke", () => {
     expect(screen.getByText(/GRANTED CAPABILITIES/i)).toBeInTheDocument();
   });
 
-  // Product contract (POA-DEC-MOTHERSHIP-002): by default the Layer-B demo
-  // layer is quarantined - free text never yields a fabricated answer, the
-  // unbacked domains show the honest NOT CONNECTED placeholder, and the
-  // listening affordance is inert. The canned-answer behavior itself is
-  // exercised only in src/demo/demo.test.tsx, as demo behavior.
+  // Product contract (POA-DEC-MOTHERSHIP-002, as updated by
+  // POA-ORG-KNOW-EXEC-INTERACTION-001 / Risk 1): by default the Layer-B demo
+  // layer is quarantined - free text never yields a fabricated answer (the
+  // deterministic interaction layer states honestly that it does not do
+  // summaries and cites nothing it has not read), the unbacked domains show
+  // the honest NOT CONNECTED placeholder, and the listening affordance is
+  // inert. The canned-answer behavior itself is exercised only in
+  // src/demo/demo.test.tsx, as demo behavior.
   it("never fabricates an answer, figures, or listening by default (demo layer quarantined)", async () => {
     render(<App />);
     await screen.findByPlaceholderText(/Jump to a mission or principal by ID/i);
     fireEvent.change(screen.getByPlaceholderText(/Jump to a mission or principal by ID/i), { target: { value: "Prepare my morning brief" } });
     fireEvent.submit(screen.getByPlaceholderText(/Jump to a mission or principal by ID/i).closest("form")!);
-    await waitFor(() => expect(screen.getByText(/Only mission and principal IDs resolve/i)).toBeInTheDocument());
+    const transcript = await screen.findByRole("log", { name: /Interaction transcript/i });
+    expect(within(transcript).getByText(/I do not summarize, explain or reason over the organization/i)).toBeInTheDocument();
+    expect(within(transcript).getByText("NOT SUPPORTED")).toBeInTheDocument();
+    expect(within(transcript).queryByLabelText("Sources")).not.toBeInTheDocument(); // no invented citations
     expect(screen.queryByText(/REASONING OVER ORGANIZATIONAL CONTEXT/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/eleven o'clock/i)).not.toBeInTheDocument();
     expect(screen.getAllByText("NOT CONNECTED")).toHaveLength(3);

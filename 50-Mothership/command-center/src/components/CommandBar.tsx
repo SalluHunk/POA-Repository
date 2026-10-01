@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { isDemoLayerEnabled } from "../demo/demoLayer";
+import { MAX_INPUT_LENGTH } from "../interaction";
 
 interface Props {
   onAsk: (q: string) => void;
+  onInteract: (text: string) => void;
   onLookup: (id: string) => void;
   isKnownId: (id: string) => boolean;
   lookupError: string | null;
@@ -17,15 +19,17 @@ interface Props {
  * ID still routes to the real Focus flow exactly as before (preserving
  * that tested capability).
  *
- * Demo quarantine (POA-DEC-MOTHERSHIP-002): by default every submission goes
- * to the real structured lookup and the mic is inert - natural-language
- * conversation is VISION and listening mode is not built. Only when the
- * demo layer is explicitly enabled does free text reach the fictional
- * ask-POA -> thinking -> canned answer flow, and the mic open the fictional
- * listening overlay. (An earlier comment here cited "§12" as authorization
- * for the mic; that citation did not resolve to any authorizing document.)
+ * Submission routing:
+ *  1. A typed real mission/principal ID always uses the existing lookup path.
+ *  2. Otherwise, by default, free text goes to the deterministic interaction
+ *     layer (POA-ORG-KNOW-EXEC-INTERACTION-001): cited answers from loaded
+ *     state, honest "not supported / not recognized" otherwise. No LLM, no
+ *     network, no action is ever executed from here.
+ *  3. Only when the demo layer is explicitly enabled (POA-DEC-MOTHERSHIP-002)
+ *     does free text reach the fictional ask-POA -> canned answer flow.
+ * The mic stays inert outside the demo layer: no listening is built.
  */
-export function CommandBar({ onAsk, onLookup, isKnownId, lookupError, listening, onToggleListen }: Props) {
+export function CommandBar({ onAsk, onLookup, onInteract, isKnownId, lookupError, listening, onToggleListen }: Props) {
   const [query, setQuery] = useState("");
   const demo = isDemoLayerEnabled();
   return (
@@ -36,8 +40,9 @@ export function CommandBar({ onAsk, onLookup, isKnownId, lookupError, listening,
           e.preventDefault();
           const trimmed = query.trim();
           if (!trimmed) return;
-          if (isKnownId(trimmed) || !demo) onLookup(trimmed);
-          else onAsk(trimmed);
+          if (isKnownId(trimmed)) onLookup(trimmed);
+          else if (demo) onAsk(trimmed);
+          else onInteract(trimmed);
           setQuery("");
         }}
         style={{
@@ -81,7 +86,9 @@ export function CommandBar({ onAsk, onLookup, isKnownId, lookupError, listening,
           id="cc-ask"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder={demo ? "Ask POA anything..." : "Jump to a mission or principal by ID..."}
+          maxLength={MAX_INPUT_LENGTH}
+          aria-label="Ask a question, or enter a mission or principal ID"
+          placeholder={demo ? "Ask POA anything..." : "Ask a question, or jump to a mission or principal by ID..."}
           style={{ flex: 1, minWidth: 0, background: "transparent", border: "none", outline: "none", fontSize: 18, color: "var(--text)" }}
         />
         <span style={{ color: "var(--cyan)", fontSize: "var(--fs-16)" }}>✦</span>
@@ -97,7 +104,6 @@ export function CommandBar({ onAsk, onLookup, isKnownId, lookupError, listening,
       {lookupError && (
         <div className="mono" style={{ marginTop: "var(--space-8)", fontSize: "var(--fs-12)", color: "var(--amber)", textAlign: "center" }}>
           {lookupError}
-          {!demo && " Only mission and principal IDs resolve; natural-language questions are not a POA capability."}
         </div>
       )}
     </div>

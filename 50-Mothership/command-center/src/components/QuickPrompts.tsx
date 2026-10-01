@@ -20,7 +20,7 @@ export function QuickPrompts({ onAsk }: { onAsk: (q: string) => void }) {
           key={p}
           onClick={demo ? () => onAsk(p) : undefined}
           disabled={!demo}
-          title={demo ? undefined : "Not yet available — natural-language questions are not a POA capability"}
+          title={demo ? undefined : "Not available as a shortcut — type your question in the ask bar"}
           className="quick-prompt"
           style={{ fontSize: "var(--fs-13-5)", padding: "10px 17px", borderRadius: 999, border: "1px solid rgba(255,255,255,.14)", background: "rgba(10,18,34,.6)", color: "rgba(223,233,247,.8)", cursor: demo ? "pointer" : "default", opacity: demo ? 1 : 0.45 }}
         >
