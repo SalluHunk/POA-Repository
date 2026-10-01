@@ -60,6 +60,33 @@ export function Breadcrumb({ segments }: { segments: { label: string; onClick?: 
   );
 }
 
+/** The quiet "← Return …" text button that closes every focus surface. */
+export function BackLink({ onClick, marginTop = "var(--space-22)", children }: { onClick: () => void; marginTop?: string | number; children: ReactNode }) {
+  return (
+    <button onClick={onClick} className="mono" style={{ marginTop, background: "none", border: "none", color: "var(--text-faint)", fontSize: "var(--fs-12)", cursor: "pointer", padding: 0 }}>
+      {children}
+    </button>
+  );
+}
+
+/** The faint mono micro-label above a focus surface's title. */
+export function Eyebrow({ children }: { children: ReactNode }) {
+  return (
+    <div className="mono" style={{ fontSize: "var(--fs-11)", color: "var(--text-faint)", marginBottom: "var(--space-8)" }}>
+      {children}
+    </div>
+  );
+}
+
+/** The glass shell shared by the focus surfaces; `style` carries a surface's own extras (e.g. MissionFocus dimming). */
+export function FocusPanel({ maxWidth, margin, style, children }: { maxWidth: number; margin: string; style?: CSSProperties; children: ReactNode }) {
+  return (
+    <div className="depth-contextual converge-in" style={{ borderRadius: "var(--radius-10)", padding: "40px 48px", maxWidth, margin, ...style }}>
+      {children}
+    </div>
+  );
+}
+
 export function buttonStyle(kind: "caution" | "quiet"): CSSProperties {
   return {
     padding: "10px 16px",

@@ -1,5 +1,5 @@
 import type { AuthorizationDecisionRecord, Principal } from "../api/types";
-import { Chip, Breadcrumb } from "./shared";
+import { Chip, Breadcrumb, BackLink, Eyebrow, FocusPanel } from "./shared";
 
 interface Props {
   principal: Principal | undefined;
@@ -31,12 +31,10 @@ export function PrincipalFocus({ principal, capabilities, decisions, onReturn, o
   const missionIds = [...new Set(own.map((d) => d.missionId))];
 
   return (
-    <div className="depth-contextual converge-in" style={{ borderRadius: "var(--radius-10)", padding: "40px 48px", maxWidth: 640, margin: "60px auto 0" }}>
+    <FocusPanel maxWidth={640} margin="60px auto 0">
       <Breadcrumb segments={[{ label: "Presence", onClick: onReturn }, { label: principal.id }]} />
 
-      <div className="mono" style={{ fontSize: "var(--fs-11)", color: "var(--text-faint)", marginBottom: "var(--space-8)" }}>
-        PRINCIPAL
-      </div>
+      <Eyebrow>PRINCIPAL</Eyebrow>
       <div style={{ fontSize: "var(--fs-24)", fontWeight: 500, marginBottom: 18 }}>{principal.id}</div>
 
       <div style={{ display: "flex", gap: "var(--space-12)", marginBottom: 26, flexWrap: "wrap" }}>
@@ -84,9 +82,7 @@ export function PrincipalFocus({ principal, capabilities, decisions, onReturn, o
         )}
       </div>
 
-      <button onClick={onReturn} className="mono" style={{ marginTop: "var(--space-22)", background: "none", border: "none", color: "var(--text-faint)", fontSize: "var(--fs-12)", cursor: "pointer", padding: 0 }}>
-        ← Return to Presence
-      </button>
-    </div>
+      <BackLink onClick={onReturn}>← Return to Presence</BackLink>
+    </FocusPanel>
   );
 }

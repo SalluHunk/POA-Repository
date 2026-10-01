@@ -1,6 +1,6 @@
 import type { RepositoryReference } from "../api/types";
 import type { ProjectRegistryState } from "../state/useCommandCenter";
-import { Breadcrumb } from "./shared";
+import { Breadcrumb, BackLink, Eyebrow, FocusPanel } from "./shared";
 
 interface Props {
   registry: ProjectRegistryState;
@@ -19,12 +19,10 @@ interface Props {
 // action/edit affordance, and any data outside PJR-001.
 export function ProjectFocus({ registry, onReturn }: Props) {
   return (
-    <div className="depth-contextual converge-in" style={{ borderRadius: "var(--radius-10)", padding: "40px 48px", maxWidth: 820, margin: "0 auto" }}>
+    <FocusPanel maxWidth={820} margin="0 auto">
       <Breadcrumb segments={[{ label: "Presence", onClick: onReturn }, { label: "Projects" }]} />
 
-      <div className="mono" style={{ fontSize: "var(--fs-11)", color: "var(--text-faint)", marginBottom: "var(--space-8)" }}>
-        REPOSITORY RECORD · POA-PJR-001
-      </div>
+      <Eyebrow>REPOSITORY RECORD · POA-PJR-001</Eyebrow>
       <div style={{ fontSize: "var(--fs-24)", fontWeight: 500, marginBottom: "var(--space-6)" }}>Paravyoma Project Registry</div>
       <div className="mono" style={{ fontSize: "var(--fs-12)", color: "var(--text-dim)", marginBottom: "var(--space-22)" }}>
         {registry.status === "ok"
@@ -87,10 +85,8 @@ export function ProjectFocus({ registry, onReturn }: Props) {
         </div>
       )}
 
-      <button onClick={onReturn} className="mono" style={{ marginTop: "var(--space-22)", background: "none", border: "none", color: "var(--text-faint)", fontSize: "var(--fs-12)", cursor: "pointer", padding: 0 }}>
-        ← Return to Presence
-      </button>
-    </div>
+      <BackLink onClick={onReturn}>← Return to Presence</BackLink>
+    </FocusPanel>
   );
 }
 

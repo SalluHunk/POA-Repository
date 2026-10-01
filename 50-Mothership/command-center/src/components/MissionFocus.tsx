@@ -1,6 +1,6 @@
 import type { MissionDetail } from "../api/types";
 import { legalTransitions } from "../state/legalTransitions";
-import { Chip, Breadcrumb, buttonStyle } from "./shared";
+import { Chip, Breadcrumb, buttonStyle, BackLink, Eyebrow, FocusPanel } from "./shared";
 
 interface Props {
   missionId: string;
@@ -17,15 +17,10 @@ export function MissionFocus({ missionId, detail, dimmed, onDrill, onRequestTran
   const witnessTone = detail.witnessCode === "MATCH" ? "green" : detail.witnessCode === "MISMATCH" ? "red" : "neutral";
 
   return (
-    <div
-      className="depth-contextual converge-in"
-      style={{ borderRadius: "var(--radius-10)", padding: "40px 48px", maxWidth: 640, margin: "60px auto 0", opacity: dimmed ? 0.5 : 1, pointerEvents: dimmed ? "none" : undefined, transition: "opacity 0.25s ease" }}
-    >
+    <FocusPanel maxWidth={640} margin="60px auto 0" style={{ opacity: dimmed ? 0.5 : 1, pointerEvents: dimmed ? "none" : undefined, transition: "opacity 0.25s ease" }}>
       <Breadcrumb segments={[{ label: "Presence", onClick: onReturn }, { label: missionId }]} />
 
-      <div className="mono" style={{ fontSize: "var(--fs-11)", color: "var(--text-faint)", marginBottom: "var(--space-8)" }}>
-        MISSION
-      </div>
+      <Eyebrow>MISSION</Eyebrow>
       <div style={{ fontSize: "var(--fs-24)", fontWeight: 500, marginBottom: 18 }}>{missionId}</div>
 
       <div style={{ display: "flex", gap: "var(--space-12)", marginBottom: "var(--space-22)", flexWrap: "wrap" }}>
@@ -52,9 +47,7 @@ export function MissionFocus({ missionId, detail, dimmed, onDrill, onRequestTran
         )}
       </div>
 
-      <button onClick={onReturn} className="mono" style={{ marginTop: "var(--space-22)", background: "none", border: "none", color: "var(--text-faint)", fontSize: "var(--fs-12)", cursor: "pointer", padding: 0 }}>
-        ← Return to Presence
-      </button>
-    </div>
+      <BackLink onClick={onReturn}>← Return to Presence</BackLink>
+    </FocusPanel>
   );
 }

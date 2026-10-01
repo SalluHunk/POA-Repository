@@ -1,5 +1,5 @@
 import type { EvidenceEnvelope } from "../api/types";
-import { Chip, Breadcrumb } from "./shared";
+import { Chip, Breadcrumb, BackLink } from "./shared";
 
 interface Props {
   missionId: string;
@@ -62,9 +62,7 @@ export function MissionInvestigate({ missionId, evidence, chainVerified, onRetur
         ))}
       </div>
 
-      <button onClick={onReturn} className="mono" style={{ marginTop: 24, background: "none", border: "none", color: "var(--text-faint)", fontSize: "var(--fs-12)", cursor: "pointer", padding: 0 }}>
-        ← Return to mission
-      </button>
+      <BackLink onClick={onReturn} marginTop={24}>← Return to mission</BackLink>
     </div>
   );
 }
