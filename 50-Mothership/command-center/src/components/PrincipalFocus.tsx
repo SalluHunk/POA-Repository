@@ -31,28 +31,28 @@ export function PrincipalFocus({ principal, capabilities, decisions, onReturn, o
   const missionIds = [...new Set(own.map((d) => d.missionId))];
 
   return (
-    <div className="depth-contextual converge-in" style={{ borderRadius: 10, padding: "40px 48px", maxWidth: 640, margin: "60px auto 0" }}>
+    <div className="depth-contextual converge-in" style={{ borderRadius: "var(--radius-10)", padding: "40px 48px", maxWidth: 640, margin: "60px auto 0" }}>
       <Breadcrumb segments={[{ label: "Presence", onClick: onReturn }, { label: principal.id }]} />
 
-      <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", marginBottom: 8 }}>
+      <div className="mono" style={{ fontSize: "var(--fs-11)", color: "var(--text-faint)", marginBottom: "var(--space-8)" }}>
         PRINCIPAL
       </div>
-      <div style={{ fontSize: 24, fontWeight: 500, marginBottom: 18 }}>{principal.id}</div>
+      <div style={{ fontSize: "var(--fs-24)", fontWeight: 500, marginBottom: 18 }}>{principal.id}</div>
 
-      <div style={{ display: "flex", gap: 12, marginBottom: 26, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "var(--space-12)", marginBottom: 26, flexWrap: "wrap" }}>
         <Chip tone={principal.active ? "green" : "neutral"}>{principal.active ? "✓ ACTIVE" : "✕ REVOKED"}</Chip>
         <Chip>{principal.role}</Chip>
       </div>
 
-      <div style={{ marginBottom: 22 }}>
-        <div className="mono" style={{ fontSize: 10.5, color: "var(--text-faint)", marginBottom: 6 }}>
+      <div style={{ marginBottom: "var(--space-22)" }}>
+        <div className="mono" style={{ fontSize: "var(--fs-10-5)", color: "var(--text-faint)", marginBottom: "var(--space-6)" }}>
           GRANTED CAPABILITIES
         </div>
         <div style={{ fontSize: 14 }}>{capabilities.length ? capabilities.join(", ") : "(none granted)"}</div>
       </div>
 
       <div style={{ paddingTop: 22, borderTop: "1px solid var(--border)" }}>
-        <div className="mono" style={{ fontSize: 10.5, color: "var(--text-faint)", marginBottom: 6 }}>
+        <div className="mono" style={{ fontSize: "var(--fs-10-5)", color: "var(--text-faint)", marginBottom: "var(--space-6)" }}>
           AUTHORIZATION HISTORY
         </div>
         <div style={{ fontSize: 14 }}>
@@ -60,12 +60,12 @@ export function PrincipalFocus({ principal, capabilities, decisions, onReturn, o
         </div>
       </div>
 
-      <div style={{ marginTop: 22, paddingTop: 22, borderTop: "1px solid var(--border)" }}>
-        <div className="mono" style={{ fontSize: 10.5, color: "var(--text-faint)", marginBottom: 10 }}>
+      <div style={{ marginTop: "var(--space-22)", paddingTop: 22, borderTop: "1px solid var(--border)" }}>
+        <div className="mono" style={{ fontSize: "var(--fs-10-5)", color: "var(--text-faint)", marginBottom: "var(--space-10)" }}>
           MISSIONS — via authorization activity
         </div>
         {missionIds.length === 0 ? (
-          <div className="mono" style={{ fontSize: 13, color: "var(--text-faint)" }}>
+          <div className="mono" style={{ fontSize: "var(--fs-13)", color: "var(--text-faint)" }}>
             No missions recorded for this principal yet.
           </div>
         ) : (
@@ -75,7 +75,7 @@ export function PrincipalFocus({ principal, capabilities, decisions, onReturn, o
                 key={id}
                 onClick={() => onFocusMission(id)}
                 className="mono"
-                style={{ fontSize: 12.5, padding: "7px 13px", borderRadius: 6, background: "var(--panel-2)", border: "1px solid var(--border-2)", color: "var(--cyan)", cursor: "pointer" }}
+                style={{ fontSize: "var(--fs-12-5)", padding: "7px 13px", borderRadius: "var(--radius-6)", background: "var(--panel-2)", border: "1px solid var(--border-2)", color: "var(--cyan)", cursor: "pointer" }}
               >
                 {id} →
               </button>
@@ -84,7 +84,7 @@ export function PrincipalFocus({ principal, capabilities, decisions, onReturn, o
         )}
       </div>
 
-      <button onClick={onReturn} className="mono" style={{ marginTop: 22, background: "none", border: "none", color: "var(--text-faint)", fontSize: 12, cursor: "pointer", padding: 0 }}>
+      <button onClick={onReturn} className="mono" style={{ marginTop: "var(--space-22)", background: "none", border: "none", color: "var(--text-faint)", fontSize: "var(--fs-12)", cursor: "pointer", padding: 0 }}>
         ← Return to Presence
       </button>
     </div>

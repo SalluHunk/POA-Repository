@@ -22,7 +22,7 @@ export function QuickPrompts({ onAsk }: { onAsk: (q: string) => void }) {
           disabled={!demo}
           title={demo ? undefined : "Not yet available — natural-language questions are not a POA capability"}
           className="quick-prompt"
-          style={{ fontSize: 13.5, padding: "10px 17px", borderRadius: 999, border: "1px solid rgba(255,255,255,.14)", background: "rgba(10,18,34,.6)", color: "rgba(223,233,247,.8)", cursor: demo ? "pointer" : "default", opacity: demo ? 1 : 0.45 }}
+          style={{ fontSize: "var(--fs-13-5)", padding: "10px 17px", borderRadius: 999, border: "1px solid rgba(255,255,255,.14)", background: "rgba(10,18,34,.6)", color: "rgba(223,233,247,.8)", cursor: demo ? "pointer" : "default", opacity: demo ? 1 : 0.45 }}
         >
           {p}
         </button>

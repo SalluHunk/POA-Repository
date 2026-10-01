@@ -72,7 +72,7 @@ export function CommandCenter({ missions, principals, missionDetails, decisions,
       </div>
 
       {error && (
-        <div className="mono" style={{ position: "fixed", left: "50%", bottom: 180, transform: "translateX(-50%)", color: "var(--red)", fontSize: 12.5, pointerEvents: "auto" }}>
+        <div className="mono" style={{ position: "fixed", left: "50%", bottom: 180, transform: "translateX(-50%)", color: "var(--red)", fontSize: "var(--fs-12-5)", pointerEvents: "auto" }}>
           {error}
         </div>
       )}

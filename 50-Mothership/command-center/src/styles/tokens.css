@@ -34,6 +34,36 @@
   --depth-contextual-border: rgba(127, 216, 255, 0.16);
   --depth-contextual-blur: 14px;
   --depth-evidence-bg: var(--panel); /* always fully opaque */
+
+  /* Value-named scale tokens (POA-ORG-KNOW-P5-UI-FOUND-001). Each aliases a
+     literal ALREADY in use across src/components (>=3 occurrences) - none is a
+     new visual value. Named by value, not role, so near-miss neighbours stay
+     visibly distinct and are NOT merged (10 vs 10.5, 12 vs 12.5, 13 vs 13.5).
+     Values used fewer than 3 times, and shadows/motion/line-heights/stage
+     geometry, intentionally remain literals. */
+  --fs-10: 10px;
+  --fs-10-5: 10.5px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-12-5: 12.5px;
+  --fs-13: 13px;
+  --fs-13-5: 13.5px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-24: 24px;
+  --fw-medium: 500;
+  --ls-wide: 0.2em;
+  --ls-label: 0.16em;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-14: 14px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-22: 22px;
 }
 
 * {

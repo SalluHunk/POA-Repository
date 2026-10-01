@@ -18,8 +18,8 @@ export function Chip({ children, tone = "neutral" }: { children: ReactNode; tone
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: 6,
-        fontSize: 12.5,
+        gap: "var(--space-6)",
+        fontSize: "var(--fs-12-5)",
         fontWeight: 500,
         padding: "5px 11px",
         borderRadius: 4,
@@ -40,7 +40,7 @@ export function Chip({ children, tone = "neutral" }: { children: ReactNode; tone
  */
 export function Breadcrumb({ segments }: { segments: { label: string; onClick?: () => void }[] }) {
   return (
-    <div className="mono fade-in" style={{ fontSize: 12, marginBottom: 28, textAlign: "center" }}>
+    <div className="mono fade-in" style={{ fontSize: "var(--fs-12)", marginBottom: 28, textAlign: "center" }}>
       {segments.map((s, i) => (
         <span key={i}>
           {i > 0 && <span style={{ color: "var(--text-faint)", margin: "0 8px" }}>›</span>}
@@ -60,8 +60,8 @@ export function Breadcrumb({ segments }: { segments: { label: string; onClick?: 
 export function buttonStyle(kind: "caution" | "quiet"): CSSProperties {
   return {
     padding: "10px 16px",
-    borderRadius: 6,
-    fontSize: 13.5,
+    borderRadius: "var(--radius-6)",
+    fontSize: "var(--fs-13-5)",
     fontWeight: 500,
     cursor: "pointer",
     border: "1px solid",

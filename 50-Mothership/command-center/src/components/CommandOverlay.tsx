@@ -52,7 +52,7 @@ export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup, 
           left: 34,
           top: 76,
           width: 300,
-          borderRadius: 14,
+          borderRadius: "var(--radius-14)",
           padding: 8,
           background: "linear-gradient(160deg, rgba(12,24,46,.95), rgba(6,12,24,.9))",
           border: "1px solid rgba(127,216,255,.22)",
@@ -104,7 +104,7 @@ export function CommandOverlay({ open, onClose, onCommandCenter, onFocusLookup, 
           Projects — repository registry
         </button>
         <button className="overlay-item" disabled style={overlayItemStyle(false)} aria-disabled="true" title="Not built in this MVP">
-          Diagnostics <span className="mono" style={{ fontSize: 10.5, color: "var(--text-faint)" }}>not yet available</span>
+          Diagnostics <span className="mono" style={{ fontSize: "var(--fs-10-5)", color: "var(--text-faint)" }}>not yet available</span>
         </button>
       </div>
     </div>

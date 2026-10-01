@@ -59,6 +59,14 @@ test.describe("additional surfaces — desktop", () => {
     await expect(page).toHaveScreenshot("mission-focus-desktop.png");
   });
 
+  test("Action confirm panel (opened, never confirmed)", async ({ page }) => {
+    await page.getByLabel(/Focus mission mission-demo-002/).click();
+    await page.getByText(/Mark Running/i).click();
+    await expect(page.getByText(/CONFIRM — CONSEQUENTIAL ACTION/i)).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page).toHaveScreenshot("action-confirm-desktop.png");
+  });
+
   test("Mission investigate (evidence chain)", async ({ page }) => {
     await page.getByLabel(/Focus mission mission-demo-003/).click();
     await page.getByText(/Investigate/i).first().click();

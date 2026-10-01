@@ -43,7 +43,7 @@ export function CommandBar({ onAsk, onLookup, isKnownId, lookupError, listening,
         style={{
           display: "flex",
           alignItems: "center",
-          gap: 14,
+          gap: "var(--space-14)",
           padding: "13px 16px 13px 13px",
           borderRadius: 999,
           background: "linear-gradient(120deg,rgba(14,26,48,.88),rgba(8,14,28,.8))",
@@ -82,20 +82,20 @@ export function CommandBar({ onAsk, onLookup, isKnownId, lookupError, listening,
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={demo ? "Ask POA anything..." : "Jump to a mission or principal by ID..."}
-          style={{ flex: 1, minWidth: 0, background: "transparent", border: "none", outline: "none", fontSize: 18, color: "#dfe9f7" }}
+          style={{ flex: 1, minWidth: 0, background: "transparent", border: "none", outline: "none", fontSize: 18, color: "var(--text)" }}
         />
-        <span style={{ color: "#7fd8ff", fontSize: 16 }}>✦</span>
+        <span style={{ color: "var(--cyan)", fontSize: "var(--fs-16)" }}>✦</span>
         <button
           type="submit"
           aria-label="Go"
           className="command-bar-submit"
-          style={{ width: 40, height: 40, flex: "none", borderRadius: "50%", display: "grid", placeItems: "center", background: "rgba(127,216,255,.14)", border: "1px solid rgba(127,216,255,.4)", color: "#c4efff", fontSize: 16, cursor: "pointer" }}
+          style={{ width: 40, height: 40, flex: "none", borderRadius: "50%", display: "grid", placeItems: "center", background: "rgba(127,216,255,.14)", border: "1px solid rgba(127,216,255,.4)", color: "#c4efff", fontSize: "var(--fs-16)", cursor: "pointer" }}
         >
           ↑
         </button>
       </form>
       {lookupError && (
-        <div className="mono" style={{ marginTop: 8, fontSize: 12, color: "var(--amber)", textAlign: "center" }}>
+        <div className="mono" style={{ marginTop: "var(--space-8)", fontSize: "var(--fs-12)", color: "var(--amber)", textAlign: "center" }}>
           {lookupError}
           {!demo && " Only mission and principal IDs resolve; natural-language questions are not a POA capability."}
         </div>

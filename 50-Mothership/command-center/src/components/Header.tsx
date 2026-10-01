@@ -50,16 +50,16 @@ export function Header({ onToggleOverlay }: { onToggleOverlay: () => void }) {
         </span>
       </div>
 
-      <div className="mono" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+      <div className="mono" style={{ display: "flex", alignItems: "center", gap: "var(--space-6)" }}>
         {PHASES.map((p, i) => (
-          <span key={p} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span key={p} style={{ display: "flex", alignItems: "center", gap: "var(--space-6)" }}>
             <button
               onClick={() => setPhase(p)}
               style={{
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                fontSize: 12,
+                fontSize: "var(--fs-12)",
                 letterSpacing: "0.22em",
                 padding: "7px 12px",
                 color: p === phase ? "#dff3ff" : "rgba(223,233,247,.6)",
@@ -68,12 +68,12 @@ export function Header({ onToggleOverlay }: { onToggleOverlay: () => void }) {
             >
               {p}
             </button>
-            {i < PHASES.length - 1 && <span style={{ color: "rgba(223,233,247,.25)", fontSize: 10 }}>·</span>}
+            {i < PHASES.length - 1 && <span style={{ color: "rgba(223,233,247,.25)", fontSize: "var(--fs-10)" }}>·</span>}
           </span>
         ))}
       </div>
 
-      <span className="mono" style={{ fontSize: 12, letterSpacing: "0.14em", color: "rgba(223,233,247,.72)" }}>
+      <span className="mono" style={{ fontSize: "var(--fs-12)", letterSpacing: "0.14em", color: "rgba(223,233,247,.72)" }}>
         {dateLabel}
       </span>
     </header>
