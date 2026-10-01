@@ -13,11 +13,20 @@ const VIEWPORTS = {
   mobile: { width: 390, height: 844 },
 } as const;
 
+// Deterministic capture needs the page's ~120 infinite CSS animations (stars,
+// orb drift, spin, ripple...) genuinely frozen. Playwright's
+// `animations: "disabled"` does not do that reliably on this DOM: output kept
+// changing with elapsed time (see OVERLAY-STABILITY-PROBE-REPORT), which made
+// baselines phase-dependent and the suite intermittently flaky. This is a
+// test-harness freeze only; the product keeps its animations at runtime.
+const FREEZE_ANIMATIONS = "*,*::before,*::after{animation:none!important;transition:none!important}";
+
 async function openPresence(page: Page) {
   await page.clock.setFixedTime(FIXED_TIME);
   await page.goto("/");
   await expect(page.getByText(/things? require attention|Nothing requires attention/)).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
+  await page.addStyleTag({ content: FREEZE_ANIMATIONS });
 }
 
 async function openPeopleFocus(page: Page) {
