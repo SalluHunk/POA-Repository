@@ -1,11 +1,14 @@
 import type { CSSProperties, ReactNode } from "react";
 
+/** A status-token color at partial opacity, so tints track the current palette instead of old rgba copies. */
+const tint = (token: string, pct: number) => `color-mix(in srgb, var(${token}) ${pct}%, transparent)`;
+
 const TONES: Record<string, { bg: string; border: string; color: string }> = {
-  green: { bg: "rgba(62,207,142,.12)", border: "rgba(62,207,142,.35)", color: "var(--green)" },
-  red: { bg: "rgba(224,85,79,.12)", border: "rgba(224,85,79,.35)", color: "var(--red)" },
-  amber: { bg: "rgba(217,164,65,.12)", border: "rgba(217,164,65,.35)", color: "var(--amber)" },
-  cyan: { bg: "rgba(79,179,232,.12)", border: "rgba(79,179,232,.35)", color: "var(--cyan)" },
-  violet: { bg: "rgba(152,132,224,.12)", border: "rgba(152,132,224,.35)", color: "var(--violet)" },
+  green: { bg: tint("--green", 12), border: tint("--green", 35), color: "var(--green)" },
+  red: { bg: tint("--red", 12), border: tint("--red", 35), color: "var(--red)" },
+  amber: { bg: tint("--amber", 12), border: tint("--amber", 35), color: "var(--amber)" },
+  cyan: { bg: tint("--cyan", 12), border: tint("--cyan", 35), color: "var(--cyan)" },
+  violet: { bg: tint("--violet", 12), border: tint("--violet", 35), color: "var(--violet)" },
   neutral: { bg: "var(--panel-2)", border: "var(--border-2)", color: "var(--text-dim)" },
 };
 
@@ -65,8 +68,8 @@ export function buttonStyle(kind: "caution" | "quiet"): CSSProperties {
     fontWeight: 500,
     cursor: "pointer",
     border: "1px solid",
-    background: kind === "caution" ? "rgba(217,164,65,.1)" : "var(--panel-2)",
-    borderColor: kind === "caution" ? "rgba(217,164,65,.4)" : "var(--border-2)",
+    background: kind === "caution" ? tint("--amber", 10) : "var(--panel-2)",
+    borderColor: kind === "caution" ? tint("--amber", 40) : "var(--border-2)",
     color: kind === "caution" ? "var(--amber)" : "var(--text-dim)",
   };
 }

@@ -98,6 +98,15 @@ button {
   font-family: inherit;
 }
 
+/* Keyboard focus: the UA default ring (rgb(16,16,16)) is invisible on the dark
+   surface. Cyan is the existing interactive accent; mouse clicks do not match
+   :focus-visible. The command-bar input sets its own inline outline:none and
+   keeps its designed .command-bar-form:focus-within style. */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

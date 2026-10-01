@@ -66,7 +66,7 @@ function DomainOrb({ spec, l1, l2, flag, selected, dimmed, onSelect }: { spec: D
         <span style={{ position: "absolute", inset: "-22%", borderRadius: "50%", border: `1px solid ${spec.ring}`, transform: `rotate(${spec.tilt}) scaleY(.36)` }} />
         <span style={{ position: "absolute", inset: "-30%", borderRadius: "50%", border: `1px solid ${spec.c1}`, opacity: selected ? 0.7 : 0, animation: "cmRipple 3s ease-out infinite" }} />
       </span>
-      <span style={{ textAlign: "left", maxWidth: "clamp(70px, 11vw, 150px)", overflow: "hidden" }}>
+      <span style={{ textAlign: "left", maxWidth: 150, overflow: "hidden" }}>
         <span className="mono domain-orb-label" style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, letterSpacing: "0.2em", color: selected ? "#ffffff" : "rgba(223,233,247,.95)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
           {spec.label}
           {flag && <span style={{ fontSize: 11, color: flag === "⚠" ? WARN : "rgba(223,233,247,.5)" }}>{flag}</span>}

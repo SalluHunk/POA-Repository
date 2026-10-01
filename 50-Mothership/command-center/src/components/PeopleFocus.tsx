@@ -45,6 +45,7 @@ export function PeopleFocus({ principals, onFocusPrincipal, onReturn }: Props) {
               borderRadius: "var(--radius-8)",
               background: "var(--panel-2)",
               border: "1px solid var(--border-2)",
+              color: "var(--text)",
               cursor: "pointer",
               textAlign: "left",
             }}
