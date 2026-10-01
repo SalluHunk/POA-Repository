@@ -1,5 +1,5 @@
 import type { MissionDetail, RuntimeResult } from "../api/types";
-import { Chip } from "./shared";
+import { Chip, tint } from "./shared";
 
 interface Props {
   result: RuntimeResult;
@@ -11,7 +11,7 @@ interface Props {
 // (POA-MOTHERSHIP-EXPERIENCE-ARCHITECTURE.md §8).
 export function ActionResult({ result, detail }: Props) {
   return (
-    <div className="depth-evidence converge-in" style={{ borderRadius: "var(--radius-10)", padding: "24px 28px", maxWidth: 640, margin: "0 auto 24px", borderColor: result.ok ? "rgba(62,207,142,.35)" : "rgba(224,85,79,.35)" }}>
+    <div className="depth-evidence converge-in" style={{ borderRadius: "var(--radius-10)", padding: "24px 28px", maxWidth: 640, margin: "0 auto 24px", borderColor: result.ok ? tint("--green", 35) : tint("--red", 35) }}>
       <div style={{ display: "flex", gap: "var(--space-12)", flexWrap: "wrap", marginBottom: detail ? 12 : 0 }}>
         <Chip tone={result.ok ? "green" : "red"}>
           {result.ok ? "✓" : "✕"} {result.code}

@@ -1,4 +1,5 @@
 import type { AttentionItem } from "../state/attention";
+import { tint } from "./shared";
 
 /** Top-right glass panel, ported layout and entrance animation (POA Command.dc.html lines 117-133, cmSlide). Content is the real derived attention list; clicking navigates to the real Mission Focus. */
 export function AttentionPanel({ attention, onFocusMission }: { attention: AttentionItem[]; onFocusMission: (id: string) => void }) {
@@ -30,7 +31,7 @@ export function AttentionPanel({ attention, onFocusMission }: { attention: Atten
           >
             <span
               className="mono"
-              style={{ width: 34, height: 34, flex: "none", borderRadius: 9, display: "grid", placeItems: "center", background: "rgba(224,85,79,.12)", border: "1px solid rgba(224,85,79,.3)", color: "var(--red)", fontSize: "var(--fs-13)" }}
+              style={{ width: 34, height: 34, flex: "none", borderRadius: 9, display: "grid", placeItems: "center", background: tint("--red", 12), border: `1px solid ${tint("--red", 30)}`, color: "var(--red)", fontSize: "var(--fs-13)" }}
             >
               {a.glyph}
             </span>

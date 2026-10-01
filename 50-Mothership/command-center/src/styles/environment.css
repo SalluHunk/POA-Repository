@@ -73,7 +73,7 @@
 }
 
 .converge-in {
-  animation: converge 0.3s ease-out both;
+  animation: converge 0.3s ease-out backwards;
 }
 
 /* Evidence reads as a connected chain, not a stacked list - each entry

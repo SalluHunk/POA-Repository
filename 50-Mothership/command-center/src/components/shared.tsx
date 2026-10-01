@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 
 /** A status-token color at partial opacity, so tints track the current palette instead of old rgba copies. */
-const tint = (token: string, pct: number) => `color-mix(in srgb, var(${token}) ${pct}%, transparent)`;
+export const tint = (token: string, pct: number) => `color-mix(in srgb, var(${token}) ${pct}%, transparent)`;
 
 const TONES: Record<string, { bg: string; border: string; color: string }> = {
   green: { bg: tint("--green", 12), border: tint("--green", 35), color: "var(--green)" },
