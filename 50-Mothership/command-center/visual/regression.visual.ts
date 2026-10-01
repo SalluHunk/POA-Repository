@@ -80,7 +80,10 @@ test.describe("additional surfaces — desktop", () => {
     await page.getByText(/Projects — repository registry/).click();
     await expect(page.getByText(/Return to Presence/i)).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
-    await expect(page).toHaveScreenshot("project-registry-desktop.png");
+    // The "Repository Reference: <path> @ <commit>" lines embed the git HEAD
+    // SHA, which changes with every commit - masked so the baseline stays
+    // deterministic (all other pixels on this surface remain compared).
+    await expect(page).toHaveScreenshot("project-registry-desktop.png", { mask: [page.getByText(/Repository Reference:/)] });
   });
 
   test("Command overlay", async ({ page }) => {
