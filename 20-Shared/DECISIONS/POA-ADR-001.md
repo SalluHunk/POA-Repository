@@ -2133,3 +2133,97 @@ Committed together with the authorization artifact in one bounded governance com
 
 *End of POA-ORG-KNOW-EXEC-INTERACTION-001 Decision Record. Authorized by: Commander, assent recorded 2026-10-01.*
 
+---
+
+# POA-ORG-KNOW-P5-IMPL-001 — Re-scoped Synthetic-Fixture Routing Dry-Run Ratification Decision Record (2026-10-02)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record, appended per `POA-INTEGRITY-CONTROL-001` §L(b), following the same pattern as the Decision Records above. It is the explicit Commander ratifying act required by `POA-STD-011` §6.4 for the re-scoped Mission Package `40-Runtime/POA-ORG-KNOW-P5-IMPL-001-RESCOPED-MISSION-PACKAGE.md`. It does **not** modify, supersede, re-label or annotate the `POA-ORG-KNOW-P5-AUTH-001` Decision Record above, which remains the unchanged historical record of what the Commander authorized on 2026-09-30.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-10-02. Mission ID: `POA-ORG-KNOW-P5-IMPL-001` (identifier unchanged; execution brief re-scoped). Title: **Re-scoped Synthetic-Fixture Routing Dry-Run: a pure, deterministic Business-Function routing and authorization-check dry-run over genuinely synthetic fixtures only**. Decision status: **AUTHORIZED WITHIN THE SYNTHETIC BOUNDARY ONLY, EFFECTIVE UPON RECORDING**, scoped exactly as stated in the Mission Package and summarized in §4 below. Subject: execution of the re-scoped `POA-ORG-KNOW-P5-IMPL-001` synthetic dry-run only. **Implementation has not commenced at the time of this record.**
+
+## 2. Context
+
+`POA-ORG-KNOW-P5-AUTH-001` (above, commit `c4fe638`) authorized `POA-ORG-KNOW-P5-IMPL-001` by reference to Organization A's declared Business Function Map and Source Declaration. The Q6 R-1 Gate Scope Decision Record (above) provides that AI processing of Organization A organization information (including the content of those declarations, per Q6-6(a)) remains gated by R-1 until Q6 is fully answered and Organization A has authorized that processing; that gate was not lifted, and no record of Organization A authorizing processing exists. The read-only reconciliation `40-Runtime/POA-ORG-KNOW-P5-R1-RECON-001-RECONCILIATION-REPORT.md` (disposition BLOCKED — GOVERNANCE CONDITION) found `P5-AUTH-001`'s Organization-A-based scope unexecutable under the gate. The Commander elected the synthetic-fixture path, and a re-scoped Mission Package was drafted so that execution is independent of gated content (§3, EC-4 of the package). The Commander has now approved that re-scope in principle, subject to recording this ratifying act in `POA-ADR-001` before any implementation begins.
+
+## 3. Decision
+
+Commander ruling, 2026-10-02: the proposed synthetic-fixture re-scope is **APPROVED in principle, subject to recording the ratifying act in this file before any implementation begins** (this record is that act). The following Commander rulings apply:
+
+1. **R-1/Q6 remains fully in force.** This mission does NOT satisfy, modify, suspend or lift that gate.
+2. **P5-IMPL-001 may proceed only against genuinely synthetic fixtures satisfying SF-1 through SF-9** of the Mission Package.
+3. **The KnowledgePlane consumption path is rejected.** The pure-function path specified in the Mission Package is used.
+4. **`SYN-FINANCE-ACCOUNTING` is approved as a synthetic nominal label only.** It must not be derived from, copied from, structurally mirrored from, or populated with Organization A content.
+5. **The routing module's private, unexported types are approved as implementation-private types** and are not to become a new exported business-function data model. They are not to be exported from the module or from `index.ts`.
+6. **The proposed outcome mappings are approved:** missing owner or role → ASK / ESCALATE; missing grant → REFUSE. These are preserved as deterministic mappings and are not to be silently reinterpreted during implementation.
+7. **EVT-001 evidence may be retained in the mission execution record** for this dry-run. No runtime evidence store is to be created.
+8. **Q3, O-1–O-4 and MODEL-GATE remain outside this mission.**
+9. **Organization A business-function content is not to be inspected, parsed, transformed, anonymized, copied, structurally mirrored, summarized or otherwise processed.**
+10. **`POA-ORG-KNOW-P5-AUTH-001` remains preserved as historical record.** It is not rewritten.
+11. **The re-scoped mission must explicitly state that successful execution provides evidence only about the synthetic routing mechanism.** It provides no evidence that Organization A's real declarations route correctly.
+
+This record does not represent any drafted wording as a verbatim historical statement by the Commander beyond the rulings above. Mission Package items B-3, B-6 and B-7 are settled by rulings 4–5, 6 and 7 respectively. Package items B-4 (exposure note on the committed Phase 5 plan's reproduction of Organization A facts), B-5 and B-8–B-10 are **not ruled on by this act** and remain open as stated in the package; nothing here treats any of them as resolved. The package's size/effort envelope (SC-11) was not stated by the Commander; it is **UNKNOWN**, and per SC-11 the implementer reports before continuing if the effort is in doubt.
+
+## 4. Authorized Scope (exact; no broader)
+
+Execution of the re-scoped synthetic dry-run **only**, within the Mission Package's allowlist (package §4):
+
+1. One new isolated, pure routing module: `50-Mothership/src/routing.ts` (not exported from `index.ts`; no exported business-function data model).
+2. One new test file: `50-Mothership/test/routing.test.ts`.
+3. Synthetic fixtures and a manifest under `50-Mothership/test/fixtures/routing-synthetic/**`, each satisfying SF-1 through SF-9.
+4. One mission execution record: `40-Runtime/POA-ORG-KNOW-P5-IMPL-001-EXECUTION-RECORD.md`, carrying EVT-001-shaped evidence, the case ledger and the limitations statement.
+5. One bounded local commit citing `P5-AUTH-001`, the Mission Package and this record.
+
+Capability: `POA-DEC-ORG-KNOWLEDGE-001` §14.1 links 1–7 only (routing and authorization checks; initiation-grant check only), with no commit, no write to any system of record, and no approval action on any identity's behalf, consistent with Q5 and KD-16.
+
+**This authorization does NOT:** create any Organization A processing authority, or imply that representative authority is processing authority (Q3-A); satisfy, narrow, interpret or lift R-1 or Q6; authorize any processing of `60-Organization-A/**` or of any description of it; authorize KnowledgePlane read, write, ingest, assert or load; authorize any model, LLM, agent or external-inference component in the routing path; authorize persistence of any kind, including a runtime evidence or event store; authorize any approval execution or simulation; authorize any UI change, endpoint, or exported business-function API or data model; authorize any other function, Phase 6 or Phase 7 work, `P5-EVID-001`, or any successor mission; authorize a parser or adapter for Organization A declarations; resolve Q3, O-1–O-4 or MODEL-GATE; or modify the Q6 ruling, `POA-STD-011`, or `POA-ORG-KNOW-P5-AUTH-001`.
+
+**Evidence limitation (ruling 11), recorded as binding:** successful execution provides evidence **only about the synthetic routing mechanism**. It provides **no** evidence that Organization A's real declarations route correctly, and it does **not** satisfy `POA-DEC-ORG-KNOWLEDGE-001` §24 Phase 5's exit criterion as applied to Organization A.
+
+## 5. Boundary, Evidence, Execution Profile, Commit/Push
+
+**The Mission Package `40-Runtime/POA-ORG-KNOW-P5-IMPL-001-RESCOPED-MISSION-PACKAGE.md`, as committed together with this record, is the execution boundary** (`POA-STD-011` §6.3, §6.6). Its Authorized Work (§4), Explicit Exclusions (§5), Synthetic Fixture Definition (§6), Input/Output Contract (§7), Consumption Path (§8), Evidence (§9), Completion Condition (§10), Stop Conditions (§11) and Decision Boundaries (§12) are incorporated here by reference, as ratified by this act and modified only by the rulings in §3 above. Anything outside it requires a separate governance act.
+
+Applicable stop conditions (package §11; the agent stops, records what is done and undone, and escalates, and does not resolve the matter itself):
+
+- **SC-1** a step would require opening, reading or processing `60-Organization-A/**`, a description of it, or any other gated content;
+- **SC-2** any need to run the routing on non-synthetic data;
+- **SC-3** any fixture fails SF-1…SF-9, or is suspected of resembling or deriving from Organization A material;
+- **SC-4** any need to import or call `knowledge-plane`, `runtime`, `identity`, filesystem or network inside the routing core, or any model, agent or external-inference component;
+- **SC-5** any write outside the allowlist, any modification of an existing test, baseline or configuration, or any persistence;
+- **SC-6** any need to modify this file's existing records, `P5-AUTH-001`, the Q6 ruling, `POA-STD-011`, or any governance artifact;
+- **SC-7** this ratifying record being absent from, or uncommitted in, committed `POA-ADR-001`;
+- **SC-8** an unresolved conflict between the package and `P5-AUTH-001`, Q6, `POA-DEC-ORG-KNOWLEDGE-001` §13.3/§14.1, or `CLAUDE.md` (report; do not choose a side);
+- **SC-9** any pressure to extend the contract (extra functions, adapters for real declarations, UI, endpoints, an events store, approval flows);
+- **SC-10** any outcome-mapping ambiguity not settled by the package's §7 table, whose ASK / ESCALATE / REFUSE mappings are ruling 6 and are not to be silently reinterpreted;
+- **SC-11** the effort envelope exceeded, with the envelope itself UNKNOWN (§3).
+
+Required evidence: the package's EV-1 through EV-7 (case ledger; test and typecheck results; invariant evidence; mechanical guard evidence; EVT-001-shaped events retained **inside the execution record only**; non-access attestation, stated as agent self-attestation backed by mechanical guards; and the limitations statement). Commit/push: bounded commits only; no amend, rebase or history rewriting; no unrelated files staged; `CLAUDE.md` untouched; **no push**, and any future push requires separate authorization. The implementation commit must cite `POA-ORG-KNOW-P5-AUTH-001`, the Mission Package and this record's commit (`POA-STD-011` §6.5, §6.8).
+
+## 6. Artifact
+
+`40-Runtime/POA-ORG-KNOW-P5-IMPL-001-RESCOPED-MISSION-PACKAGE.md` (the Mission Package, `POA-STD-011` §6.3; ratified by this record and committed together with it, with only its status and ratification fields updated); `POA-ADR-001` (this record).
+
+## 7. Artifact Version/State
+
+`POA-ORG-KNOW-P5-AUTH-001` (above) unchanged and preserved as historical record. The Q6 R-1 Gate Scope Decision Record (above) unchanged and in force. `20-Shared/STD/POA-STD-011.md` unchanged. `POA-DEC-ORG-KNOWLEDGE-001-DECISION.md` unchanged. `50-Mothership/` and `50-Mothership/command-center/` unmodified by this record; no routing module, test or fixture exists as of this record. All Decision Records above unchanged. No Organization A business content was accessed in producing this record.
+
+## 8. Related Mission
+
+`POA-ORG-KNOW-P5-AUTH-001` (original authorization, historical); `POA-ORG-KNOW-P5-R1-RECON-001` (reconciliation that found the Organization-A-based scope blocked); the Q6 R-1 gate records above; enables the re-scoped `POA-ORG-KNOW-P5-IMPL-001` within the synthetic boundary only. Implementation commits must cite this record by ID (`POA-STD-011` §6.8) and may commence only after this record's commit exists (`POA-STD-011` §6.5, §6.7).
+
+## 9. Related Evidence
+
+`40-Runtime/POA-ORG-KNOW-P5-IMPL-001-RESCOPED-MISSION-PACKAGE.md`; `40-Runtime/POA-ORG-KNOW-P5-R1-RECON-001-RECONCILIATION-REPORT.md`; `40-Runtime/POA-DEC-ORG-KNOWLEDGE-001-Q6-DECISION.md`; `20-Shared/STD/POA-STD-011.md` §6.
+
+## 10. Resulting Commit / Repository State
+
+Governance commit: committed together with the Mission Package in one bounded governance commit; its SHA may be added additively once known, per this field's own "where applicable, once known" rule.
+
+Implementation commit SHA: ____________________ *(intentionally blank; to be recorded additively only after implementation is actually completed — no implementation has occurred as of this record)*.
+
+---
+
+*End of POA-ORG-KNOW-P5-IMPL-001 Re-scoped Synthetic-Fixture Ratification Decision Record. Authorized by: Commander, ruling rendered 2026-10-02.*
+
