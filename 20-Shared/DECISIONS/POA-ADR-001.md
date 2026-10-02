@@ -2352,3 +2352,50 @@ Artifact: `40-Runtime/POA-SEA-IMPL-001-MISSION-PACKAGE.md` (ratified by this rec
 
 *End of POA-SEA-IMPL-001 Mission Ratification Decision Record. Authorized by: Commander, ruling rendered 2026-10-02.*
 
+---
+
+# POA-LIFECYCLE-LEDGER-001 — Lifecycle Ledger (Read-Only Derivation) Mission Ratification Decision Record (2026-10-02)
+
+**This section is NOT a rewrite of any text above.** It is the explicit Commander ratifying act required by `POA-STD-011` §6.4 for the Mission Package `40-Runtime/POA-LIFECYCLE-LEDGER-001-MISSION-PACKAGE.md`. It presupposes the R-A/R-B/R-C record and the POA-SEA-IMPL-001 record above and modifies none of them. It applies the Commander's provisional definition of a bounded self-operation to this mission family only; that definition is not a standing architectural standard.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-10-02. Mission/artifact ID: `POA-LIFECYCLE-LEDGER-001` (conforms to `POA-STD-011` §6.1 and `CLAUDE.md` Rule 5). Title: **Lifecycle Ledger — a read-only, deterministic derivation, over explicitly pinned, committed, POA-owned records, of one derived lifecycle-observation record.** Decision status: **AUTHORIZED WITHIN THE PACKAGE BOUNDARY ONLY, EFFECTIVE UPON RECORDING.** Subject: execution of `POA-LIFECYCLE-LEDGER-001` only. **Implementation has not commenced at the time of this record.**
+
+## 2. Context
+
+`POA-SEA-IMPL-001` was closed at `f78dea2b2fdb3da71bbd15b16e5b0a356cbc2ccc`. A read-only reconnaissance (`40-Runtime/POA-SELF-OPERATION-RECONNAISSANCE-001-REPORT.md`, untracked decision-support) recommended a lifecycle ledger as the smallest bounded self-operation. The Commander authorized drafting of the Mission Package only and then ruled on its five open decisions.
+
+## 3. Decision
+
+Commander rulings, 2026-10-02:
+
+1. **D-1 — APPROVED with strict mission boundary.** The mission may process the committed `POA-ADR-001.md` blob at pin `f78dea2b2fdb3da71bbd15b16e5b0a356cbc2ccc` solely for the lifecycle-ledger derivation defined in the Mission Package. This does not establish that ADR-001 is categorically free of Organization A information, does not create Organization A processing authority, and does not authorize any other processing of ADR-001.
+2. **D-2 — APPROVED.** Envelope v0 may be reused for this mission only. It is not promoted to a standing standard.
+3. **D-3 — APPROVED.** Minimal deterministic implementation is necessary. A hand-derived ledger is not an acceptable substitute.
+4. **D-4 — APPROVED.** The specified pin and exactly the four-record scope in the package are used. The P5/ORG-KNOWLEDGE lineage is not added.
+5. **D-5 — APPROVED.** One agent, placement P1 (the existing `50-Mothership/` package, no new directory), the source/line/test envelope stated in the package, and the `wc -l` SC-11 threshold of more than 375 source lines.
+
+**Binding limitation (Commander):** "The ledger is an observation of repository evidence, not a reconstruction of organizational reality." The ledger's header and the Execution Record's limitations statement must restate it verbatim.
+
+**Accepted limitation (recorded, not worked around):** the Lifecycle Verifier cannot validate post-envelope closure bookkeeping and cannot replay historical windows; it is not modified. Closure bookkeeping (the implementation SHA in this record's §10, and the Acceptance Record on the Execution Record) is a separate Commander-authorized act outside the envelope and will not be verifier-checked.
+
+**Not decided here:** the deterministic-runtime question concerning `POA-PJR-001`; R-1/Q6, Q3, MODEL-GATE, R-D, R-E, R-F; any Dispatcher; retrospective verifier replay; admission of any further record; promotion of Envelope v0 or of the bounded-self-operation definition.
+
+## 4. Authorized Scope (exact; no broader)
+
+The allowlist of package §4 only: `50-Mothership/src/lifecycle-ledger.ts`, `50-Mothership/src/lifecycle-ledger-git.ts`, `50-Mothership/test/lifecycle-ledger.test.ts`, `50-Mothership/test/fixtures/lifecycle-ledger/**` (at most 20 synthetic cases), `40-Runtime/POA-LIFECYCLE-LEDGER-001-LEDGER.md`, `40-Runtime/POA-LIFECYCLE-LEDGER-001-EXECUTION-RECORD.md`, and one bounded local commit. Readable sources: exactly the three paths of package §5, as committed blobs at the pin; the derived ADR-001 sections are exactly the four named in package §5.
+
+**Does NOT authorize:** reading or processing `60-Organization-A/`, `POA-PJR-001/002/003`, the P5/ORG-KNOWLEDGE lineage, any untracked file or the working tree; any other processing of `POA-ADR-001.md`; any write by the tool, any commit, push, dispatch, authorization or agent invocation by it; model-dependent processing of record content; any change to `index.ts`, `package.json`, existing tests, the Lifecycle Verifier or any governance artifact; any successor mission; or any modification of `POA-STD-011`, `POA-ACC-001`, Q6/R-1.
+
+## 5. Boundary, Evidence, Stop Conditions, Commit/Push
+
+The package, as committed with this record, is the execution boundary (`POA-STD-011` §6.3, §6.6); its §4–§16 are incorporated by reference, as ratified by this act and modified only by the rulings in §3. Stop conditions SC-1…SC-13 (package §16): in particular SC-1 (gated content), SC-2 (any read outside the three sources or of the working tree), SC-6 (any governance mutation), SC-9 (scope pressure, including any closure-window workaround or verifier change), SC-11 (more than 375 `wc -l` source lines, more than three source files, or more than 20 cases) and SC-12 (the output-validation gate rejects a value). Required evidence: the package's EV-1…EV-9 plus R-B. The implementation commit must cite this record, the R-A/R-B/R-C record and the package (`POA-STD-011` §6.5, §6.8); no amend, rebase or push; `CLAUDE.md` untouched.
+
+**Commencement requirement:** implementation may begin only after this record's commit exists and the Commander issues an explicit commencement instruction (R-A: COMMENCED).
+
+## 6. Artifact · 7. Version/State · 8. Related Mission · 9. Related Evidence · 10. Resulting Commit
+
+Artifact: `40-Runtime/POA-LIFECYCLE-LEDGER-001-MISSION-PACKAGE.md` (ratified by this record and committed with it, status and ratification fields included). State: the R-A/R-B/R-C record, the POA-SEA-IMPL-001 record and all earlier records unchanged; no ledger source, test, fixture or ledger record exists as of this record. Related: R-A/R-B/R-C record; `POA-SEA-IMPL-001`. Evidence: the package; the reconnaissance report (untracked). Governance commit: committed with the package in one bounded governance commit; its SHA may be added additively once known. Implementation commit SHA: blank until the Commander accepts completion; then additive (R-A.4(b)).
+
+*End of POA-LIFECYCLE-LEDGER-001 Mission Ratification Decision Record. Authorized by: Commander, rulings rendered 2026-10-02.*
