@@ -1,0 +1,160 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "organization": "SYN-ORG-S",
+  "authoredFrom": "POA-ORG-KNOW-P5-IMPL-001-RESCOPED-MISSION-PACKAGE",
+  "cases": [
+    {
+      "caseId": "C01",
+      "file": "C01-route-happy-path.json",
+      "matrixCase": "happy-path ROUTE",
+      "expected": {
+        "outcome": "ROUTE",
+        "reasonCode": "ROUTABLE_DRY_RUN"
+      }
+    },
+    {
+      "caseId": "C02",
+      "file": "C02-principal-unauthenticated.json",
+      "matrixCase": "unauthenticated principal",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "PRINCIPAL_REJECTED"
+      }
+    },
+    {
+      "caseId": "C03",
+      "file": "C03-principal-cross-organization.json",
+      "matrixCase": "cross-organization principal",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "ORG_MISMATCH"
+      }
+    },
+    {
+      "caseId": "C04",
+      "file": "C04-intent-no-alias-match.json",
+      "matrixCase": "no alias match",
+      "expected": {
+        "outcome": "ASK",
+        "reasonCode": "FUNCTION_UNRESOLVED"
+      }
+    },
+    {
+      "caseId": "C05",
+      "file": "C05-intent-ambiguous-alias.json",
+      "matrixCase": "ambiguous alias",
+      "expected": {
+        "outcome": "ASK",
+        "reasonCode": "FUNCTION_AMBIGUOUS"
+      }
+    },
+    {
+      "caseId": "C06",
+      "file": "C06-intent-unconfirmed.json",
+      "matrixCase": "intent UNCONFIRMED",
+      "expected": {
+        "outcome": "ASK",
+        "reasonCode": "INTENT_UNCONFIRMED"
+      }
+    },
+    {
+      "caseId": "C07",
+      "file": "C07-intent-rejected.json",
+      "matrixCase": "intent REJECTED",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "INTENT_REJECTED"
+      }
+    },
+    {
+      "caseId": "C08",
+      "file": "C08-owning-unit-absent.json",
+      "matrixCase": "function with no owning unit",
+      "expected": {
+        "outcome": "ESCALATE",
+        "reasonCode": "NO_OWNING_UNIT_DECLARED"
+      }
+    },
+    {
+      "caseId": "C09",
+      "file": "C09-responsible-role-null.json",
+      "matrixCase": "function with no responsible role",
+      "expected": {
+        "outcome": "ESCALATE",
+        "reasonCode": "NO_RESPONSIBLE_ROLE_DECLARED"
+      }
+    },
+    {
+      "caseId": "C10",
+      "file": "C10-no-grants-declared.json",
+      "matrixCase": "no ACTIVE grant (none declared)",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "NO_AUTHORIZED_EXECUTOR"
+      }
+    },
+    {
+      "caseId": "C11",
+      "file": "C11-revoked-grants-only.json",
+      "matrixCase": "REVOKED grant only",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "NO_AUTHORIZED_EXECUTOR"
+      }
+    },
+    {
+      "caseId": "C12",
+      "file": "C12-principal-lacks-initiation-grant.json",
+      "matrixCase": "principal lacks initiation grant",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "NO_INITIATION_GRANT"
+      }
+    },
+    {
+      "caseId": "C13",
+      "file": "C13-approval-requirement-undeclared.json",
+      "matrixCase": "approval requirement undeclared",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "APPROVAL_REQUIREMENT_UNDECLARED"
+      }
+    },
+    {
+      "caseId": "C14",
+      "file": "C14-approve-only-service-and-agent.json",
+      "matrixCase": "APPROVE-only grants held by SERVICE/EXECUTION_AGENT subjects",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "NO_AUTHORIZED_EXECUTOR"
+      }
+    },
+    {
+      "caseId": "C15",
+      "file": "C15-malformed-declarations.json",
+      "matrixCase": "malformed input",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "MALFORMED_INPUT"
+      }
+    },
+    {
+      "caseId": "C16",
+      "file": "C16-declarations-not-synthetic-class.json",
+      "matrixCase": "non-synthetic fixture refused",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "NOT_SYNTHETIC"
+      }
+    },
+    {
+      "caseId": "C17",
+      "file": "C17-approval-authority-explicit-null.json",
+      "matrixCase": "approval requirement entry with explicit null authority (declared gap, SF-6)",
+      "expected": {
+        "outcome": "REFUSE",
+        "reasonCode": "APPROVAL_REQUIREMENT_UNDECLARED"
+      }
+    }
+  ]
+}

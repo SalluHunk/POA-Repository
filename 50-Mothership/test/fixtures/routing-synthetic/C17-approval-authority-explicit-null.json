@@ -1,0 +1,64 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "organization": "SYN-ORG-S",
+  "authoredFrom": "POA-ORG-KNOW-P5-IMPL-001-RESCOPED-MISSION-PACKAGE",
+  "caseId": "C17",
+  "description": "approval requirement entry with explicit null authority (declared gap, SF-6)",
+  "declarations": {
+    "fixtureClass": "SYNTHETIC",
+    "organization": "SYN-ORG-S",
+    "version": "SYN-DECL-V1",
+    "functions": [
+      {
+        "functionId": "SYN-FN-FINANCE-ACCOUNTING",
+        "label": "SYN-FINANCE-ACCOUNTING",
+        "aliases": [
+          "SYN-INTENT-LEDGER-ENTRY"
+        ],
+        "owningUnit": "SYN-UNIT-01",
+        "responsibleRole": "SYN-ROLE-01"
+      },
+      {
+        "functionId": "SYN-FN-ARCHIVE",
+        "label": "SYN-ARCHIVE-FUNCTION",
+        "aliases": [
+          "SYN-INTENT-ARCHIVE-ITEM"
+        ],
+        "owningUnit": "SYN-UNIT-02",
+        "responsibleRole": "SYN-ROLE-02"
+      }
+    ],
+    "grants": [
+      {
+        "subjectId": "SYN-SERVICE-01",
+        "subjectKind": "SERVICE",
+        "functionId": "SYN-FN-FINANCE-ACCOUNTING",
+        "action": "INITIATE",
+        "status": "ACTIVE"
+      },
+      {
+        "subjectId": "SYN-PRINCIPAL-01",
+        "subjectKind": "HUMAN",
+        "functionId": "SYN-FN-FINANCE-ACCOUNTING",
+        "action": "INITIATE",
+        "status": "ACTIVE"
+      }
+    ],
+    "approvalRequirements": [
+      {
+        "functionId": "SYN-FN-FINANCE-ACCOUNTING",
+        "declaredAuthority": null
+      }
+    ]
+  },
+  "request": {
+    "requestId": "SYN-REQ-C17",
+    "principal": {
+      "id": "SYN-PRINCIPAL-01",
+      "authenticated": true,
+      "organization": "SYN-ORG-S"
+    },
+    "intentLabel": "SYN-INTENT-LEDGER-ENTRY",
+    "principalConfirmation": "CONFIRMED"
+  }
+}
