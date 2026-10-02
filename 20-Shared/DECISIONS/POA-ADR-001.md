@@ -2221,7 +2221,7 @@ Required evidence: the package's EV-1 through EV-7 (case ledger; test and typech
 
 Governance commit: committed together with the Mission Package in one bounded governance commit; its SHA may be added additively once known, per this field's own "where applicable, once known" rule.
 
-Implementation commit SHA: ____________________ *(intentionally blank; to be recorded additively only after implementation is actually completed — no implementation has occurred as of this record)*.
+Implementation commit SHA: `cede3993b236dc3de19083b2d8fefc602cbb71b0` *(recorded additively on 2026-10-02 after the Commander accepted `POA-ORG-KNOW-P5-IMPL-001` as COMPLETE. The field was intentionally blank at ratification, when no implementation had occurred. Recording this SHA does not alter the substance of the ratification or any authorization boundary; R-1/Q6 remains in force.)*.
 
 ---
 
