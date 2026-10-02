@@ -2227,3 +2227,128 @@ Implementation commit SHA: `cede3993b236dc3de19083b2d8fefc602cbb71b0` *(recorded
 
 *End of POA-ORG-KNOW-P5-IMPL-001 Re-scoped Synthetic-Fixture Ratification Decision Record. Authorized by: Commander, ruling rendered 2026-10-02.*
 
+---
+
+# Execution Architecture Standing Rulings R-A, R-B, R-C — Decision Record (2026-10-02)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record appended per `POA-INTEGRITY-CONTROL-001` §L(b). It modifies no earlier record, no standard, and no authorization. It is **prospective**: it applies to Mission Packages ratified after this record is committed.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-10-02. Subject: three standing rulings on the execution lifecycle (R-A), the minimum Execution Record (R-B) and the non-authority invariant (R-C). Decision status: **ADOPTED, EFFECTIVE UPON RECORDING, PROSPECTIVE ONLY.** Authorizes no mission, no implementation and no tool.
+
+## 2. Context
+
+`POA-STD-011` §6 makes a Mission Package effective only through a committed Commander act. The lifecycle has been exercised for `POA-ORG-KNOW-EXEC-INTERACTION-001` and `POA-ORG-KNOW-P5-IMPL-001` with practiced steps (readiness review, commencement, acceptance, SHA bookkeeping) that no ratified text names, and with evidence conventions whose minimum fields are not fixed. The decision-support brief `40-Runtime/SEA-001-STRATEGIC-EXECUTION-ARCHITECTURE-DECISION-BRIEF.md` (untracked; not an authority) proposed these rulings. The wording below was reconciled line by line against `POA-ACC-001` §B–§E and `POA-STD-011` §6.1–§6.13 (`40-Runtime/POA-SEA-IMPL-001-R-A-RECONCILIATION-REPORT.md`, untracked; findings F-2…F-7 approved by the Commander on 2026-10-02 and applied here).
+
+## 3. Decision
+
+### R-A — Lifecycle vocabulary and closure
+
+**R-A.1 States.** A Mission Package's lifecycle uses these names, in this order: `PROPOSED` → `RATIFIED` → `READY` → `COMMENCED` → `EXECUTING` → `VERIFIED` → `MATERIALIZED` → `ACCEPTED` → `CLOSED`; with off-ramps `STOPPED` and `WITHDRAWN`. `SYNCHRONIZED` (push) is a separate Commander act outside the sequence; `CERTIFIED` is outside it (`ACS-001`).
+
+**R-A.2 Meaning and mapping.**
+
+| State | Meaning | Becomes true when | Relation to `POA-ACC-001` words and `POA-STD-011` |
+|---|---|---|---|
+| PROPOSED | Package drafted | package exists | — |
+| RATIFIED | Effective authorization | Commander act committed in `POA-ADR-001` (`POA-STD-011` §6.4) | `POA-STD-011` §6.4 is the governing authorization rule. RATIFIED is **not identified with** `POA-ACC-001`'s AUTHORIZED, which is an external directive state; where they differ, §6.4 governs for implementation missions. A directive not committed is not RATIFIED. |
+| READY | Pre-flight passed | readiness review recorded (Verifier output may support it) | new |
+| COMMENCED | Execution may begin | an explicit Commander commencement instruction issued after the ratifying commit | An additional Commander gate. It is **distinct from** the `POA-STD-011` §6.5 sense of "Implementation Commencement" (the first commit that materializes work under an already-committed ratification), which it does not redefine. |
+| EXECUTING | Work in progress | executor starts within the allowlist | new |
+| VERIFIED | Evidence complete | required validation run, staged set ⊆ allowlist, record complete | new |
+| MATERIALIZED | Work and record committed | the bounded commit exists | `MATERIALIZED` (`POA-ACC-001` §D) |
+| ACCEPTED | Human acceptance recorded | Acceptance Record per `POA-ACC-001` (R-A.4(a)) | `ACCEPTED`. The word APPROVED is **not used** in this sequence; the variance `POA-ACC-001` §D records is left unresolved. |
+| CLOSED | Bookkeeping complete | `POA-STD-011` §6.12(a)–(c) satisfied, and SHA recorded additively and symmetry note added (R-A.4) | new |
+| STOPPED | A stop condition fired | agent stopped; remainder named | the `POA-STD-011` §6.12(a) partial-execution outcome ("honestly reported as partially executed with the remainder named") |
+| WITHDRAWN | Commander revoked | Commander act | new |
+
+**R-A.3 Human-act rule.** A transition into `RATIFIED`, `COMMENCED`, `ACCEPTED` or `WITHDRAWN` is caused only by a human act of the Commander (or a role the Commander has explicitly delegated in a ratified artifact). It is never caused by a tool, dispatcher, console, verifier, agent or integrator.
+
+**R-A.4 Closure.** Closure of a mission under this record comprises:
+(a) an Acceptance Record per `POA-ACC-001` §B–§C. For a mission under this record, **the mission's Execution Record is the completion-report vehicle** (`POA-ACC-001` §E), and the Acceptance Record is an additive, dated section on it carrying the §C fields (WHO, WHAT, WHEN, AUTHORITY, DECISION restated inline, SCOPE, ARTIFACT, ARTIFACT STATE/VERSION, RELATED MISSION, RELATED EVIDENCE, RESULTING COMMIT). An in-place Status-field update applies only where the accepted target has a Status field;
+(b) additive recording of the implementation commit SHA in the mission's ratification record (a commit cannot cite itself, so the Execution Record states how to retrieve its SHA and this step records it);
+(c) the `POA-ACC-001` §E additive, dated "Acceptance Recorded" note on the Execution Record, applied prospectively only;
+(d) `POA-STD-011` §6.12(a)–(c) are satisfied: the boundary was fully executed or honestly reported as partial with the remainder named; the evidence (§6.9) is recorded; and, for any mission whose output is itself a proposed governance act, that act is explicitly ratified or explicitly left unratified. `POA-STD-011` §6.12 is a prior condition that this record adds to and does not replace.
+
+Each step is additive. The executor never marks its own mission ACCEPTED or CLOSED.
+
+**R-A.5 `POA-ACC-001`.** For missions under this record, `POA-ACC-001` §B, §C, §D (including its explicit limitations) and §E are **adopted as written**, without altering `POA-ACC-001`'s own Status field. Adoption, and any Acceptance Record made under it, does not by itself certify any artifact, activate `ACS-001`, establish a baseline, close any gap, or authorize downstream work (including any successor mission) unless that Acceptance Record explicitly states such authorization. `POA-ACC-001` §F (self-review/material-conflict test) remains an available option, not a mandate. This ruling does not amend `POA-STD-011` §6.12 or `POA-ACC-001`; no cross-reference edit to either is made.
+
+### R-B — Minimum Execution Record
+
+**R-B.1** For every mission ratified after this record, the Execution Record (committed in the mission's bounded commit, in `40-Runtime/`) contains at least:
+1. **Identity and authority:** mission ID; the authorizing `POA-ADR-001` record (heading); the Mission Package; the Commander commencement instruction (quoted or cited).
+2. **Starting state:** HEAD, branch, staged and modified tracked files at start.
+3. **Ending state:** HEAD, and the bounded commit's retrieval instruction (R-A.4(b)).
+4. **Execution profile — declared vs actual:** models, agent count, effort. Any field the environment cannot observe is recorded `UNKNOWN`, never inferred.
+5. **Files changed vs allowlist:** the staged-set inspection and an explicit equality/subset statement.
+6. **Commands and results:** each validation command with result, reproducible.
+7. **Content hashes** for fixtures or data artifacts where they exist.
+8. **Stop-condition table:** each condition, fired or not, and evidence.
+9. **Evidence-gate statements** required by the mission's own package (e.g. non-access attestation, stated as self-attestation where it is one).
+10. **Limitations statement:** what the evidence does and does not show.
+11. **Interpretation points:** any place the executor read the package in a way not settled by its text, flagged for Commander acceptance.
+12. **Pointers:** to the acceptance record and closure bookkeeping, added additively when they exist.
+
+**R-B.2** Verification means reproducible commands and, where available, a Lifecycle Verifier structural report. It does not establish correctness. A Verifier report is evidence of structure only.
+**R-B.3** Telemetry is recorded only for fields the environment can observe. Tamper-evidence beyond git is not required by this record.
+**R-B.4** Earlier Execution Records (including `POA-ORG-KNOW-P5-IMPL-001-EXECUTION-RECORD`) are not retroactively non-conforming.
+
+### R-C — Non-authority invariant
+
+**R-C.1** No tool, dispatcher, console, Command Center surface, Lifecycle Verifier, execution agent or integrator may create, widen, narrow, transition, revoke or **imply** authorization. This includes: placing a file in any folder (including a folder named `AUTHORIZED/`); passing a verifier check; completing a run; a status shown in a console.
+**R-C.2** A Verifier report of PASS means "the declared structure matches repository facts." It never means "authorized." Any report must state `authorizationImplied: false` or an equivalent plain statement.
+**R-C.3** Any control affordance a future surface offers produces, at most, a *proposal artifact* for the Commander; the act itself remains a committed Commander record (`POA-STD-011` §6.4). This ruling does not authorize any such surface.
+**R-C.4** Execution-side roles (executor, integrator, verifier, dispatcher) hold execution authority only (`POA-KER-001` §3). Approval authority cannot be delegated to AI, agent or service identities (Q5). The several senses of "Steward" in the historical register are not unified or revived by this ruling.
+
+### Not decided here
+
+R-D (multi-agent protocol), R-E (dispatcher mapping), R-F (D1–D7 recognition), the Mission Package Envelope as a standing format, MODEL-GATE and the resource registry, R-1/Q6, Q3 and Organization A matters, any revival of historical concepts, and any mission authorization.
+
+## 4. Authorized Scope
+
+**None.** This record authorizes no work. It sets standing rules that any later, separately ratified Mission Package must satisfy.
+
+## 5. Boundary, Evidence, Execution Profile, Commit/Push
+
+Governance commit only; no push without separate authorization; `CLAUDE.md` untouched. `POA-STD-011`, `POA-ACC-001`, Q6/R-1 and all earlier records are not modified. A mission that does not meet R-A–R-C when it later claims to is reported, not self-excused.
+
+## 6. Artifact · 7. Version/State · 8. Related Mission · 9. Related Evidence · 10. Resulting Commit
+
+Artifact: this record. State: all earlier records, `POA-STD-011`, `POA-ACC-001`, `POA-KER-001` unchanged. Related: enables `POA-SEA-IMPL-001` (next record). Evidence: `40-Runtime/SEA-001-STRATEGIC-EXECUTION-ARCHITECTURE-DECISION-BRIEF.md`; `40-Runtime/POA-SEA-IMPL-001-R-A-RECONCILIATION-REPORT.md` (both untracked decision-support). Commit SHA: to be added additively once known.
+
+*End of Execution Architecture Standing Rulings R-A, R-B, R-C Decision Record. Authorized by: Commander, ruling rendered 2026-10-02.*
+
+---
+
+# POA-SEA-IMPL-001 — Lifecycle Verifier (Read-Only) Mission Ratification Decision Record (2026-10-02)
+
+**This section is NOT a rewrite of any text above.** It is the explicit Commander ratifying act required by `POA-STD-011` §6.4 for the Mission Package `40-Runtime/POA-SEA-IMPL-001-MISSION-PACKAGE.md`. It follows the Execution Architecture Standing Rulings R-A, R-B, R-C Decision Record above and presupposes it.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-10-02. Mission/artifact ID: `POA-SEA-IMPL-001` (assigned by Commander ruling of 2026-10-02, F-1 Option 1, conforming to `POA-STD-011` §6.1 and `CLAUDE.md` Rule 5; `SEA` is an informal family under `POA-META-002` §E, and `POA-STD-011` §6.1 is neither excepted nor modified). Title: **Lifecycle Verifier — a read-only, mechanical checker of a Mission Package envelope against repository facts.** Decision status: **AUTHORIZED WITHIN THE PACKAGE BOUNDARY ONLY, EFFECTIVE UPON RECORDING.** Subject: execution of `POA-SEA-IMPL-001` only. **Implementation has not commenced at the time of this record.**
+
+## 2. Context
+
+The record above adopted R-A, R-B and R-C. The staged-set inspection, allowlist equality, authorization-ancestry and record-completeness checks were performed by hand in `POA-GOV-CLOSURE-001`, `POA-ORG-KNOW-P5-IMPL-001` and the readiness audit; the SHA-lag and acceptance-linkage gaps recurred (CTD-001 evidence of need).
+
+## 3. Decision
+
+The Commander ratifies the Mission Package as written. As ratified: (1) **Placement P1** — the existing `50-Mothership/` package, no new directory; P2 is not authorized. (2) The Envelope v0 schema in package §6 is approved **for this mission only**. (3) Execution by one agent; model and effort as declared in package §3 (declared and recorded, not gated). (4) The effort envelope in package §12 stands as stated. (5) R-1/Q6, Q3, O-1…O-4, MODEL-GATE, R-D, R-E and R-F remain outside the mission. (6) No Organization A content is inspected or processed. (7) Implementation additionally requires a Commander commencement instruction after this record is committed (R-A: COMMENCED).
+
+## 4. Authorized Scope (exact; no broader)
+
+The allowlist of package §4 only: `50-Mothership/src/lifecycle-verifier.ts`, `50-Mothership/src/lifecycle-verifier-git.ts`, `50-Mothership/test/lifecycle-verifier.test.ts`, `50-Mothership/test/fixtures/lifecycle-verifier/**`, `40-Runtime/POA-SEA-IMPL-001-EXECUTION-RECORD.md`, and one bounded local commit. **Does NOT authorize:** any write, commit, push, dispatch, authorization or agent invocation by the tool; export from `50-Mothership/src/index.ts`; changes to `package.json`, existing tests or any governance artifact; a dispatcher, console surface, registry or gate; any Organization A path; any successor mission; or any modification of `POA-STD-011`, `POA-ACC-001`, Q6/R-1.
+
+## 5. Boundary, Evidence, Stop Conditions, Commit/Push
+
+The package, as committed with this record, is the execution boundary (`POA-STD-011` §6.3, §6.6); its §4–§13 are incorporated by reference. Stop conditions SC-1…SC-12 (package §11). Evidence EV-1…EV-9 (package §9) plus R-B. The implementation commit cites this record, the R-A/R-B/R-C record and the package (`POA-STD-011` §6.5, §6.8); no amend, rebase or push; `CLAUDE.md` untouched.
+
+## 6. Artifact · 7. Version/State · 8. Related Mission · 9. Related Evidence · 10. Resulting Commit
+
+Artifact: `40-Runtime/POA-SEA-IMPL-001-MISSION-PACKAGE.md` (ratified by this record and committed with it, status and ratification fields included). State: the R-A/R-B/R-C record and all earlier records unchanged; no verifier source, test or fixture exists as of this record. Related: R-A/R-B/R-C record; `SEA-001` decision brief (untracked). Evidence: the package. Governance commit: committed with the package in one bounded governance commit; its SHA may be added additively once known. Implementation commit SHA: blank until the Commander accepts completion; then additive (R-A.4(b)).
+
+*End of POA-SEA-IMPL-001 Mission Ratification Decision Record. Authorized by: Commander, ruling rendered 2026-10-02.*
+
