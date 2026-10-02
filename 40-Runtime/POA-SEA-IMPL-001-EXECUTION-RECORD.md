@@ -2,6 +2,7 @@
 
 **Mission:** `POA-SEA-IMPL-001` · **Date:** 2026-10-02 · **Executor:** single agent (Sonnet 5.5)
 **Status:** **EXECUTED — AWAITING COMMANDER ACCEPTANCE.** This record does not accept, close or certify the mission (R-A.3, R-A.4). No Acceptance Record exists yet.
+**Status update (additive, 2026-10-02):** ACCEPTED by the Commander; closure bookkeeping is recorded in the commit that adds §16–§17 below. The line above is the historical status at execution time and is retained unaltered (`POA-ACC-001` §E).
 **Boundary:** `40-Runtime/POA-SEA-IMPL-001-MISSION-PACKAGE.md` (ratified; the complete execution boundary).
 
 ## 1. Identity and authority
@@ -291,3 +292,33 @@ The verifier shows that a declared envelope matches **supplied repository facts*
 Acceptance Record: **none** — to be added additively by the Commander's act per R-A.4(a)/(c). Closure bookkeeping (implementation SHA in the ADR ratification record, `POA-STD-011` §6.12 check): **pending**. Retrieve the implementation commit with `git log -1 --format=%H -- 50-Mothership/src/lifecycle-verifier.ts`.
 
 Readiness: all package completion conditions C-1…C-7 are met as of the commit; the mission is **ready for Commander acceptance**, which this record neither grants nor presumes.
+
+---
+
+## 16. Acceptance Record (additive; `POA-ACC-001` §B–§C as adopted by R-A.5; added 2026-10-02)
+
+| Field | Value |
+|---|---|
+| WHO | The Commander (accepting authority). Recorded by the executing agent at the Commander's instruction; the agent did not accept its own mission (R-A.4). |
+| WHAT | Acceptance of `POA-SEA-IMPL-001` as **complete** within the ratified Mission Package boundary: the Lifecycle Verifier implementation, tests, synthetic fixtures and this Execution Record, committed in `c73a786cac0656d930a7d8da841f9292bb923e47`. Scope: full, for that boundary only. |
+| WHEN | 2026-10-02 |
+| AUTHORITY | Commander closure instruction of 2026-10-02; `POA-STD-011` §6.4, §6.12; ADR-001 record "Execution Architecture Standing Rulings R-A, R-B, R-C" (R-A.3, R-A.4, R-A.5); ADR-001 record "POA-SEA-IMPL-001 — Lifecycle Verifier (Read-Only) Mission Ratification Decision Record (2026-10-02)". |
+| DECISION (restated inline) | The Commander's closure instruction reads: "Record the Commander acceptance already given for POA-SEA-IMPL-001, apply the ratified R-A / ACC-001 / STD-011 closure mechanics, and perform the required additive ADR bookkeeping for implementation SHA c73a786cac0656d930a7d8da841f9292bb923e47." The original acceptance statement itself is **not** in this repository; this record relies on that instruction's statement that acceptance was given. The instruction does not enumerate interpretation points I-1…I-10 (§14); this record asserts no separate ruling on them and they stand as recorded. |
+| SCOPE | Bounded: the package allowlist and completion conditions C-1…C-7 only. |
+| ARTIFACT | `POA-SEA-IMPL-001` implementation and this Execution Record |
+| ARTIFACT STATE/VERSION | Implementation commit `c73a786cac0656d930a7d8da841f9292bb923e47`; verifier version `0`; Envelope v0 (mission-scoped) |
+| RELATED MISSION | `POA-SEA-IMPL-001` |
+| RELATED EVIDENCE | §5 commands and results; §7 case ledger (35/35); §9 guards; §10 verifier runs; the post-commit run below |
+| RESULTING COMMIT | Implementation: `c73a786cac0656d930a7d8da841f9292bb923e47` (also recorded additively in the ADR-001 mission record §10). Closure commit: retrieve with `git log -1 --format=%H -- 40-Runtime/POA-SEA-IMPL-001-EXECUTION-RECORD.md` (a commit cannot cite itself). |
+
+**Post-commit post-flight verifier run (evidence deferred from §10, run at HEAD `c73a786`, baseline `6f0a84f347ae19ccaa33f97c0c776979bdaa3271`, `--recorded-profile {"models":["Sonnet 5.5"],"agentCount":1,"effort":null}`):** overall **PASS** — V-1 PASS; V-2 PASS (heading committed at HEAD, ancestry confirmed, file clean); V-3 PASS; V-4 PASS; V-5 UNKNOWN (not applicable in post-flight mode); V-6 PASS (40 changed paths, all within the allowlist); V-7 PASS (all R-B.1 sections present); V-8 UNKNOWN (unobservable recorded field: effort); V-9 PASS. `authorizationImplied: false`. A PASS here is structural evidence only (R-C.2).
+
+**`POA-STD-011` §6.12 prerequisites for CLOSED (R-A.4(d)):** (a) boundary fully executed — package completion conditions C-1…C-7 met, no stop condition fired (§11); (b) evidence recorded — §5–§13 (§6.9: this record, the link to the authorizing record and its commit `6f0a84f347ae19ccaa33f97c0c776979bdaa3271`, and reproducible verification); (c) not applicable — the mission's output is not a proposed governance act.
+
+**What this acceptance does NOT do (`POA-ACC-001` §D, R-A.5):** it does not certify any artifact or activate `ACS-001`; establish a baseline; close any gap; promote Envelope v0 to a standing standard; ratify R-D, R-E or R-F; resolve MODEL-GATE, R-1/Q6, Q3 or any Organization A matter; or authorize any downstream or successor work (including any dispatcher, two-agent trial or further `SEA` mission).
+
+**Remains `UNKNOWN`:** effort actually applied; per-action timestamps; the starting untracked-entry count; the exact text of the original acceptance (above); independent verification of non-access beyond the agent's attestation and the mechanical guards.
+
+## 17. Acceptance Recorded (`POA-ACC-001` §E symmetry note; additive; 2026-10-02)
+
+An Acceptance Record for `POA-SEA-IMPL-001` is recorded in §16 of this document, dated 2026-10-02. Sections 1–15 above are unaltered historical content except for the additive Status-update line at the top. Closure bookkeeping (R-A.4(b)–(d)) is performed in the commit that adds §16–§17: the implementation SHA is recorded additively in `POA-ADR-001` (mission record §10). The pointers in §15 ("none … pending") described the state at execution time and are superseded by this section.
