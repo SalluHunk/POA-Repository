@@ -1,0 +1,67 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "authoredFrom": "POA-SEA-IMPL-001-MISSION-PACKAGE",
+  "caseId": "C29",
+  "description": "recorded profile not supplied",
+  "envelope": {
+    "envelopeVersion": "0",
+    "missionId": "SYN-MISSION-01",
+    "package": "docs/syn-package.md",
+    "authorizationRecord": {
+      "file": "docs/syn-decisions.md",
+      "headingPrefix": "# SYN-MISSION-01 — Title"
+    },
+    "executionRecord": "docs/syn-record.md",
+    "allowlist": [
+      "src/a.ts",
+      "src/b.ts",
+      "test/fixtures/x/**",
+      "docs/syn-record.md"
+    ],
+    "forbiddenPaths": [
+      "60-Organization-A/",
+      "CLAUDE.md",
+      "src/locked/"
+    ],
+    "stopConditions": [
+      "SC-1",
+      "SC-2"
+    ],
+    "executionProfile": {
+      "models": [
+        "Model-X"
+      ],
+      "maxConcurrentAgents": 1,
+      "effort": "HIGH"
+    },
+    "fileOwnership": null
+  },
+  "facts": {
+    "mode": "POST_FLIGHT",
+    "headingPresentAtHead": true,
+    "introducingCommitIsAncestorOfHead": true,
+    "authorizationFileDirty": false,
+    "packageCommittedAtHead": true,
+    "packageFileDirty": false,
+    "stagedPaths": [],
+    "changedPathsSinceBaseline": [
+      "src/a.ts",
+      "docs/syn-record.md"
+    ],
+    "executionRecordHeadings": [
+      "1. Identity and authority",
+      "2. Starting state",
+      "3. Ending state",
+      "4. Execution profile",
+      "5. Files changed vs allowlist",
+      "6. Commands and results",
+      "7. Content hashes",
+      "8. Stop-condition table",
+      "9. Evidence-gate statements",
+      "10. Limitations statement",
+      "11. Interpretation points",
+      "12. Pointers"
+    ],
+    "recordedProfile": null
+  }
+}

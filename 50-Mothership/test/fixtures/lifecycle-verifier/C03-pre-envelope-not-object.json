@@ -1,0 +1,22 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "authoredFrom": "POA-SEA-IMPL-001-MISSION-PACKAGE",
+  "caseId": "C03",
+  "description": "envelope is a string",
+  "envelope": "not-an-object",
+  "facts": {
+    "mode": "PRE_COMMIT",
+    "headingPresentAtHead": true,
+    "introducingCommitIsAncestorOfHead": true,
+    "authorizationFileDirty": false,
+    "packageCommittedAtHead": true,
+    "packageFileDirty": false,
+    "stagedPaths": [
+      "src/a.ts",
+      "test/fixtures/x/c1.json"
+    ],
+    "changedPathsSinceBaseline": null,
+    "executionRecordHeadings": null,
+    "recordedProfile": null
+  }
+}

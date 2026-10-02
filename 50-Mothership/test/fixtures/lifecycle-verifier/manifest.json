@@ -1,0 +1,338 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "authoredFrom": "POA-SEA-IMPL-001-MISSION-PACKAGE",
+  "cases": [
+    {
+      "caseId": "C01",
+      "file": "C01-pre-base.json",
+      "description": "pre-commit baseline, everything consistent",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-1": "PASS",
+        "V-2": "PASS",
+        "V-3": "PASS",
+        "V-4": "PASS",
+        "V-9": "PASS",
+        "V-5": "PASS",
+        "V-6": "UNKNOWN",
+        "V-7": "UNKNOWN",
+        "V-8": "UNKNOWN"
+      }
+    },
+    {
+      "caseId": "C02",
+      "file": "C02-post-base.json",
+      "description": "post-flight baseline, everything consistent",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-1": "PASS",
+        "V-2": "PASS",
+        "V-3": "PASS",
+        "V-4": "PASS",
+        "V-9": "PASS",
+        "V-5": "UNKNOWN",
+        "V-6": "PASS",
+        "V-7": "PASS",
+        "V-8": "PASS"
+      }
+    },
+    {
+      "caseId": "C03",
+      "file": "C03-pre-envelope-not-object.json",
+      "description": "envelope is a string",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-1": "FAIL",
+        "V-2": "UNKNOWN"
+      }
+    },
+    {
+      "caseId": "C04",
+      "file": "C04-pre-bad-envelope-version.json",
+      "description": "envelopeVersion 1",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-1": "FAIL"
+      }
+    },
+    {
+      "caseId": "C05",
+      "file": "C05-pre-missing-allowlist.json",
+      "description": "allowlist absent",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-1": "FAIL"
+      }
+    },
+    {
+      "caseId": "C06",
+      "file": "C06-pre-empty-allowlist.json",
+      "description": "allowlist empty",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-1": "FAIL"
+      }
+    },
+    {
+      "caseId": "C07",
+      "file": "C07-pre-concurrency-string.json",
+      "description": "maxConcurrentAgents is a string",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-1": "FAIL"
+      }
+    },
+    {
+      "caseId": "C08",
+      "file": "C08-pre-heading-absent.json",
+      "description": "authorization heading not at HEAD",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-2": "FAIL"
+      }
+    },
+    {
+      "caseId": "C09",
+      "file": "C09-pre-not-ancestor.json",
+      "description": "introducing commit not an ancestor",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-2": "FAIL"
+      }
+    },
+    {
+      "caseId": "C10",
+      "file": "C10-pre-auth-dirty.json",
+      "description": "authorization file dirty",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-2": "FAIL"
+      }
+    },
+    {
+      "caseId": "C11",
+      "file": "C11-pre-auth-unavailable.json",
+      "description": "authorization facts unavailable",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-2": "FAIL"
+      }
+    },
+    {
+      "caseId": "C12",
+      "file": "C12-pre-package-uncommitted.json",
+      "description": "package not committed at HEAD",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-3": "FAIL"
+      }
+    },
+    {
+      "caseId": "C13",
+      "file": "C13-pre-package-dirty.json",
+      "description": "package modified in working tree",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-3": "FAIL"
+      }
+    },
+    {
+      "caseId": "C14",
+      "file": "C14-pre-bare-doublestar.json",
+      "description": "allowlist contains bare **",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-4": "FAIL"
+      }
+    },
+    {
+      "caseId": "C15",
+      "file": "C15-pre-dotdot.json",
+      "description": "allowlist entry traverses upward",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-4": "FAIL"
+      }
+    },
+    {
+      "caseId": "C16",
+      "file": "C16-pre-missing-mandatory-dir.json",
+      "description": "forbiddenPaths lacks the mandatory directory entry",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-4": "FAIL"
+      }
+    },
+    {
+      "caseId": "C17",
+      "file": "C17-pre-missing-mandatory-file.json",
+      "description": "forbiddenPaths lacks the mandatory file entry",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-4": "FAIL"
+      }
+    },
+    {
+      "caseId": "C18",
+      "file": "C18-pre-allow-forbid-overlap.json",
+      "description": "allowlist directory covers a forbidden directory",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-4": "FAIL"
+      }
+    },
+    {
+      "caseId": "C19",
+      "file": "C19-pre-midpath-wildcard.json",
+      "description": "wildcard outside trailing /**",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-4": "FAIL"
+      }
+    },
+    {
+      "caseId": "C20",
+      "file": "C20-pre-staged-outside.json",
+      "description": "staged path outside the allowlist",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-5": "FAIL"
+      }
+    },
+    {
+      "caseId": "C21",
+      "file": "C21-pre-staged-forbidden.json",
+      "description": "staged path in a forbidden directory",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-5": "FAIL"
+      }
+    },
+    {
+      "caseId": "C22",
+      "file": "C22-pre-staged-deep-glob.json",
+      "description": "staged path deep under a /** entry",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-5": "PASS"
+      }
+    },
+    {
+      "caseId": "C23",
+      "file": "C23-post-changed-outside.json",
+      "description": "changed path outside the allowlist",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-6": "FAIL"
+      }
+    },
+    {
+      "caseId": "C24",
+      "file": "C24-post-changed-unavailable.json",
+      "description": "changed paths unavailable",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-6": "FAIL"
+      }
+    },
+    {
+      "caseId": "C25",
+      "file": "C25-post-missing-heading.json",
+      "description": "execution record lacks one required section",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-7": "FAIL"
+      }
+    },
+    {
+      "caseId": "C26",
+      "file": "C26-post-headings-unavailable.json",
+      "description": "execution record headings unavailable",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-7": "FAIL"
+      }
+    },
+    {
+      "caseId": "C27",
+      "file": "C27-post-model-mismatch.json",
+      "description": "recorded model not declared",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-8": "FLAG"
+      }
+    },
+    {
+      "caseId": "C28",
+      "file": "C28-post-agentcount-exceeds.json",
+      "description": "recorded agent count above declared maximum",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-8": "FLAG"
+      }
+    },
+    {
+      "caseId": "C29",
+      "file": "C29-post-profile-unobserved.json",
+      "description": "recorded profile not supplied",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-8": "UNKNOWN"
+      }
+    },
+    {
+      "caseId": "C30",
+      "file": "C30-pre-ownership-with-one-agent.json",
+      "description": "fileOwnership set although one agent declared",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-9": "FAIL"
+      }
+    },
+    {
+      "caseId": "C31",
+      "file": "C31-pre-ownership-overlap.json",
+      "description": "two owners overlap",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-9": "FAIL"
+      }
+    },
+    {
+      "caseId": "C32",
+      "file": "C32-pre-ownership-disjoint.json",
+      "description": "two owners disjoint",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-9": "PASS"
+      }
+    },
+    {
+      "caseId": "C33",
+      "file": "C33-pre-invalid-mode.json",
+      "description": "facts.mode invalid",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-1": "FAIL"
+      }
+    },
+    {
+      "caseId": "C34",
+      "file": "C34-post-effort-mismatch.json",
+      "description": "recorded effort differs from declared",
+      "expectedOverall": "PASS",
+      "expectedChecks": {
+        "V-8": "FLAG"
+      }
+    },
+    {
+      "caseId": "C35",
+      "file": "C35-pre-missing-ownership-key.json",
+      "description": "fileOwnership key absent",
+      "expectedOverall": "FAIL",
+      "expectedChecks": {
+        "V-1": "FAIL"
+      }
+    }
+  ]
+}

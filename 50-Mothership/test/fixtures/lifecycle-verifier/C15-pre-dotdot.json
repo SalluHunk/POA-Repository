@@ -1,0 +1,51 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "authoredFrom": "POA-SEA-IMPL-001-MISSION-PACKAGE",
+  "caseId": "C15",
+  "description": "allowlist entry traverses upward",
+  "envelope": {
+    "envelopeVersion": "0",
+    "missionId": "SYN-MISSION-01",
+    "package": "docs/syn-package.md",
+    "authorizationRecord": {
+      "file": "docs/syn-decisions.md",
+      "headingPrefix": "# SYN-MISSION-01 — Title"
+    },
+    "executionRecord": "docs/syn-record.md",
+    "allowlist": [
+      "src/../x.ts"
+    ],
+    "forbiddenPaths": [
+      "60-Organization-A/",
+      "CLAUDE.md",
+      "src/locked/"
+    ],
+    "stopConditions": [
+      "SC-1",
+      "SC-2"
+    ],
+    "executionProfile": {
+      "models": [
+        "Model-X"
+      ],
+      "maxConcurrentAgents": 1,
+      "effort": "HIGH"
+    },
+    "fileOwnership": null
+  },
+  "facts": {
+    "mode": "PRE_COMMIT",
+    "headingPresentAtHead": true,
+    "introducingCommitIsAncestorOfHead": true,
+    "authorizationFileDirty": false,
+    "packageCommittedAtHead": true,
+    "packageFileDirty": false,
+    "stagedPaths": [
+      "src/a.ts",
+      "test/fixtures/x/c1.json"
+    ],
+    "changedPathsSinceBaseline": null,
+    "executionRecordHeadings": null,
+    "recordedProfile": null
+  }
+}
