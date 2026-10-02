@@ -1,0 +1,76 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "authoredFrom": "POA-LIFECYCLE-LEDGER-001-MISSION-PACKAGE",
+  "cases": [
+    {
+      "caseId": "L01",
+      "file": "L01-full-lifecycle.json",
+      "description": "SEA-like row fully evidenced; two earlier rows pre-R-A; standing ruling row"
+    },
+    {
+      "caseId": "L02",
+      "file": "L02-no-acceptance-heading.json",
+      "description": "execution record without acceptance headings"
+    },
+    {
+      "caseId": "L03",
+      "file": "L03-sha-blank.json",
+      "description": "implementation SHA field blank"
+    },
+    {
+      "caseId": "L04",
+      "file": "L04-package-not-allowlisted.json",
+      "description": "section cites a package outside the allowlist"
+    },
+    {
+      "caseId": "L05",
+      "file": "L05-package-absent-at-pin.json",
+      "description": "allowlisted package not present at the pin"
+    },
+    {
+      "caseId": "L06",
+      "file": "L06-record-missing-sections.json",
+      "description": "execution record lacks two required sections"
+    },
+    {
+      "caseId": "L07",
+      "file": "L07-execution-record-absent.json",
+      "description": "allowlisted execution record not present at the pin"
+    },
+    {
+      "caseId": "L08",
+      "file": "L08-sha-not-in-record-history.json",
+      "description": "recorded SHA not in the execution record history"
+    },
+    {
+      "caseId": "L09",
+      "file": "L09-index-rows-and-fences.json",
+      "description": "extra headings are index-only; a heading inside a code fence is ignored"
+    },
+    {
+      "caseId": "L10",
+      "file": "L10-missing-heading.json",
+      "description": "pin blob lacks an allowlisted heading"
+    },
+    {
+      "caseId": "L11",
+      "file": "L11-pin-not-ancestor.json",
+      "description": "pin is not an ancestor of HEAD"
+    },
+    {
+      "caseId": "L12",
+      "file": "L12-output-validation-rejects.json",
+      "description": "an allowlisted heading carries over-long free text"
+    },
+    {
+      "caseId": "L13",
+      "file": "L13-malformed-and-pin-not-last.json",
+      "description": "malformed input, then a history whose last commit is not the pin"
+    },
+    {
+      "caseId": "L14",
+      "file": "L14-pin-not-last.json",
+      "description": "history last commit differs from the pin"
+    }
+  ]
+}

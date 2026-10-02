@@ -1,0 +1,11 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "authoredFrom": "POA-LIFECYCLE-LEDGER-001-MISSION-PACKAGE",
+  "caseId": "L13",
+  "description": "malformed input, then a history whose last commit is not the pin",
+  "input": "not-an-object",
+  "expect": {
+    "ok": false,
+    "error": "MALFORMED_INPUT"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "fixtureClass": "SYNTHETIC",
+  "authoredFrom": "POA-LIFECYCLE-LEDGER-001-MISSION-PACKAGE",
+  "caseId": "L04",
+  "description": "section cites a package outside the allowlist",
+  "input": {
+    "pin": "3333333333333333333333333333333333333333",
+    "pinIsAncestorOfHead": true,
+    "adrHistory": [
+      {
+        "commit": "1111111111111111111111111111111111111111",
+        "text": "# A. Purpose\n\nsynthetic preamble\n\n# POA-R-001 — SYNTHETIC record one (2026-01-01)\n\nsynthetic body one\n\n\n# POA-STD-011 Approval — SYNTHETIC record two (2026-01-02)\n\nsynthetic body two\n\n"
+      },
+      {
+        "commit": "2222222222222222222222222222222222222222",
+        "text": "# A. Purpose\n\nsynthetic preamble\n\n# POA-R-001 — SYNTHETIC record one (2026-01-01)\n\nsynthetic body one\n\n\n# POA-STD-011 Approval — SYNTHETIC record two (2026-01-02)\n\nsynthetic body two\n\n# Execution Architecture Standing Rulings R-A, R-B, R-C — SYNTHETIC (2026-01-03)\n\nCommit SHA: to be added additively once known.\n\n"
+      },
+      {
+        "commit": "3333333333333333333333333333333333333333",
+        "text": "# A. Purpose\n\nsynthetic preamble\n\n# POA-R-001 — SYNTHETIC record one (2026-01-01)\n\nsynthetic body one\n\n\n# POA-STD-011 Approval — SYNTHETIC record two (2026-01-02)\n\nsynthetic body two\n\n# Execution Architecture Standing Rulings R-A, R-B, R-C — SYNTHETIC (2026-01-03)\n\nCommit SHA: to be added additively once known.\n\n# POA-SEA-IMPL-001 — SYNTHETIC mission record (2026-01-04)\n\nArtifact: `40-Runtime/OTHER-MISSION-PACKAGE.md`. Implementation commit SHA: `4444444444444444444444444444444444444444`.\n\n"
+      }
+    ],
+    "pkgText": "# Pkg\n\n**Status:** RATIFIED — synthetic\n",
+    "execText": "# Exec\n\n## 1. Identity and authority\n\nx\n\n## 2. Starting state\n\nx\n\n## 3. Ending state\n\nx\n\n## 4. Execution profile\n\nx\n\n## 5. Files changed\n\nx\n\n## 6. Commands and results\n\nx\n\n## 7. Content hashes\n\nx\n\n## 8. Stop-condition table\n\nx\n\n## 9. Evidence-gate statements\n\nx\n\n## 10. Limitations statement\n\nx\n\n## 11. Interpretation points\n\nx\n\n## 12. Pointers\n\nx\n\n## 16. Acceptance Record (synthetic)\n\nx\n\n## 17. Acceptance Recorded (synthetic)\n\nx\n",
+    "execHistory": [
+      "4444444444444444444444444444444444444444",
+      "3333333333333333333333333333333333333333"
+    ],
+    "sources": [
+      {
+        "path": "20-Shared/DECISIONS/POA-ADR-001.md",
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "bytes": 1
+      }
+    ]
+  },
+  "expect": {
+    "ok": true,
+    "paths": {
+      "rows.3.packagePath": "UNKNOWN_NOT_IN_ALLOWLIST",
+      "rows.3.packageStatus": "UNKNOWN_NOT_IN_ALLOWLIST",
+      "rows.3.executionRecordPath": "UNKNOWN_NOT_IN_ALLOWLIST",
+      "rows.3.rBSectionsPresent": "UNKNOWN_NOT_IN_ALLOWLIST",
+      "rows.3.acceptanceRecordHeadingPresent": "UNKNOWN_NOT_IN_ALLOWLIST"
+    }
+  }
+}
