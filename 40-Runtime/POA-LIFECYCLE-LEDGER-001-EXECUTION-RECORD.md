@@ -2,6 +2,7 @@
 
 **Mission:** `POA-LIFECYCLE-LEDGER-001` · **Date:** 2026-10-02 · **Executor:** single agent (Sonnet 5.5)
 **Status:** **EXECUTED — AWAITING COMMANDER ACCEPTANCE.** This record does not accept, close or certify the mission (R-A.3, R-A.4). No Acceptance Record exists yet.
+**Status update (additive, 2026-10-02):** ACCEPTED by the Commander as COMPLETE, subject to all stated UNKNOWNs and limitations; closure bookkeeping is recorded in the commit that adds §16–§17 below. The line above is the historical status at execution time and is retained unaltered (`POA-ACC-001` §E).
 **Boundary:** `40-Runtime/POA-LIFECYCLE-LEDGER-001-MISSION-PACKAGE.md` (ratified; the complete execution boundary).
 **Binding limitation (Commander):** "The ledger is an observation of repository evidence, not a reconstruction of organizational reality."
 
@@ -282,3 +283,33 @@ A genuine post-commit post-flight run is reported to the Commander in the comple
 Acceptance Record: **none** — to be added additively by the Commander's act per R-A.4(a)/(c). Closure bookkeeping (implementation SHA in the ADR-001 mission record §10; `POA-STD-011` §6.12 check): **pending**, outside the envelope. Retrieve the implementation commit with `git log -1 --format=%H -- 50-Mothership/src/lifecycle-ledger.ts`.
 
 Readiness: package completion conditions C-1…C-8 are met as of the commit (C-6 per §10 and the completion message); the mission is **ready for Commander acceptance**, which this record neither grants nor presumes.
+
+---
+
+## 16. Acceptance Record (additive; `POA-ACC-001` §B–§C as adopted by R-A.5; added 2026-10-02)
+
+| Field | Value |
+|---|---|
+| WHO | The Commander (accepting authority). Recorded by the executing agent at the Commander's instruction; the agent did not accept its own mission (R-A.4). |
+| WHAT | Acceptance of `POA-LIFECYCLE-LEDGER-001` as **COMPLETE** within the ratified Mission Package boundary: the ledger derivation core, pinned-blob reader, tests, synthetic fixtures, the derived ledger record and this Execution Record, committed in `fb2c904f858485ba3e0c5d893c741c8b525ce500`. Scope: full, for that boundary only, subject to all stated UNKNOWNs and limitations. |
+| WHEN | 2026-10-02 |
+| AUTHORITY | Commander acceptance of 2026-10-02; `POA-STD-011` §6.4, §6.12; ADR-001 record "Execution Architecture Standing Rulings R-A, R-B, R-C" (R-A.3, R-A.4, R-A.5); ADR-001 record "POA-LIFECYCLE-LEDGER-001 — Lifecycle Ledger (Read-Only Derivation) Mission Ratification Decision Record (2026-10-02)". |
+| DECISION (restated inline) | The Commander's acceptance reads: "I therefore accept POA-LIFECYCLE-LEDGER-001 as COMPLETE based on the reported C-1–C-8 evidence, subject to all stated UNKNOWNs and limitations." and "The next action is closure/bookkeeping only. Proceed with that, and stop after the closure commit." The acceptance does not enumerate interpretation points I-1…I-10 (§14); this record asserts no separate ruling on them and they stand as recorded. |
+| SCOPE | Bounded: the package allowlist and completion conditions C-1…C-8 only. |
+| ARTIFACT | `POA-LIFECYCLE-LEDGER-001` implementation, derived ledger record and this Execution Record |
+| ARTIFACT STATE/VERSION | Implementation commit `fb2c904f858485ba3e0c5d893c741c8b525ce500`; ledger version `0`; pin `f78dea2b2fdb3da71bbd15b16e5b0a356cbc2ccc`; ledger stdout SHA-256 `6bcd6f44f62a35c6127584816726fa30dfeac327546e5d07934286bf0aa9dd11`; Envelope v0 (mission-scoped) |
+| RELATED MISSION | `POA-LIFECYCLE-LEDGER-001` |
+| RELATED EVIDENCE | §5 commands and results; the case ledger (14/14); the static guards; the real ledger runs (byte-identical); §10 verifier runs; the post-commit run below |
+| RESULTING COMMIT | Implementation: `fb2c904f858485ba3e0c5d893c741c8b525ce500` (also recorded additively in the ADR-001 mission record §10). Closure commit: retrieve with `git log -1 --format=%H -- 40-Runtime/POA-LIFECYCLE-LEDGER-001-EXECUTION-RECORD.md` (a commit cannot cite itself). |
+
+**Post-commit post-flight verifier run (reported to the Commander at completion; run at HEAD `fb2c904`, baseline `d425ba69208155eb363dfa230a9a56a577925aba`):** overall **PASS** — V-6 PASS (20 changed paths, all within the allowlist); V-7 PASS (all R-B.1 sections present); V-8 UNKNOWN (unobservable recorded field: effort). `authorizationImplied: false`. A PASS here is structural evidence only (R-C.2). The verifier cannot validate this closure commit (V-6 over a closure window; no replay), an accepted limitation (§10).
+
+**`POA-STD-011` §6.12 prerequisites for CLOSED (R-A.4(d)):** (a) boundary fully executed — package completion conditions C-1…C-8 met, no stop condition fired; (b) evidence recorded — this record, the link to the authorizing record and its commit `d425ba69208155eb363dfa230a9a56a577925aba`, and reproducible verification; (c) not applicable — the mission's output is a derived observation, not a proposed governance act.
+
+**What this acceptance does NOT do (`POA-ACC-001` §D, R-A.5; Commander statement):** it does not certify the ledger as organizational truth; lift R-1/Q6; authorize processing of Organization A information; authorize the P5/ORG-KNOWLEDGE lineage; promote Envelope v0 into a standing standard; authorize a successor mission; or resolve MODEL-GATE, R-D, R-E, R-F, the Dispatcher, or the PJR questions.
+
+**Remains `UNKNOWN`:** effort actually applied; per-action timestamps; independent verification of non-access beyond the agent's attestation and the mechanical guards; whether ADR-001 is free of Organization A information (D-1). Ledger coverage remains partial (34 of 38 H1 headings index-only).
+
+## 17. Acceptance Recorded (`POA-ACC-001` §E symmetry note; additive; 2026-10-02)
+
+An Acceptance Record for `POA-LIFECYCLE-LEDGER-001` is recorded in §16 of this document, dated 2026-10-02. Sections 1–15 above are unaltered historical content except for the additive Status-update line at the top. Closure bookkeeping (R-A.4(b)–(d)) is performed in the commit that adds §16–§17: the implementation SHA is recorded additively in `POA-ADR-001` (mission record §10). The pointers in §15 ("none … pending") described the state at execution time and are superseded by this section. The ledger is an observation of repository evidence, not a reconstruction of organizational reality.
