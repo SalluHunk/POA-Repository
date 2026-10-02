@@ -2399,3 +2399,45 @@ The package, as committed with this record, is the execution boundary (`POA-STD-
 Artifact: `40-Runtime/POA-LIFECYCLE-LEDGER-001-MISSION-PACKAGE.md` (ratified by this record and committed with it, status and ratification fields included). State: the R-A/R-B/R-C record, the POA-SEA-IMPL-001 record and all earlier records unchanged; no ledger source, test, fixture or ledger record exists as of this record. Related: R-A/R-B/R-C record; `POA-SEA-IMPL-001`. Evidence: the package; the reconnaissance report (untracked). Governance commit: committed with the package in one bounded governance commit; its SHA may be added additively once known. Implementation commit SHA: `fb2c904f858485ba3e0c5d893c741c8b525ce500` *(recorded additively on 2026-10-02 after the Commander accepted `POA-LIFECYCLE-LEDGER-001` as COMPLETE, per R-A.4(b), subject to all stated UNKNOWNs and limitations. The field was intentionally blank at ratification, when no implementation had occurred. Recording this SHA does not alter the substance of the ratification or any authorization boundary; R-1/Q6 remains in force. The ledger remains an observation of repository evidence, not a reconstruction of organizational reality. Acceptance and closure are recorded on the mission's Execution Record, `40-Runtime/POA-LIFECYCLE-LEDGER-001-EXECUTION-RECORD.md`, §16.)*.
 
 *End of POA-LIFECYCLE-LEDGER-001 Mission Ratification Decision Record. Authorized by: Commander, rulings rendered 2026-10-02.*
+
+---
+
+# Post-Mission Reconciliation — Commander Rulings D1–D6 Decision Record (2026-10-02)
+
+**This section is NOT a rewrite of any text above.** It is an additive Decision Record appended per `POA-INTEGRITY-CONTROL-001` §L(b). It modifies no earlier record, no standard and no authorization, and changes no tool. It authorizes nothing.
+
+## 1. Artifact Identity
+
+Decision recorded under `POA-ADR-001` v1.0.0. Decided: 2026-10-02. Subject: the Commander's rulings D1–D6 following the post-mission architectural review and reconciliation of `POA-SEA-IMPL-001` and `POA-LIFECYCLE-LEDGER-001`. Decision status: **ADOPTED, EFFECTIVE UPON RECORDING.** Authorizes no mission, no implementation and no tool.
+
+## 2. Context
+
+Both missions were accepted as complete and closed (`POA-SEA-IMPL-001` at `f78dea2b2fdb3da71bbd15b16e5b0a356cbc2ccc`; `POA-LIFECYCLE-LEDGER-001` at `c12d63961e09733129d8430c831e3eef8e986efc`). A read-only review and a reconciliation report (both untracked decision-support, not authorities) put six decisions to the Commander. This record states each ruling inline.
+
+## 3. Decision
+
+Commander rulings, 2026-10-02:
+
+1. **D1 — Interpretation points.** `POA-LIFECYCLE-LEDGER-001` interpretation points I-1, I-2, I-5 and I-8 are acknowledged as **mission-local interpretations** of that mission only. The acknowledgment does not expand D-1: processing of `POA-ADR-001.md` remains limited to that mission, its pin and its four-record scope. It is not a ruling that any stop condition did or did not fire, and it sets no precedent. **All other interpretation points of both missions are left unrated** — neither confirmed nor rejected — and stand as recorded in the Execution Records.
+2. **D4 — ACC-001 and R-A text.** No change is made to the text of `POA-ACC-001` or of R-A. `POA-ACC-001`'s Status field is unchanged and R-A.5's application stands as written.
+3. **D2 — Recording convention.** Adopted as a **recording convention** for Acceptance Records made after this record: an Acceptance Record states how the mission's interpretation points were disposed of — *ruled*, *acknowledged without ruling*, or *rejected* — using its existing DECISION and SCOPE fields (`POA-ACC-001` §C; R-A.4(a)). It adds no field, tool or mechanism; it is not an amendment to R-A, `POA-ACC-001` or `POA-STD-011`; it is prospective and does not alter the two closed Acceptance Records; and it does not decide who may rule on an interpretation point (a Commander act, as before).
+4. **D3 — Reading rule.** The distinction among *not present*, *not applicable* and *unknown* is adopted as a **reading rule only**, for interpreting existing ledger and verifier output: *not present* — the field applies to the record's class and the examined source lacks it; *not applicable* — the field is not defined for the record's class or era; *not evidenceable* — applicable, but not derivable mechanically; *unknown* is never converted to *not applicable* without its own basis. The committed ledger and the Lifecycle Verifier are **not modified** and no output is retrofitted.
+5. **D5 — SHA bookkeeping.** R-A.4(b) is unchanged. No new SHA-bookkeeping mechanism is created.
+6. **V-6 constraint.** The Lifecycle Verifier's V-6 time-bound behaviour is recorded as a **known verifier constraint**: a post-flight V-6 result holds only for the HEAD and baseline it cites, because V-6 compares `baseline..HEAD` to the allowlist with no end-commit argument, so a correctly executed mission can fail V-6 once later commits exist. This is a constraint on how verifier output is read, not a mission defect; a verifier report carries no authority (R-C.2). **Historical replay is not implemented**, and the verifier is not modified.
+7. **D6 — Bounded self-operation.** The provisional definition of "bounded self-operation" is **not promoted**. It is treated as provisional and historical terminology, and the earlier records that use it are unaltered. Where a description is needed, the demonstrated capability is: **bounded read-only derivation over explicitly ruled-processable POA records.**
+
+**Not decided here:** any change to `POA-STD-011`, R-A…R-C, `POA-ACC-001`, mission packages, the Lifecycle Verifier or the ledger; Envelope v0 as a standing format; R-D, R-E, R-F, MODEL-GATE, the registry, the Dispatcher and multi-agent execution; R-1/Q6, Q3, O-1…O-4 and every Organization A or `POA-PJR-00x` matter; any successor mission; push. Each remains as it stood before this record.
+
+## 4. Authorized Scope
+
+**None.** This record authorizes no work, widens no mission boundary and creates no authority.
+
+## 5. Boundary, Evidence, Commit/Push
+
+Governance record only; no push without separate authorization; `CLAUDE.md` untouched. `POA-STD-011`, `POA-ACC-001`, R-A…R-C, Q6/R-1 and all earlier records are not modified.
+
+## 6. Artifact · 7. Version/State · 8. Related Mission · 9. Related Evidence · 10. Resulting Commit
+
+Artifact: this record. State: all earlier records, standards, the verifier and the ledger unchanged. Related: `POA-SEA-IMPL-001`; `POA-LIFECYCLE-LEDGER-001`. Evidence: `40-Runtime/POA-POST-MISSION-ARCHITECTURAL-REVIEW-001-REPORT.md` and `40-Runtime/POA-POST-MISSION-RECONCILIATION-001-REPORT.md` (both untracked decision-support; the rulings above are restated inline). Commit SHA: to be added additively once known.
+
+*End of Post-Mission Reconciliation Rulings Decision Record. Authorized by: Commander, rulings rendered 2026-10-02.*
